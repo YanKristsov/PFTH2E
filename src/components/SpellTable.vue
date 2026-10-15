@@ -2,7 +2,7 @@
 import { computed } from 'vue'
 import type { SpellIndex } from '@/types/spell'
 import { useSettingsStore } from '@/stores'
-import { TRADITION_LABELS, SCHOOL_LABELS, RARITY_LABELS } from '@/constants/translations'
+import { traditionLabel, schoolLabel, rarityLabel, traitLabel } from '@/constants/translations'
 
 const props = defineProps<{
   spells: SpellIndex[]
@@ -40,7 +40,7 @@ function handleKeyDown(spell: SpellIndex, e: KeyboardEvent) {
 }
 
 function formatTraditions(traditions: string[]): string {
-  return traditions.map(t => TRADITION_LABELS[t] || t).join(', ')
+  return traditions.map(t => traditionLabel(t)).join(', ')
 }
 
 function formatClasses(classes: string[]): string {
@@ -48,12 +48,12 @@ function formatClasses(classes: string[]): string {
 }
 
 function formatTraits(traits: string[]): string {
-  return traits.slice(0, 3).join(', ') + (traits.length > 3 ? ` +${traits.length - 3}` : '')
+  return traits.slice(0, 3).map(t => traitLabel(t)).join(', ') + (traits.length > 3 ? ` +${traits.length - 3}` : '')
 }
 </script>
 
 <template>
-  <div class="overflow-x-auto" role="region" aria-label="Spells table" tabindex="0">
+  <div class="overflow-x-auto" role="region" aria-label="Таблица заклинаний" tabindex="0">
     <table class="table" aria-describedby="table-desc">
       <caption id="table-desc" class="sr-only">Список заклинаний с фильтрами по уровню, традиции, школе, классам и чертам</caption>
       <thead>
@@ -85,13 +85,13 @@ function formatTraits(traits: string[]): string {
             <div v-if="spell.nameEn !== spell.nameRu" class="text-xs text-muted truncate">{{ spell.nameEn }}</div>
           </td>
           <td v-if="columns.includes('level')">
-            <span class="chip chip-info">Lv. {{ spell.level }}</span>
+            <span class="chip chip-info">Ур. {{ spell.level }}</span>
           </td>
           <td v-if="columns.includes('tradition')">
             <span class="text-sm">{{ formatTraditions(spell.tradition) }}</span>
           </td>
           <td v-if="columns.includes('school')">
-            <span class="text-sm">{{ SCHOOL_LABELS[spell.school] || spell.school }}</span>
+            <span class="text-sm">{{ schoolLabel(spell.school) }}</span>
           </td>
           <td v-if="columns.includes('classes') && spell.classes.length > 0">
             <span class="text-sm">{{ formatClasses(spell.classes) }}</span>
@@ -100,7 +100,7 @@ function formatTraits(traits: string[]): string {
             <span class="text-sm">{{ formatTraits(spell.traits) }}</span>
           </td>
           <td v-if="columns.includes('rarity')">
-            <span class="badge" :class="`badge-${spell.rarity}`">{{ RARITY_LABELS[spell.rarity] || spell.rarity }}</span>
+            <span class="badge" :class="`badge-${spell.rarity}`">{{ rarityLabel(spell.rarity) }}</span>
           </td>
           <td>
             <input

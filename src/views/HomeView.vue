@@ -5,7 +5,7 @@ import { useSpells } from '@/composables/useSpells'
 import { useFilterStore, useSettingsStore, useHistoryStore, useComparisonStore, useFavoritesStore } from '@/stores'
 import SpellCard from '@/components/SpellCard.vue'
 import SpellTable from '@/components/SpellTable.vue'
-import { TRADITION_LABELS, SCHOOL_LABELS } from '@/constants/translations'
+import { traditionLabel, schoolLabel } from '@/constants/translations'
 
 const route = useRoute()
 const router = useRouter()
@@ -19,10 +19,6 @@ const { search, loadError, isLoading, schools } = useSpells()
 const viewMode = computed(() => settingsStore.state.viewMode)
 const filteredSpells = computed(() => search(filterStore.state.searchQuery, filterStore.state))
 const selectedSpells = ref<Set<string>>(new Set())
-
-function traditionLabel(t: string) {
-  return TRADITION_LABELS[t] || t
-}
 
 onMounted(() => {
   const query = route.query.q
@@ -130,7 +126,7 @@ function clearSelection() {
         <label for="school-filter" class="input-label">Школа</label>
         <select id="school-filter" v-model="filterStore.state.school" class="filter-select" multiple>
           <option value="">Все</option>
-          <option v-for="s in schools" :key="s" :value="s">{{ SCHOOL_LABELS[s] || s }}</option>
+          <option v-for="s in schools" :key="s" :value="s">{{ schoolLabel(s) }}</option>
         </select>
       </div>
       <div class="filter-group">

@@ -2,7 +2,7 @@
 import { computed } from 'vue'
 import { useSpells } from '@/composables/useSpells'
 import { useComparisonStore } from '@/stores'
-import { TRADITION_LABELS, RARITY_LABELS, SCHOOL_LABELS } from '@/constants/translations'
+import { traditionLabel, schoolLabel, rarityLabel, traitLabel, COMPONENT_LABELS } from '@/constants/translations'
 
 const comparisonStore = useComparisonStore()
 const { getSpell } = useSpells()
@@ -21,18 +21,18 @@ function getFieldValue(spell: ReturnType<typeof getSpell>, field: string): strin
   if (!spell) return ''
   switch (field) {
     case 'level': return `Уровень ${spell.level}`
-    case 'tradition': return spell.tradition.map(t => TRADITION_LABELS[t] || t).join(', ')
-    case 'school': return SCHOOL_LABELS[spell.school] || spell.school
+    case 'tradition': return spell.tradition.map(t => traditionLabel(t)).join(', ')
+    case 'school': return schoolLabel(spell.school)
     case 'classes': return spell.classes.join(', ')
-    case 'traits': return spell.traits.join(', ')
+    case 'traits': return spell.traits.map(t => traitLabel(t)).join(', ')
     case 'castTime': return spell.castTime
     case 'range': return spell.range
     case 'target': return spell.target || spell.area || '—'
     case 'duration': return spell.duration
     case 'save': return spell.save || '—'
     case 'sr': return spell.sr ? 'Да' : 'Нет'
-    case 'components': return Object.entries(spell.components).filter(([, v]) => v).map(([k]) => k.toUpperCase()).join(', ')
-    case 'rarity': return RARITY_LABELS[spell.rarity] || spell.rarity
+    case 'components': return Object.entries(spell.components).filter(([, v]) => v).map(([k]) => COMPONENT_LABELS[k] || k).join(', ')
+    case 'rarity': return rarityLabel(spell.rarity)
     case 'isRitual': return spell.isRitual ? 'Да' : 'Нет'
     case 'isFocus': return spell.isFocus ? 'Да' : 'Нет'
     default: return ''
@@ -98,7 +98,7 @@ const compareFields = [
                   <div class="font-semibold">{{ spell.name.ru }}</div>
                   <div class="text-xs text-muted">{{ spell.name.en }}</div>
                 </div>
-                <button class="btn btn-ghost btn-sm" aria-label="Remove from comparison" @click.stop="removeSpell(spell.id)">✕</button>
+                <button class="btn btn-ghost btn-sm" aria-label="Убрать из сравнения" @click.stop="removeSpell(spell.id)">✕</button>
               </div>
             </th>
           </tr>

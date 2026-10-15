@@ -4,7 +4,7 @@ import { useRoute } from 'vue-router'
 import { useSpells } from '@/composables/useSpells'
 import { useFilterStore } from '@/stores'
 import type { FilterState } from '@/types/spell'
-import { TRADITION_LABELS, SCHOOL_LABELS, RARITY_LABELS, COMPONENT_LABELS } from '@/constants/translations'
+import { COMPONENT_LABELS, traitLabel, traditionLabel, schoolLabel, rarityLabel } from '@/constants/translations'
 
 const route = useRoute()
 const { schools, allTraits, allSources, traditions } = useSpells()
@@ -24,18 +24,6 @@ const activeFilters = computed(() => {
 
 function clearAllFilters() {
   filterStore.clearFilters()
-}
-
-function traditionLabel(t: string) {
-  return TRADITION_LABELS[t] || t
-}
-
-function schoolLabel(s: string) {
-  return SCHOOL_LABELS[s] || s
-}
-
-function rarityLabel(r: string) {
-  return RARITY_LABELS[r] || r
 }
 
 function componentLabel(c: string) {
@@ -156,7 +144,7 @@ function componentLabel(c: string) {
         <h3 class="sidebar-title">Черты</h3>
         <div class="flex flex-col gap-2xs max-h-48 overflow-y-auto">
           <label v-for="t in allTraits" :key="t" class="flex items-center justify-between gap-sm cursor-pointer py-2xs">
-            <span class="truncate">{{ t }}</span>
+            <span class="truncate">{{ traitLabel(t) }}</span>
             <input
               type="checkbox"
               class="flex-shrink-0"

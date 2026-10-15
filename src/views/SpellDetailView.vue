@@ -3,7 +3,7 @@ import { onMounted, computed, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useSpells } from '@/composables/useSpells'
 import { useFavoritesStore, useHistoryStore, useComparisonStore, useSettingsStore } from '@/stores'
-import { RARITY_LABELS, SCHOOL_LABELS, COMPONENT_LABELS } from '@/constants/translations'
+import { rarityLabel, schoolLabel, traditionLabel, traitLabel, COMPONENT_LABELS } from '@/constants/translations'
 
 const route = useRoute()
 const router = useRouter()
@@ -45,13 +45,6 @@ const activeDescription = computed(() => {
     isHtml: Boolean(official)
   }
 })
-
-const traditionLabels: Record<string, string> = {
-  arcane: '⚡ Арканная',
-  divine: '⚪ Сакральная',
-  occult: '🔮 Окультая',
-  primal: '🌿 Первобытная'
-}
 
 onMounted(() => {
   if (!spell.value) {
@@ -103,8 +96,8 @@ function exportSpell() {
 
 <template>
   <div v-if="spell" class="spell-detail-view">
-    <nav class="mb-md flex items-center gap-sm text-sm text-secondary" aria-label="Breadcrumb">
-      <router-link to="/">Home</router-link>
+    <nav class="mb-md flex items-center gap-sm text-sm text-secondary" aria-label="Навигация">
+      <router-link to="/">Главная</router-link>
       <span aria-hidden="true">/</span>
       <span>{{ spell.name.ru }}</span>
     </nav>
@@ -115,9 +108,9 @@ function exportSpell() {
           <h1 class="text-2xl font-bold mb-xs">{{ spell.name.ru }}</h1>
           <p v-if="spell.name.en !== spell.name.ru" class="text-lg text-secondary">{{ spell.name.en }}</p>
           <div class="flex flex-wrap items-center gap-sm mt-sm">
-            <span class="chip chip-info">Lv. {{ spell.level }}</span>
-            <span v-for="t in spell.tradition" :key="t" class="chip" :data-tooltip="traditionLabels[t]">{{ t[0].toUpperCase() }}</span>
-            <span class="badge" :class="`badge-${spell.rarity}`">{{ RARITY_LABELS[spell.rarity] }}</span>
+            <span class="chip chip-info">Ур. {{ spell.level }}</span>
+            <span v-for="t in spell.tradition" :key="t" class="chip" :data-tooltip="traditionLabel(t)">{{ traditionLabel(t) }}</span>
+            <span class="badge" :class="`badge-${spell.rarity}`">{{ rarityLabel(spell.rarity) }}</span>
             <span v-if="spell.isRitual" class="chip chip-warning">Ритуал</span>
             <span v-if="spell.isFocus" class="chip chip-info">Фокус</span>
           </div>
@@ -141,7 +134,7 @@ function exportSpell() {
         <div class="grid grid-cols-2 md:grid-cols-4 gap-md text-sm">
           <div>
             <p class="text-muted mb-xs">Школа</p>
-            <p>{{ SCHOOL_LABELS[spell.school] || spell.school }}</p>
+            <p>{{ schoolLabel(spell.school) }}</p>
           </div>
           <div>
             <p class="text-muted mb-xs">Классы</p>
@@ -183,7 +176,7 @@ function exportSpell() {
         </div>
 
         <div class="mt-md flex flex-wrap gap-xs">
-          <span v-for="t in spell.traits" :key="t" class="chip">{{ t }}</span>
+          <span v-for="t in spell.traits" :key="t" class="chip">{{ traitLabel(t) }}</span>
         </div>
 
         <div v-if="spell.source.length > 1" class="mt-md p-sm bg-[var(--color-background)] rounded">
@@ -269,7 +262,7 @@ function exportSpell() {
               <h4 class="font-medium mb-xs">Усиление</h4>
               <ul class="space-y-xs">
                 <li v-for="heightened in src.heightened" :key="heightened.level">
-                  <strong>{{ heightened.level }} lv.: </strong>
+                  <strong>{{ heightened.level }} ур.: </strong>
                   <!-- eslint-disable vue/no-v-html -->
                   <span v-html="heightened.description"></span>
                 </li>

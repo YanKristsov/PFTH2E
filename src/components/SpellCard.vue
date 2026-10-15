@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { SpellIndex } from '@/types/spell'
+import { rarityLabel, schoolLabel, traditionLabel, traitLabel } from '@/constants/translations'
 
 const { spellIndex, isFavorite, isInComparison } = defineProps<{
   spellIndex: SpellIndex
@@ -13,20 +14,6 @@ defineEmits<{
   compare: [spellId: string]
 }>()
 
-const traditionLabels: Record<string, string> = {
-  arcane: '⚡ Арканная',
-  divine: '⚪ Сакральная',
-  occult: '🔮 Окультая',
-  primal: '🌿 Первобытная'
-}
-
-const rarityLabels: Record<string, string> = {
-  common: 'Обычное',
-  uncommon: 'Необычное',
-  rare: 'Редкое',
-  unique: 'Уникальное'
-}
-
 const rarityColors: Record<string, string> = {
   common: 'var(--color-text-secondary)',
   uncommon: 'var(--color-info)',
@@ -36,7 +23,7 @@ const rarityColors: Record<string, string> = {
 </script>
 
 <template>
-  <article class="card" tabindex="0" role="button" :aria-label="`View ${spellIndex.nameRu}`" @click="$emit('view', spellIndex.id)" @keydown.enter="$emit('view', spellIndex.id)">
+  <article class="card" tabindex="0" role="button" :aria-label="`Посмотреть ${spellIndex.nameRu}`" @click="$emit('view', spellIndex.id)" @keydown.enter="$emit('view', spellIndex.id)">
     <div class="card-header flex items-start justify-between gap-md">
       <div class="flex-1 min-w-0">
         <h3 class="font-semibold text-lg truncate">{{ spellIndex.nameRu }}</h3>
@@ -48,7 +35,7 @@ const rarityColors: Record<string, string> = {
           :class="`badge-${spellIndex.rarity}`"
           :style="{ color: rarityColors[spellIndex.rarity], backgroundColor: `color-mix(in srgb, ${rarityColors[spellIndex.rarity]} 20%, var(--color-surface))` }"
         >
-          {{ rarityLabels[spellIndex.rarity] }}
+          {{ rarityLabel(spellIndex.rarity) }}
         </span>
         <button
           class="btn btn-ghost btn-sm"
@@ -71,11 +58,11 @@ const rarityColors: Record<string, string> = {
 
     <div class="card-body">
       <div class="flex flex-wrap gap-xs mb-sm">
-        <span class="chip chip-info" :data-tooltip="`Level ${spellIndex.level}`">Lv. {{ spellIndex.level }}</span>
-        <span v-for="t in spellIndex.tradition" :key="t" class="chip" :data-tooltip="traditionLabels[t]">{{ t[0].toUpperCase() }}</span>
+        <span class="chip chip-info" :data-tooltip="`Уровень ${spellIndex.level}`">Ур. {{ spellIndex.level }}</span>
+        <span v-for="t in spellIndex.tradition" :key="t" class="chip" :data-tooltip="traditionLabel(t)">{{ traditionLabel(t) }}</span>
       </div>
 
-      <p class="text-sm text-secondary mb-sm">{{ spellIndex.school }}</p>
+      <p class="text-sm text-secondary mb-sm">{{ schoolLabel(spellIndex.school) }}</p>
 
       <div class="flex flex-wrap gap-xs mb-sm">
         <span v-if="spellIndex.classes.length > 0" v-for="c in spellIndex.classes.slice(0, 3)" :key="c" class="chip">{{ c }}</span>
@@ -84,7 +71,7 @@ const rarityColors: Record<string, string> = {
       </div>
 
       <div class="flex flex-wrap gap-xs">
-        <span v-for="t in spellIndex.traits.slice(0, 4)" :key="t" class="chip">{{ t }}</span>
+        <span v-for="t in spellIndex.traits.slice(0, 4)" :key="t" class="chip">{{ traitLabel(t) }}</span>
         <span v-if="spellIndex.traits.length > 4" class="chip chip-info">+{{ spellIndex.traits.length - 4 }}</span>
       </div>
     </div>

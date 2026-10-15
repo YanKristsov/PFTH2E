@@ -5,7 +5,7 @@ import { useSpells } from '@/composables/useSpells'
 import { useFavoritesStore, useSettingsStore, useComparisonStore } from '@/stores'
 import SpellCard from '@/components/SpellCard.vue'
 import type { SpellIndex } from '@/types/spell'
-import { TRADITION_LABELS, SCHOOL_LABELS } from '@/constants/translations'
+import { traditionLabel, schoolLabel, rarityLabel } from '@/constants/translations'
 
 const router = useRouter()
 const settingsStore = useSettingsStore()
@@ -137,9 +137,9 @@ function importFavorites(event: Event) {
                 <div class="font-medium">{{ spell.nameRu }}</div>
                 <div v-if="spell.nameEn !== spell.nameRu" class="text-xs text-muted">{{ spell.nameEn }}</div>
               </td>
-              <td><span class="chip chip-info">Lv. {{ spell.level }}</span></td>
-              <td><span class="text-sm">{{ spell.tradition.map((t: string) => (TRADITION_LABELS as unknown as Record<string, string>)[t] || t).join(' ') }}</span></td>
-              <td>{{ SCHOOL_LABELS[spell.school] || spell.school }}</td>
+              <td><span class="chip chip-info">Ур. {{ spell.level }}</span></td>
+              <td><span class="text-sm">{{ spell.tradition.map((t: string) => traditionLabel(t)).join(' ') }}</span></td>
+              <td>{{ schoolLabel(spell.school) }}</td>
               <td>
                 <textarea
                   v-model="spell.notes"

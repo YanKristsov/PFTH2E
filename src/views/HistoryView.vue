@@ -4,7 +4,7 @@ import { useRouter } from 'vue-router'
 import { useSpells } from '@/composables/useSpells'
 import { useHistoryStore } from '@/stores'
 import type { SpellIndex } from '@/types/spell'
-import { TRADITION_LABELS, SCHOOL_LABELS, RARITY_LABELS } from '@/constants/translations'
+import { traditionLabel, schoolLabel, rarityLabel } from '@/constants/translations'
 
 const router = useRouter()
 const historyStore = useHistoryStore()
@@ -73,14 +73,14 @@ function clearHistory() {
             <h3 class="font-semibold truncate">{{ spell.nameRu }}</h3>
             <p v-if="spell.nameEn !== spell.nameRu" class="text-xs text-muted truncate">{{ spell.nameEn }}</p>
           </div>
-          <span class="badge" :class="`badge-${spell.rarity}`">{{ RARITY_LABELS[spell.rarity] || spell.rarity }}</span>
+          <span class="badge" :class="`badge-${spell.rarity}`">{{ rarityLabel(spell.rarity) }}</span>
         </div>
         <div class="card-body">
           <div class="flex flex-wrap gap-xs mb-sm">
-            <span class="chip chip-info">Lv. {{ spell.level }}</span>
-            <span v-for="t in spell.tradition" :key="t" class="chip">{{ TRADITION_LABELS[t] || t }}</span>
+            <span class="chip chip-info">Ур. {{ spell.level }}</span>
+            <span v-for="t in spell.tradition" :key="t" class="chip">{{ traditionLabel(t) }}</span>
           </div>
-          <p class="text-sm text-secondary">{{ SCHOOL_LABELS[spell.school] || spell.school }}</p>
+          <p class="text-sm text-secondary">{{ schoolLabel(spell.school) }}</p>
         </div>
       </article>
     </div>
