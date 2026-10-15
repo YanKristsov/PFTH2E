@@ -56,8 +56,8 @@ function getThemeIcon() {
     <div class="header-right flex items-center gap-sm">
       <button
         class="btn btn-ghost"
-        :aria-label="`Theme: ${settingsStore.state.theme}. Click to change.`"
-        :data-tooltip="`Theme: ${settingsStore.state.theme}`"
+        :aria-label="`Тема: ${settingsStore.state.theme}. Нажмите, чтобы сменить.`"
+        :data-tooltip="`Тема: ${settingsStore.state.theme}`"
         @click="toggleTheme"
       >
         {{ getThemeIcon() }}

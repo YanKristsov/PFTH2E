@@ -13,7 +13,7 @@ app.use(router)
 
 registerSW({
   onNeedRefresh() {
-    if (confirm('New version available. Reload?')) {
+    if (confirm('Доступна новая версия. Перезагрузить?')) {
       window.location.reload()
     }
   },

@@ -230,7 +230,7 @@ function exportSpell() {
           <h4 class="font-semibold mb-sm">Усиление</h4>
           <ul class="space-y-sm">
             <li v-for="h in spell.heightened" :key="h.level">
-              <strong>{{ h.level }} lv.: </strong>
+              <strong>{{ h.level }} ур.: </strong>
               <!-- eslint-disable vue/no-v-html -->
               <span v-html="h.description"></span>
             </li>
@@ -282,11 +282,11 @@ function exportSpell() {
   </div>
 
   <div v-else-if="loadError" class="card p-lg text-center">
-    <p class="text-error mb-md">Load error: {{ loadError }}</p>
-    <router-link to="/" class="btn btn-primary">Back to spells</router-link>
+    <p class="text-error mb-md">Ошибка загрузки: {{ loadError }}</p>
+    <router-link to="/" class="btn btn-primary">К заклинаниям</router-link>
   </div>
 
   <div v-else class="flex justify-center p-xl">
-    <div class="loading-spinner" aria-label="Loading spell"></div>
+    <div class="loading-spinner" aria-label="Загрузка заклинания"></div>
   </div>
 </template>

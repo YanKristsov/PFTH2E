@@ -145,7 +145,7 @@ function importFavorites(event: Event) {
                   v-model="spell.notes"
                   class="w-full min-h-[60px] resize-none bg-transparent border-none focus:outline-none text-sm"
                   placeholder="Заметки..."
-                  aria-label="Spell notes"
+                  aria-label="Заметки заклинания"
                   @input="updateNotes(spell.id, spell.notes)"
                   @click.stop
                 ></textarea>
