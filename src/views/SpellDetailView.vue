@@ -3,6 +3,7 @@ import { onMounted, computed, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useSpells } from '@/composables/useSpells'
 import { useFavoritesStore, useHistoryStore, useComparisonStore, useSettingsStore } from '@/stores'
+import { RARITY_LABELS, SCHOOL_LABELS, COMPONENT_LABELS } from '@/constants/translations'
 
 const route = useRoute()
 const router = useRouter()
@@ -46,10 +47,10 @@ const activeDescription = computed(() => {
 })
 
 const traditionLabels: Record<string, string> = {
-  arcane: '⚡ Arcane',
-  divine: '⛪ Divine',
-  occult: '🔮 Occult',
-  primal: '🌿 Primal'
+  arcane: '⚡ Арканная',
+  divine: '⚪ Сакральная',
+  occult: '🔮 Окультая',
+  primal: '🌿 Первобытная'
 }
 
 onMounted(() => {
@@ -116,21 +117,21 @@ function exportSpell() {
           <div class="flex flex-wrap items-center gap-sm mt-sm">
             <span class="chip chip-info">Lv. {{ spell.level }}</span>
             <span v-for="t in spell.tradition" :key="t" class="chip" :data-tooltip="traditionLabels[t]">{{ t[0].toUpperCase() }}</span>
-            <span class="badge" :class="`badge-${spell.rarity}`">{{ spell.rarity }}</span>
-<span v-if="spell.isRitual" class="chip chip-warning">Ritual</span>
-          <span v-if="spell.isFocus" class="chip chip-info">Focus</span>
+            <span class="badge" :class="`badge-${spell.rarity}`">{{ RARITY_LABELS[spell.rarity] }}</span>
+            <span v-if="spell.isRitual" class="chip chip-warning">Ритуал</span>
+            <span v-if="spell.isFocus" class="chip chip-info">Фокус</span>
           </div>
         </div>
         <div class="flex items-center gap-sm flex-shrink-0">
-          <button class="btn btn-ghost" :aria-pressed="favoritesStore.favoriteIds.has(spell.id)" :aria-label="favoritesStore.favoriteIds.has(spell.id) ? 'Remove from favorites' : 'Add to favorites'" @click="favoritesStore.toggle(spell.id)">
+          <button class="btn btn-ghost" :aria-pressed="favoritesStore.favoriteIds.has(spell.id)" :aria-label="favoritesStore.favoriteIds.has(spell.id) ? 'Убрать из избранного' : 'Добавить в избранное'" @click="favoritesStore.toggle(spell.id)">
             <span aria-hidden="true">{{ favoritesStore.favoriteIds.has(spell.id) ? '⭐' : '☆' }}</span>
-            <span class="hidden mobile:hidden">{{ favoritesStore.favoriteIds.has(spell.id) ? 'In favorites' : 'Add to favorites' }}</span>
+            <span class="hidden mobile:hidden">{{ favoritesStore.favoriteIds.has(spell.id) ? 'В избранном' : 'Добавить в избранное' }}</span>
           </button>
-          <button class="btn btn-ghost" :aria-pressed="comparisonStore.isInComparison(spell.id)" :aria-label="comparisonStore.isInComparison(spell.id) ? 'Remove from comparison' : 'Add to comparison'" @click="comparisonStore.toggle(spell.id)">
+          <button class="btn btn-ghost" :aria-pressed="comparisonStore.isInComparison(spell.id)" :aria-label="comparisonStore.isInComparison(spell.id) ? 'Убрать из сравнения' : 'Добавить к сравнению'" @click="comparisonStore.toggle(spell.id)">
             <span aria-hidden="true">⚖️</span>
-            <span class="hidden mobile:hidden">{{ comparisonStore.isInComparison(spell.id) ? 'In comparison' : 'Add to comparison' }}</span>
+            <span class="hidden mobile:hidden">{{ comparisonStore.isInComparison(spell.id) ? 'В сравнении' : 'Добавить к сравнению' }}</span>
           </button>
-          <button class="btn btn-ghost" aria-label="Export spell" @click="exportSpell">
+          <button class="btn btn-ghost" aria-label="Экспортировать заклинание" @click="exportSpell">
             <span aria-hidden="true">📥</span>
           </button>
         </div>
@@ -139,45 +140,45 @@ function exportSpell() {
       <div class="card-body">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-md text-sm">
           <div>
-            <p class="text-muted mb-xs">School</p>
-            <p>{{ spell.school }}</p>
+            <p class="text-muted mb-xs">Школа</p>
+            <p>{{ SCHOOL_LABELS[spell.school] || spell.school }}</p>
           </div>
           <div>
-            <p class="text-muted mb-xs">Classes</p>
+            <p class="text-muted mb-xs">Классы</p>
             <p>{{ spell.classes.join(', ') }}</p>
           </div>
           <div>
-            <p class="text-muted mb-xs">Cast Time</p>
+            <p class="text-muted mb-xs">Время произнесения</p>
             <p>{{ spell.castTime }}</p>
           </div>
           <div>
-            <p class="text-muted mb-xs">Range</p>
+            <p class="text-muted mb-xs">Дальность</p>
             <p>{{ spell.range }}</p>
           </div>
           <div class="md:col-span-2">
-            <p class="text-muted mb-xs">Components</p>
+            <p class="text-muted mb-xs">Компоненты</p>
             <div class="flex flex-wrap gap-xs">
-              <span v-if="spell.components.v" class="chip chip-info">V</span>
-              <span v-if="spell.components.s" class="chip chip-info">S</span>
-              <span v-if="spell.components.m" class="chip chip-info">M</span>
-              <span v-if="spell.components.f" class="chip chip-info">F</span>
+              <span v-if="spell.components.v" class="chip chip-info">{{ COMPONENT_LABELS.V }}</span>
+              <span v-if="spell.components.s" class="chip chip-info">{{ COMPONENT_LABELS.S }}</span>
+              <span v-if="spell.components.m" class="chip chip-info">{{ COMPONENT_LABELS.M }}</span>
+              <span v-if="spell.components.f" class="chip chip-info">{{ COMPONENT_LABELS.F }}</span>
             </div>
           </div>
           <div>
-            <p class="text-muted mb-xs">Target / Area</p>
+            <p class="text-muted mb-xs">Цель / Область</p>
             <p>{{ spell.target || spell.area || '—' }}</p>
           </div>
           <div>
-            <p class="text-muted mb-xs">Duration</p>
+            <p class="text-muted mb-xs">Длительность</p>
             <p>{{ spell.duration }}</p>
           </div>
           <div v-if="spell.save">
-            <p class="text-muted mb-xs">Save</p>
+            <p class="text-muted mb-xs">Спасбросок</p>
             <p>{{ spell.save }}</p>
           </div>
           <div v-if="spell.sr !== undefined">
-            <p class="text-muted mb-xs">Spell Resistance</p>
-            <p>{{ spell.sr ? 'Yes' : 'No' }}</p>
+            <p class="text-muted mb-xs">Сопротивление заклинанию</p>
+            <p>{{ spell.sr ? 'Да' : 'Нет' }}</p>
           </div>
         </div>
 
@@ -186,7 +187,7 @@ function exportSpell() {
         </div>
 
         <div v-if="spell.source.length > 1" class="mt-md p-sm bg-[var(--color-background)] rounded">
-          <p class="text-sm font-medium mb-xs">Source variants:</p>
+          <p class="text-sm font-medium mb-xs">Варианты источника:</p>
           <div class="flex flex-wrap gap-sm text-sm">
               <span v-for="(src, sourceIndex) in spell.source" :key="`${src.source.type}-${src.source.name}-${sourceIndex}`" class="chip" :data-tooltip="src.source.url">{{ src.source.name }}: {{ src.name }}</span>
           </div>
@@ -194,7 +195,7 @@ function exportSpell() {
       </div>
     </header>
 
-    <div class="tabs" role="tablist" aria-label="Spell description tabs">
+    <div class="tabs" role="tablist" aria-label="Вкладки описания заклинания">
       <button
         id="tab-brief"
         role="tab"
@@ -203,7 +204,7 @@ function exportSpell() {
         :aria-controls="`panel-brief`"
         @click="activeTab = 'brief'"
       >
-        Brief
+        Кратко
       </button>
       <button
         id="tab-full"
@@ -213,20 +214,20 @@ function exportSpell() {
         :aria-controls="`panel-full`"
         @click="activeTab = 'full'"
       >
-        Full
+        Полно
       </button>
     </div>
 
     <div id="panel-brief" role="tabpanel" :aria-labelledby="`tab-brief`" :hidden="activeTab !== 'brief'" class="card mt-md">
       <div class="card-body prose">
         <p v-if="activeDescription.source" class="text-sm text-secondary mb-sm">
-          Russian translation unavailable; showing English from {{ activeDescription.source }}.
+          Русский перевод недоступен; показывается английский из {{ activeDescription.source }}.
         </p>
         <!-- eslint-disable vue/no-v-html -->
         <div v-if="activeDescription.text" v-html="formatDescription(activeDescription.text, 'brief', activeDescription.isHtml)"></div>
-        <p v-else>No description is available for this language.</p>
+        <p v-else>Описание недоступно для этого языка.</p>
         <div v-if="spell.heightened && spell.heightened.length > 0" class="mt-md">
-          <h4 class="font-semibold mb-sm">Heightened</h4>
+          <h4 class="font-semibold mb-sm">Усиление</h4>
           <ul class="space-y-sm">
             <li v-for="h in spell.heightened" :key="h.level">
               <strong>{{ h.level }} lv.: </strong>
@@ -254,18 +255,18 @@ function exportSpell() {
               <p class="text-sm text-secondary">{{ src.name }}</p>
             </header>
             <div v-if="src.description" class="prose">
-              <p class="text-xs text-muted">{{ src.source.type === 'aonprd' ? 'English' : 'Russian' }}</p>
+              <p class="text-xs text-muted">{{ src.source.type === 'aonprd' ? 'Английский' : 'Русский' }}</p>
               <!-- eslint-disable vue/no-v-html -->
               <div v-if="src.source.type === 'aonprd'" v-html="formatDescription(src.description, 'full', true)"></div>
               <p v-else class="whitespace-pre-line">{{ src.description }}</p>
             </div>
-            <p v-else class="text-sm text-muted">Description unavailable for this publication.</p>
+            <p v-else class="text-sm text-muted">Описание недоступно для этой публикации.</p>
             <div v-if="src.descriptionEn" class="prose mt-sm">
-              <p class="text-xs text-muted">English</p>
+              <p class="text-xs text-muted">Английский</p>
               <p class="whitespace-pre-line">{{ src.descriptionEn }}</p>
             </div>
             <div v-if="src.heightened?.length" class="mt-md">
-              <h4 class="font-medium mb-xs">Heightened</h4>
+              <h4 class="font-medium mb-xs">Усиление</h4>
               <ul class="space-y-xs">
                 <li v-for="heightened in src.heightened" :key="heightened.level">
                   <strong>{{ heightened.level }} lv.: </strong>

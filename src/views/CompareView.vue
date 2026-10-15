@@ -2,6 +2,7 @@
 import { computed } from 'vue'
 import { useSpells } from '@/composables/useSpells'
 import { useComparisonStore } from '@/stores'
+import { TRADITION_LABELS, RARITY_LABELS, SCHOOL_LABELS } from '@/constants/translations'
 
 const comparisonStore = useComparisonStore()
 const { getSpell } = useSpells()
@@ -19,9 +20,9 @@ function clearAll() {
 function getFieldValue(spell: ReturnType<typeof getSpell>, field: string): string {
   if (!spell) return ''
   switch (field) {
-    case 'level': return `Lv. ${spell.level}`
-    case 'tradition': return spell.tradition.map(t => t[0].toUpperCase()).join(', ')
-    case 'school': return spell.school
+    case 'level': return `Уровень ${spell.level}`
+    case 'tradition': return spell.tradition.map(t => TRADITION_LABELS[t] || t).join(', ')
+    case 'school': return SCHOOL_LABELS[spell.school] || spell.school
     case 'classes': return spell.classes.join(', ')
     case 'traits': return spell.traits.join(', ')
     case 'castTime': return spell.castTime
@@ -29,11 +30,11 @@ function getFieldValue(spell: ReturnType<typeof getSpell>, field: string): strin
     case 'target': return spell.target || spell.area || '—'
     case 'duration': return spell.duration
     case 'save': return spell.save || '—'
-    case 'sr': return spell.sr ? 'Yes' : 'No'
+    case 'sr': return spell.sr ? 'Да' : 'Нет'
     case 'components': return Object.entries(spell.components).filter(([, v]) => v).map(([k]) => k.toUpperCase()).join(', ')
-    case 'rarity': return spell.rarity
-    case 'isRitual': return spell.isRitual ? 'Yes' : 'No'
-    case 'isFocus': return spell.isFocus ? 'Yes' : 'No'
+    case 'rarity': return RARITY_LABELS[spell.rarity] || spell.rarity
+    case 'isRitual': return spell.isRitual ? 'Да' : 'Нет'
+    case 'isFocus': return spell.isFocus ? 'Да' : 'Нет'
     default: return ''
   }
 }
@@ -44,53 +45,53 @@ function truncateDescription(text: string): string {
 }
 
 const compareFields = [
-  { key: 'level', label: 'Level' },
-  { key: 'tradition', label: 'Tradition' },
-  { key: 'school', label: 'School' },
-  { key: 'classes', label: 'Classes' },
-  { key: 'traits', label: 'Traits' },
-  { key: 'castTime', label: 'Cast Time' },
-  { key: 'range', label: 'Range' },
-  { key: 'target', label: 'Target / Area' },
-  { key: 'duration', label: 'Duration' },
-  { key: 'save', label: 'Save' },
-  { key: 'sr', label: 'Spell Resistance' },
-  { key: 'components', label: 'Components' },
-  { key: 'rarity', label: 'Rarity' },
-  { key: 'isRitual', label: 'Ritual' },
-  { key: 'isFocus', label: 'Focus' }
+  { key: 'level', label: 'Уровень' },
+  { key: 'tradition', label: 'Традиция' },
+  { key: 'school', label: 'Школа' },
+  { key: 'classes', label: 'Классы' },
+  { key: 'traits', label: 'Черты' },
+  { key: 'castTime', label: 'Время произнесения' },
+  { key: 'range', label: 'Дальность' },
+  { key: 'target', label: 'Цель / Область' },
+  { key: 'duration', label: 'Длительность' },
+  { key: 'save', label: 'Спасбросок' },
+  { key: 'sr', label: 'Сопротивление заклинанию' },
+  { key: 'components', label: 'Компоненты' },
+  { key: 'rarity', label: 'Редкость' },
+  { key: 'isRitual', label: 'Ритуал' },
+  { key: 'isFocus', label: 'Фокус' }
 ]
 </script>
 
 <template>
   <div class="compare-view">
     <header class="content-header flex flex-wrap items-center justify-between gap-md">
-      <h1 class="content-title">Compare Spells</h1>
+      <h1 class="content-title">Сравнение заклинаний</h1>
       <div class="content-actions flex flex-wrap gap-sm">
-        <button class="btn btn-secondary" :disabled="spells.length === 0" @click="clearAll">🗑️ Clear</button>
-        <router-link to="/" class="btn btn-primary">← Back to spells</router-link>
+        <button class="btn btn-secondary" :disabled="spells.length === 0" @click="clearAll">🗑️ Очистить</button>
+        <router-link to="/" class="btn btn-primary">← К заклинаниям</router-link>
       </div>
     </header>
 
     <div v-if="spells.length === 0" class="empty-state">
       <div class="empty-state-icon" aria-hidden="true">⚖️</div>
-      <h3>No spells to compare</h3>
-      <p>Add up to 3 spells using the ⚖️ button on cards or in details</p>
-      <router-link to="/" class="btn btn-primary mt-md">Go to spells</router-link>
+      <h3>Нет заклинаний для сравнения</h3>
+      <p>Добавьте до 3 заклинаний с помощью кнопки ⚖️ на карточках или в деталях</p>
+      <router-link to="/" class="btn btn-primary mt-md">К заклинаниям</router-link>
     </div>
 
     <div v-else-if="spells.length === 1" class="empty-state">
       <div class="empty-state-icon" aria-hidden="true">⚖️</div>
-      <h3>Add a second spell</h3>
-      <p>Need at least 2 spells to compare (max 3)</p>
-      <router-link to="/" class="btn btn-primary mt-md">Go to spells</router-link>
+      <h3>Добавьте второе заклинание</h3>
+      <p>Нужно минимум 2 заклинания для сравнения (макс. 3)</p>
+      <router-link to="/" class="btn btn-primary mt-md">К заклинаниям</router-link>
     </div>
 
     <div v-else class="card overflow-x-auto">
       <table class="table" style="min-width: 800px;">
         <thead>
           <tr>
-            <th scope="col" style="width: 180px; position: sticky; left: 0; background: var(--color-surface); z-index: 1;">Parameter</th>
+            <th scope="col" style="width: 180px; position: sticky; left: 0; background: var(--color-surface); z-index: 1;">Параметр</th>
             <th v-for="spell in spells" :key="spell.id" scope="col" style="min-width: 250px;">
               <div class="flex items-center justify-between p-sm">
                 <div>
@@ -110,7 +111,7 @@ const compareFields = [
             </td>
           </tr>
           <tr>
-            <th scope="row" class="font-medium text-secondary" style="position: sticky; left: 0; background: var(--color-surface); z-index: 1;">Description (brief)</th>
+            <th scope="row" class="font-medium text-secondary" style="position: sticky; left: 0; background: var(--color-surface); z-index: 1;">Описание (кратко)</th>
             <td v-for="spell in spells" :key="spell.id">
               <!-- eslint-disable vue/no-v-html -->
               <div class="p-sm text-sm" v-html="truncateDescription(spell.description.ru)"></div>

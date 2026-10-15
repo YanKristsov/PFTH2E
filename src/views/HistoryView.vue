@@ -4,6 +4,7 @@ import { useRouter } from 'vue-router'
 import { useSpells } from '@/composables/useSpells'
 import { useHistoryStore } from '@/stores'
 import type { SpellIndex } from '@/types/spell'
+import { TRADITION_LABELS, SCHOOL_LABELS, RARITY_LABELS } from '@/constants/translations'
 
 const router = useRouter()
 const historyStore = useHistoryStore()
@@ -35,7 +36,7 @@ function viewSpell(spellId: string) {
 }
 
 function clearHistory() {
-  if (confirm('Clear all view history?')) {
+  if (confirm('Очистить всю историю просмотров?')) {
     historyStore.clear()
   }
 }
@@ -44,17 +45,17 @@ function clearHistory() {
 <template>
   <div class="history-view">
     <header class="content-header">
-      <h1 class="content-title">View History</h1>
+      <h1 class="content-title">История просмотров</h1>
       <div class="content-actions">
-        <button class="btn btn-danger" :disabled="historySpells.length === 0" @click="clearHistory">🗑️ Clear History</button>
+        <button class="btn btn-danger" :disabled="historySpells.length === 0" @click="clearHistory">🗑️ Очистить историю</button>
       </div>
     </header>
 
     <div v-if="historySpells.length === 0" class="empty-state">
       <div class="empty-state-icon" aria-hidden="true">🕐</div>
-      <h3>History is empty</h3>
-      <p>View spells and they will appear here</p>
-      <router-link to="/" class="btn btn-primary mt-md">Go to spells</router-link>
+      <h3>История пуста</h3>
+      <p>Просматривайте заклинания, и они появятся здесь</p>
+      <router-link to="/" class="btn btn-primary mt-md">К заклинаниям</router-link>
     </div>
 
     <div v-else class="spell-grid cards">
@@ -72,14 +73,14 @@ function clearHistory() {
             <h3 class="font-semibold truncate">{{ spell.nameRu }}</h3>
             <p v-if="spell.nameEn !== spell.nameRu" class="text-xs text-muted truncate">{{ spell.nameEn }}</p>
           </div>
-          <span class="badge" :class="`badge-${spell.rarity}`">{{ spell.rarity }}</span>
+          <span class="badge" :class="`badge-${spell.rarity}`">{{ RARITY_LABELS[spell.rarity] || spell.rarity }}</span>
         </div>
         <div class="card-body">
           <div class="flex flex-wrap gap-xs mb-sm">
             <span class="chip chip-info">Lv. {{ spell.level }}</span>
-            <span v-for="t in spell.tradition" :key="t" class="chip">{{ t[0].toUpperCase() }}</span>
+            <span v-for="t in spell.tradition" :key="t" class="chip">{{ TRADITION_LABELS[t] || t }}</span>
           </div>
-          <p class="text-sm text-secondary">{{ spell.school }}</p>
+          <p class="text-sm text-secondary">{{ SCHOOL_LABELS[spell.school] || spell.school }}</p>
         </div>
       </article>
     </div>

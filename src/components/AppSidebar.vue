@@ -4,6 +4,7 @@ import { useRoute } from 'vue-router'
 import { useSpells } from '@/composables/useSpells'
 import { useFilterStore } from '@/stores'
 import type { FilterState } from '@/types/spell'
+import { TRADITION_LABELS, SCHOOL_LABELS, RARITY_LABELS, COMPONENT_LABELS } from '@/constants/translations'
 
 const route = useRoute()
 const { schools, allTraits, allSources, traditions } = useSpells()
@@ -23,6 +24,22 @@ const activeFilters = computed(() => {
 
 function clearAllFilters() {
   filterStore.clearFilters()
+}
+
+function traditionLabel(t: string) {
+  return TRADITION_LABELS[t] || t
+}
+
+function schoolLabel(s: string) {
+  return SCHOOL_LABELS[s] || s
+}
+
+function rarityLabel(r: string) {
+  return RARITY_LABELS[r] || r
+}
+
+function componentLabel(c: string) {
+  return COMPONENT_LABELS[c] || c
 }
 </script>
 
@@ -102,7 +119,7 @@ function clearAllFilters() {
         <h3 class="sidebar-title">Традиция</h3>
         <div class="flex flex-col gap-2xs">
           <label v-for="t in traditions" :key="t" class="flex items-center justify-between gap-sm cursor-pointer py-2xs">
-            <span class="capitalize">{{ t }}</span>
+            <span class="capitalize">{{ traditionLabel(t) }}</span>
             <input
               type="checkbox"
               class="flex-shrink-0"
@@ -117,7 +134,7 @@ function clearAllFilters() {
         <h3 class="sidebar-title">Школа</h3>
         <div class="flex flex-col gap-2xs max-h-48 overflow-y-auto">
           <label v-for="s in schools" :key="s" class="flex items-center justify-between gap-sm cursor-pointer py-2xs">
-            <span class="truncate">{{ s }}</span>
+            <span class="truncate">{{ schoolLabel(s) }}</span>
             <input
               type="checkbox"
               class="flex-shrink-0"
@@ -159,10 +176,10 @@ function clearAllFilters() {
             class="chip"
             :class="{ 'chip-primary': filterStore.state.components.includes(c) }"
             :aria-pressed="filterStore.state.components.includes(c)"
-            :data-tooltip="{ V: 'Verbal', S: 'Somatic', M: 'Material', F: 'Focus' }[c]"
+            :data-tooltip="componentLabel(c)"
             @click="filterStore.toggleFilter('components', c)"
           >
-            {{ c }}
+            {{ c === 'V' ? 'С' : c === 'S' ? 'Ж' : c === 'M' ? 'М' : c === 'F' ? 'Ф' : c }}
           </button>
         </div>
       </div>
@@ -171,7 +188,7 @@ function clearAllFilters() {
         <h3 class="sidebar-title">Редкость</h3>
         <div class="flex flex-col gap-2xs">
           <label v-for="r in ['common', 'uncommon', 'rare', 'unique']" :key="r" class="flex items-center justify-between gap-sm cursor-pointer py-2xs">
-            <span class="capitalize">{{ r }}</span>
+            <span class="capitalize">{{ rarityLabel(r) }}</span>
             <input
               type="checkbox"
               class="flex-shrink-0"

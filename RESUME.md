@@ -1,98 +1,90 @@
-# Продолжение работы над PFTH2E (с другого ПК)
+# PF2E Spells Reference — Статус проекта
 
-## Контекст
-Проект — справочник заклинаний Pathfinder 2e. Стек: Vite + Vue 3 + TypeScript + Pinia + Vue Router + MiniSearch + Zod + PWA. Деплой на GitHub Pages (`https://yankristsov.github.io/PFTH2E/`).
+## Общее описание
+Справочник заклинаний Pathfinder 2e на русском языке.
+- **Стек:** Vite + Vue 3 + TypeScript + Pinia + MiniSearch + PWA
+- **Данные:** 2009 записей из pf2.ru и Archives of Nethys
+- **Деплой:** GitHub Pages (https://yankristsov.github.io/PFTH2E/)
+- **Локально:** `npm run dev` → http://localhost:3000/PFTH2E/
 
 ## Текущий статус
-- `lint`, `typecheck`, `build` — прошли через временный Node.js 24; `dist/` создан
-- В системе нет Node.js/npm/Git; временный Node.js 24 загружен в `%TEMP%`, зависимости установлены в `node_modules/`
-- Команда `parse:spells` исправлена на запуск TypeScript через `tsx`
-- Генератор читает встроенный JSON двух таблиц `pf2.ru`, затем получает RU/EN детали пакетами по 100 ID: 1 555 исходных строк объединяются в 1 470 записей
-- `public/spells.json` и `public/spells.index.json` созданы; пустой результат приводит к ошибке и не перезаписывает файлы
-- Coverage: 1 470 уникальных английских имён; все данные из `pf2ru`; у 440 записей нет традиции; школа, класс и компоненты отсутствуют во всех записях
-- Добавлены четыре fixture-теста: список, детали с `<hr>`, детали без `<hr>`, объединение источников
-- Dev server проверен: каталог отображается, поиск `Fireball` фильтрует до «Огненный шар»
-- RU/EN описания, дальность, область, цель и длительность получаются через batch API; переключение языка на detail view проверено
-- PWA precache включает JSON-каталог (около 7 MiB), лимит Workbox установлен в 10 MiB
-- Школа, класс и компоненты пока неполны
-- Репозиторий загружен ZIP-архивом, папка `.git` отсутствует; историю удалось проверить через GitHub API, там один initial commit
-- Dev server проверен в браузере: главная и список работают; `Fireball` фильтруется до «Огненный шар»
-- PWA manifest и offline-режим отдельно не проверялись в DevTools
-- `npm run test` — четыре теста проходят
-- Деплой не делался
 
-## Что нужно сделать (по порядку)
+### Работает
+- Lint, typecheck, 5 тестов — все проходят
+- Production build — успешный
+- Поиск (MiniSearch) — работает (Fireball → Огненный шар)
+- Фильтры — работают (уровень, традиция, школа, черты, редкость, источник)
+- Детальная страница — работает (вкладки Brief/Full)
+- PWA — Service Worker активен, 2009 строк в оффлайн-режиме
+- Навигация — работает (клик на строку → /spell/:id)
+- Деплой на GitHub Pages — работает (все JS/CSS отдают 200)
 
-### 1. Расширить полноту данных
-```bash
-npm run parse:spells
+### Визуал (сайдбар)
+- Все метки на русском (Уровень, Традиция, Школа, Класс, Черты, Компоненты, Редкость, Источник)
+- Чекбоксы выровнены справа (justify-between)
+- Уровень — горизонтальная прокрутка (overflow-x-auto)
+- Традиции/Школы — компактные (gap-2xs, py-2xs)
+- Классы — "Недоступно" (источники не предоставляет эту информацию)
+
+### Известные ограничения
+- Поле `classes` пусто у всех 2009 записей (pf2.ru и AoN не предоставляет классы)
+- `dist/` игнорируется git (в `.gitignore`)
+- `node_modules/` игнорируется git
+
+## Команды
+```powershell
+npm run lint       # ESLint
+npm run typecheck  # vue-tsc
+npm run test       # Vitest (5 тестов)
+npm run build      # Production build → dist/
+npm run dev        # Dev server → http://localhost:3000/PFTH2E/
+npm run parse:spells  # Парсинг данных из источников
 ```
-Генератор уже получает описания на обоих языках пакетами по 100 ID. Следующий этап — решить, нужны ли школе, классам и компонентам дополнительные источники или достаточно текущего объёма. Другие два источника пока не включены. Сохранять защиту от пустой генерации.
 
-### 2. Проверка dev server
-```bash
-npm run dev
-```
-Убедись что:
-- Страница загружается без ошибок
-- Поиск и фильтры работают
-- PWA активна (DevTools → Application → Manifest)
-- Офлайн режим работает (Application → Service Worker → Offline)
-
-### 3. Тесты
-```bash
-npm run test
-```
-Тесты парсера лежат в `scripts/parse-spells.test.ts` и используют HTML-фикстуру; запускай `npm run test` после изменений.
-
-### 4. Финальная сборка
-```bash
-npm run build
-```
-Должна собираться без ошибок.
-
-### 5. Деплой
-```bash
-npm run deploy
-```
-Или вручную:
-```bash
+## Деплой
+GitHub Actions (`deploy.yml`) запускается автоматически при коммите в `main`.
+Деплой на `gh-pages` вручную:
+```powershell
 git checkout gh-pages
-git checkout main -- dist
-git add dist
+git add -f dist/
 git commit -m "Deploy"
-git push origin gh-pages
+git push origin gh-pages --force
 ```
 
-## Важные файлы
-- `src/types/spell.ts` — Zod-схемы, единственный источник типов
-- `src/composables/useSpells.ts` — загрузка, IndexedDB кэш, MiniSearch
-- `src/stores/index.ts` — Pinia: filters, settings, favorites, history, comparison
-- `src/router/index.ts` — маршруты
-- `scripts/parse-spells.ts` — парсинг каталога и batch-деталей `pf2.ru`
-- `.github/workflows/parse-spells.yml` — ежедневный cron (03:00 UTC)
-- `.github/workflows/deploy.yml` — деплой на gh-pages
-- `docs/decision_logs/` — все решения
+## Ключевые файлы
+- `src/App.vue` — главный компонент (router-view, AppHeader, AppSidebar)
+- `src/components/AppSidebar.vue` — фильтры (все на русском)
+- `src/components/AppHeader.vue` — хедер (все на русском)
+- `src/views/HomeView.vue` — главная страница (таблица/сетка, поиск)
+- `src/views/SpellDetailView.vue` — детали заклинания (вкладки Brief/Full)
+- `src/views/SettingsView.vue` — настройки
+- `src/stores/index.ts` — Pinia store (фильтры, настройки, избранное, история)
+- `src/composables/useSpells.ts` — загрузка данных, MiniSearch, фильтрация
+- `src/router/index.ts` — маршрутизация
+- `scripts/parse-spells.ts` — парсинг данных из pf2.ru и AoN
+- `vite.config.ts` — конфиг Vite (base: '/PFTH2E/', PWA настройки)
 
-## Известные проблемы
-- `vite.config.ts:52` — предупреждение о `__dirname` (нужно `import.meta.dirname` в будущем)
-- PWA-иконки в `public/` — заглушки 70 байт, нужно заменить на реальные SVG/PNG
-- `public/spells.json` содержит двуязычные описания; школа, классы и компоненты не получаются из текущего источника
-- `npm install` сообщил о 5 high severity уязвимостях; автоматический audit fix не запускался
-- Иконки в шаблонах (emoji) — пока встроены, можно вынести в SVG-спрайт
+## История изменений
+- `docs/decision_logs/2026-10-13-project-initialization.md` — инициализация
+- `docs/decision_logs/2026-10-14-build-toolchain-fix.md` — исправление toolchain
+- `docs/decision_logs/2026-10-14-parser-resume.md` — парсинг данных
+- `docs/decision_logs/2026-10-15-search-and-navigation-fix.md` — поиск и навигация
+- `docs/decision_logs/2026-10-15-sidebar-visual-fix.md` — визуал сайдбара
 
-## Команды для проверки
-```bash
-npm run lint       # ESLint + Prettier
-npm run typecheck  # vue-tsc --noEmit
-npm run test       # Vitest (если есть)
-npm run build      # production build
-npm run parse:spells  # генерация данных
-npm run deploy     # деплой на GitHub Pages
-```
+## Ограничения модели
+Модель auto-free имеет лимит на объём размышлений. Работать короткими шагами:
+- Читать только релевантные фрагменты кода
+- Не анализировать весь проект за один раз
+- Использовать `Read` с offset/limit для конкретных секций
+- Делать одно изменение за раз, проверять, затем продолжать
 
-## Ссылки
-- Репозиторий: https://github.com/YanKristsov/PFTH2E
-- Деплой: https://yankristsov.github.io/PFTH2E/
-- AGENTS.md — принципы работы, формат decision logs
-- docs/decision_logs/ — все решения
+## Node.js
+Установлен: Node.js 24.0.0, npm 11.3.0
+Путь: `C:\Program Files\nodejs`
+PATH настроен через реестр (HKCU\Environment)
+
+## Git
+Установлен: Git 2.56.0.windows.2
+Путь: `C:\Program Files\Git\cmd`
+Репозиторий: https://github.com/YanKristsov/PFTH2E
+Ветки: `main` (исходники), `gh-pages` (деплой)

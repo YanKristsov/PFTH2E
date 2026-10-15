@@ -94,7 +94,7 @@ export const UserSettingsSchema = z.object({
   theme: z.enum(['light', 'dark', 'system']).default('system'),
   language: z.enum(['ru', 'en']).default('ru'),
   viewMode: z.enum(['table', 'cards']).default('table'),
-  tableColumns: z.array(z.string()).default(['name', 'level', 'tradition', 'school', 'classes'])
+  tableColumns: z.array(z.string()).default(['name', 'level', 'tradition', 'school', 'traits', 'rarity'])
 })
 
 export type UserSettings = z.infer<typeof UserSettingsSchema>

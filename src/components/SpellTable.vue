@@ -2,6 +2,7 @@
 import { computed } from 'vue'
 import type { SpellIndex } from '@/types/spell'
 import { useSettingsStore } from '@/stores'
+import { TRADITION_LABELS, SCHOOL_LABELS, RARITY_LABELS } from '@/constants/translations'
 
 const props = defineProps<{
   spells: SpellIndex[]
@@ -39,8 +40,7 @@ function handleKeyDown(spell: SpellIndex, e: KeyboardEvent) {
 }
 
 function formatTraditions(traditions: string[]): string {
-  const icons: Record<string, string> = { arcane: '⚡', divine: '⛪', occult: '🔮', primal: '🌿' }
-  return traditions.map(t => icons[t] || t[0].toUpperCase()).join(' ')
+  return traditions.map(t => TRADITION_LABELS[t] || t).join(', ')
 }
 
 function formatClasses(classes: string[]): string {
@@ -55,16 +55,16 @@ function formatTraits(traits: string[]): string {
 <template>
   <div class="overflow-x-auto" role="region" aria-label="Spells table" tabindex="0">
     <table class="table" aria-describedby="table-desc">
-      <caption id="table-desc" class="sr-only">Spell list with filters for level, tradition, school, class, and traits</caption>
+      <caption id="table-desc" class="sr-only">Список заклинаний с фильтрами по уровню, традиции, школе, классам и чертам</caption>
       <thead>
         <tr>
-          <th v-if="columns.includes('name')" scope="col" style="width: 30%;">Name</th>
-          <th v-if="columns.includes('level')" scope="col" style="width: 60px;">Level</th>
-          <th v-if="columns.includes('tradition')" scope="col" style="width: 120px;">Tradition</th>
-          <th v-if="columns.includes('school')" scope="col" style="width: 120px;">School</th>
-          <th v-if="columns.includes('classes')" scope="col" style="width: 150px;">Classes</th>
-          <th v-if="columns.includes('traits')" scope="col" style="width: 200px;">Traits</th>
-          <th v-if="columns.includes('rarity')" scope="col" style="width: 100px;">Rarity</th>
+          <th v-if="columns.includes('name')" scope="col" style="width: 30%;">Название</th>
+          <th v-if="columns.includes('level')" scope="col" style="width: 60px;">Уровень</th>
+          <th v-if="columns.includes('tradition')" scope="col" style="width: 120px;">Традиция</th>
+          <th v-if="columns.includes('school')" scope="col" style="width: 120px;">Школа</th>
+          <th v-if="columns.includes('classes')" scope="col" style="width: 150px;">Классы</th>
+          <th v-if="columns.includes('traits')" scope="col" style="width: 200px;">Черты</th>
+          <th v-if="columns.includes('rarity')" scope="col" style="width: 100px;">Редкость</th>
           <th style="width: 40px;"></th>
         </tr>
       </thead>
@@ -75,7 +75,7 @@ function formatTraits(traits: string[]): string {
           :class="rowClass(spell)"
           tabindex="0"
           role="button"
-          :aria-label="`${spell.nameRu}, level ${spell.level}, ${formatTraditions(spell.tradition)}`"
+          :aria-label="`${spell.nameRu}, уровень ${spell.level}, ${formatTraditions(spell.tradition)}`"
           :aria-selected="props.selected.has(spell.id)"
           @click="handleRowClick(spell, $event)"
           @keydown="handleKeyDown(spell, $event)"
@@ -91,23 +91,23 @@ function formatTraits(traits: string[]): string {
             <span class="text-sm">{{ formatTraditions(spell.tradition) }}</span>
           </td>
           <td v-if="columns.includes('school')">
-            <span class="text-sm">{{ spell.school }}</span>
+            <span class="text-sm">{{ SCHOOL_LABELS[spell.school] || spell.school }}</span>
           </td>
-          <td v-if="columns.includes('classes')">
+          <td v-if="columns.includes('classes') && spell.classes.length > 0">
             <span class="text-sm">{{ formatClasses(spell.classes) }}</span>
           </td>
           <td v-if="columns.includes('traits')">
             <span class="text-sm">{{ formatTraits(spell.traits) }}</span>
           </td>
           <td v-if="columns.includes('rarity')">
-            <span class="badge" :class="`badge-${spell.rarity}`">{{ spell.rarity }}</span>
+            <span class="badge" :class="`badge-${spell.rarity}`">{{ RARITY_LABELS[spell.rarity] || spell.rarity }}</span>
           </td>
           <td>
             <input
               type="checkbox"
               :checked="props.selected.has(spell.id)"
               class="w-4 h-4 accent-[var(--color-accent)]"
-              :aria-label="`Select ${spell.nameRu}`"
+              :aria-label="`Выбрать ${spell.nameRu}`"
               @click.stop="emit('select', spell.id)"
             />
           </td>

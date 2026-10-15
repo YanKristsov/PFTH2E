@@ -5,6 +5,7 @@ import { useSpells } from '@/composables/useSpells'
 import { useFilterStore, useSettingsStore, useHistoryStore, useComparisonStore, useFavoritesStore } from '@/stores'
 import SpellCard from '@/components/SpellCard.vue'
 import SpellTable from '@/components/SpellTable.vue'
+import { TRADITION_LABELS, SCHOOL_LABELS } from '@/constants/translations'
 
 const route = useRoute()
 const router = useRouter()
@@ -13,11 +14,15 @@ const settingsStore = useSettingsStore()
 const historyStore = useHistoryStore()
 const comparisonStore = useComparisonStore()
 const favoritesStore = useFavoritesStore()
-const { search, loadError, isLoading, allClasses } = useSpells()
+const { search, loadError, isLoading, schools } = useSpells()
 
 const viewMode = computed(() => settingsStore.state.viewMode)
 const filteredSpells = computed(() => search(filterStore.state.searchQuery, filterStore.state))
 const selectedSpells = ref<Set<string>>(new Set())
+
+function traditionLabel(t: string) {
+  return TRADITION_LABELS[t] || t
+}
 
 onMounted(() => {
   const query = route.query.q
@@ -118,14 +123,14 @@ function clearSelection() {
         <label for="tradition-filter" class="input-label">Традиция</label>
         <select id="tradition-filter" v-model="filterStore.state.tradition" class="filter-select" multiple>
           <option value="">Все</option>
-          <option v-for="t in ['arcane', 'divine', 'occult', 'primal']" :key="t" :value="t" :class="{ 'capitalize': true }">{{ t }}</option>
+          <option v-for="t in ['arcane', 'divine', 'occult', 'primal']" :key="t" :value="t">{{ traditionLabel(t) }}</option>
         </select>
       </div>
       <div class="filter-group">
         <label for="school-filter" class="input-label">Школа</label>
         <select id="school-filter" v-model="filterStore.state.school" class="filter-select" multiple>
           <option value="">Все</option>
-          <option v-for="s in allClasses" :key="s" :value="s">{{ s }}</option>
+          <option v-for="s in schools" :key="s" :value="s">{{ SCHOOL_LABELS[s] || s }}</option>
         </select>
       </div>
       <div class="filter-group">

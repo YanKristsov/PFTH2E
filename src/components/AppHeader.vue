@@ -39,18 +39,18 @@ function getThemeIcon() {
         <span>PF2E Заклинания</span>
       </router-link>
       <form class="search-form flex-1" role="search" @submit="handleSearch">
-        <label for="search" class="sr-only">Search spells</label>
+        <label for="search" class="sr-only">Поиск заклинаний</label>
         <span class="search-icon" aria-hidden="true">🔍</span>
         <input
           id="search"
           v-model="searchQuery"
           type="search"
           class="search-input"
-          placeholder="Search spells... (⌘K)"
+          placeholder="Поиск заклинаний... (⌘K)"
           autocomplete="off"
           aria-describedby="search-hint"
         />
-        <span id="search-hint" class="sr-only">Press Enter to search, ⌘K to focus</span>
+        <span id="search-hint" class="sr-only">Нажмите Enter для поиска, ⌘K чтобы сфокусироваться</span>
       </form>
     </div>
     <div class="header-right flex items-center gap-sm">
@@ -62,11 +62,6 @@ function getThemeIcon() {
       >
         {{ getThemeIcon() }}
       </button>
-      <div class="dropdown">
-        <button class="btn btn-ghost" aria-label="Сменить язык" @click="settingsStore.state.language = settingsStore.state.language === 'ru' ? 'en' : 'ru'">
-          {{ settingsStore.state.language.toUpperCase() }}
-        </button>
-      </div>
       <router-link to="/favorites" class="btn btn-ghost" aria-label="Избранное">
         ⭐
         <span class="hidden mobile:hidden">Избранное</span>

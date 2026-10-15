@@ -5,6 +5,7 @@ import { useSpells } from '@/composables/useSpells'
 import { useFavoritesStore, useSettingsStore, useComparisonStore } from '@/stores'
 import SpellCard from '@/components/SpellCard.vue'
 import type { SpellIndex } from '@/types/spell'
+import { TRADITION_LABELS, SCHOOL_LABELS } from '@/constants/translations'
 
 const router = useRouter()
 const settingsStore = useSettingsStore()
@@ -71,9 +72,9 @@ function importFavorites(event: Event) {
   const reader = new FileReader()
   reader.onload = (e) => {
     if (favoritesStore.importFavorites(e.target?.result as string)) {
-      alert('Favorites imported')
+      alert('Избранное импортировано')
     } else {
-      alert('Import error: invalid JSON format')
+      alert('Ошибка импорта: неверный формат JSON')
     }
     input.value = ''
   }
@@ -84,11 +85,11 @@ function importFavorites(event: Event) {
 <template>
   <div class="favorites-view">
     <header class="content-header">
-      <h1 class="content-title">Favorites</h1>
+      <h1 class="content-title">Избранное</h1>
       <div class="content-actions">
-        <button class="btn btn-secondary" @click="exportFavorites">📥 Export JSON</button>
+        <button class="btn btn-secondary" @click="exportFavorites">📥 Экспортировать JSON</button>
         <label class="btn btn-secondary cursor-pointer">
-          📥 Import JSON
+          📥 Импортировать JSON
           <input type="file" accept=".json" hidden @change="importFavorites($event)" />
         </label>
       </div>
@@ -96,9 +97,9 @@ function importFavorites(event: Event) {
 
     <div v-if="favoriteSpells.length === 0" class="empty-state">
       <div class="empty-state-icon" aria-hidden="true">⭐</div>
-      <h3>No favorites yet</h3>
-      <p>Add spells to favorites by clicking the star on cards or in details</p>
-      <router-link to="/" class="btn btn-primary mt-md">Go to spells</router-link>
+      <h3>Нет избранных</h3>
+      <p>Добавляйте заклинания в избранное, нажимая звёздочку на карточке или в деталях</p>
+      <router-link to="/" class="btn btn-primary mt-md">К заклинаниям</router-link>
     </div>
 
     <div v-else class="spell-grid" :class="settingsStore.state.viewMode">
@@ -119,38 +120,38 @@ function importFavorites(event: Event) {
           <thead>
             <tr>
               <th scope="col" style="width: 40px;"></th>
-              <th scope="col">Name</th>
-              <th scope="col" style="width: 60px;">Lv.</th>
-              <th scope="col" style="width: 120px;">Tradition</th>
-              <th scope="col" style="width: 120px;">School</th>
-              <th scope="col">Notes</th>
+              <th scope="col">Название</th>
+              <th scope="col" style="width: 60px;">Уровень</th>
+              <th scope="col" style="width: 120px;">Традиция</th>
+              <th scope="col" style="width: 120px;">Школа</th>
+              <th scope="col">Заметки</th>
               <th scope="col" style="width: 40px;"></th>
             </tr>
           </thead>
           <tbody>
             <tr v-for="spell in favoriteSpells" :key="spell.id" tabindex="0" role="button" @click="viewSpell(spell.id)" @keydown.enter="viewSpell(spell.id)">
               <td>
-                <button class="btn btn-ghost btn-sm" aria-label="Remove from favorites" @click.stop="favoritesStore.remove(spell.id)">✕</button>
+                <button class="btn btn-ghost btn-sm" aria-label="Убрать из избранного" @click.stop="favoritesStore.remove(spell.id)">✕</button>
               </td>
               <td>
                 <div class="font-medium">{{ spell.nameRu }}</div>
                 <div v-if="spell.nameEn !== spell.nameRu" class="text-xs text-muted">{{ spell.nameEn }}</div>
               </td>
               <td><span class="chip chip-info">Lv. {{ spell.level }}</span></td>
-              <td><span class="text-sm">{{ spell.tradition.map(t => t[0].toUpperCase()).join(' ') }}</span></td>
-              <td>{{ spell.school }}</td>
+              <td><span class="text-sm">{{ spell.tradition.map((t: string) => (TRADITION_LABELS as unknown as Record<string, string>)[t] || t).join(' ') }}</span></td>
+              <td>{{ SCHOOL_LABELS[spell.school] || spell.school }}</td>
               <td>
                 <textarea
                   v-model="spell.notes"
                   class="w-full min-h-[60px] resize-none bg-transparent border-none focus:outline-none text-sm"
-                  placeholder="Notes..."
+                  placeholder="Заметки..."
                   aria-label="Spell notes"
                   @input="updateNotes(spell.id, spell.notes)"
                   @click.stop
                 ></textarea>
               </td>
               <td>
-                <button class="btn btn-ghost btn-sm" :aria-label="`Add ${spell.nameRu} to comparison`" @click.stop="toggleCompare(spell.id)">⚖️</button>
+                <button class="btn btn-ghost btn-sm" :aria-label="`Добавить ${spell.nameRu} в сравнение`" @click.stop="toggleCompare(spell.id)">⚖️</button>
               </td>
             </tr>
           </tbody>

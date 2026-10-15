@@ -16,13 +16,13 @@ const allData = computed(() => ({
 }))
 
 const columnLabels: Record<string, string> = {
-  name: 'Name',
-  level: 'Level',
-  tradition: 'Tradition',
-  school: 'School',
-  classes: 'Classes',
-  traits: 'Traits',
-  rarity: 'Rarity'
+  name: 'Название',
+  level: 'Уровень',
+  tradition: 'Традиция',
+  school: 'Школа',
+  classes: 'Классы',
+  traits: 'Черты',
+  rarity: 'Редкость'
 }
 
 const version = import.meta.env.VITE_APP_VERSION || '0.1.0'
@@ -124,21 +124,6 @@ function clearAll() {
         </div>
 
         <div>
-          <label class="input-label">Язык</label>
-          <div class="flex gap-sm">
-            <button
-              v-for="l in ['ru', 'en']"
-              :key="l"
-              class="btn flex-1"
-              :class="{ 'btn-primary': settingsStore.state.language === l, 'btn-secondary': settingsStore.state.language !== l }"
-              @click="settingsStore.setLanguage(l)"
-            >
-              {{ l.toUpperCase() }}
-            </button>
-          </div>
-        </div>
-
-        <div>
           <label class="input-label">Режим просмотра</label>
           <div class="flex gap-sm">
             <button
@@ -154,7 +139,7 @@ function clearAll() {
         </div>
 
         <div>
-          <label class="input-label">Table Columns</label>
+          <label class="input-label">Колонки таблицы</label>
           <div class="flex flex-wrap gap-sm">
             <label v-for="col in ['name', 'level', 'tradition', 'school', 'classes', 'traits', 'rarity']" :key="col" class="chip cursor-pointer" :class="{ 'chip-primary': settingsStore.state.tableColumns.includes(col) }" @click="toggleColumn(col)">
               <input type="checkbox" :checked="settingsStore.state.tableColumns.includes(col)" class="mr-xs" />

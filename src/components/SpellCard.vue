@@ -14,17 +14,17 @@ defineEmits<{
 }>()
 
 const traditionLabels: Record<string, string> = {
-  arcane: '⚡ Arcane',
-  divine: '⛪ Divine',
-  occult: '🔮 Occult',
-  primal: '🌿 Primal'
+  arcane: '⚡ Арканная',
+  divine: '⚪ Сакральная',
+  occult: '🔮 Окультая',
+  primal: '🌿 Первобытная'
 }
 
 const rarityLabels: Record<string, string> = {
-  common: 'Common',
-  uncommon: 'Uncommon',
-  rare: 'Rare',
-  unique: 'Unique'
+  common: 'Обычное',
+  uncommon: 'Необычное',
+  rare: 'Редкое',
+  unique: 'Уникальное'
 }
 
 const rarityColors: Record<string, string> = {
@@ -52,7 +52,7 @@ const rarityColors: Record<string, string> = {
         </span>
         <button
           class="btn btn-ghost btn-sm"
-          :aria-label="isFavorite ? 'Remove from favorites' : 'Add to favorites'"
+          :aria-label="isFavorite ? 'Убрать из избранного' : 'Добавить в избранное'"
           :aria-pressed="isFavorite"
           @click.stop="$emit('favorite', spellIndex.id)"
         >
@@ -60,7 +60,7 @@ const rarityColors: Record<string, string> = {
         </button>
         <button
           class="btn btn-ghost btn-sm"
-          :aria-label="isInComparison ? 'Remove from comparison' : 'Add to comparison'"
+          :aria-label="isInComparison ? 'Убрать из сравнения' : 'Добавить к сравнению'"
           :aria-pressed="isInComparison"
           @click.stop="$emit('compare', spellIndex.id)"
         >
@@ -78,8 +78,9 @@ const rarityColors: Record<string, string> = {
       <p class="text-sm text-secondary mb-sm">{{ spellIndex.school }}</p>
 
       <div class="flex flex-wrap gap-xs mb-sm">
-        <span v-for="c in spellIndex.classes.slice(0, 3)" :key="c" class="chip">{{ c }}</span>
+        <span v-if="spellIndex.classes.length > 0" v-for="c in spellIndex.classes.slice(0, 3)" :key="c" class="chip">{{ c }}</span>
         <span v-if="spellIndex.classes.length > 3" class="chip chip-info">+{{ spellIndex.classes.length - 3 }}</span>
+        <span v-if="spellIndex.classes.length === 0" class="chip chip-info">—</span>
       </div>
 
       <div class="flex flex-wrap gap-xs">
@@ -89,8 +90,8 @@ const rarityColors: Record<string, string> = {
     </div>
 
     <div class="card-footer flex items-center justify-between">
-      <span class="text-xs text-muted">Click for details</span>
-      <kbd class="text-xs text-muted px-sm py-xs rounded bg-[var(--color-background)]">Enter</kbd>
+      <span class="text-xs text-muted">Посмотреть детали</span>
+      <kbd class="text-xs text-muted px-sm py-xs rounded bg-[var(--color-background)]">Ввод</kbd>
     </div>
   </article>
 </template>
