@@ -1,0 +1,35 @@
+[
+  {
+    "id": "spell-1530",
+    "category": "spell",
+    "type": "Spell",
+    "spell_type": "Spell",
+    "name": "Fireball",
+    "level": 3,
+    "tradition": ["Arcane", "Primal"],
+    "trait": ["Concentrate", "Fire", "Manipulate"],
+    "actions": "Two Actions",
+    "range_raw": "500 feet",
+    "area_raw": "20-foot burst",
+    "saving_throw_markdown": "[basic](/Rules.aspx?ID=329) Reflex",
+    "rarity": "common",
+    "source": ["Player Core"],
+    "heighten_level": [3, 4, 5],
+    "markdown": "<title level=\"1\" right=\"Spell 3\">[Fireball](/Spells.aspx?ID=1530)</title>\n\n<traits><trait label=\"Fire\" /></traits>\n\n**Cast** [somatic](/Rules.aspx?ID=283), [verbal](/Rules.aspx?ID=284)\n\n---\n\nA roaring blast of fire hits a [dying](/Conditions.aspx?ID=69) creature.\n\n<img src=x onerror=alert(1)>\n\n---\n**Heightened (+1)** Damage increases by 2d6."
+  },
+  {
+    "id": "ritual-25",
+    "category": "ritual",
+    "type": "Ritual",
+    "name": "Daemonic Pact",
+    "level": 1,
+    "tradition": ["Occult"],
+    "trait": ["Conjuration", "Uncommon"],
+    "actions": "1 day",
+    "range_raw": "Touch",
+    "target_raw": "1 daemon",
+    "rarity": "uncommon",
+    "source": ["Bestiary 2"],
+    "markdown": "<title level=\"1\" right=\"Ritual 1\">[Daemonic Pact](/Rituals.aspx?ID=25)</title>\n\n**Cast** 1 day\n\n---\n\nYou call upon a daemon to assist you."
+  }
+]
