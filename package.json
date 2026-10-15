@@ -1,0 +1,50 @@
+{
+  "name": "pf2e-spells",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --ext .vue,.ts,.js",
+    "typecheck": "vue-tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "parse:spells": "tsx scripts/parse-spells.ts",
+    "deploy": "npm run parse:spells && npm run build && gh-pages -d dist"
+  },
+  "dependencies": {
+    "markdown-it": "^15.0.2",
+    "minisearch": "^7.2.0",
+    "pinia": "^4.0.3",
+    "vue": "^3.5.42",
+    "vue-router": "^4.6.4",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/jsdom": "^30.0.0",
+    "@types/node": "^24.13.3",
+    "@typescript-eslint/eslint-plugin": "^8.71.2",
+    "@typescript-eslint/parser": "^8.71.2",
+    "@vitejs/plugin-vue": "^6.0.8",
+    "@vue/test-utils": "^2.5.1",
+    "@vue/tsconfig": "^0.9.1",
+    "esbuild": "^0.28.2",
+    "eslint": "^10.12.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-vue": "^10.11.1",
+    "gh-pages": "^6.3.0",
+    "jsdom": "^29.1.1",
+    "playwright": "^1.64.0",
+    "prettier": "^3.9.10",
+    "tsx": "^4.20.6",
+    "typescript": "~6.0.2",
+    "vite": "^8.3.0",
+    "vite-plugin-pwa": "^2.0.0",
+    "vitest": "^5.0.4",
+    "vue-tsc": "^3.3.13",
+    "workbox-window": "^7.4.1"
+  }
+}
