@@ -1,1 +1,0 @@
-if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/PFTH2E/sw.js', { scope: '/PFTH2E/' })})}

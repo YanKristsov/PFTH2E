@@ -13,7 +13,7 @@ export default defineConfig({
       manifest: {
         name: 'PF2E Spells Reference',
         short_name: 'PF2E Spells',
-        description: 'Pathfinder 2e заклинания — поиск, фильтры, офлайн',
+        description: 'Pathfinder 2e заклинания — поиск, фильтры, офлайн справочник',
         theme_color: '#1a1a2e',
         background_color: '#fafafa',
         display: 'standalone',
@@ -58,16 +58,7 @@ export default defineConfig({
     minify: 'esbuild',
     cssCodeSplit: true,
     rollupOptions: {
-      output: {
-        manualChunks: (id: string) => {
-          if (id.includes('node_modules')) {
-            if (id.includes('vue') || id.includes('vue-router') || id.includes('pinia')) return 'vendor'
-            if (id.includes('minisearch')) return 'search'
-            if (id.includes('zod')) return 'parser'
-            return 'vendor'
-          }
-        }
-      }
+      input: 'index.html'
     }
   },
   server: {
