@@ -13,10 +13,11 @@
 
 ### Работает (проверено 2026-10-19)
 - `npm run typecheck` — 0 ошибок
-- `npm run test` — 5/5 тестов проходят
-- `npm run lint` — 0 ошибок (сгенерированные `assets/`, `sw.js`, `workbox-*.js` исключены в `eslint.config.js`)
+- `npm run test` — 10/10 тестов проходят (5 парсер + 5 словарей переводов)
+- `npm run lint` — 0 ошибок (задеплоенные артефакты `assets/`, `sw.js`, `workbox-*.js` исключены в `eslint.config.js`)
 - `npm run build` — 71 модуль, все ассеты генерируются
 - **Runtime-проверка (Playwright) локально и на живом сайте:** HTTP 200, отрендерено 2009 заклинаний, **0 console errors, 0 failed requests**
+- **Dev-сервер (Playwright):** `http://localhost:3000/PFTH2E/` — 2009 заклинаний, SPA-маршрут `/spell/1` работает, 0 console errors
 - Поиск (MiniSearch) — работает (Fireball → Огненный шар)
 - Фильтры — работают (уровень, традиция, школа, черты, редкость, источник, компоненты)
 - Детальная страница — работает (вкладки «Кратко» / «Полно»)
@@ -39,6 +40,8 @@
 - `src/constants/translations.ts` — единый словарь: `TRADITION_LABELS`, `RARITY_LABELS`, `SCHOOL_LABELS`, `COMPONENT_LABELS`, `TRAIT_LABELS` + функции `traditionLabel()`, `schoolLabel()`, `rarityLabel()`, `traitLabel()`, `componentInitial()`
 - Все компоненты используют эти функции, а не прямые обращения к константам
 - Чтобы добавить перевод — дописать пару в `TRAIT_LABELS`
+- **Тест `src/constants/translations.test.ts`** проверяет, что для каждой традиции, школы, редкости и английской черты из `public/spells.json` есть русская подпись. При добавлении новых данных тест укажет, чего не хватает
+- Полнота на 2026-10-19: черты 114/114, школы 9/9, традиции 4/4, редкость 4/4
 
 ### Визуал (сайдбар)
 - Все метки на русском (Уровень, Традиция, Школа, Класс, Черты, Компоненты, Редкость, Источник)
@@ -121,6 +124,7 @@ Copy-Item -Path "dist\*" -Destination "." -Recurse -Force
 ## Ключевые файлы
 - `src/App.vue` — главный компонент (router-view, AppHeader, AppSidebar)
 - `src/constants/translations.ts` — **словарь переводов** (традиции, школы, редкость, черты, компоненты)
+- `src/constants/translations.test.ts` — тест полноты словарей переводов
 - `src/components/AppSidebar.vue` — фильтры (все на русском)
 - `src/components/AppHeader.vue` — хедер, поиск, переключатель темы
 - `src/components/SpellCard.vue` — карточка заклинания (сетка, клик открывает детали)
