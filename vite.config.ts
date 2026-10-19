@@ -1,11 +1,46 @@
-import { defineConfig } from 'vite'
+import { defineConfig, type Plugin } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { VitePWA } from 'vite-plugin-pwa'
-import path from 'path'
+import { readFileSync } from 'node:fs'
+import path from 'node:path'
+
+const BASE = '/PFTH2E/'
+
+/**
+ * Корневой index.html содержит ПРОД-сборку (её отдаёт GitHub Pages),
+ * поэтому dev-серверу нужен отдельный шаблон index.dev.html.
+ */
+function devHtmlPlugin(): Plugin {
+  const templatePath = path.resolve(import.meta.dirname, 'index.dev.html')
+  return {
+    name: 'pf2e:dev-html',
+    enforce: 'pre',
+    configureServer(server) {
+      server.middlewares.use(async (req, res, next) => {
+        const url = (req.url || '').split('?')[0]
+        const isHtmlRequest =
+          url === '/' ||
+          url === BASE ||
+          url === '/index.html' ||
+          url.endsWith('/index.html')
+        if (!isHtmlRequest) {
+          next()
+          return
+        }
+        const raw = readFileSync(templatePath, 'utf-8')
+        const html = await server.transformIndexHtml(req.url ?? '/', raw)
+        res.statusCode = 200
+        res.setHeader('Content-Type', 'text/html; charset=utf-8')
+        res.end(html)
+      })
+    }
+  }
+}
 
 export default defineConfig({
-  base: '/PFTH2E/',
+  base: BASE,
   plugins: [
+    devHtmlPlugin(),
     vue(),
     VitePWA({
       registerType: 'autoUpdate',
@@ -17,8 +52,8 @@ export default defineConfig({
         theme_color: '#1a1a2e',
         background_color: '#fafafa',
         display: 'standalone',
-        scope: '/PFTH2E/',
-        start_url: '/PFTH2E/',
+        scope: BASE,
+        start_url: BASE,
         icons: [
           {
             src: 'pwa-192x192.png',
@@ -58,7 +93,13 @@ export default defineConfig({
     minify: 'esbuild',
     cssCodeSplit: true,
     rollupOptions: {
-      input: 'index.html'
+      input: 'index.dev.html',
+      output: {
+        entryFileNames: (chunk) => {
+          const name = chunk.name.replace(/\.dev$/, '')
+          return `assets/${name}-[hash].js`
+        }
+      }
     }
   },
   server: {

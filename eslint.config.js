@@ -9,7 +9,15 @@ export default [
   js.configs.recommended,
   ...pluginVue.configs['flat/recommended'],
   {
-    ignores: ['dist/**', 'node_modules/**', '*.config.*', 'scripts/**']
+    ignores: [
+      'dist/**',
+      'node_modules/**',
+      '*.config.*',
+      'scripts/**',
+      'assets/**',
+      'sw.js',
+      'workbox-*.js'
+    ]
   },
   {
     files: ['**/*.ts'],

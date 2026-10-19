@@ -51,3 +51,45 @@ GitHub Pages требует собранные файлы в корне ветк
 ## Известные ограничения
 - GitHub Pages обновляется с задержкой 1–2 минуты после push
 - В ветке `gh-pages` исторически остались `node_modules/`, `src/`, `public/` — мусор, но не влияет на работу сайта
+
+---
+
+# Дополнение: разделение dev/prod HTML (2026-10-19, вечер)
+
+## Контекст
+После первого успешного деплоя следующая `npm run build` упала:
+```
+Error: Failed to resolve /PFTH2E/assets/index-01VthlNm.js from D:/Files/PTHFNDR/index.html
+```
+
+## Диагностика
+Деплой копирует `dist/*` в корень репозитория. Поэтому корневой `index.html` после деплоя — **прод-сборка** со ссылкой `/PFTH2E/assets/index-01VthlNm.js`, а не dev-шаблон. На следующей сборке Vite взял этот файл как `rollupOptions.input` и попытался разрешить уже существующий (но отсутствующий на диске) путь бандла → падение.
+
+То есть dev-шаблон и прод-выход физически занимали один и тот же файл.
+
+## Решение
+Разделить шаблоны по разным файлам:
+
+| Файл | Назначение | Кто генерирует |
+|------|-----------|-----------------|
+| `index.dev.html` | шаблон исходников (`<script type="module" src="/src/main.ts">`) | вручную, в репозитории |
+| `index.html` (корень) | прод-сборка, которую отдаёт GitHub Pages | `scripts/postbuild.mjs` при деплое |
+| `dist/index.html` | результат сборки | `scripts/postbuild.mjs` |
+
+Изменения:
+- `index.dev.html` — новый файл-шаблон; пути к статике **без** `/PFTH2E/` (`href="/favicon.svg"`), иначе dev-сервер отдавал `/PFTH2E/PFTH2E/favicon.svg`
+- `vite.config.ts`:
+  - `build.rollupOptions.input = 'index.dev.html'`
+  - `build.rollupOptions.output.entryFileNames` — функция убирает `.dev` из имени entry-чанка → `assets/index-*.js`
+  - плагин `devHtmlPlugin()` (`enforce: 'pre'`) — в dev-режиме middleware отдаёт `index.dev.html` для HTML-запросов
+- `scripts/postbuild.mjs` — `renameSync('dist/index.dev.html', 'dist/index.html')`; вызывается как `postbuild` в `npm run build`
+- `eslint.config.js` — в `ignores` добавлены `assets/**`, `sw.js`, `workbox-*.js` (это задеплоенные артефакты, они ломали `npm run lint`)
+
+## Обоснование
+Физическое разделение шаблона и выхода сборки убирает класс ошибок «деплой ломает следующую сборку». Dev-сервер при этом работает как раньше — пользователь открывает `http://localhost:3000/PFTH2E/` и получает рабочее приложение с HMR.
+
+## Проверки
+- `npm run build` — проходит, `dist/index.html` содержит `<script src="/PFTH2E/assets/index-*.js">`
+- `npm run lint` — 0 ошибок; `npm run test` — 5/5; `npm run typecheck` — 0 ошибок
+- `scripts/check-runtime.ts` — HTTP 200, 2009 заклинаний, 0 console errors, 0 failed requests
+- dev-сервер — `http://localhost:3000/PFTH2E/` отдаёт `/PFTH2E/src/main.ts`, пути статики без двойного префикса

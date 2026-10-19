@@ -14,7 +14,7 @@
 ### Работает (проверено 2026-10-19)
 - `npm run typecheck` — 0 ошибок
 - `npm run test` — 5/5 тестов проходят
-- `npm run lint` — 0 ошибок в `src/` (ошибки остались только в сгенерированных `sw.js` / `workbox-*.js`)
+- `npm run lint` — 0 ошибок (сгенерированные `assets/`, `sw.js`, `workbox-*.js` исключены в `eslint.config.js`)
 - `npm run build` — 71 модуль, все ассеты генерируются
 - **Runtime-проверка (Playwright) локально и на живом сайте:** HTTP 200, отрендерено 2009 заклинаний, **0 console errors, 0 failed requests**
 - Поиск (MiniSearch) — работает (Fireball → Огненный шар)
@@ -71,11 +71,18 @@ GitHub Pages из ветки `gh-pages` обслуживает файлы **из
 ```powershell
 npm run build
 Copy-Item -Path "dist\*" -Destination "." -Recurse -Force
-& "C:\Program Files\Git\cmd\git.exe" rm -r --cached dist
-& "C:\Program Files\Git\cmd\git.exe" add -f assets/ index.html sw.js workbox-*.js manifest.webmanifest *.svg *.png robots.txt spells*.json
+& "C:\Program Files\Git\cmd\git.exe" rm -r --cached assets
+& "C:\Program Files\Git\cmd\git.exe" add assets/ index.html sw.js workbox-*.js manifest.webmanifest *.svg *.png robots.txt spells*.json index.dev.html scripts/postbuild.mjs vite.config.ts package.json eslint.config.js
 & "C:\Program Files\Git\cmd\git.exe" commit -m "Deploy"
 & "C:\Program Files\Git\cmd\git.exe" push origin gh-pages --force
 ```
+
+> `dist/` уже вне индекса git (в `.gitignore`), поэтому `git rm -r --cached dist` не нужен.
+> Старые хешированные ассеты в `assets/` нужно удалять перед копированием — иначе они копятся:
+> ```powershell
+> & "C:\Program Files\Git\cmd\git.exe" rm -r --cached assets
+> Remove-Item -Path .\assets -Recurse -Force
+> ```
 
 ### Особенности
 - `npx gh-pages -d dist` **НЕ работает** — падает с `ENAMETOOLONG` (в ветке слишком много файлов)
@@ -84,13 +91,20 @@ Copy-Item -Path "dist\*" -Destination "." -Recurse -Force
 - Git в этом окружении не в PATH, нужен полный путь: `& "C:\Program Files\Git\cmd\git.exe" ...`
 - PowerShell 5.1: **не поддерживает `&&`** — команды выполнять последовательно, отдельными вызовами
 
-### Требования Vite 8 (неочевидно)
-Vite 8 перешёл на rolldown и **не авто-инжектит `<script type="module">` в `index.html`** (в отличие от Vite 7 с rollup). Без этого сборка «успешна», но `dist/index.html` остаётся без ссылок на JS/CSS → белая страница.
+### Требования Vite 8 + разделение dev/prod HTML (неочевидно)
+
+**Главное правило:** корень `index.html` в репозитории — это **прод-сборка** (её отдаёт GitHub Pages). Использовать его как Vite-input нельзя: на следующей сборке Vite попытается разрешить уже собранный путь `/PFTH2E/assets/index-*.js` и упадёт с
+`Error: Failed to resolve /PFTH2E/assets/index-*.js from index.html`.
+
+Поэтому шаблон исходников вынесен в **`index.dev.html`**, а `index.html` в корне генерируется сборкой.
 
 Что обязательно должно быть:
-- `index.html` (в корне): `<script type="module" src="/src/main.ts"></script>` внутри `<body>`
-- `vite.config.ts`: `build.rollupOptions.input = 'index.html'`
+- `index.dev.html` (в корне): `<script type="module" src="/src/main.ts"></script>` внутри `<body>`; пути к статике **без** префикса `/PFTH2E/` (`href="/favicon.svg"`), иначе dev-сервер отдаст `/PFTH2E/PFTH2E/favicon.svg`
+- `vite.config.ts`: `build.rollupOptions.input = 'index.dev.html'` + плагин `devHtmlPlugin()`, который отдаёт `index.dev.html` в dev-режиме
+- `vite.config.ts`: `build.rollupOptions.output.entryFileNames` — убирает `.dev` из имени entry-чанка (`assets/index-*.js` вместо `assets/index.dev-*.js`)
+- `scripts/postbuild.mjs` — переименовывает `dist/index.dev.html` → `dist/index.html` (запускается как `postbuild` в `npm run build`)
 - Функция `manualChunks` в rolldown не поддерживается — её убрали
+- Vite 8 **не авто-инжектит** `<script type="module">` в HTML — тег должен быть в шаблоне явно
 
 ## Известные ограничения
 - Поле `classes` пусто у всех 2009 записей — pf2.ru и AoN не предоставляют классы. Интерфейс это скрывает (фильтр показывает «Недоступно», колонка убрана из дефолтных настроек таблицы)
@@ -123,7 +137,9 @@ Vite 8 перешёл на rolldown и **не авто-инжектит `<script
 - `scripts/parse-spells.ts` — парсинг данных из pf2.ru и AoN
 - `scripts/check-runtime.ts` — Playwright-проверка локальной сборки
 - `scripts/check-live.ts` — Playwright-проверка живого сайта
-- `vite.config.ts` — конфиг Vite (base: '/PFTH2E/', PWA, `input: 'index.html'`)
+- `vite.config.ts` — конфиг Vite (base: '/PFTH2E/', PWA, `input: 'index.dev.html'`, плагин `devHtmlPlugin`)
+- `index.dev.html` — шаблон HTML для dev-сборки (источник `<script type="module" src="/src/main.ts">`)
+- `scripts/postbuild.mjs` — переименование `dist/index.dev.html` → `dist/index.html`
 
 ## История изменений (decision logs)
 - `docs/decision_logs/2026-10-13-project-initialization.md` — инициализация

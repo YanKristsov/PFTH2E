@@ -69,7 +69,8 @@
 - **Ветка `gh-pages` — источник правды**: в ней и исходники (`src/`), и собранный сайт
 - GitHub Pages отдаёт файлы **из КОРНЯ ветки** → после сборки `dist/*` копируется в корень, `dist/` удаляется из индекса git
 - Подробности команд: `RESUME.md`, раздел «Деплой»
-- **Vite 8 (rolldown)**: не авто-инжектит `<script type="module">` в `index.html` — нужен явный тег + `build.rollupOptions.input = 'index.html'`
+- **Vite 8 (rolldown)**: не авто-инжектит `<script type="module">` в HTML — нужен явный тег
+- **Шаблон HTML — `index.dev.html`, а не `index.html`**: корень `index.html` занимает прод-сборка (её отдаёт Pages). `vite.config.ts`: `build.rollupOptions.input = 'index.dev.html'`, плагин `devHtmlPlugin()` отдаёт этот шаблон в dev, `scripts/postbuild.mjs` переименовывает `dist/index.dev.html` → `dist/index.html`. Использовать корневой `index.html` как Vite-input нельзя — падает `Failed to resolve /PFTH2E/assets/index-*.js`
 - **Парсеры**: Node.js скрипты в `scripts/`, проверка runtime через `scripts/check-runtime.ts` и `scripts/check-live.ts` (Playwright)
 
 ### 10. Приёмка работы
