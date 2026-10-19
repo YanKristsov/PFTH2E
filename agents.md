@@ -71,7 +71,7 @@
 - Подробности команд: `RESUME.md`, раздел «Деплой»
 - **Vite 8 (rolldown)**: не авто-инжектит `<script type="module">` в HTML — нужен явный тег
 - **Шаблон HTML — `index.dev.html`, а не `index.html`**: корень `index.html` занимает прод-сборка (её отдаёт Pages). `vite.config.ts`: `build.rollupOptions.input = 'index.dev.html'`, плагин `devHtmlPlugin()` отдаёт этот шаблон в dev, `scripts/postbuild.mjs` переименовывает `dist/index.dev.html` → `dist/index.html`. Использовать корневой `index.html` как Vite-input нельзя — падает `Failed to resolve /PFTH2E/assets/index-*.js`
-- **Парсеры**: Node.js скрипты в `scripts/`, проверка runtime через `scripts/check-runtime.ts` и `scripts/check-live.ts` (Playwright)
+- **Парсеры**: Node.js скрипты в `scripts/`, проверка runtime через `scripts/check-runtime.ts`, dev-сервера через `scripts/check-dev.ts` и живого сайта через `scripts/check-live.ts` (Playwright)
 
 ### 10. Приёмка работы
 Критерии для каждого этапа:
@@ -81,7 +81,8 @@
 4. Функционал работает: поиск, фильтры, детали, навигация
 5. PWA: работает офлайн (DevTools → Application → Offline)
 6. `npx tsx scripts/check-runtime.ts` — 0 console errors, 0 failed requests
-7. Деплой проходит, `npx tsx scripts/check-live.ts` подтверждает: сайт доступен на `https://yankristsov.github.io/PFTH2E/`
+7. `npx tsx scripts/check-dev.ts` — dev-сервер отдаёт index.dev.html на всех маршрутах (включая SPA)
+8. Деплой проходит, `npx tsx scripts/check-live.ts` подтверждает: сайт доступен на `https://yankristsov.github.io/PFTH2E/`
 
 ---
 
@@ -101,6 +102,7 @@
 - [ ] `npm run test` — проходит (если есть тесты)
 - [ ] `npm run build` — проходит, в `dist/index.html` есть скрипт и стили
 - [ ] `npx tsx scripts/check-runtime.ts` — нет ошибок в консоли
+- [ ] `npx tsx scripts/check-dev.ts` — dev-сервер отдаёт dev-шаблон (нужен запущенный `npm run dev`)
 - [ ] Обновлён `/docs/decision_logs/`
 - [ ] Обновлены `RESUME.md` и соответствующие docs-файлы
 - [ ] Коммит с понятным сообщением

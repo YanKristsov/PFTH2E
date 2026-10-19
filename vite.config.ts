@@ -9,6 +9,8 @@ const BASE = '/PFTH2E/'
 /**
  * Корневой index.html содержит ПРОД-сборку (её отдаёт GitHub Pages),
  * поэтому dev-серверу нужен отдельный шаблон index.dev.html.
+ * Middleware перехватывает все HTML-запросы, включая SPA-маршруты
+ * (/spell/:id и т.п.), иначе Vite отдаёт для них коренной прод-index.html.
  */
 function devHtmlPlugin(): Plugin {
   const templatePath = path.resolve(import.meta.dirname, 'index.dev.html')
@@ -17,12 +19,18 @@ function devHtmlPlugin(): Plugin {
     enforce: 'pre',
     configureServer(server) {
       server.middlewares.use(async (req, res, next) => {
+        if (req.method !== 'GET' && req.method !== 'HEAD') {
+          next()
+          return
+        }
         const url = (req.url || '').split('?')[0]
+        const accept = req.headers.accept || ''
         const isHtmlRequest =
+          accept.includes('text/html') ||
           url === '/' ||
           url === BASE ||
-          url === '/index.html' ||
-          url.endsWith('/index.html')
+          url.endsWith('/index.html') ||
+          url.endsWith('.html')
         if (!isHtmlRequest) {
           next()
           return

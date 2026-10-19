@@ -58,6 +58,7 @@ npm run parse:spells  # Парсинг данных из источников
 
 # Проверка runtime (Playwright, chromium установлен)
 npx tsx scripts/check-runtime.ts   # локальная сборка из dist/
+npx tsx scripts/check-dev.ts       # dev-сервер (нужен запущенный npm run dev)
 npx tsx scripts/check-live.ts      # живой сайт https://yankristsov.github.io/PFTH2E/
 ```
 
@@ -136,6 +137,7 @@ Copy-Item -Path "dist\*" -Destination "." -Recurse -Force
 - `src/types/spell.ts` — Zod-схемы и типы
 - `scripts/parse-spells.ts` — парсинг данных из pf2.ru и AoN
 - `scripts/check-runtime.ts` — Playwright-проверка локальной сборки
+- `scripts/check-dev.ts` — Playwright-проверка dev-сервера (dev-шаблон на всех маршрутах, включая SPA)
 - `scripts/check-live.ts` — Playwright-проверка живого сайта
 - `vite.config.ts` — конфиг Vite (base: '/PFTH2E/', PWA, `input: 'index.dev.html'`, плагин `devHtmlPlugin`)
 - `index.dev.html` — шаблон HTML для dev-сборки (источник `<script type="module" src="/src/main.ts">`)

@@ -93,3 +93,12 @@ Error: Failed to resolve /PFTH2E/assets/index-01VthlNm.js from D:/Files/PTHFNDR/
 - `npm run lint` — 0 ошибок; `npm run test` — 5/5; `npm run typecheck` — 0 ошибок
 - `scripts/check-runtime.ts` — HTTP 200, 2009 заклинаний, 0 console errors, 0 failed requests
 - dev-сервер — `http://localhost:3000/PFTH2E/` отдаёт `/PFTH2E/src/main.ts`, пути статики без двойного префикса
+
+## Дополнение: SPA-маршруты в dev-режиме
+Middleware `devHtmlPlugin()` изначально перехватывал только `/`, `/index.html` и пути с `/index.html`.
+Vite-овский SPA-fallback для остальных маршрутов (`/spell/:id`, `/settings`) отдавал коренной
+**прод**-`index.html` → в консоли `Failed to load url /PFTH2E/assets/index-*.js`, страница не грузится.
+
+Исправление: middleware отдаёт `index.dev.html` для **любого** запроса с `Accept: text/html`
+(плюс явные `/`, `/index.html`, `*.html`). Добавлен скрипт `scripts/check-dev.ts`, который
+проверяет dev-сервер в браузере на `/` и на SPA-маршруте.
