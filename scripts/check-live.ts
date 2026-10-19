@@ -52,11 +52,23 @@ for (const [needle, what] of checks) {
   console.log(`${found ? 'OK  ' : 'FAIL'} ${what}: "${needle}"`)
 }
 
-// проверка отсутствия английских терминов
+// Проверка отсутствия английских терминов в UI (шапка + разделы фильтров).
+// Список заклинаний и раздел «Источник» исключены намеренно: там по требованию
+// остаются оригинальные английские названия заклинаний (name.en) и названия источников.
 const english = ['Arcane', 'Divine', 'Occult', 'Primal', 'Common', 'Uncommon', 'Rare', 'Unique', 'Search spells', 'abjuration', 'evocation', 'necromancy']
-console.log('\n--- Проверка отсутствия английских терминов ---')
+const uiText = await page.evaluate(() => {
+  const parts: string[] = []
+  document.querySelectorAll('header').forEach((el) => parts.push(el.textContent || ''))
+  document.querySelectorAll('aside.sidebar .sidebar-section').forEach((sec) => {
+    const title = sec.querySelector('.sidebar-title')?.textContent?.trim()
+    if (title === 'Источник') return
+    parts.push(sec.textContent || '')
+  })
+  return parts.join('\n')
+})
+console.log('\n--- Проверка отсутствия английских терминов (UI) ---')
 for (const w of english) {
-  const found = bodyText.includes(w)
+  const found = uiText.includes(w)
   console.log(`${found ? 'FAIL' : 'OK  '} "${w}"${found ? ' <- НАЙДЕН' : ''}`)
 }
 
