@@ -65,7 +65,7 @@ const rarityColors: Record<string, string> = {
       <p class="text-sm text-secondary mb-sm">{{ schoolLabel(spellIndex.school) }}</p>
 
       <div class="flex flex-wrap gap-xs mb-sm">
-        <span v-if="spellIndex.classes.length > 0" v-for="c in spellIndex.classes.slice(0, 3)" :key="c" class="chip">{{ c }}</span>
+        <span v-for="c in spellIndex.classes.slice(0, 3)" :key="c" class="chip">{{ c }}</span>
         <span v-if="spellIndex.classes.length > 3" class="chip chip-info">+{{ spellIndex.classes.length - 3 }}</span>
         <span v-if="spellIndex.classes.length === 0" class="chip chip-info">—</span>
       </div>

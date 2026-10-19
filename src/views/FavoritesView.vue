@@ -5,7 +5,7 @@ import { useSpells } from '@/composables/useSpells'
 import { useFavoritesStore, useSettingsStore, useComparisonStore } from '@/stores'
 import SpellCard from '@/components/SpellCard.vue'
 import type { SpellIndex } from '@/types/spell'
-import { traditionLabel, schoolLabel, rarityLabel } from '@/constants/translations'
+import { traditionLabel, schoolLabel } from '@/constants/translations'
 
 const router = useRouter()
 const settingsStore = useSettingsStore()
