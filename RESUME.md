@@ -115,7 +115,9 @@ npm run deploy
 - `index.dev.html` (в корне): `<script type="module" src="/src/main.ts"></script>` внутри `<body>`; пути к статике **без** префикса `/PFTH2E/` (`href="/favicon.svg"`), иначе dev-сервер отдаст `/PFTH2E/PFTH2E/favicon.svg`
 - `vite.config.ts`: `build.rollupOptions.input = 'index.dev.html'` + плагин `devHtmlPlugin()`, который отдаёт `index.dev.html` в dev-режиме
 - `vite.config.ts`: `build.rollupOptions.output.entryFileNames` — убирает `.dev` из имени entry-чанка (`assets/index-*.js` вместо `assets/index.dev-*.js`)
-- `scripts/postbuild.mjs` — переименовывает `dist/index.dev.html` → `dist/index.html` (запускается как `postbuild` в `npm run build`)
+- `scripts/postbuild.mjs` — переименовывает `dist/index.dev.html` → `dist/index.html` + копирует `dist/index.html` → `dist/404.html` (запускается как `postbuild` в `npm run build`)
+- **`404.html` обязателен для GitHub Pages**: SPA-маршрутов (`/settings`, `/spell/:id`) на сервере не существует, GitHub отдаёт для них `404.html` из корня ветки. Без него прямой заход по ссылке или перезагрузка страницы показывают страницу 404 GitHub вместо приложения. HTTP-статус остаётся 404 — ограничение статичного хостинга
+- `index.dev.html` **нельзя удалять из репозитория** — это Vite-input для следующей сборки
 - Функция `manualChunks` в rolldown не поддерживается — её убрали
 - Vite 8 **не авто-инжектит** `<script type="module">` в HTML — тег должен быть в шаблоне явно
 
