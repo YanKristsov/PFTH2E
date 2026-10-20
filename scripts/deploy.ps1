@@ -40,7 +40,9 @@ $artifactsToClean = @(
   "pwa-maskable-192x192.png",
   "pwa-maskable-512x512.png",
   "spells.json",
-  "spells-parsed.json"
+  "spells.index.json",
+  "spells-parsed.json",
+  "icons.svg"
 )
 
 foreach ($pattern in $artifactsToClean) {
@@ -64,23 +66,9 @@ if (Test-Path (Join-Path $repoRoot "assets")) {
 Write-Host "==> Copying dist/ to root..." -ForegroundColor Cyan
 Copy-Item -Path (Join-Path $distDir "*") -Destination $repoRoot -Recurse -Force
 
-Write-Host "==> Removing dev/config files from root (not needed for site)..." -ForegroundColor Cyan
-$devFilesToRemove = @(
-  "index.dev.html"
-)
-foreach ($f in $devFilesToRemove) {
-  $p = Join-Path $repoRoot $f
-  if (Test-Path $p) {
-    Remove-Item -Path $p -Force
-    Write-Host "==> Removed $f" -ForegroundColor Yellow
-  }
-}
-
-$devDirsToRemove = @(
-  "scripts"
-)
-# Don't remove scripts entirely - might break git history? Better keep scripts/ but not add to deploy
-# Actually per requirement: remove files not needed. scripts/ contains parse etc, better not delete dir
+# ВАЖНО: index.dev.html НЕ удаляется — это шаблон, из которого Vite собирает прод-версию
+# (build.rollupOptions.input = 'index.dev.html'). Без него следующая сборка упадёт.
+# Файл нужен и в репозитории, чтобы собрать сайт из свежего клона.
 
 Write-Host "==> Git add..." -ForegroundColor Cyan
 & $gitExe add -A
