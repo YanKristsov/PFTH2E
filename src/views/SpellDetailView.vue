@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, computed, ref, watch } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useSpells } from '@/composables/useSpells'
 import { useFavoritesStore, useHistoryStore, useComparisonStore, useSettingsStore } from '@/stores'
@@ -11,7 +11,7 @@ const settingsStore = useSettingsStore()
 const favoritesStore = useFavoritesStore()
 const historyStore = useHistoryStore()
 const comparisonStore = useComparisonStore()
-const { getSpell, loadError } = useSpells()
+const { getSpell, loadError, spells } = useSpells()
 
 const spellId = computed(() => route.params.id as string)
 const spell = computed(() => getSpell(spellId.value))
@@ -46,18 +46,26 @@ const activeDescription = computed(() => {
   }
 })
 
-onMounted(() => {
-  if (!spell.value) {
-    router.push({ name: 'home' })
-    return
-  }
-  historyStore.add(spellId.value)
-})
+// Данные загружаются асинхронно (App.vue → useSpells().load()), поэтому проверять
+// существование заклинания можно только после загрузки списка — иначе прямая
+// ссылка на заклинание всегда редиректит на главную.
+watch(
+  [spells, spellId, loadError],
+  ([list, id, error]) => {
+    if (list.length === 0) {
+      if (error) router.push({ name: 'home' })
+      return
+    }
+    if (!getSpell(id)) {
+      router.push({ name: 'home' })
+      return
+    }
+    historyStore.add(id)
+  },
+  { immediate: true }
+)
 
-watch(spellId, (newId) => {
-  if (!getSpell(newId)) {
-    router.push({ name: 'home' })
-  }
+watch(spellId, () => {
   activeTab.value = 'brief'
 })
 

@@ -118,7 +118,7 @@ function clearAll() {
               :class="{ 'btn-primary': settingsStore.state.theme === t, 'btn-secondary': settingsStore.state.theme !== t }"
               @click="settingsStore.setTheme(t)"
             >
-              {{ t === 'light' ? '☀️ Light' : t === 'dark' ? '🌙 Dark' : '💻 System' }}
+              {{ t === 'light' ? '☀️ Светлая' : t === 'dark' ? '🌙 Тёмная' : '💻 Системная' }}
             </button>
           </div>
         </div>
@@ -133,7 +133,7 @@ function clearAll() {
               :class="{ 'btn-primary': settingsStore.state.viewMode === m, 'btn-secondary': settingsStore.state.viewMode !== m }"
               @click="settingsStore.setViewMode(m)"
             >
-              {{ m === 'table' ? '📊 Table' : '📋 Cards' }}
+              {{ m === 'table' ? '📊 Таблица' : '📋 Карточки' }}
             </button>
           </div>
         </div>
@@ -152,33 +152,33 @@ function clearAll() {
 
     <section class="card mb-md">
       <div class="card-header">
-        <h2 class="text-lg font-semibold">Data</h2>
+        <h2 class="text-lg font-semibold">Данные</h2>
       </div>
       <div class="card-body space-y-md">
         <div>
-          <h3 class="font-medium mb-sm">Export All Data</h3>
-          <p class="text-sm text-secondary mb-md">Download JSON with settings, favorites, and history for backup or transfer to another device.</p>
-          <button class="btn btn-primary" @click="downloadExport">📥 Download JSON</button>
+          <h3 class="font-medium mb-sm">Экспорт всех данных</h3>
+          <p class="text-sm text-secondary mb-md">Скачать JSON с настройками, избранным и историей для резервной копии или переноса на другое устройство.</p>
+          <button class="btn btn-primary" @click="downloadExport">📥 Скачать JSON</button>
         </div>
 
         <div class="border-t border-[var(--color-border)] pt-md">
-          <h3 class="font-medium mb-sm">Import Data</h3>
-          <p class="text-sm text-secondary mb-md">Select a previously exported JSON file to restore data.</p>
+          <h3 class="font-medium mb-sm">Импорт данных</h3>
+          <p class="text-sm text-secondary mb-md">Выберите ранее экспортированный JSON-файл, чтобы восстановить данные.</p>
           <label class="btn btn-secondary cursor-pointer">
-            📁 Choose File
+            📁 Выбрать файл
             <input type="file" accept=".json" hidden @change="handleImportFile($event)" />
           </label>
           <p v-if="importError" class="text-error text-sm mt-sm">{{ importError }}</p>
-          <p v-if="importFile" class="text-sm text-secondary mt-sm">Selected: {{ importFile.name }} ({{ (importFile.size / 1024).toFixed(1) }} KB)</p>
-          <button class="btn btn-primary mt-sm" :disabled="!importFile" @click="doImport">Import</button>
+          <p v-if="importFile" class="text-sm text-secondary mt-sm">Выбран файл: {{ importFile.name }} ({{ (importFile.size / 1024).toFixed(1) }} КБ)</p>
+          <button class="btn btn-primary mt-sm" :disabled="!importFile" @click="doImport">Импортировать</button>
         </div>
 
         <div class="border-t border-[var(--color-border)] pt-md">
-          <h3 class="font-medium mb-sm">Clear Data</h3>
+          <h3 class="font-medium mb-sm">Очистка данных</h3>
           <div class="flex flex-wrap gap-sm">
-            <button class="btn btn-danger" :disabled="!favoritesStore.items.length" @click="clearFavorites">Clear Favorites</button>
-            <button class="btn btn-danger" :disabled="!historyStore.items.length" @click="clearHistory">Clear History</button>
-            <button class="btn btn-danger" :disabled="!favoritesStore.items.length && !historyStore.items.length" @click="clearAll">Clear All</button>
+            <button class="btn btn-danger" :disabled="!favoritesStore.items.length" @click="clearFavorites">Очистить избранное</button>
+            <button class="btn btn-danger" :disabled="!historyStore.items.length" @click="clearHistory">Очистить историю</button>
+            <button class="btn btn-danger" :disabled="!favoritesStore.items.length && !historyStore.items.length" @click="clearAll">Очистить всё</button>
           </div>
         </div>
       </div>
@@ -186,14 +186,14 @@ function clearAll() {
 
     <section class="card mb-md">
       <div class="card-header">
-        <h2 class="text-lg font-semibold">About</h2>
+        <h2 class="text-lg font-semibold">О проекте</h2>
       </div>
       <div class="card-body space-y-sm text-sm text-secondary">
-        <p><strong>PF2E Spells Reference</strong> — offline spell reference for Pathfinder 2e</p>
-        <p>Data source: pf2.ru. School, class, and component details are not available from this source.</p>
-        <p>Data updated daily via GitHub Actions</p>
-        <p>Version: {{ version }}</p>
-        <p><a href="https://github.com/YanKristsov/PFTH2E" target="_blank" rel="noopener">GitHub Repository</a></p>
+        <p><strong>PF2E Заклинания</strong> — офлайн-справочник заклинаний Pathfinder 2e</p>
+        <p>Источник данных: pf2.ru. Данные о школах, классах и компонентах этот источник не предоставляет.</p>
+        <p>Данные обновляются при ручном деплое</p>
+        <p>Версия: {{ version }}</p>
+        <p><a href="https://github.com/YanKristsov/PFTH2E" target="_blank" rel="noopener">Репозиторий на GitHub</a></p>
       </div>
     </section>
   </div>

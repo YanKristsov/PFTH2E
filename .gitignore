@@ -26,5 +26,8 @@ dist-ssr
 # TypeScript build info
 *.tsbuildinfo
 
+# Рабочая папка со скриншотами (не участвует в сборке сайта)
+Arts/
+
 # Local git installation (should not be committed)
 Git/

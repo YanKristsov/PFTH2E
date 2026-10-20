@@ -34,10 +34,12 @@
 - **Компоненты:** Словесный (С), Жестовый (Ж), Материальный (М), Фокусный (Ф) — отображаются инициалами с подсказкой
 - **Черты:** 100+ терминов переведены (Acid→Кислота, Fire→Огонь, и т.д.)
 - Все служебные надписи: «К заклинаниям», «Ошибка загрузки», «В избранном», «Посмотреть детали», «Ввод», «Уровень N», «Кратко»/«Полно», «Усиление», «Варианты источника», «Доступна новая версия. Перезагрузить?»
+- **Страница «Настройки» переведена** (2026-10-20): «Данные», «Экспорт всех данных», «Импорт данных», «Очистка данных», «О проекте», «Светлая/Тёмная/Системная», «Таблица/Карточки», «Повторить»
+- **Названия активных фильтров** переведены (`FILTER_LABELS` + `filterLabel()`), значения — через `traditionLabel()`/`schoolLabel()`/`rarityLabel()`/`traitLabel()`
 - **На английском остаётся только:** оригинальные названия заклинаний (`name.en`) и названия источников («Archives of Nethys: Divine Mysteries») — по требованию
 
 ### Механизм переводов
-- `src/constants/translations.ts` — единый словарь: `TRADITION_LABELS`, `RARITY_LABELS`, `SCHOOL_LABELS`, `COMPONENT_LABELS`, `TRAIT_LABELS` + функции `traditionLabel()`, `schoolLabel()`, `rarityLabel()`, `traitLabel()`, `componentInitial()`
+- `src/constants/translations.ts` — единый словарь: `TRADITION_LABELS`, `RARITY_LABELS`, `SCHOOL_LABELS`, `COMPONENT_LABELS`, `TRAIT_LABELS`, `FILTER_LABELS` + функции `traditionLabel()`, `schoolLabel()`, `rarityLabel()`, `traitLabel()`, `filterLabel()`, `componentInitial()`
 - Все компоненты используют эти функции, а не прямые обращения к константам
 - Чтобы добавить перевод — дописать пару в `TRAIT_LABELS`
 - **Тест `src/constants/translations.test.ts`** проверяет, что для каждой традиции, школы, редкости и английской черты из `public/spells.json` есть русская подпись. При добавлении новых данных тест укажет, чего не хватает
@@ -46,9 +48,15 @@
 ### Визуал (сайдбар)
 - Все метки на русском (Уровень, Традиция, Школа, Класс, Черты, Компоненты, Редкость, Источник)
 - Чекбоксы выровнены справа (justify-between)
-- Уровень — горизонтальная прокрутка (overflow-x-auto)
+- **Уровень — сетка 6 колонок** (`grid-template-columns: repeat(6, minmax(0, 1fr))`): все чипы 0–10 помещаются в ширину сайдбара, горизонтальной прокрутки нет
 - Традиции/Школы — компактные (gap-2xs, py-2xs)
 - Классы — «Недоступно» (источники не предоставляют эту информацию)
+
+### Вёрстка и адаптивность (2026-10-20)
+- **Tailwind в проекте нет** — utility-классы самописные в `src/assets/styles/utils.css`. Перед добавлением нового класса в разметку его нужно определить в CSS, иначе он просто не применится
+- Классы со спецсимволами экранируются: `.min-w-\[200px\]`, `.border-\[var\(--color-border\)\]`, `.focus\:outline-none:focus` — без экранирования lightningcss считает `[200px]` атрибутным селектором и падает на сборке
+- Мобильный хедер не выходит за границы: `min-width: 0` у `.header-left`/`.search-form`, `flex-shrink: 0` у `.header-right`, на ≤480 px скрывается текст логотипа (остаётся иконка)
+- Таблица заклинаний скроллится по горизонтали внутри `.overflow-x-auto`; у `.spell-grid > *` стоит `min-width: 0`, иначе широкая таблица растягивает grid-трек
 
 ## Команды
 ```powershell
@@ -116,6 +124,7 @@ npm run deploy
 - Рекомендация по классам: подтянуть из стороннего датасета (Pf2SRD / d20pfsrd / Foundry VTT) сопоставлением по `name.ru` + `level`; ручное заполнение 2009 записей нереалистично
 - В ветке `gh-pages` исторически остались `node_modules/`, `src/`, `public/` — мусор, но на работу сайта не влияет
 - `dist/` и `node_modules/` в `.gitignore`
+- **Верхняя панель фильтров** (Поиск/Уровень/Традиция/Школа/Класс) — выпадающие списки обрезаны по высоте, часть вариантов видна только прокруткой; на мобильных панель занимает весь первый экран. Не исправлено — кандидат на следующий этап
 
 ## Ветки Git
 - **Источник правды — `gh-pages`.** В ней лежат и исходники (`src/`), и собранный сайт в корне
@@ -147,6 +156,10 @@ npm run deploy
 - `vite.config.ts` — конфиг Vite (base: '/PFTH2E/', PWA, `input: 'index.dev.html'`, плагин `devHtmlPlugin`)
 - `index.dev.html` — шаблон HTML для dev-сборки (источник `<script type="module" src="/src/main.ts">`)
 - `scripts/postbuild.mjs` — переименование `dist/index.dev.html` → `dist/index.html`
+- `scripts/deploy.ps1` — **рабочий деплой**: сборка → очистка старых артефактов → копирование `dist/*` в корень → commit → force-push в `gh-pages`
+- `src/assets/styles/utils.css` — самописные utility-классы (Tailwind в проекте нет)
+- `src/assets/styles/components.css` — компоненты (`.chip`, `.table`, `.prose`, `.badge`)
+- `src/assets/styles/layout.css` — сетка приложения, сайдбар, хедер, адаптивность
 
 ## История изменений (decision logs)
 - `docs/decision_logs/2026-10-13-project-initialization.md` — инициализация
@@ -156,6 +169,8 @@ npm run deploy
 - `docs/decision_logs/2026-10-15-sidebar-visual-fix.md` — визуал сайдбара
 - `docs/decision_logs/2026-10-15-russian-labels-and-dirname-fix.md` — перевод меток, `__dirname` → `import.meta.dirname`
 - `docs/decision_logs/2026-10-19-fix-github-pages-deploy.md` — **исправление белой страницы** (Vite 8 + деплой в корень ветки)
+- `docs/decision_logs/2026-10-20-deploy-script.md` — рабочий скрипт деплоя (`npm run deploy`)
+- `docs/decision_logs/2026-10-20-sidebar-layout-and-ru-ui.md` — **вёрстка сайдбара, мобильная адаптация, полный перевод интерфейса**
 
 ## Ограничения модели
 Модель auto-free имеет лимит на объём размышлений. Работать короткими шагами:

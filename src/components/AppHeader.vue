@@ -33,7 +33,7 @@ function getThemeIcon() {
 <template>
   <header class="header" role="banner">
     <div class="header-left flex items-center gap-md flex-1">
-      <MobileMenuButton aria-label="Open menu" @click="showMobileMenu = true" />
+      <MobileMenuButton aria-label="Открыть меню" @click="showMobileMenu = true" />
       <router-link to="/" class="logo" aria-label="Главная">
         <span class="logo-icon" aria-hidden="true">📜</span>
         <span>PF2E Заклинания</span>
@@ -75,7 +75,7 @@ function getThemeIcon() {
 
   <Teleport to="body">
     <div v-if="showMobileMenu" class="sidebar-overlay open" aria-hidden="true" @click="showMobileMenu = false"></div>
-    <aside v-if="showMobileMenu" class="sidebar open" role="dialog" aria-label="Navigation menu">
+    <aside v-if="showMobileMenu" class="sidebar open" role="dialog" aria-label="Меню навигации">
       <div class="flex items-center justify-between p-md border-b border-[var(--color-border)]">
         <h2 class="text-lg font-semibold">Меню</h2>
         <button class="btn btn-ghost" aria-label="Закрыть меню" @click="showMobileMenu = false">✕</button>

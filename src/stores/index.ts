@@ -55,7 +55,8 @@ export const useSettingsStore = defineStore('settings', () => {
     theme: 'system',
     language: 'ru',
     viewMode: 'table',
-    tableColumns: ['name', 'level', 'tradition', 'school', 'classes']
+    // колонка «classes» пуста во всех записях (источники не дают классы) — по умолчанию скрыта
+    tableColumns: ['name', 'level', 'tradition', 'school']
   })
 
   function load() {

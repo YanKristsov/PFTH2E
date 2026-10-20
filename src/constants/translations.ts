@@ -148,6 +148,18 @@ export const TRAIT_LABELS: Record<string, string> = {
   Wood: 'Дерево'
 }
 
+export const FILTER_LABELS: Record<string, string> = {
+  level: 'Уровень',
+  tradition: 'Традиция',
+  school: 'Школа',
+  classes: 'Класс',
+  traits: 'Черта',
+  components: 'Компонент',
+  rarity: 'Редкость',
+  source: 'Источник',
+  searchQuery: 'Поиск'
+}
+
 export function componentInitial(component: string): string {
   const labels: Record<string, string> = {
     V: 'С',
@@ -172,4 +184,8 @@ export function schoolLabel(school: string): string {
 
 export function rarityLabel(rarity: string): string {
   return RARITY_LABELS[rarity] || rarity
+}
+
+export function filterLabel(key: string): string {
+  return FILTER_LABELS[key] || key
 }

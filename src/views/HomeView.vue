@@ -91,8 +91,8 @@ function clearSelection() {
     </header>
 
     <div v-if="loadError" class="card p-md mb-md" style="border-color: var(--color-error);">
-      <p class="text-error">Load error: {{ loadError }}</p>
-      <button class="btn btn-primary mt-sm" @click="router.go(0)">Retry</button>
+      <p class="text-error">Ошибка загрузки: {{ loadError }}</p>
+      <button class="btn btn-primary mt-sm" @click="router.go(0)">Повторить</button>
     </div>
 
     <div class="filter-bar" role="search" aria-label="Фильтры заклинаний">

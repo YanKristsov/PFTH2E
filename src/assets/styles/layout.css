@@ -10,13 +10,13 @@
   padding: 0 var(--spacing-lg);
   z-index: 50;
 }
-.header-left { display: flex; align-items: center; gap: var(--spacing-lg); }
-.header-right { display: flex; align-items: center; gap: var(--spacing-sm); }
+.header-left { display: flex; align-items: center; gap: var(--spacing-lg); min-width: 0; }
+.header-right { display: flex; align-items: center; gap: var(--spacing-sm); flex-shrink: 0; }
 
 .logo { display: flex; align-items: center; gap: var(--spacing-sm); font-weight: 700; font-size: 1.125rem; color: var(--color-text); }
 .logo-icon { width: 32px; height: 32px; }
 
-.search-form { position: relative; width: 100%; max-width: 400px; }
+.search-form { position: relative; width: 100%; max-width: 400px; min-width: 0; }
 .search-input {
   width: 100%;
   padding: var(--spacing-sm) var(--spacing-md) var(--spacing-sm) 40px;
@@ -65,8 +65,10 @@
 .active-filter-chip button:hover { opacity: 1; }
 
 .spell-grid { display: grid; gap: var(--spacing-md); }
-.spell-grid.table { grid-template-columns: 1fr; }
+.spell-grid.table { grid-template-columns: minmax(0, 1fr); }
 .spell-grid.cards { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+/* без min-width: 0 широкая таблица растягивает grid-трек и ломает горизонтальный скролл */
+.spell-grid > * { min-width: 0; }
 
 @media (max-width: 768px) {
   .sidebar { position: fixed; left: 0; top: var(--header-height); bottom: 0; z-index: 40; transform: translateX(-100%); transition: transform var(--transition-normal); }
@@ -76,11 +78,17 @@
 
   .search-form { max-width: none; flex: 1; }
   .header { padding: 0 var(--spacing-md); }
+  .header-left { gap: var(--spacing-sm); }
   .content { padding: var(--spacing-md); }
   .content-title { font-size: 1.25rem; }
   .filter-bar { flex-direction: column; align-items: stretch; }
   .filter-select { min-width: 0; }
   .spell-grid.cards { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  /* на узких экранах оставляем только иконку логотипа, чтобы хедер не выходил за границы */
+  .logo > span:not(.logo-icon) { display: none; }
 }
 
 @media (max-width: 1024px) {

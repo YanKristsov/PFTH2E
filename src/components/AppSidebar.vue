@@ -4,7 +4,7 @@ import { useRoute } from 'vue-router'
 import { useSpells } from '@/composables/useSpells'
 import { useFilterStore } from '@/stores'
 import type { FilterState } from '@/types/spell'
-import { COMPONENT_LABELS, traitLabel, traditionLabel, schoolLabel, rarityLabel } from '@/constants/translations'
+import { COMPONENT_LABELS, filterLabel, traitLabel, traditionLabel, schoolLabel, rarityLabel } from '@/constants/translations'
 
 const route = useRoute()
 const { schools, allTraits, allSources, traditions } = useSpells()
@@ -29,11 +29,33 @@ function clearAllFilters() {
 function componentLabel(c: string) {
   return COMPONENT_LABELS[c] || c
 }
+
+function filterValueLabel(key: keyof FilterState, value: unknown): string {
+  const raw = String(value)
+  switch (key) {
+    case 'tradition':
+      return traditionLabel(raw)
+    case 'school':
+      return schoolLabel(raw)
+    case 'rarity':
+      return rarityLabel(raw)
+    case 'traits':
+      return traitLabel(raw)
+    case 'components':
+      return componentLabel(raw)
+    default:
+      return raw
+  }
+}
+
+function filterValueText(filter: { key: keyof FilterState; value: FilterState[keyof FilterState] }): string {
+  return (filter.value as unknown[]).map(v => filterValueLabel(filter.key, v)).join(', ')
+}
 </script>
 
 <template>
-  <aside class="sidebar" role="navigation" aria-label="Filters and navigation">
-    <nav class="sidebar-nav p-md border-b border-[var(--color-border)]" aria-label="Main navigation">
+  <aside class="sidebar" role="navigation" aria-label="Фильтры и навигация">
+    <nav class="sidebar-nav p-md border-b border-[var(--color-border)]" aria-label="Основная навигация">
       <router-link
         v-for="item in [
           { name: 'home', label: 'Все заклинания', icon: '📜' },
@@ -67,39 +89,37 @@ function componentLabel(c: string) {
             :key="filter.key"
             class="active-filter-chip"
           >
-            {{ filter.key }}: {{ (filter.value as unknown[]).join(', ') }}
-            <button aria-label="Remove filter" @click="filterStore.toggleFilter(filter.key, (filter.value as unknown[])[0] as never)">×</button>
+            {{ filterLabel(filter.key) }}: {{ filterValueText(filter) }}
+            <button aria-label="Убрать фильтр" @click="filterStore.toggleFilter(filter.key, (filter.value as unknown[])[0] as never)">×</button>
           </span>
           <span v-if="filterStore.state.searchQuery" class="active-filter-chip">
             Поиск: "{{ filterStore.state.searchQuery }}"
-            <button aria-label="Remove search" @click="filterStore.setFilter('searchQuery', '')">×</button>
+            <button aria-label="Убрать поиск" @click="filterStore.setFilter('searchQuery', '')">×</button>
           </span>
         </div>
       </div>
 
       <div class="sidebar-section">
         <h3 class="sidebar-title">Уровень</h3>
-        <div class="overflow-x-auto -mx-md px-md">
-          <div class="flex flex-nowrap gap-xs min-w-full pb-xs">
-            <button
-              v-for="l in 10"
-              :key="l"
-              class="chip flex-shrink-0"
-              :class="{ 'chip-primary': filterStore.state.level.includes(l) }"
-              :aria-pressed="filterStore.state.level.includes(l)"
-              @click="filterStore.toggleFilter('level', l)"
-            >
-              {{ l }}
-            </button>
-            <button
-              class="chip flex-shrink-0"
-              :class="{ 'chip-primary': filterStore.state.level.includes(0) }"
-              :aria-pressed="filterStore.state.level.includes(0)"
-              @click="filterStore.toggleFilter('level', 0)"
-            >
-              0
-            </button>
-          </div>
+        <div class="level-grid">
+          <button
+            v-for="l in 10"
+            :key="l"
+            class="chip level-chip"
+            :class="{ 'chip-primary': filterStore.state.level.includes(l) }"
+            :aria-pressed="filterStore.state.level.includes(l)"
+            @click="filterStore.toggleFilter('level', l)"
+          >
+            {{ l }}
+          </button>
+          <button
+            class="chip level-chip"
+            :class="{ 'chip-primary': filterStore.state.level.includes(0) }"
+            :aria-pressed="filterStore.state.level.includes(0)"
+            @click="filterStore.toggleFilter('level', 0)"
+          >
+            0
+          </button>
         </div>
       </div>
 
@@ -209,4 +229,16 @@ function componentLabel(c: string) {
 /* Styles in layout.css and components.css */
 .max-h-48 { max-height: 12rem; }
 .capitalize { text-transform: capitalize; }
+
+/* Уровни 0–10: сетка, чтобы все чипы помещались в ширину сайдбара без горизонтальной прокрутки */
+.level-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: var(--spacing-xs);
+}
+.level-chip {
+  justify-content: center;
+  padding-left: 0;
+  padding-right: 0;
+}
 </style>
