@@ -29,6 +29,7 @@ $artifactsToClean = @(
   "workbox-register-sw.js",
   "workbox-*.js",
   "manifest.webmanifest",
+  "404.html",
   "registerSW.js",
   "robots.txt",
   "favicon.svg",
