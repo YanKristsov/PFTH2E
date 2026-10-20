@@ -12,7 +12,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "parse:spells": "tsx scripts/parse-spells.ts",
-    "deploy": "npm run parse:spells && npm run build && gh-pages -d dist"
+    "deploy": "powershell -ExecutionPolicy Bypass -File ./scripts/deploy.ps1"
   },
   "dependencies": {
     "markdown-it": "^15.0.2",

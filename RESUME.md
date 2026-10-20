@@ -73,13 +73,17 @@ GitHub Pages из ветки `gh-pages` обслуживает файлы **из
 
 ### Команды деплоя
 ```powershell
-npm run build
-Copy-Item -Path "dist\*" -Destination "." -Recurse -Force
-& "C:\Program Files\Git\cmd\git.exe" rm -r --cached assets
-& "C:\Program Files\Git\cmd\git.exe" add assets/ index.html sw.js workbox-*.js manifest.webmanifest *.svg *.png robots.txt spells*.json index.dev.html scripts/postbuild.mjs vite.config.ts package.json eslint.config.js
-& "C:\Program Files\Git\cmd\git.exe" commit -m "Deploy"
-& "C:\Program Files\Git\cmd\git.exe" push origin gh-pages --force
+npm run deploy
 ```
+
+Скрипт `scripts/deploy.ps1`:
+1. `npm run build` (vue-tsc + vite build + postbuild)
+2. Удаляет старые артефакты сайта в корне (`assets/`, `sw.js`, `workbox-*.js`, `manifest.webmanifest`, иконки, `robots.txt`, `spells*.json`)
+3. Копирует `dist/*` в корень
+4. Удаляет `index.dev.html` (не нужен для работы сайта)
+5. `git add -A`, коммит, `git push origin gh-pages --force` через `C:\Program Files\Git\cmd\git.exe`
+
+> `parse:spells` убран из деплоя — данные закоммичены в репозитории. `dist/` в `.gitignore`.
 
 > `dist/` уже вне индекса git (в `.gitignore`), поэтому `git rm -r --cached dist` не нужен.
 > Старые хешированные ассеты в `assets/` нужно удалять перед копированием — иначе они копятся:
@@ -89,11 +93,8 @@ Copy-Item -Path "dist\*" -Destination "." -Recurse -Force
 > ```
 
 ### Особенности
-- `npx gh-pages -d dist` **НЕ работает** — падает с `ENAMETOOLONG` (в ветке слишком много файлов)
-- GitHub Pages обновляется с задержкой **1–2 минуты** после push
-- GitHub Actions workflow **отсутствует** — деплой полностью ручной
-- Git в этом окружении не в PATH, нужен полный путь: `& "C:\Program Files\Git\cmd\git.exe" ...`
-- PowerShell 5.1: **не поддерживает `&&`** — команды выполнять последовательно, отдельными вызовами
+- `npx gh-pages -d dist` **НЕ работает** — падает с `ENAMETOOLONG` (в ветке слишком много файлов) 
+- Деплой через `npm run deploy` (PowerShell-скрипт) — рабочий вариант. старые хешированные ассеты в `assets/` очищаются перед копированием.
 
 ### Требования Vite 8 + разделение dev/prod HTML (неочевидно)
 
