@@ -12,6 +12,7 @@ export const useFilterStore = defineStore('filters', () => {
     components: [],
     source: [],
     rarity: [],
+    actions: [],
     searchQuery: ''
   })
 
@@ -36,6 +37,7 @@ export const useFilterStore = defineStore('filters', () => {
       components: [],
       source: [],
       rarity: [],
+      actions: [],
       searchQuery: ''
     }
   }

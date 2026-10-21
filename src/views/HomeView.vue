@@ -85,7 +85,7 @@ function clearSelection() {
       <button class="btn btn-primary mt-md" @click="filterStore.clearFilters">Сбросить фильтры</button>
     </div>
 
-    <div v-else class="spell-grid" :class="viewMode">
+    <template v-else>
       <SpellTable
         v-if="viewMode === 'table'"
         :spells="filteredSpells"
@@ -93,7 +93,7 @@ function clearSelection() {
         @select="toggleSelect"
         @view="viewSpell"
       />
-      <div v-else class="flex flex-wrap gap-md">
+      <div v-else class="spell-grid cards">
         <SpellCard
           v-for="spellIndex in filteredSpells"
           :key="spellIndex.id"
@@ -105,7 +105,7 @@ function clearSelection() {
           @compare="toggleCompare"
         />
       </div>
-    </div>
+    </template>
 
     <div v-if="selectedSpells.size > 0" class="fixed bottom-4 right-4 z-30 flex flex-col gap-sm">
       <button class="btn btn-primary shadow-lg" @click="addToComparison">

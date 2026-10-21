@@ -32,6 +32,17 @@ function componentLabel(c: string) {
 
 function filterValueLabel(key: keyof FilterState, value: unknown): string {
   const raw = String(value)
+  if (key === 'actions') {
+    const map: Record<string, string> = {
+      '1': '1 действие',
+      '2': '2 действия',
+      '3': '3 действия',
+      reaction: 'Реакция',
+      free: 'Свободное',
+      time: 'Время'
+    }
+    return map[raw] || raw
+  }
   switch (key) {
     case 'tradition':
       return traditionLabel(raw)
@@ -103,6 +114,14 @@ function filterValueText(filter: { key: keyof FilterState; value: FilterState[ke
         <h3 class="sidebar-title">Уровень</h3>
         <div class="level-grid">
           <button
+            class="chip level-chip"
+            :class="{ 'chip-primary': filterStore.state.level.includes(0) }"
+            :aria-pressed="filterStore.state.level.includes(0)"
+            @click="filterStore.toggleFilter('level', 0)"
+          >
+            0
+          </button>
+          <button
             v-for="l in 10"
             :key="l"
             class="chip level-chip"
@@ -111,14 +130,6 @@ function filterValueText(filter: { key: keyof FilterState; value: FilterState[ke
             @click="filterStore.toggleFilter('level', l)"
           >
             {{ l }}
-          </button>
-          <button
-            class="chip level-chip"
-            :class="{ 'chip-primary': filterStore.state.level.includes(0) }"
-            :aria-pressed="filterStore.state.level.includes(0)"
-            @click="filterStore.toggleFilter('level', 0)"
-          >
-            0
           </button>
         </div>
       </div>
@@ -172,6 +183,29 @@ function filterValueText(filter: { key: keyof FilterState; value: FilterState[ke
               @change="filterStore.toggleFilter('traits', t)"
             />
           </label>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <h3 class="sidebar-title">Действия</h3>
+        <div class="flex flex-wrap gap-xs">
+          <button
+            v-for="a in [
+              { id: '1', label: '1' },
+              { id: '2', label: '2' },
+              { id: '3', label: '3' },
+              { id: 'reaction', label: 'Реакция' },
+              { id: 'free', label: 'Свободное' },
+              { id: 'time', label: 'Время' }
+            ]"
+            :key="a.id"
+            class="chip"
+            :class="{ 'chip-primary': filterStore.state.actions.includes(a.id) }"
+            :aria-pressed="filterStore.state.actions.includes(a.id)"
+            @click="filterStore.toggleFilter('actions', a.id)"
+          >
+            {{ a.label }}
+          </button>
         </div>
       </div>
 

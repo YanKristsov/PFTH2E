@@ -8,6 +8,17 @@ const isLoading = ref(false)
 const loadError = ref<string | null>(null)
 const miniSearch = ref<MiniSearch<SpellIndex> | null>(null)
 
+function getActionCategory(castTime: string): string {
+  const v = (castTime || '').toLowerCase()
+  if (/reaction/.test(v)) return 'reaction'
+  if (/free/.test(v)) return 'free'
+  if (/three/.test(v)) return '3'
+  if (/two/.test(v)) return '2'
+  if (/single|1 action/.test(v)) return '1'
+  if (/minute|min/.test(v) || /hour/.test(v) || /day|week/.test(v)) return 'time'
+  return 'other'
+}
+
 async function fetchSpells(): Promise<Spell[]> {
   const baseUrl = import.meta.env.BASE_URL
   const response = await fetch(`${baseUrl}spells.json`)
@@ -134,6 +145,13 @@ export function useSpells() {
     }
     if (filters.rarity?.length) {
       filtered = filtered.filter(r => filters.rarity!.includes(r.rarity))
+    }
+    if (filters.actions?.length) {
+      filtered = filtered.filter(r => {
+        const spell = spells.value.find(s => s.id === r.id)
+        if (!spell) return false
+        return filters.actions!.includes(getActionCategory(spell.castTime) as any)
+      })
     }
 
     return filtered

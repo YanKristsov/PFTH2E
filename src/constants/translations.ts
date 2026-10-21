@@ -157,6 +157,7 @@ export const FILTER_LABELS: Record<string, string> = {
   components: 'Компонент',
   rarity: 'Редкость',
   source: 'Источник',
+  actions: 'Действия',
   searchQuery: 'Поиск'
 }
 

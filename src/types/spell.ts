@@ -85,6 +85,7 @@ export const FilterStateSchema = z.object({
   components: z.array(z.enum(['V', 'S', 'M', 'F'])).default([]),
   source: z.array(z.string()).default([]),
   rarity: z.array(z.enum(['common', 'uncommon', 'rare', 'unique'])).default([]),
+  actions: z.array(z.enum(['1', '2', '3', 'reaction', 'free', 'time', 'other'])).default([]),
   searchQuery: z.string().default('')
 })
 
