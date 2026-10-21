@@ -1,12 +1,18 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import type { SpellIndex } from '@/types/spell'
 import { rarityLabel, schoolLabel, traditionLabel, traitLabel } from '@/constants/translations'
+import { useSpells } from '@/composables/useSpells'
 
 const { spellIndex, isFavorite, isInComparison } = defineProps<{
   spellIndex: SpellIndex
   isFavorite: boolean
   isInComparison: boolean
 }>()
+
+const { getShortDescription } = useSpells()
+
+const shortDescription = computed(() => getShortDescription(spellIndex.id))
 
 defineEmits<{
   view: [spellId: string]
@@ -28,6 +34,7 @@ const rarityColors: Record<string, string> = {
       <div class="flex-1 min-w-0">
         <h3 class="font-semibold text-lg truncate">{{ spellIndex.nameRu }}</h3>
         <p v-if="spellIndex.nameEn !== spellIndex.nameRu" class="text-sm text-muted truncate">{{ spellIndex.nameEn }}</p>
+        <p v-if="shortDescription" class="text-sm text-secondary card-summary">{{ shortDescription }}</p>
       </div>
       <div class="flex items-center gap-sm flex-shrink-0">
         <span
@@ -85,4 +92,5 @@ const rarityColors: Record<string, string> = {
 
 <style scoped>
 /* Uses global card, chip, badge classes */
+.card-summary { margin-top: 4px; line-height: 1.4; }
 </style>

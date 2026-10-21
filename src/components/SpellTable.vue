@@ -16,7 +16,7 @@ const emit = defineEmits<{
 }>()
 
 const settingsStore = useSettingsStore()
-const { getSpell } = useSpells()
+const { getSpell, getShortDescription } = useSpells()
 
 const columns = computed(() => settingsStore.state.tableColumns)
 
@@ -196,8 +196,9 @@ function getSpellSource(spellId: string): string {
           <td v-if="columns.includes('name')">
             <div class="font-medium">{{ spell.nameRu }}</div>
             <div v-if="spell.nameEn !== spell.nameRu" class="text-xs text-muted truncate">{{ spell.nameEn }}</div>
+            <p v-if="getShortDescription(spell.id)" class="spell-summary text-xs text-secondary">{{ getShortDescription(spell.id) }}</p>
           </td>
-          <td v-if="columns.includes('level')">
+          <td v-if="columns.includes('level')" class="level-cell">
             <span class="chip chip-info">Ур. {{ spell.level }}</span>
           </td>
           <td v-if="columns.includes('tradition')">
@@ -236,5 +237,9 @@ function getSpellSource(spellId: string): string {
 .trait-item { font-size: 0.875rem; line-height: 1.35; overflow-wrap: anywhere; }
 .select-cell { text-align: center; }
 .select-cell input[type='checkbox'] { display: inline-block; vertical-align: middle; }
+.level-cell { vertical-align: middle; }
+.spell-summary { margin-top: 4px; line-height: 1.4; }
 :deep(.table td) { vertical-align: top; }
+:deep(.table td.select-cell),
+:deep(.table td.level-cell) { vertical-align: middle; }
 </style>

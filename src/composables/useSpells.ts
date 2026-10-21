@@ -2,11 +2,12 @@ import { ref, computed } from 'vue'
 import type { Spell, SpellIndex, FilterState } from '@/types/spell'
 import MiniSearch from 'minisearch'
 
-const spells = ref<Spell[]>([])
-const spellsIndex = ref<SpellIndex[]>([])
-const isLoading = ref(false)
-const loadError = ref<string | null>(null)
-const miniSearch = ref<MiniSearch<SpellIndex> | null>(null)
+  const spells = ref<Spell[]>([])
+  const spellsIndex = ref<SpellIndex[]>([])
+  const isLoading = ref(false)
+  const loadError = ref<string | null>(null)
+  const miniSearch = ref<MiniSearch<SpellIndex> | null>(null)
+  const spellById = computed(() => new Map(spells.value.map(s => [s.id, s])))
 
 function getActionCategory(castTime: string): string {
   const v = (castTime || '').toLowerCase()
@@ -114,7 +115,25 @@ export function useSpells() {
   }
 
   function getSpell(id: string): Spell | undefined {
-    return spells.value.find(s => s.id === id)
+    return spellById.value.get(id)
+  }
+
+  function stripHtml(text: string): string {
+    return text.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim()
+  }
+
+  function getShortDescription(id: string): string {
+    const spell = spellById.value.get(id)
+    if (!spell) return ''
+    const source = spell.description.ru || spell.description.en || ''
+    const plain = stripHtml(source)
+    if (!plain) return ''
+    const sentences = plain.split(/(?<=[.!?])\s+/)
+    const summary = sentences.slice(0, 2).join(' ').trim()
+    if (summary.length <= 280) return summary
+    const cut = summary.slice(0, 280)
+    const lastSpace = cut.lastIndexOf(' ')
+    return `${(lastSpace > 200 ? cut.slice(0, lastSpace) : cut).trimEnd()}…`
   }
 
   function search(query: string, filters: FilterState = {} as FilterState): SpellIndex[] {
@@ -178,6 +197,7 @@ export function useSpells() {
     loadError,
     load,
     getSpell,
+    getShortDescription,
     search,
     getAllSpells,
     getIndex,
