@@ -3,7 +3,7 @@ import { computed, ref } from 'vue'
 import type { SpellIndex } from '@/types/spell'
 import { useSettingsStore } from '@/stores'
 import { useSpells } from '@/composables/useSpells'
-import { traditionLabel, traitLabel } from '@/constants/translations'
+import { traditionLabel, traitLabel, schoolLabel } from '@/constants/translations'
 
 const props = defineProps<{
   spells: SpellIndex[]
@@ -169,9 +169,8 @@ function getSpellSource(spellId: string): string {
           <th v-if="columns.includes('tradition')" scope="col" style="width: 120px;">Традиция</th>
           <th v-if="columns.includes('school')" scope="col" style="width: 120px;">Школа</th>
           <th v-if="columns.includes('classes')" scope="col" style="width: 150px;">Классы</th>
-          <th v-if="columns.includes('traits')" scope="col" style="width: 200px;">Черты</th>
-          <th v-if="columns.includes('rarity')" scope="col" style="width: 100px;">Редкость</th>
-          <th style="width: 40px;"></th>
+          <th v-if="columns.includes('traits')" scope="col" style="width: 200px;">Дескрипторы</th>
+          <th style="width: 40px;">Выбрать</th>
         </tr>
       </thead>
       <tbody>
@@ -196,7 +195,9 @@ function getSpellSource(spellId: string): string {
           <td v-if="columns.includes('tradition')">
             <span class="text-sm">{{ formatTraditions(spell.tradition) }}</span>
           </td>
-          
+          <td v-if="columns.includes('school')">
+            <span class="text-sm">{{ schoolLabel(spell.school) }}</span>
+          </td>
           <td v-if="columns.includes('classes') && spell.classes.length > 0">
             <span class="text-sm">{{ formatClasses(spell.classes) }}</span>
           </td>
