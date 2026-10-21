@@ -108,6 +108,9 @@ console.log(`иконок в таблице: ${iconStats.total}, загруже�
 console.log(`первая иконка: ${iconStats.src} (alt="${iconStats.alt}", ${iconStats.natural})`)
 console.log(`alt у иконок 1/2/3 действий: ${iconStats.countAlts} шт.`)
 console.log(`иконок реакции: ${iconStats.reactionAlts} шт.`)
+console.log(
+  `ячеек-диапазонов (2 иконки): ${iconStats.rangeCells} шт., иконки: ${iconStats.rangeIcons.join(' + ')}, разделитель: "${iconStats.rangeSep}"`
+)
 const iconsOk =
   iconStats.total > 0 && iconStats.loaded > 0 && (iconStats.src ?? '').includes('/art/PF_action_')
 console.log(iconsOk ? 'OK   иконки действий загружаются' : 'FAIL иконки действий не загружаются')
