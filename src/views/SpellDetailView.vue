@@ -3,7 +3,7 @@ import { computed, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useSpells } from '@/composables/useSpells'
 import { useFavoritesStore, useHistoryStore, useSettingsStore } from '@/stores'
-import { rarityLabel, schoolLabel, traditionLabel, traitLabel, COMPONENT_LABELS } from '@/constants/translations'
+import { rarityLabel, schoolLabel, traditionLabel, traitLabel, classLabel, COMPONENT_LABELS, GENERIC_CLASS_LABEL } from '@/constants/translations'
 
 const route = useRoute()
 const router = useRouter()
@@ -141,7 +141,10 @@ function exportSpell() {
           </div>
           <div>
             <p class="text-muted mb-xs">Классы</p>
-            <p>{{ spell.classes.join(', ') }}</p>
+            <div v-if="spell.classes.length" class="flex flex-wrap gap-xs">
+              <span v-for="c in spell.classes" :key="c" class="chip">{{ classLabel(c) }}</span>
+            </div>
+            <p v-else>{{ GENERIC_CLASS_LABEL }}</p>
           </div>
           <div>
             <p class="text-muted mb-xs">Время произнесения</p>

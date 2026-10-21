@@ -3,7 +3,7 @@ import { computed, ref } from 'vue'
 import type { SpellIndex } from '@/types/spell'
 import { useSettingsStore } from '@/stores'
 import { useSpells } from '@/composables/useSpells'
-import { traditionLabel, traitLabel, schoolLabel, actionOrder, actionDisplay } from '@/constants/translations'
+import { traditionLabel, traitLabel, schoolLabel, classLabel, actionOrder, actionDisplay, GENERIC_CLASS_LABEL } from '@/constants/translations'
 
 const props = defineProps<{
   spells: SpellIndex[]
@@ -176,6 +176,10 @@ const rows = computed(() =>
             <span class="text-sm">{{ spell.school === 'Unknown' ? '—' : schoolLabel(spell.school) }}</span>
           </td>
           <td v-if="columns.includes('classes')">
+            <div v-if="spell.classes.length" class="traits-cell">
+              <span v-for="c in spell.classes" :key="c" class="trait-chip">{{ classLabel(c) }}</span>
+            </div>
+            <span v-else class="text-sm text-muted">{{ GENERIC_CLASS_LABEL }}</span>
           </td>
           <td v-if="columns.includes('traits')">
             <div v-if="formatTraits(spell.traits).length" class="traits-cell">

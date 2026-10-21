@@ -1,6 +1,7 @@
 import { ref, computed } from 'vue'
 import type { Spell, SpellIndex, FilterState } from '@/types/spell'
 import MiniSearch from 'minisearch'
+import { GENERIC_CLASS, classLabel } from '@/constants/translations'
 
   const spells = ref<Spell[]>([])
   const spellsIndex = ref<SpellIndex[]>([])
@@ -157,7 +158,9 @@ export function useSpells() {
       filtered = filtered.filter(r => filters.school!.includes(r.school))
     }
     if (filters.class?.length) {
-      filtered = filtered.filter(r => filters.class!.some(c => r.classes.includes(c)))
+      filtered = filtered.filter(r => filters.class!.some(c => (
+        c === GENERIC_CLASS ? r.classes.length === 0 : r.classes.includes(c)
+      )))
     }
     if (filters.traits?.length) {
       filtered = filtered.filter(r => filters.traits!.some(t => r.traits.includes(t)))
@@ -186,7 +189,8 @@ export function useSpells() {
 
   const traditions = computed(() => ['arcane', 'divine', 'occult', 'primal'] as const)
   const schools = computed(() => [...new Set(spellsIndex.value.map(s => s.school))].sort())
-  const allClasses = computed(() => [...new Set(spellsIndex.value.flatMap(s => s.classes))].sort())
+  const allClasses = computed(() => [...new Set(spellsIndex.value.flatMap(s => s.classes))]
+    .sort((a, b) => classLabel(a).localeCompare(classLabel(b), 'ru')))
   const allTraits = computed(() => [...new Set(spellsIndex.value.flatMap(s => s.traits))].sort())
   const allSources = computed(() => [...new Set(spells.value.flatMap(s => s.source.map(src => src.source.name)))].sort())
 

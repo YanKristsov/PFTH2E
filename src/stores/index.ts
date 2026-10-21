@@ -57,8 +57,8 @@ export const useSettingsStore = defineStore('settings', () => {
     theme: 'system',
     language: 'ru',
     viewMode: 'table',
-    // колонка «classes» пуста во всех записях (источники не дают классы) — по умолчанию скрыта
-    tableColumns: ['name', 'level', 'tradition', 'school', 'traits', 'actions']
+    // колонка «classes» заполняется из данных, по умолчанию включена вместе с «traits» и «actions»
+    tableColumns: ['name', 'level', 'tradition', 'school', 'classes', 'traits', 'actions']
   })
 
   const darkMedia = typeof window !== 'undefined' && typeof window.matchMedia === 'function'
@@ -72,7 +72,7 @@ export const useSettingsStore = defineStore('settings', () => {
         const parsed = JSON.parse(saved)
         if (Array.isArray(parsed.tableColumns)) {
           const cols = parsed.tableColumns.filter((c: string) => c !== 'rarity')
-          for (const required of ['traits', 'actions']) {
+          for (const required of ['traits', 'actions', 'classes']) {
             if (!cols.includes(required)) cols.push(required)
           }
           parsed.tableColumns = cols

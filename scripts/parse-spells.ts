@@ -1,4 +1,5 @@
 import { SpellSchema, type Spell } from '../src/types/spell.js'
+import { CLASS_LABELS, TRAIT_LABELS } from '../src/constants/translations.js'
 import { z } from 'zod'
 import { JSDOM } from 'jsdom'
 import MarkdownIt from 'markdown-it'
@@ -23,6 +24,53 @@ const SPELL_SOURCES: Array<{
 ]
 
 type Tradition = 'arcane' | 'divine' | 'occult' | 'primal'
+
+/**
+ * Классы Pathfinder 2e (список Archives of Nethys: https://2e.aonprd.com/Classes.aspx).
+ * У заклинания принадлежность к классу задана трейтом группы «Class»
+ * (например, «Sorcerer»), поэтому такие трейты выносим в отдельное поле classes.
+ */
+export const CLASS_NAMES = [
+  'Alchemist', 'Animist', 'Barbarian', 'Bard', 'Champion', 'Cleric', 'Commander',
+  'Druid', 'Exemplar', 'Fighter', 'Guardian', 'Gunslinger', 'Inventor', 'Investigator',
+  'Kineticist', 'Magus', 'Monk', 'Necromancer', 'Oracle', 'Psychic', 'Ranger', 'Rogue',
+  'Runesmith', 'Sorcerer', 'Summoner', 'Swashbuckler', 'Thaumaturge', 'Witch', 'Wizard'
+] as const
+
+const CLASS_NAME_SET = new Set<string>(CLASS_NAMES)
+
+/** Русское название класса → английское (для разбора трейтов pf2.ru). */
+const CLASS_BY_RU = new Map(Object.entries(CLASS_LABELS).map(([en, ru]) => [ru, en]))
+
+/**
+ * Русское название дескриптора → английское (для разбора трейтов pf2.ru).
+ * Неоднозначные подписи («Призыв» — это и Conjuration, и Summon) не переводятся,
+ * чтобы не потерять дескриптор.
+ */
+const TRAIT_BY_RU = (() => {
+  const map = new Map<string, string>()
+  const ambiguous = new Set<string>()
+  for (const [en, ru] of Object.entries(TRAIT_LABELS)) {
+    if (map.has(ru)) {
+      ambiguous.add(ru)
+      continue
+    }
+    map.set(ru, en)
+  }
+  for (const ru of ambiguous) map.delete(ru)
+  return map
+})()
+
+/** Слаги страниц классов pf2.ru (https://pf2.ru/classes/<slug>). */
+const PF2RU_CLASS_SLUGS = [
+  'alchemist', 'animist', 'bard', 'barbarian', 'witch', 'fighter', 'wizard', 'druid',
+  'cleric', 'guardian', 'inventor', 'kineticist', 'magus', 'commander', 'monk',
+  'necromancer', 'oracle', 'rogue', 'champion', 'summoner', 'runesmith', 'investigator',
+  'ranger', 'swashbuckler', 'gunslinger', 'thaumaturge', 'sorcerer', 'exemplar', 'psychic'
+] as const
+
+const READTHEDOCS_CLASSES_URL =
+  'https://pf2e-ru-translation.readthedocs.io/ru/latest/classes/index.html'
 
 const AON_SEARCH_URL = 'https://elasticsearch.aonprd.com/aon/_search?stats=searchbar'
 const aonMarkdown = new MarkdownIt({ html: false, linkify: false, typographer: false })
@@ -72,6 +120,15 @@ function generateId(name: string, source: string): string {
   return `${source}-${name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}`
 }
 
+/** Ключ сопоставления заклинаний между источниками. */
+function spellKey(name: string): string {
+  return name
+    .normalize('NFKD')
+    .toLocaleLowerCase()
+    .replace(/[^\p{L}\p{N}]+/gu, '-')
+    .replace(/(^-|-$)/g, '')
+}
+
 async function fetchHtml(url: string): Promise<string> {
   const response = await fetch(url, {
     headers: { 'User-Agent': 'PF2E-Spells-Parser/1.0' }
@@ -106,6 +163,115 @@ function markdownLinksToText(value: string): string {
   return value.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1').replace(/[*_`]/g, '').trim()
 }
 
+/** Название класса по заголовку страницы pf2.ru («АлхимикAlchemist» → «Alchemist»). */
+export function pf2ruClassName(document: Document): string | null {
+  const heading = (document.querySelector('h1')?.textContent || '').replace(/\s+/g, '').trim()
+  return CLASS_NAMES.find(name => heading.endsWith(name)) ?? null
+}
+
+/** Английские названия фокусных заклинаний класса со страницы pf2.ru. */
+export function parsePf2ruClassSpells(html: string): string[] {
+  const dom = new JSDOM(html)
+  const names: string[] = []
+
+  for (const table of dom.window.document.querySelectorAll('pf2-table[items]')) {
+    const items = JSON.parse(table.getAttribute('items') || '[]') as Array<Record<string, unknown>>
+    for (const item of items) {
+      if (item.item_type !== 'spell') continue
+      const name = typeof item.name === 'string' ? item.name.trim() : ''
+      if (name) names.push(name)
+    }
+  }
+
+  return names
+}
+
+/** Классы с официальными русскими названиями из перевода CRB (pf2e-ru-translation). */
+export function parseReadthedocsClasses(html: string): Array<{ en: string; ru: string }> {
+  const dom = new JSDOM(html)
+  const classes: Array<{ en: string; ru: string }> = []
+  const seen = new Set<string>()
+
+  for (const link of dom.window.document.querySelectorAll('a.reference.internal')) {
+    const text = link.textContent?.trim() || ''
+    const match = text.match(/^(.+?)\s*\(([A-Za-z ]+)\)$/)
+    if (!match) continue
+    const en = match[2].trim()
+    if (!CLASS_NAME_SET.has(en) || seen.has(en)) continue
+    seen.add(en)
+    classes.push({ en, ru: match[1].trim() })
+  }
+
+  return classes
+}
+
+interface ClassData {
+  /** ключ заклинания → классы, которым заклинание принадлежит */
+  spellClasses: Map<string, string[]>
+  /** английское название класса → русское название (pf2.ru) */
+  classNames: Map<string, string>
+  /** расхождения русских названий pf2.ru и readthedocs */
+  conflicts: Array<{ en: string; pf2ru: string; readthedocs: string }>
+}
+
+/**
+ * Собирает сведения о классах из трёх источников:
+ * - pf2.ru — русские названия классов и фокусные заклинания каждого класса;
+ * - pf2e-ru-translation (readthedocs) — официальный перевод CRB для сверки названий;
+ * - Archives of Nethys — трейт-класс в карточке заклинания (см. parseAoNRecord).
+ */
+async function fetchClassData(): Promise<ClassData> {
+  const spellClasses = new Map<string, string[]>()
+  const classNames = new Map<string, string>()
+
+  for (const slug of PF2RU_CLASS_SLUGS) {
+    let html: string
+    try {
+      html = await fetchHtml(`https://pf2.ru/classes/${slug}`)
+    } catch (error) {
+      console.error(`Failed to fetch pf2.ru class ${slug}:`, error)
+      continue
+    }
+
+    const dom = new JSDOM(html)
+    const className = pf2ruClassName(dom.window.document)
+    if (!className) {
+      console.error(`Unrecognized class heading on pf2.ru page ${slug}`)
+      continue
+    }
+
+    const heading = (dom.window.document.querySelector('h1')?.textContent || '').replace(/\s+/g, '').trim()
+    classNames.set(className, heading.slice(0, heading.length - className.length))
+
+    for (const spellName of parsePf2ruClassSpells(html)) {
+      const key = spellKey(spellName)
+      const list = spellClasses.get(key) ?? []
+      if (!list.includes(className)) list.push(className)
+      spellClasses.set(key, list)
+    }
+  }
+
+  const conflicts: ClassData['conflicts'] = []
+  try {
+    const readthedocs = parseReadthedocsClasses(await fetchHtml(READTHEDOCS_CLASSES_URL))
+    for (const item of readthedocs) {
+      const pf2ruName = classNames.get(item.en)
+      if (pf2ruName && pf2ruName !== item.ru) {
+        conflicts.push({ en: item.en, pf2ru: pf2ruName, readthedocs: item.ru })
+      }
+    }
+    console.log(`Readthedocs: ${readthedocs.length} classes, ${conflicts.length} name conflicts with pf2.ru`)
+    for (const conflict of conflicts) {
+      console.log(`  ${conflict.en}: pf2.ru "${conflict.pf2ru}" vs readthedocs "${conflict.readthedocs}"`)
+    }
+  } catch (error) {
+    console.error('Failed to fetch readthedocs classes:', error)
+  }
+
+  console.log(`pf2.ru: ${classNames.size} classes, ${spellClasses.size} spells in focus lists`)
+  return { spellClasses, classNames, conflicts }
+}
+
 function parseAoNHeightened(record: AoNRecord, sections: string[]): Spell['heightened'] {
   const heightenedSection = sections.slice(2).join('\n---\n')
   const pattern = /\*\*Heightened \(([^)]+)\)\*\*\s*([\s\S]*?)(?=\n\*\*Heightened \(|$)/g
@@ -136,7 +302,10 @@ export function parseAoNRecord(record: AoNRecord): RawSpell | undefined {
 
   const sections = record.markdown.split(/\n---\n/)
   const description = aonMarkdown.render(sections[1]?.trim() || '')
-  const traits = record.trait ?? []
+  const allTraits = record.trait ?? []
+  // трейт-класс («Sorcerer») — это не дескриптор, а принадлежность к классу
+  const classes = allTraits.filter(trait => CLASS_NAME_SET.has(trait))
+  const traits = allTraits.filter(trait => !CLASS_NAME_SET.has(trait))
   const schoolNames = new Set([
     'Abjuration', 'Conjuration', 'Divination', 'Enchantment',
     'Evocation', 'Illusion', 'Necromancy', 'Transmutation'
@@ -169,7 +338,7 @@ export function parseAoNRecord(record: AoNRecord): RawSpell | undefined {
       ['arcane', 'divine', 'occult', 'primal'].includes(value)
     ),
     school: record.school || traits.find(trait => schoolNames.has(trait)) || '',
-    classes: [],
+    classes,
     traits,
     components,
     castTime: record.actions ?? '',
@@ -293,9 +462,17 @@ export function parsePf2ru(html: string): RawSpell[] {
       if (!name || !englishName || !Number.isInteger(level) || level < 0 || level > 10) continue
 
       traitContainer.innerHTML = String(record.traits ?? '')
-      const traits = [...traitContainer.querySelectorAll('a.item-link--trait')]
+      const traitNames = [...traitContainer.querySelectorAll('a.item-link--trait')]
         .map(link => link.textContent?.trim() || '')
         .filter(Boolean)
+      // класс у pf2.ru приходит трейтом с русским названием («Чародей») — переносим в classes
+      const classes = traitNames
+        .filter(trait => CLASS_BY_RU.has(trait))
+        .map(trait => CLASS_BY_RU.get(trait)!)
+      // дескрипторы приводим к английским названиям, чтобы не дублировать их в интерфейсе
+      const traits = traitNames
+        .filter(trait => !CLASS_BY_RU.has(trait))
+        .map(trait => TRAIT_BY_RU.get(trait) ?? trait)
       const rarityTrait = traits.find(trait => ['Необычный', 'Редкий', 'Уникальный'].includes(trait))
       const rarity = rarityTrait === 'Необычный' ? 'uncommon'
         : rarityTrait === 'Редкий' ? 'rare'
@@ -317,7 +494,7 @@ export function parsePf2ru(html: string): RawSpell[] {
         level,
         tradition: traditions,
         school: '',
-        classes: [],
+        classes,
         traits,
         components: { v: false, s: false, m: false, f: false },
         castTime: actionContainer.textContent?.trim() || '',
@@ -455,11 +632,7 @@ export function mergeSpells(allSpells: RawSpell[]): Spell[] {
   }
   
   for (const spell of allSpells) {
-    const key = (spell.englishName || spell.name)
-      .normalize('NFKD')
-      .toLocaleLowerCase()
-      .replace(/[^\p{L}\p{N}]+/gu, '-')
-      .replace(/(^-|-$)/g, '')
+    const key = spellKey(spell.englishName || spell.name)
     if (!byKey.has(key)) byKey.set(key, [])
     byKey.get(key)!.push(spell)
   }
@@ -552,10 +725,24 @@ async function main() {
   
   console.log(`Total raw spells: ${allSpells.length}`)
 
+  const classData = await fetchClassData()
+  for (const spell of allSpells) {
+    const extra = classData.spellClasses.get(spellKey(spell.englishName || spell.name))
+    if (!extra?.length) continue
+    spell.classes = [...new Set([...spell.classes, ...extra])]
+  }
+
   await enrichPf2ruSpells(allSpells)
   
   const merged = mergeSpells(allSpells)
   console.log(`Merged spells: ${merged.length}`)
+
+  const classesInData = [...new Set(merged.flatMap(spell => spell.classes))].sort()
+  const withoutTranslation = classesInData.filter(name => !CLASS_LABELS[name])
+  if (withoutTranslation.length > 0) {
+    console.error(`Classes without Russian translation: ${withoutTranslation.join(', ')}`)
+  }
+  console.log(`Classes in data: ${classesInData.length} (${merged.filter(s => s.classes.length > 0).length} spells)`)
 
   if (merged.length === 0) {
     throw new Error('No valid spells were parsed; refusing to overwrite generated data.')

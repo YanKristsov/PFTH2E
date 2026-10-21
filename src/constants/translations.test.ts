@@ -5,8 +5,12 @@ import {
   SCHOOL_LABELS,
   TRAIT_LABELS,
   TRADITION_LABELS,
+  CLASS_LABELS,
+  GENERIC_CLASS,
+  GENERIC_CLASS_LABEL,
   actionDisplay,
-  actionLabel
+  actionLabel,
+  classLabel
 } from './translations'
 
 interface Spell {
@@ -14,6 +18,7 @@ interface Spell {
   tradition?: string[]
   school?: string
   rarity?: string
+  classes?: string[]
 }
 
 const isEnglish = (value: string) => !/[^\x20-\x7E]/.test(value)
@@ -50,9 +55,34 @@ describe('словари переводов', () => {
       ...Object.values(TRAIT_LABELS),
       ...Object.values(SCHOOL_LABELS),
       ...Object.values(TRADITION_LABELS),
-      ...Object.values(RARITY_LABELS)
+      ...Object.values(RARITY_LABELS),
+      ...Object.values(CLASS_LABELS)
     ]
     expect(allValues.filter((v) => isEnglish(v))).toEqual([])
+  })
+})
+
+describe('словарь классов', () => {
+  it('покрывает все классы из данных', () => {
+    const classes = new Set(spells.flatMap((s) => s.classes ?? []))
+    expect([...classes].filter((c) => !CLASS_LABELS[c])).toEqual([])
+  })
+
+  it('переводит названия классов', () => {
+    expect(classLabel('Wizard')).toBe('Волшебник')
+    expect(classLabel('Sorcerer')).toBe('Чародей')
+    expect(classLabel('Necromancer')).toBe('Некромант')
+  })
+
+  it('подставляет название для псевдокласса общего заклинания', () => {
+    expect(classLabel(GENERIC_CLASS)).toBe(GENERIC_CLASS_LABEL)
+    expect(GENERIC_CLASS_LABEL).toBe('Общее заклинание')
+  })
+
+  it('не относит классы к дескрипторам', () => {
+    const classNames = Object.keys(CLASS_LABELS)
+    const traits = new Set(spells.flatMap((s) => s.traits ?? []))
+    expect([...traits].filter((t) => classNames.includes(t))).toEqual([])
   })
 })
 

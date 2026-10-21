@@ -152,13 +152,62 @@ export const FILTER_LABELS: Record<string, string> = {
   level: 'Уровень',
   tradition: 'Традиция',
   school: 'Школа',
-  classes: 'Класс',
+  class: 'Класс',
   traits: 'Черта',
   components: 'Компонент',
   rarity: 'Редкость',
   source: 'Источник',
   actions: 'Действия',
   searchQuery: 'Поиск'
+}
+
+/**
+ * Русские названия классов. Источник — страницы классов pf2.ru
+ * (https://pf2.ru/classes/<slug>), официальный перевод CRB на readthedocs
+ * используется для сверки: у 4 классов переводы расходятся
+ * (Champion Поборник/Чемпион, Investigator Следователь/Сыщик,
+ * Magus Колдун/Магус, Ranger Следопыт/Рейнджер) — приоритет у pf2.ru.
+ */
+export const CLASS_LABELS: Record<string, string> = {
+  Alchemist: 'Алхимик',
+  Animist: 'Анимист',
+  Barbarian: 'Варвар',
+  Bard: 'Бард',
+  Champion: 'Поборник',
+  Cleric: 'Жрец',
+  Commander: 'Командор',
+  Druid: 'Друид',
+  Exemplar: 'Экземплар',
+  Fighter: 'Воин',
+  Guardian: 'Защитник',
+  Gunslinger: 'Стрелок',
+  Inventor: 'Изобретатель',
+  Investigator: 'Следователь',
+  Kineticist: 'Кинетик',
+  Magus: 'Колдун',
+  Monk: 'Монах',
+  Necromancer: 'Некромант',
+  Oracle: 'Оракул',
+  Psychic: 'Экстрасенс',
+  Ranger: 'Следопыт',
+  Rogue: 'Плут',
+  Runesmith: 'Рунотворец',
+  Sorcerer: 'Чародей',
+  Summoner: 'Призыватель',
+  Swashbuckler: 'Сорвиголова',
+  Thaumaturge: 'Тауматург',
+  Witch: 'Ведьма',
+  Wizard: 'Волшебник'
+}
+
+/** Псевдокласс для заклинаний, не привязанных ни к одному классу. */
+export const GENERIC_CLASS = '__generic__'
+
+export const GENERIC_CLASS_LABEL = 'Общее заклинание'
+
+export function classLabel(className: string): string {
+  if (className === GENERIC_CLASS) return GENERIC_CLASS_LABEL
+  return CLASS_LABELS[className] || className
 }
 
 export function componentInitial(component: string): string {

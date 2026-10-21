@@ -1,7 +1,15 @@
 import { readFileSync } from 'node:fs'
 import { JSDOM } from 'jsdom'
 import { describe, expect, it } from 'vitest'
-import { mergeSpells, parseAoNRecord, parsePf2ru, parsePf2ruDetail } from './parse-spells.js'
+import {
+  mergeSpells,
+  parseAoNRecord,
+  parsePf2ru,
+  parsePf2ruDetail,
+  parsePf2ruClassSpells,
+  parseReadthedocsClasses,
+  pf2ruClassName
+} from './parse-spells.js'
 
 const fixtureHtml = readFileSync(new URL('./fixtures/pf2ru-spells.html', import.meta.url), 'utf8')
 const aonRecords = JSON.parse(readFileSync(new URL('./fixtures/aonprd-records.json', import.meta.url), 'utf8')) as Array<Record<string, unknown>>
@@ -39,6 +47,49 @@ describe('Archives of Nethys parser', () => {
       sourceUrl: 'https://2e.aonprd.com/Rituals.aspx?ID=25'
     })
     expect(parseAoNRecord({ ...aonRecords[0], category: 'feat' } as unknown as Parameters<typeof parseAoNRecord>[0])).toBeUndefined()
+  })
+
+  it('выносит трейт-класс в поле classes', () => {
+    const record = {
+      ...aonRecords[0],
+      trait: ['Concentrate', 'Fire', 'Manipulate', 'Sorcerer']
+    } as unknown as Parameters<typeof parseAoNRecord>[0]
+
+    const spell = parseAoNRecord(record)
+
+    expect(spell?.classes).toEqual(['Sorcerer'])
+    expect(spell?.traits).toEqual(['Concentrate', 'Fire', 'Manipulate'])
+  })
+})
+
+describe('данные о классах', () => {
+  it('определяет класс по заголовку страницы pf2.ru', () => {
+    const dom = new JSDOM('<html><body><h1>АлхимикAlchemist</h1></body></html>')
+    expect(pf2ruClassName(dom.window.document)).toBe('Alchemist')
+  })
+
+  it('собирает фокусные заклинания класса со страницы pf2.ru', () => {
+    const items = [
+      { item_type: 'spell', name: 'Fireball' },
+      { item_type: 'spell', name: 'Magic Missile' },
+      { item_type: 'feat', name: 'Reach Spell' }
+    ]
+    const html = `<html><body><pf2-table items='${JSON.stringify(items)}'></pf2-table></body></html>`
+
+    expect(parsePf2ruClassSpells(html)).toEqual(['Fireball', 'Magic Missile'])
+  })
+
+  it('читает классы с русскими названиями из перевода CRB', () => {
+    const html = `
+      <a class="reference internal" href="wizard.html">Волшебник (Wizard)</a>
+      <a class="reference internal" href="ranger.html">Рейнджер (Ranger)</a>
+      <a class="reference internal" href="archetype.html">Архетип (Multiclass Archetypes)</a>
+    `
+
+    expect(parseReadthedocsClasses(html)).toEqual([
+      { en: 'Wizard', ru: 'Волшебник' },
+      { en: 'Ranger', ru: 'Рейнджер' }
+    ])
   })
 })
 

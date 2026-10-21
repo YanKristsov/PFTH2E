@@ -44,7 +44,8 @@ const checks: Array<[string, string]> = [
   ['Преграждение', 'школа'],
   ['Некромантия', 'школа'],
   ['Действия', 'столбец действий'],
-  ['Реакция', 'подпись реакции']
+  ['Реакция', 'подпись реакции'],
+  ['Общее заклинание', 'классы для заклинаний без класса']
 ]
 console.log('\n--- Проверка переводов ---')
 for (const [needle, what] of checks) {
@@ -56,7 +57,7 @@ for (const [needle, what] of checks) {
 // Проверка отсутствия английских терминов в UI (шапка + разделы фильтров).
 // Список заклинаний и раздел «Источник» исключены намеренно: там по требованию
 // остаются оригинальные английские названия заклинаний (name.en) и названия источников.
-const english = ['Arcane', 'Divine', 'Occult', 'Primal', 'Common', 'Uncommon', 'Rare', 'Unique', 'Search spells', 'abjuration', 'evocation', 'necromancy']
+const english = ['Arcane', 'Divine', 'Occult', 'Primal', 'Common', 'Uncommon', 'Rare', 'Unique', 'Search spells', 'abjuration', 'evocation', 'necromancy', 'Wizard', 'Sorcerer', 'Cleric', 'Bard', 'Druid']
 const uiText = await page.evaluate(() => {
   const parts: string[] = []
   document.querySelectorAll('header').forEach((el) => parts.push(el.textContent || ''))
@@ -121,6 +122,33 @@ console.log(
     ? 'OK   подписи «1/2/3 действия» и «Реакция» скрыты (только иконка)'
     : 'FAIL в ячейке осталась текстовая подпись действия'
 )
+
+console.log('\n--- Проверка классов ---')
+const classStats = await page.evaluate(() => {
+  const section = Array.from(document.querySelectorAll('aside.sidebar .sidebar-section')).find(
+    (sec) => sec.querySelector('.sidebar-title')?.textContent?.trim() === 'Класс'
+  )
+  const items = section
+    ? Array.from(section.querySelectorAll('label span')).map((el) => el.textContent?.trim() ?? '')
+    : []
+  const headers = Array.from(document.querySelectorAll('table thead th')).map(
+    (th) => th.textContent?.trim() ?? ''
+  )
+  const cells = Array.from(document.querySelectorAll('tbody tr')).map((tr) => {
+    const tds = Array.from(tr.querySelectorAll('td'))
+    return tds.length > 4 ? (tds[4].textContent ?? '').trim() : ''
+  })
+  return { items, headers, cells }
+})
+console.log(
+  `пунктов в фильтре «Класс»: ${classStats.items.length} (${classStats.items.slice(0, 6).join(', ')}…)`
+)
+const classFilterOk = classStats.items.length > 1 && classStats.items.includes('Общее заклинание')
+console.log(classFilterOk ? 'OK   фильтр «Класс» заполнен' : 'FAIL фильтр «Класс» пуст')
+const classColumnOk = classStats.headers.includes('Классы')
+console.log(classColumnOk ? 'OK   колонка «Классы» в таблице' : 'FAIL нет колонки «Классы»')
+const classCellsOk = classStats.cells.some((c) => c.length > 0)
+console.log(classCellsOk ? 'OK   ячейки «Классы» заполнены' : 'FAIL ячейки «Классы» пустые')
 
 console.log('\n=== CONSOLE ERRORS ===')
 console.log(errors.length ? errors.slice(0, 15).join('\n---\n') : '(none)')

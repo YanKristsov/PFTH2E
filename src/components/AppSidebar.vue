@@ -4,10 +4,10 @@ import { useRoute } from 'vue-router'
 import { useSpells } from '@/composables/useSpells'
 import { useFilterStore } from '@/stores'
 import type { FilterState } from '@/types/spell'
-import { COMPONENT_LABELS, filterLabel, traitLabel, traditionLabel, schoolLabel } from '@/constants/translations'
+import { COMPONENT_LABELS, filterLabel, traitLabel, traditionLabel, schoolLabel, classLabel, GENERIC_CLASS, GENERIC_CLASS_LABEL } from '@/constants/translations'
 
 const route = useRoute()
-const { schools, allTraits, allSources, traditions } = useSpells()
+const { schools, allTraits, allSources, traditions, allClasses } = useSpells()
 const filterStore = useFilterStore()
 
 const activeNav = computed(() => route.name)
@@ -48,6 +48,8 @@ function filterValueLabel(key: keyof FilterState, value: unknown): string {
       return traditionLabel(raw)
     case 'school':
       return schoolLabel(raw)
+    case 'class':
+      return classLabel(raw)
     case 'traits':
       return traitLabel(raw)
     case 'components':
@@ -163,8 +165,25 @@ function filterValueText(filter: { key: keyof FilterState; value: FilterState[ke
 
       <div class="sidebar-section">
         <h3 class="sidebar-title">Класс</h3>
-        <div class="text-sm text-muted italic">
-          Недоступно — источник pf2.ru не предоставляет информацию о классах
+        <div class="flex flex-col gap-2xs max-h-48 overflow-y-auto">
+          <label class="flex items-center justify-between gap-sm cursor-pointer py-2xs">
+            <span class="truncate">{{ GENERIC_CLASS_LABEL }}</span>
+            <input
+              type="checkbox"
+              class="flex-shrink-0"
+              :checked="filterStore.state.class.includes(GENERIC_CLASS)"
+              @change="filterStore.toggleFilter('class', GENERIC_CLASS)"
+            />
+          </label>
+          <label v-for="c in allClasses" :key="c" class="flex items-center justify-between gap-sm cursor-pointer py-2xs">
+            <span class="truncate">{{ classLabel(c) }}</span>
+            <input
+              type="checkbox"
+              class="flex-shrink-0"
+              :checked="filterStore.state.class.includes(c)"
+              @change="filterStore.toggleFilter('class', c)"
+            />
+          </label>
         </div>
       </div>
 

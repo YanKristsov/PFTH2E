@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import type { SpellIndex } from '@/types/spell'
-import { rarityLabel, schoolLabel, traditionLabel, traitLabel } from '@/constants/translations'
+import { rarityLabel, schoolLabel, traditionLabel, traitLabel, classLabel, GENERIC_CLASS_LABEL } from '@/constants/translations'
 import { useSpells } from '@/composables/useSpells'
 
 const { spellIndex, isFavorite } = defineProps<{
@@ -62,9 +62,9 @@ const rarityColors: Record<string, string> = {
       <p class="text-sm text-secondary mb-sm">{{ schoolLabel(spellIndex.school) }}</p>
 
       <div class="flex flex-wrap gap-xs mb-sm">
-        <span v-for="c in spellIndex.classes.slice(0, 3)" :key="c" class="chip">{{ c }}</span>
+        <span v-for="c in spellIndex.classes.slice(0, 3)" :key="c" class="chip">{{ classLabel(c) }}</span>
         <span v-if="spellIndex.classes.length > 3" class="chip chip-info">+{{ spellIndex.classes.length - 3 }}</span>
-        <span v-if="spellIndex.classes.length === 0" class="chip chip-info">—</span>
+        <span v-if="spellIndex.classes.length === 0" class="chip chip-info">{{ GENERIC_CLASS_LABEL }}</span>
       </div>
 
       <div class="flex flex-wrap gap-xs">
