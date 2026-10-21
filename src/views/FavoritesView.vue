@@ -48,46 +48,12 @@ function toggleFavorite(spellId: string) {
 function updateNotes(spellId: string, notes: string) {
   favoritesStore.updateNotes(spellId, notes)
 }
-
-function exportFavorites() {
-  const data = favoritesStore.exportFavorites()
-  const blob = new Blob([data], { type: 'application/json' })
-  const url = URL.createObjectURL(blob)
-  const a = document.createElement('a')
-  a.href = url
-  a.download = 'pf2e-favorites.json'
-  a.click()
-  URL.revokeObjectURL(url)
-}
-
-function importFavorites(event: Event) {
-  const input = event.target as HTMLInputElement
-  if (!input.files?.length) return
-  const file = input.files[0]
-  const reader = new FileReader()
-  reader.onload = (e) => {
-    if (favoritesStore.importFavorites(e.target?.result as string)) {
-      alert('Избранное импортировано')
-    } else {
-      alert('Ошибка импорта: неверный формат JSON')
-    }
-    input.value = ''
-  }
-  reader.readAsText(file)
-}
 </script>
 
 <template>
   <div class="favorites-view">
     <header class="content-header">
       <h1 class="content-title">Избранное</h1>
-      <div class="content-actions">
-        <button class="btn btn-secondary" @click="exportFavorites">📥 Экспортировать JSON</button>
-        <label class="btn btn-secondary cursor-pointer">
-          📥 Импортировать JSON
-          <input type="file" accept=".json" hidden @change="importFavorites($event)" />
-        </label>
-      </div>
     </header>
 
     <div v-if="favoriteSpells.length === 0" class="empty-state">

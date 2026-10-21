@@ -114,21 +114,6 @@ export const useSettingsStore = defineStore('settings', () => {
     save()
   }
 
-  function exportSettings(): string {
-    return JSON.stringify(state.value, null, 2)
-  }
-
-  function importSettings(json: string) {
-    try {
-      const parsed = JSON.parse(json)
-      state.value = { ...state.value, ...parsed }
-      save()
-      return true
-    } catch {
-      return false
-    }
-  }
-
   watchMedia()
 
   function watchMedia() {
@@ -137,7 +122,7 @@ export const useSettingsStore = defineStore('settings', () => {
     }
   }
 
-  return { state, load, save, setTheme, setLanguage, setViewMode, setTableColumns, exportSettings, importSettings }
+  return { state, load, save, setTheme, setLanguage, setViewMode, setTableColumns }
 })
 
 export const useFavoritesStore = defineStore('favorites', () => {
@@ -186,23 +171,9 @@ export const useFavoritesStore = defineStore('favorites', () => {
     }
   }
 
-  function exportFavorites(): string {
-    return JSON.stringify(items.value, null, 2)
-  }
-
-  function importFavorites(json: string): boolean {
-    try {
-      items.value = JSON.parse(json)
-      save()
-      return true
-    } catch {
-      return false
-    }
-  }
-
   const favoriteIds = computed(() => new Set(items.value.map(f => f.spellId)))
 
-  return { items, load, add, remove, toggle, isFavorite, updateNotes, exportFavorites, importFavorites, favoriteIds }
+  return { items, load, add, remove, toggle, isFavorite, updateNotes, favoriteIds }
 })
 
 export const useHistoryStore = defineStore('history', () => {

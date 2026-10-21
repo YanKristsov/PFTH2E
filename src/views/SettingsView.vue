@@ -1,19 +1,9 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue'
 import { useSettingsStore, useFavoritesStore, useHistoryStore } from '@/stores'
 
 const settingsStore = useSettingsStore()
 const favoritesStore = useFavoritesStore()
 const historyStore = useHistoryStore()
-
-const importFile = ref<File | null>(null)
-const importError = ref('')
-
-const allData = computed(() => ({
-  settings: settingsStore.state,
-  favorites: favoritesStore.items,
-  history: historyStore.items
-}))
 
 const columnLabels: Record<string, string> = {
   name: 'Название',
@@ -35,45 +25,6 @@ function toggleColumn(col: string) {
   if (idx >= 0) cols.splice(idx, 1)
   else cols.push(col)
   settingsStore.setTableColumns(cols)
-}
-
-function downloadExport() {
-  const data = JSON.stringify(allData.value, null, 2)
-  const blob = new Blob([data], { type: 'application/json' })
-  const url = URL.createObjectURL(blob)
-  const a = document.createElement('a')
-  a.href = url
-  a.download = `pf2e-backup-${new Date().toISOString().split('T')[0]}.json`
-  a.click()
-  URL.revokeObjectURL(url)
-}
-
-function handleImportFile(event: Event) {
-  const input = event.target as HTMLInputElement
-  if (!input.files?.length) return
-  importFile.value = input.files[0]
-  importError.value = ''
-}
-
-function doImport() {
-  if (!importFile.value) return
-  const reader = new FileReader()
-  reader.onload = (e) => {
-    try {
-      const data = JSON.parse(e.target?.result as string)
-      if (data.settings) settingsStore.importSettings(JSON.stringify(data.settings))
-      if (data.favorites) favoritesStore.importFavorites(JSON.stringify(data.favorites))
-      if (data.history) {
-        historyStore.items = data.history
-        localStorage.setItem('pf2e-history', JSON.stringify(data.history))
-      }
-      alert('Data imported successfully!')
-      importFile.value = null
-    } catch {
-      importError.value = 'Invalid JSON format'
-    }
-  }
-  reader.readAsText(importFile.value)
 }
 
 function clearFavorites() {
@@ -158,25 +109,8 @@ function clearAll() {
       </div>
       <div class="card-body space-y-md">
         <div>
-          <h3 class="font-medium mb-sm">Экспорт всех данных</h3>
-          <p class="text-sm text-secondary mb-md">Скачать JSON с настройками, избранным и историей для резервной копии или переноса на другое устройство.</p>
-          <button class="btn btn-primary" @click="downloadExport">📥 Скачать JSON</button>
-        </div>
-
-        <div class="border-t border-[var(--color-border)] pt-md">
-          <h3 class="font-medium mb-sm">Импорт данных</h3>
-          <p class="text-sm text-secondary mb-md">Выберите ранее экспортированный JSON-файл, чтобы восстановить данные.</p>
-          <label class="btn btn-secondary cursor-pointer">
-            📁 Выбрать файл
-            <input type="file" accept=".json" hidden @change="handleImportFile($event)" />
-          </label>
-          <p v-if="importError" class="text-error text-sm mt-sm">{{ importError }}</p>
-          <p v-if="importFile" class="text-sm text-secondary mt-sm">Выбран файл: {{ importFile.name }} ({{ (importFile.size / 1024).toFixed(1) }} КБ)</p>
-          <button class="btn btn-primary mt-sm" :disabled="!importFile" @click="doImport">Импортировать</button>
-        </div>
-
-        <div class="border-t border-[var(--color-border)] pt-md">
           <h3 class="font-medium mb-sm">Очистка данных</h3>
+          <p class="text-sm text-secondary mb-md">Удаление избранного, истории просмотров и сброс настроек. Действие необратимо.</p>
           <div class="flex flex-wrap gap-sm">
             <button class="btn btn-danger" :disabled="!favoritesStore.items.length" @click="clearFavorites">Очистить избранное</button>
             <button class="btn btn-danger" :disabled="!historyStore.items.length" @click="clearHistory">Очистить историю</button>
