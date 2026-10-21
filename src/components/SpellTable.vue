@@ -3,7 +3,7 @@ import { computed, ref } from 'vue'
 import type { SpellIndex } from '@/types/spell'
 import { useSettingsStore } from '@/stores'
 import { useSpells } from '@/composables/useSpells'
-import { traditionLabel, traitLabel, schoolLabel, actionLabel, actionOrder } from '@/constants/translations'
+import { traditionLabel, traitLabel, schoolLabel, actionLabel, actionOrder, actionIcon } from '@/constants/translations'
 
 const props = defineProps<{
   spells: SpellIndex[]
@@ -115,11 +115,17 @@ function formatTraits(traits: string[]): string[] {
   return result
 }
 
-function getSpellActionLabel(spellId: string): string {
-  const spell = getSpell(spellId)
-  if (!spell) return '—'
-  return actionLabel(spell.castTime)
-}
+const rows = computed(() =>
+  sortedSpells.value.map((spell) => {
+    const full = getSpell(spell.id)
+    const castTime = full?.castTime ?? ''
+    return {
+      spell,
+      actionLabel: actionLabel(castTime),
+      actionIcon: actionIcon(castTime)
+    }
+  })
+)
 </script>
 
 <template>
@@ -160,7 +166,7 @@ function getSpellActionLabel(spellId: string): string {
       </thead>
       <tbody>
         <tr
-          v-for="spell in sortedSpells"
+          v-for="({ spell, actionLabel: actionText, actionIcon: actionIconInfo }) in rows"
           :key="spell.id"
           :class="rowClass(spell)"
           tabindex="0"
@@ -193,7 +199,20 @@ function getSpellActionLabel(spellId: string): string {
             <span v-else class="text-sm">—</span>
           </td>
           <td v-if="columns.includes('actions')">
-            <span class="text-sm">{{ getSpellActionLabel(spell.id) }}</span>
+            <div class="action-cell">
+              <img
+                v-if="actionIconInfo"
+                class="action-icon"
+                :src="actionIconInfo.src"
+                :alt="actionText"
+                :title="actionText"
+                :width="actionIconInfo.width"
+                :height="actionIconInfo.height"
+                loading="lazy"
+                decoding="async"
+              />
+              <span class="text-sm">{{ actionText }}</span>
+            </div>
           </td>
           <td class="select-cell">
             <input
@@ -229,6 +248,15 @@ function getSpellActionLabel(spellId: string): string {
 .select-cell { text-align: center; }
 .select-cell input[type='checkbox'] { display: inline-block; vertical-align: middle; }
 .level-cell { vertical-align: middle; }
+.action-cell { display: flex; align-items: center; gap: 6px; }
+.action-icon {
+  height: 20px;
+  width: auto;
+  max-width: 44px;
+  object-fit: contain;
+  flex: 0 0 auto;
+  filter: var(--icon-filter);
+}
 .spell-summary { margin-top: 4px; line-height: 1.4; }
 .th-sort {
   display: inline-flex;

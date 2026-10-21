@@ -77,7 +77,7 @@ export default defineConfig({
       },
       workbox: {
         maximumFileSizeToCacheInBytes: 20 * 1024 * 1024,
-        globPatterns: ['**/*.{js,css,html,json,png,svg,woff2}'],
+        globPatterns: ['**/*.{js,css,html,json,png,webp,svg,woff2}'],
         runtimeCaching: [
           {
             urlPattern: /^https:\/\/.*\.aonprd\.com\/.*/i,

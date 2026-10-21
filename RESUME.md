@@ -1,6 +1,6 @@
 # PF2E Spells Reference — Статус проекта
 
-> **Обновлено:** 2026-10-19. Актуальный статус после полного перевода интерфейса на русский и исправления деплоя.
+> **Обновлено:** 2026-10-21. Актуальный статус после полного перевода интерфейса на русский, исправления деплоя и добавления иконок затрат действий.
 
 ## Общее описание
 Справочник заклинаний Pathfinder 2e на русском языке.
@@ -37,6 +37,21 @@
 - **Страница «Настройки» переведена** (2026-10-20): «Данные», «Экспорт всех данных», «Импорт данных», «Очистка данных», «О проекте», «Светлая/Тёмная/Системная», «Таблица/Карточки», «Повторить»
 - **Названия активных фильтров** переведены (`FILTER_LABELS` + `filterLabel()`), значения — через `traditionLabel()`/`schoolLabel()`/`rarityLabel()`/`traitLabel()`
 - **На английском остаётся только:** оригинальные названия заклинаний (`name.en`) и названия источников («Archives of Nethys: Divine Mysteries») — по требованию
+
+### Иконки затрат действий (2026-10-21)
+- В столбце «Действия» таблицы рядом с текстовой подписью показывается иконка затрат
+- Ассеты лежат в `public/art/` → копируются в корень `dist` → в корень ветки `gh-pages` → путь `/PFTH2E/art/<file>`
+  - `PF_action_1.webp` (176×176), `PF_action_2.webp` (277×176), `PF_action_3.webp` (367×177), `PF_action_free.webp` (178×178),
+    `PF_action_reaction.png` (256×222)
+- Резолвер — `actionIcon(castTime)` в `src/constants/translations.ts`: возвращает `{ file, src, width, height }` или `null`
+- **Иконка ставится только для однозначных значений:** 1/2/3 действия, свободное действие, реакция.
+  Для диапазонов («1–3 действия»), комбинаций («2 или 3 действия», «Реакция или 1 действие») и длительностей — только текст
+- `src` собирается из `import.meta.env.BASE_URL` (`/PFTH2E/art/<file>`), родные размеры отдаются вместе с иконкой —
+  браузер резервирует место до загрузки (`loading="lazy"` без скачка вёрстки)
+- **Тёмная тема:** CSS-переменная `--icon-filter` (`none` → `invert(1)`) в `src/assets/styles/variables.css`.
+  ⚠️ `:global(.dark) .action-icon` в `<style scoped>` компилируется неверно (`.dark{filter:invert()}` — инвертирует всю страницу)
+- `PF_action_reaction.png` был с белым фоном (1172×1018, 2 цвета) — фон убран ключевым переносом, картинка обрезана и уменьшена до 256×222 (13.7 КБ → 3.0 КБ)
+- В `globPatterns` Workbox добавлен `webp` — иначе `.webp` не попадал в precache (офлайн)
 
 ### Механизм переводов
 - `src/constants/translations.ts` — единый словарь: `TRADITION_LABELS`, `RARITY_LABELS`, `SCHOOL_LABELS`, `COMPONENT_LABELS`, `TRAIT_LABELS`, `FILTER_LABELS` + функции `traditionLabel()`, `schoolLabel()`, `rarityLabel()`, `traitLabel()`, `filterLabel()`, `componentInitial()`
@@ -140,7 +155,7 @@ npm run deploy
 - `src/components/AppSidebar.vue` — фильтры (все на русском)
 - `src/components/AppHeader.vue` — хедер, поиск, переключатель темы
 - `src/components/SpellCard.vue` — карточка заклинания (сетка, клик открывает детали)
-- `src/components/SpellTable.vue` — таблица заклинаний
+- `src/components/SpellTable.vue` — таблица заклинаний (в т.ч. столбец «Действия» с иконками)
 - `src/views/HomeView.vue` — главная страница (таблица/сетка, фильтры, поиск)
 - `src/views/SpellDetailView.vue` — детали заклинания (вкладки Кратко/Полно)
 - `src/views/FavoritesView.vue` — избранное + заметки
@@ -173,6 +188,8 @@ npm run deploy
 - `docs/decision_logs/2026-10-19-fix-github-pages-deploy.md` — **исправление белой страницы** (Vite 8 + деплой в корень ветки)
 - `docs/decision_logs/2026-10-20-deploy-script.md` — рабочий скрипт деплоя (`npm run deploy`)
 - `docs/decision_logs/2026-10-20-sidebar-layout-and-ru-ui.md` — **вёрстка сайдбара, мобильная адаптация, полный перевод интерфейса**
+- `docs/decision_logs/2026-10-21-spells-table-refinement.md` — **столбец «Действия», краткие описания, дескрипторы, сортировка**
+- `docs/decision_logs/2026-10-21-action-icons.md` — **иконки затрат действий, прозрачный фон реакции, тёмная тема**
 
 ## Ограничения модели
 Модель auto-free имеет лимит на объём размышлений. Работать короткими шагами:

@@ -35,6 +35,9 @@
   --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
   --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
 
+  /* чёрные силуэты иконок инвертируются в тёмной теме */
+  --icon-filter: none;
+
   --transition-fast: 150ms ease;
   --transition-normal: 250ms ease;
   --transition-slow: 350ms ease;
@@ -65,6 +68,7 @@
   --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.3);
   --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.4);
   --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.5);
+  --icon-filter: invert(1);
 }
 
 .light, .light-mode {
@@ -84,6 +88,7 @@
   --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
   --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
   --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
+  --icon-filter: none;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -104,5 +109,6 @@
     --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.3);
     --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.4);
     --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.5);
+    --icon-filter: invert(1);
   }
 }

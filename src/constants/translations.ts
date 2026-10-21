@@ -201,6 +201,37 @@ const ACTION_BASE_COUNTS: Record<string, number> = {
   'three actions': 3
 }
 
+interface ActionIconFile {
+  file: string
+  width: number
+  height: number
+}
+
+export interface ActionIcon extends ActionIconFile {
+  src: string
+}
+
+const ACTION_ICON_BY_COUNT: Record<number, ActionIconFile> = {
+  1: { file: 'PF_action_1.webp', width: 176, height: 176 },
+  2: { file: 'PF_action_2.webp', width: 277, height: 176 },
+  3: { file: 'PF_action_3.webp', width: 367, height: 177 }
+}
+
+const ACTION_ICON_FREE: ActionIconFile = { file: 'PF_action_free.webp', width: 178, height: 178 }
+const ACTION_ICON_REACTION: ActionIconFile = {
+  file: 'PF_action_reaction.png',
+  width: 256,
+  height: 222
+}
+
+const ACTION_ICON_BY_BASE: Record<string, ActionIconFile> = {
+  'single action': ACTION_ICON_BY_COUNT[1],
+  'two actions': ACTION_ICON_BY_COUNT[2],
+  'three actions': ACTION_ICON_BY_COUNT[3],
+  'free action': ACTION_ICON_FREE,
+  reaction: ACTION_ICON_REACTION
+}
+
 const DURATION_FORMS: Record<string, [string, string, string]> = {
   minute: ['минута', 'минуты', 'минут'],
   min: ['минута', 'минуты', 'минут'],
@@ -229,6 +260,7 @@ function plural(count: number, one: string, few: string, many: string): string {
 
 interface ActionPart {
   count?: number
+  icon?: ActionIconFile
   label: string
   order: number
 }
@@ -258,6 +290,7 @@ function actionBase(part: string): ActionPart | null {
   if (ACTION_BASE_LABELS[value]) {
     return {
       count: ACTION_BASE_COUNTS[value],
+      icon: ACTION_ICON_BY_BASE[value],
       label: ACTION_BASE_LABELS[value],
       order: value === 'free action' ? 4 : value === 'reaction' ? 5 : ACTION_BASE_COUNTS[value] ?? 6
     }
@@ -271,6 +304,7 @@ function actionBase(part: string): ActionPart | null {
 }
 
 interface ParsedActions {
+  icon?: ActionIconFile
   label: string
   order: number
 }
@@ -284,6 +318,7 @@ function parseActions(castTime: string): ParsedActions {
   if (numeric) {
     const amount = Number(numeric[1])
     return {
+      icon: ACTION_ICON_BY_COUNT[amount],
       label: `${amount} ${plural(amount, 'действие', 'действия', 'действий')}`,
       order: amount
     }
@@ -313,12 +348,28 @@ function parseActions(castTime: string): ParsedActions {
   }
 
   const base = actionBase(value)
-  if (base) return { label: base.label, order: base.order }
+  if (base) return { icon: base.icon, label: base.label, order: base.order }
   return { label: raw, order: 7 }
 }
 
 export function actionLabel(castTime: string): string {
   return parseActions(castTime).label
+}
+
+/**
+ * Иконка затрат действий: URL, размеры и alt-подпись.
+ * Возвращает null, если значение неоднозначно (диапазон, «или», длительность) —
+ * в таких случаях остаётся только текст.
+ */
+export function actionIcon(castTime: string): ActionIcon | null {
+  const icon = parseActions(castTime).icon
+  if (!icon) return null
+  return {
+    file: icon.file,
+    width: icon.width,
+    height: icon.height,
+    src: `${import.meta.env.BASE_URL}art/${icon.file}`
+  }
 }
 
 export function actionOrder(castTime: string): number {

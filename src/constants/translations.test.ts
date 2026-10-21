@@ -4,7 +4,9 @@ import {
   RARITY_LABELS,
   SCHOOL_LABELS,
   TRAIT_LABELS,
-  TRADITION_LABELS
+  TRADITION_LABELS,
+  actionIcon,
+  actionLabel
 } from './translations'
 
 interface Spell {
@@ -51,5 +53,47 @@ describe('словари переводов', () => {
       ...Object.values(RARITY_LABELS)
     ]
     expect(allValues.filter((v) => isEnglish(v))).toEqual([])
+  })
+})
+
+describe('иконки затрат действий', () => {
+  it('подбирает иконку для однозначных значений', () => {
+    expect(actionIcon('Single Action')?.file).toBe('PF_action_1.webp')
+    expect(actionIcon('Two Actions')?.file).toBe('PF_action_2.webp')
+    expect(actionIcon('Three Actions')?.file).toBe('PF_action_3.webp')
+    expect(actionIcon('Free Action')?.file).toBe('PF_action_free.webp')
+    expect(actionIcon('Reaction')?.file).toBe('PF_action_reaction.png')
+    expect(actionIcon('2')?.file).toBe('PF_action_2.webp')
+  })
+
+  it('не подбирает иконку для диапазонов, комбинаций и длительностей', () => {
+    expect(actionIcon('Single Action to Three Actions')).toBeNull()
+    expect(actionIcon('Two Actions or Three Actions')).toBeNull()
+    expect(actionIcon('Reaction or Single Action')).toBeNull()
+    expect(actionIcon('Two Actions to 2 rounds')).toBeNull()
+    expect(actionIcon('1 minute')).toBeNull()
+    expect(actionIcon('')).toBeNull()
+  })
+
+  it('использует путь с базовым префиксом и родные размеры', () => {
+    const icon = actionIcon('Two Actions')
+    expect(icon?.src).toMatch(/^.*art\/PF_action_2\.webp$/)
+    expect(icon?.width).toBe(277)
+    expect(icon?.height).toBe(176)
+  })
+})
+
+describe('подписи затрат действий', () => {
+  it('переводит базовые значения на русский', () => {
+    expect(actionLabel('Single Action')).toBe('1 действие')
+    expect(actionLabel('Two Actions')).toBe('2 действия')
+    expect(actionLabel('Three Actions')).toBe('3 действия')
+    expect(actionLabel('Free Action')).toBe('Свободное действие')
+    expect(actionLabel('Reaction')).toBe('Реакция')
+  })
+
+  it('склеивает диапазоны и комбинации', () => {
+    expect(actionLabel('Single Action to Three Actions')).toBe('1–3 действия')
+    expect(actionLabel('Two Actions or Three Actions')).toBe('2 действия или 3 действия')
   })
 })
