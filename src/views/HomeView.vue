@@ -141,15 +141,17 @@ function clearSelection() {
         <div class="flex flex-wrap items-center justify-center gap-xs">
           <button class="btn btn-secondary btn-sm" :disabled="showAll || currentPage === 1" @click="goToPage(currentPage - 1)">← Назад</button>
           <template v-if="!showAll">
-            <button
-              v-for="page in totalPages"
-              :key="page"
-              class="btn btn-sm"
-              :class="page === currentPage ? 'btn-primary' : 'btn-secondary'"
-              @click="goToPage(page)"
-            >
-              {{ page }}
-            </button>
+            <template v-for="page in totalPages" :key="page">
+              <button
+                v-if="page === 1 || page === totalPages || (page >= currentPage - 2 && page <= currentPage + 2)"
+                class="btn btn-sm"
+                :class="page === currentPage ? 'btn-primary' : 'btn-secondary'"
+                @click="goToPage(page)"
+              >
+                {{ page }}
+              </button>
+              <span v-else-if="page === currentPage - 3 || page === currentPage + 3" class="px-xs text-muted">…</span>
+            </template>
           </template>
           <button class="btn btn-secondary btn-sm" :disabled="showAll || currentPage === totalPages" @click="goToPage(currentPage + 1)">Вперёд →</button>
         </div>

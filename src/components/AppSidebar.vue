@@ -4,7 +4,7 @@ import { useRoute } from 'vue-router'
 import { useSpells } from '@/composables/useSpells'
 import { useFilterStore } from '@/stores'
 import type { FilterState } from '@/types/spell'
-import { COMPONENT_LABELS, filterLabel, traitLabel, traditionLabel, schoolLabel, rarityLabel } from '@/constants/translations'
+import { COMPONENT_LABELS, filterLabel, traitLabel, traditionLabel, schoolLabel } from '@/constants/translations'
 
 const route = useRoute()
 const { schools, allTraits, allSources, traditions } = useSpells()
@@ -48,8 +48,6 @@ function filterValueLabel(key: keyof FilterState, value: unknown): string {
       return traditionLabel(raw)
     case 'school':
       return schoolLabel(raw)
-    case 'rarity':
-      return rarityLabel(raw)
     case 'traits':
       return traitLabel(raw)
     case 'components':
@@ -227,25 +225,10 @@ function filterValueText(filter: { key: keyof FilterState; value: FilterState[ke
       </div>
 
       <div class="sidebar-section">
-        <h3 class="sidebar-title">Редкость</h3>
-        <div class="flex flex-col gap-2xs">
-          <label v-for="r in ['common', 'uncommon', 'rare', 'unique']" :key="r" class="flex items-center justify-between gap-sm cursor-pointer py-2xs">
-            <span class="capitalize">{{ rarityLabel(r) }}</span>
-            <input
-              type="checkbox"
-              class="flex-shrink-0"
-              :checked="filterStore.state.rarity.includes(r)"
-              @change="filterStore.toggleFilter('rarity', r)"
-            />
-          </label>
-        </div>
-      </div>
-
-      <div class="sidebar-section">
         <h3 class="sidebar-title">Источник</h3>
         <div class="flex flex-col gap-2xs max-h-48 overflow-y-auto">
           <label v-for="s in allSources" :key="s" class="flex items-center justify-between gap-sm cursor-pointer py-2xs">
-            <span class="truncate">{{ s }}</span>
+            <span>{{ s }}</span>
             <input
               type="checkbox"
               class="flex-shrink-0"
