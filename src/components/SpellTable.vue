@@ -169,6 +169,7 @@ function getSpellSource(spellId: string): string {
           <th v-if="columns.includes('tradition')" scope="col" style="width: 120px;">Традиция</th>
           <th v-if="columns.includes('school')" scope="col" style="width: 120px;">Школа</th>
           <th v-if="columns.includes('classes')" scope="col" style="width: 150px;">Классы</th>
+          <th v-if="columns.includes('traits')" scope="col" style="width: 200px;">Дескрипторы</th>
           <th style="width: 40px;">Выбрать</th>
         </tr>
       </thead>
@@ -195,22 +196,21 @@ function getSpellSource(spellId: string): string {
             <span class="text-sm">{{ formatTraditions(spell.tradition) }}</span>
           </td>
           <td v-if="columns.includes('school')">
-            <span class="text-sm">{{ schoolLabel(spell.school) }}</span>
+            <span class="text-sm">{{ spell.school === 'Unknown' ? '—' : schoolLabel(spell.school) }}</span>
           </td>
-          <td v-if="columns.includes('classes') && spell.classes.length > 0">
+          <td v-if="columns.includes('classes')">
+          </td>
+          <td v-if="columns.includes('traits')">
             <span class="text-sm">{{ formatClasses(spell.classes) }}</span>
           </td>
           <td>
-            <div class="flex items-center gap-2">
-              <span v-if="columns.includes('traits')" class="text-sm">{{ formatTraits(spell.traits) }}</span>
-              <input
-                type="checkbox"
-                :checked="props.selected.has(spell.id)"
-                class="w-4 h-4 accent-[var(--color-accent)]"
-                :aria-label="`Выбрать ${spell.nameRu}`"
-                @click.stop="emit('select', spell.id)"
-              />
-            </div>
+            <input
+              type="checkbox"
+              :checked="props.selected.has(spell.id)"
+              class="w-4 h-4 accent-[var(--color-accent)]"
+              :aria-label="`Выбрать ${spell.nameRu}`"
+              @click.stop="emit('select', spell.id)"
+            />
           </td>
         </tr>
       </tbody>
