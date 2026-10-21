@@ -64,7 +64,13 @@ export const useSettingsStore = defineStore('settings', () => {
   function load() {
     const saved = localStorage.getItem('pf2e-settings')
     if (saved) {
-      try { state.value = { ...state.value, ...JSON.parse(saved) } } catch { /* ignore invalid JSON */ }
+      try {
+        const parsed = JSON.parse(saved)
+        if (Array.isArray(parsed.tableColumns)) {
+          parsed.tableColumns = parsed.tableColumns.filter((c: string) => c !== 'rarity')
+        }
+        state.value = { ...state.value, ...parsed }
+      } catch { /* ignore invalid JSON */ }
     }
     applyTheme()
   }
