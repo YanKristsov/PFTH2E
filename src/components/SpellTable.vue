@@ -169,7 +169,6 @@ function getSpellSource(spellId: string): string {
           <th v-if="columns.includes('tradition')" scope="col" style="width: 120px;">Традиция</th>
           <th v-if="columns.includes('school')" scope="col" style="width: 120px;">Школа</th>
           <th v-if="columns.includes('classes')" scope="col" style="width: 150px;">Классы</th>
-          <th v-if="columns.includes('traits')" scope="col" style="width: 200px;">Дескрипторы</th>
           <th style="width: 40px;">Выбрать</th>
         </tr>
       </thead>
@@ -201,18 +200,17 @@ function getSpellSource(spellId: string): string {
           <td v-if="columns.includes('classes') && spell.classes.length > 0">
             <span class="text-sm">{{ formatClasses(spell.classes) }}</span>
           </td>
-          <td v-if="columns.includes('traits')">
-            <span class="text-sm">{{ formatTraits(spell.traits) }}</span>
-          </td>
-          
           <td>
-            <input
-              type="checkbox"
-              :checked="props.selected.has(spell.id)"
-              class="w-4 h-4 accent-[var(--color-accent)]"
-              :aria-label="`Выбрать ${spell.nameRu}`"
-              @click.stop="emit('select', spell.id)"
-            />
+            <div class="flex items-center gap-2">
+              <span v-if="columns.includes('traits')" class="text-sm">{{ formatTraits(spell.traits) }}</span>
+              <input
+                type="checkbox"
+                :checked="props.selected.has(spell.id)"
+                class="w-4 h-4 accent-[var(--color-accent)]"
+                :aria-label="`Выбрать ${spell.nameRu}`"
+                @click.stop="emit('select', spell.id)"
+              />
+            </div>
           </td>
         </tr>
       </tbody>
