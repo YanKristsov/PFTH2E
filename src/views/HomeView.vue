@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { useSpells } from '@/composables/useSpells'
 import { useFilterStore, useSettingsStore, useHistoryStore, useComparisonStore, useFavoritesStore } from '@/stores'
@@ -19,6 +19,37 @@ const loadError = computed(() => useSpells().loadError.value)
 const viewMode = computed(() => settingsStore.state.viewMode)
 const filteredSpells = computed(() => search(filterStore.state.searchQuery, filterStore.state))
 const selectedSpells = ref<Set<string>>(new Set())
+
+const PAGE_SIZE = 50
+const showAll = ref(false)
+const currentPage = ref(1)
+
+const totalPages = computed(() => Math.max(1, Math.ceil(filteredSpells.value.length / PAGE_SIZE)))
+
+const pagedSpells = computed(() => {
+  if (showAll.value) return filteredSpells.value
+  const start = (currentPage.value - 1) * PAGE_SIZE
+  return filteredSpells.value.slice(start, start + PAGE_SIZE)
+})
+
+watch(filteredSpells, () => {
+  currentPage.value = 1
+})
+
+watch(() => filterStore.state, () => {
+  currentPage.value = 1
+}, { deep: true })
+
+function goToPage(page: number) {
+  currentPage.value = page
+  window.scrollTo({ top: 0, behavior: 'smooth' })
+}
+
+function showFullList() {
+  showAll.value = !showAll.value
+  currentPage.value = 1
+  if (!showAll.value) window.scrollTo({ top: 0, behavior: 'smooth' })
+}
 
 function viewSpell(spellId: string) {
     historyStore.add(spellId)
@@ -88,14 +119,14 @@ function clearSelection() {
     <template v-else>
       <SpellTable
         v-if="viewMode === 'table'"
-        :spells="filteredSpells"
+        :spells="pagedSpells"
         :selected="selectedSpells"
         @select="toggleSelect"
         @view="viewSpell"
       />
       <div v-else class="spell-grid cards">
         <SpellCard
-          v-for="spellIndex in filteredSpells"
+          v-for="spellIndex in pagedSpells"
           :key="spellIndex.id"
           :spell-index="spellIndex"
           :is-favorite="favoritesStore.favoriteIds.has(spellIndex.id)"
@@ -104,6 +135,26 @@ function clearSelection() {
           @favorite="toggleFavorite"
           @compare="toggleCompare"
         />
+      </div>
+
+      <div class="flex flex-col items-center gap-md mt-xl mb-md">
+        <div class="flex flex-wrap items-center justify-center gap-xs">
+          <button class="btn btn-secondary btn-sm" :disabled="showAll || currentPage === 1" @click="goToPage(currentPage - 1)">← Назад</button>
+          <template v-if="!showAll">
+            <button
+              v-for="page in totalPages"
+              :key="page"
+              class="btn btn-sm"
+              :class="page === currentPage ? 'btn-primary' : 'btn-secondary'"
+              @click="goToPage(page)"
+            >
+              {{ page }}
+            </button>
+          </template>
+          <button class="btn btn-secondary btn-sm" :disabled="showAll || currentPage === totalPages" @click="goToPage(currentPage + 1)">Вперёд →</button>
+        </div>
+        <button class="btn btn-secondary" @click="showFullList">{{ showAll ? 'По страницам' : 'Список заклинаний' }}</button>
+        <div class="text-sm text-muted">Всего: {{ filteredSpells.length }} заклинаний</div>
       </div>
     </template>
 
