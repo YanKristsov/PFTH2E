@@ -1,14 +1,13 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { useSpells } from '@/composables/useSpells'
-import { useHistoryStore, useComparisonStore } from '@/stores'
+import { useHistoryStore } from '@/stores'
 import SpellTable from '@/components/SpellTable.vue'
 import type { SpellIndex } from '@/types/spell'
 
 const router = useRouter()
 const historyStore = useHistoryStore()
-const comparisonStore = useComparisonStore()
 const { getSpell } = useSpells()
 
 const historySpells = computed<SpellIndex[]>(() => {
@@ -32,34 +31,13 @@ const historySpells = computed<SpellIndex[]>(() => {
   return result
 })
 
-const selectedSpells = ref<Set<string>>(new Set())
-
 function viewSpell(spellId: string) {
   router.push({ name: 'spell-detail', params: { id: spellId } })
-}
-
-function toggleSelect(spellId: string) {
-  if (selectedSpells.value.has(spellId)) {
-    selectedSpells.value.delete(spellId)
-  } else {
-    selectedSpells.value.add(spellId)
-  }
-}
-
-function addToComparison() {
-  if (selectedSpells.value.size > 3) return
-  selectedSpells.value.forEach(id => comparisonStore.add(id))
-  router.push({ name: 'compare' })
-}
-
-function clearSelection() {
-  selectedSpells.value.clear()
 }
 
 function clearHistory() {
   if (confirm('Очистить всю историю просмотров?')) {
     historyStore.clear()
-    selectedSpells.value.clear()
   }
 }
 </script>
@@ -83,18 +61,8 @@ function clearHistory() {
     <template v-else>
       <SpellTable
         :spells="historySpells"
-        :selected="selectedSpells"
-        @select="toggleSelect"
         @view="viewSpell"
       />
     </template>
-
-    <div v-if="selectedSpells.size > 0" class="fixed bottom-4 right-4 z-30 flex flex-col gap-sm">
-      <button class="btn btn-primary shadow-lg" @click="addToComparison">
-        <span v-if="selectedSpells.size <= 3">Добавить к сравнению ({{ selectedSpells.size }}/3)</span>
-        <span v-else class="text-error">Максимум 3 заклинания</span>
-      </button>
-      <button class="btn btn-secondary shadow-lg" @click="clearSelection">Очистить выбор</button>
-    </div>
   </div>
 </template>

@@ -2,7 +2,7 @@
 import { computed, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useSpells } from '@/composables/useSpells'
-import { useFavoritesStore, useHistoryStore, useComparisonStore, useSettingsStore } from '@/stores'
+import { useFavoritesStore, useHistoryStore, useSettingsStore } from '@/stores'
 import { rarityLabel, schoolLabel, traditionLabel, traitLabel, COMPONENT_LABELS } from '@/constants/translations'
 
 const route = useRoute()
@@ -10,7 +10,6 @@ const router = useRouter()
 const settingsStore = useSettingsStore()
 const favoritesStore = useFavoritesStore()
 const historyStore = useHistoryStore()
-const comparisonStore = useComparisonStore()
 const { getSpell, loadError, spells } = useSpells()
 
 const spellId = computed(() => route.params.id as string)
@@ -127,10 +126,6 @@ function exportSpell() {
           <button class="btn btn-ghost" :aria-pressed="favoritesStore.favoriteIds.has(spell.id)" :aria-label="favoritesStore.favoriteIds.has(spell.id) ? 'Убрать из избранного' : 'Добавить в избранное'" @click="favoritesStore.toggle(spell.id)">
             <span aria-hidden="true">{{ favoritesStore.favoriteIds.has(spell.id) ? '⭐' : '☆' }}</span>
             <span class="hidden mobile:hidden">{{ favoritesStore.favoriteIds.has(spell.id) ? 'В избранном' : 'Добавить в избранное' }}</span>
-          </button>
-          <button class="btn btn-ghost" :aria-pressed="comparisonStore.isInComparison(spell.id)" :aria-label="comparisonStore.isInComparison(spell.id) ? 'Убрать из сравнения' : 'Добавить к сравнению'" @click="comparisonStore.toggle(spell.id)">
-            <span aria-hidden="true">⚖️</span>
-            <span class="hidden mobile:hidden">{{ comparisonStore.isInComparison(spell.id) ? 'В сравнении' : 'Добавить к сравнению' }}</span>
           </button>
           <button class="btn btn-ghost" aria-label="Экспортировать заклинание" @click="exportSpell">
             <span aria-hidden="true">📥</span>

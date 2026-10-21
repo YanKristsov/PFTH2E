@@ -29,11 +29,6 @@ const routes: RouteRecordRaw[] = [
     component: () => import('@/views/SettingsView.vue')
   },
   {
-    path: '/compare',
-    name: 'compare',
-    component: () => import('@/views/CompareView.vue')
-  },
-  {
     path: '/:pathMatch(.*)*',
     redirect: '/'
   }

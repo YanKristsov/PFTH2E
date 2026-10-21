@@ -57,8 +57,17 @@
 - `PF_action_reaction.png` был с белым фоном (1172×1018, 2 цвета) — фон убран ключевым переносом, картинка обрезана и уменьшена до 256×222 (13.7 КБ → 3.0 КБ)
 - В `globPatterns` Workbox добавлен `webp` — иначе `.webp` не попадал в precache (офлайн)
 
-### Механизм переводов
-- `src/constants/translations.ts` — единый словарь: `TRADITION_LABELS`, `RARITY_LABELS`, `SCHOOL_LABELS`, `COMPONENT_LABELS`, `TRAIT_LABELS`, `FILTER_LABELS` + функции `traditionLabel()`, `schoolLabel()`, `rarityLabel()`, `traitLabel()`, `filterLabel()`, `componentInitial()`
+### Раздел «Сравнение» удалён (2026-10-21)
+- Удалены: `src/views/CompareView.vue`, маршрут `/compare`, `useComparisonStore` (Pinia),
+  пункты навигации «Сравнение» в хедере и сайдбаре, кнопка ⚖️ в карточке заклинания,
+  кнопка «Добавить к сравнению» в деталях заклинания, колонка «Выбрать» с чекбоксами в таблице
+  и панель «Добавить к сравнению (N/3)» на главной и в истории
+- `SpellTable` больше не принимает проп `selected` и не эмитит `select`; клик по строке
+  и Enter/Space всегда открывают детали (ранее Ctrl/Cmd+клик и Shift+Enter выбирали для сравнения)
+- `SpellCard` больше не принимает `is-in-comparison` и не эмитит `compare`
+- `/compare` теперь отдаёт 404 → редирект на главную (catch-all маршрут)
+
+### Механизм переводов- `src/constants/translations.ts` — единый словарь: `TRADITION_LABELS`, `RARITY_LABELS`, `SCHOOL_LABELS`, `COMPONENT_LABELS`, `TRAIT_LABELS`, `FILTER_LABELS` + функции `traditionLabel()`, `schoolLabel()`, `rarityLabel()`, `traitLabel()`, `filterLabel()`, `componentInitial()`
 - Все компоненты используют эти функции, а не прямые обращения к константам
 - Чтобы добавить перевод — дописать пару в `TRAIT_LABELS`
 - **Тест `src/constants/translations.test.ts`** проверяет, что для каждой традиции, школы, редкости и английской черты из `public/spells.json` есть русская подпись. При добавлении новых данных тест укажет, чего не хватает
@@ -164,9 +173,8 @@ npm run deploy
 - `src/views/SpellDetailView.vue` — детали заклинания (вкладки Кратко/Полно)
 - `src/views/FavoritesView.vue` — избранное + заметки
 - `src/views/HistoryView.vue` — история просмотров
-- `src/views/CompareView.vue` — сравнение до 3 заклинаний
 - `src/views/SettingsView.vue` — настройки (тема, колонки, экспорт/импорт)
-- `src/stores/index.ts` — Pinia store (фильтры, настройки, избранное, история, сравнение)
+- `src/stores/index.ts` — Pinia store (фильтры, настройки, избранное, история)
 - `src/composables/useSpells.ts` — загрузка данных, MiniSearch, фильтрация
 - `src/router/index.ts` — маршрутизация
 - `src/types/spell.ts` — Zod-схемы и типы
@@ -194,6 +202,7 @@ npm run deploy
 - `docs/decision_logs/2026-10-20-sidebar-layout-and-ru-ui.md` — **вёрстка сайдбара, мобильная адаптация, полный перевод интерфейса**
 - `docs/decision_logs/2026-10-21-spells-table-refinement.md` — **столбец «Действия», краткие описания, дескрипторы, сортировка**
 - `docs/decision_logs/2026-10-21-action-icons.md` — **иконки затрат действий, прозрачный фон реакции, тёмная тема**
+- `docs/decision_logs/2026-10-21-remove-compare-section.md` — **удаление раздела «Сравнение» и всей связанной механики**
 
 ## Ограничения модели
 Модель auto-free имеет лимит на объём размышлений. Работать короткими шагами:

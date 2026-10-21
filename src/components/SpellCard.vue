@@ -4,10 +4,9 @@ import type { SpellIndex } from '@/types/spell'
 import { rarityLabel, schoolLabel, traditionLabel, traitLabel } from '@/constants/translations'
 import { useSpells } from '@/composables/useSpells'
 
-const { spellIndex, isFavorite, isInComparison } = defineProps<{
+const { spellIndex, isFavorite } = defineProps<{
   spellIndex: SpellIndex
   isFavorite: boolean
-  isInComparison: boolean
 }>()
 
 const { getShortDescription } = useSpells()
@@ -17,7 +16,6 @@ const shortDescription = computed(() => getShortDescription(spellIndex.id))
 defineEmits<{
   view: [spellId: string]
   favorite: [spellId: string]
-  compare: [spellId: string]
 }>()
 
 const rarityColors: Record<string, string> = {
@@ -51,14 +49,6 @@ const rarityColors: Record<string, string> = {
           @click.stop="$emit('favorite', spellIndex.id)"
         >
           <span aria-hidden="true">{{ isFavorite ? '⭐' : '☆' }}</span>
-        </button>
-        <button
-          class="btn btn-ghost btn-sm"
-          :aria-label="isInComparison ? 'Убрать из сравнения' : 'Добавить к сравнению'"
-          :aria-pressed="isInComparison"
-          @click.stop="$emit('compare', spellIndex.id)"
-        >
-          <span aria-hidden="true">⚖️</span>
         </button>
       </div>
     </div>

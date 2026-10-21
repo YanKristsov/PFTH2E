@@ -234,34 +234,3 @@ export const useHistoryStore = defineStore('history', () => {
 
   return { items, load, add, clear }
 })
-
-export const useComparisonStore = defineStore('comparison', () => {
-  const items = ref<string[]>([])
-  const MAX_COMPARE = 3
-
-  function add(spellId: string) {
-    if (!items.value.includes(spellId) && items.value.length < MAX_COMPARE) {
-      items.value.push(spellId)
-    }
-  }
-
-  function remove(spellId: string) {
-    const idx = items.value.indexOf(spellId)
-    if (idx >= 0) items.value.splice(idx, 1)
-  }
-
-  function toggle(spellId: string) {
-    if (items.value.includes(spellId)) remove(spellId)
-    else add(spellId)
-  }
-
-  function clear() {
-    items.value = []
-  }
-
-  function isInComparison(spellId: string): boolean {
-    return items.value.includes(spellId)
-  }
-
-  return { items, add, remove, toggle, clear, isInComparison }
-})

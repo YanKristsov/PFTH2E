@@ -69,8 +69,7 @@ function filterValueText(filter: { key: keyof FilterState; value: FilterState[ke
         v-for="item in [
           { name: 'home', label: 'Все заклинания', icon: '📜' },
           { name: 'favorites', label: 'Избранное', icon: '⭐' },
-          { name: 'history', label: 'История', icon: '🕐' },
-          { name: 'compare', label: 'Сравнение', icon: '⚖️' }
+          { name: 'history', label: 'История', icon: '🕐' }
         ]"
         :key="item.name"
         :to="{ name: item.name }"

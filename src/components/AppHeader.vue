@@ -93,10 +93,6 @@ function getThemeIcon() {
           <span class="sidebar-link-icon" aria-hidden="true">🕐</span>
           <span>История</span>
         </router-link>
-        <router-link to="/compare" class="sidebar-link" @click="showMobileMenu = false">
-          <span class="sidebar-link-icon" aria-hidden="true">⚖️</span>
-          <span>Сравнение</span>
-        </router-link>
         <router-link to="/settings" class="sidebar-link" @click="showMobileMenu = false">
           <span class="sidebar-link-icon" aria-hidden="true">⚙️</span>
           <span>Настройки</span>

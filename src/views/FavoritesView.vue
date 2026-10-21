@@ -2,7 +2,7 @@
 import { computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { useSpells } from '@/composables/useSpells'
-import { useFavoritesStore, useSettingsStore, useComparisonStore } from '@/stores'
+import { useFavoritesStore, useSettingsStore } from '@/stores'
 import SpellCard from '@/components/SpellCard.vue'
 import type { SpellIndex } from '@/types/spell'
 import { traditionLabel, schoolLabel } from '@/constants/translations'
@@ -10,7 +10,6 @@ import { traditionLabel, schoolLabel } from '@/constants/translations'
 const router = useRouter()
 const settingsStore = useSettingsStore()
 const favoritesStore = useFavoritesStore()
-const comparisonStore = useComparisonStore()
 const { getSpell } = useSpells()
 
 interface FavoriteSpellWithNotes extends SpellIndex {
@@ -44,10 +43,6 @@ function viewSpell(spellId: string) {
 
 function toggleFavorite(spellId: string) {
   favoritesStore.toggle(spellId)
-}
-
-function toggleCompare(spellId: string) {
-  comparisonStore.toggle(spellId)
 }
 
 function updateNotes(spellId: string, notes: string) {
@@ -109,10 +104,8 @@ function importFavorites(event: Event) {
           :key="spell.id"
           :spell-index="spell"
           :is-favorite="true"
-          :is-in-comparison="false"
           @view="viewSpell"
           @favorite="toggleFavorite"
-          @compare="toggleCompare"
         />
       </div>
       <div v-else>
@@ -125,7 +118,6 @@ function importFavorites(event: Event) {
               <th scope="col" style="width: 120px;">Традиция</th>
               <th scope="col" style="width: 120px;">Школа</th>
               <th scope="col">Заметки</th>
-              <th scope="col" style="width: 40px;"></th>
             </tr>
           </thead>
           <tbody>
@@ -149,9 +141,6 @@ function importFavorites(event: Event) {
                   @input="updateNotes(spell.id, spell.notes)"
                   @click.stop
                 ></textarea>
-              </td>
-              <td>
-                <button class="btn btn-ghost btn-sm" :aria-label="`Добавить ${spell.nameRu} в сравнение`" @click.stop="toggleCompare(spell.id)">⚖️</button>
               </td>
             </tr>
           </tbody>

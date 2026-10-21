@@ -7,11 +7,9 @@ import { traditionLabel, traitLabel, schoolLabel, actionOrder, actionDisplay } f
 
 const props = defineProps<{
   spells: SpellIndex[]
-  selected: Set<string>
 }>()
 
 const emit = defineEmits<{
-  select: [spellId: string]
   view: [spellId: string]
 }>()
 
@@ -78,24 +76,15 @@ const sortedSpells = computed(() => {
   return list
 })
 
-function rowClass(spell: SpellIndex) {
-  return { selected: props.selected.has(spell.id) }
-}
-
 function handleRowClick(spell: SpellIndex, e: MouseEvent) {
   if ((e.target as HTMLElement).closest('button, input, a')) return
-  if (e.metaKey || e.ctrlKey) {
-    emit('select', spell.id)
-  } else {
-    emit('view', spell.id)
-  }
+  emit('view', spell.id)
 }
 
 function handleKeyDown(spell: SpellIndex, e: KeyboardEvent) {
   if (e.key === 'Enter' || e.key === ' ') {
     e.preventDefault()
-    if (e.shiftKey) emit('select', spell.id)
-    else emit('view', spell.id)
+    emit('view', spell.id)
   }
 }
 
@@ -160,18 +149,15 @@ const rows = computed(() =>
               Действия<span class="sort-arrow" aria-hidden="true">{{ sortIndicator('actions') }}</span>
             </button>
           </th>
-          <th class="select-cell" scope="col" style="width: 40px;">Выбрать</th>
         </tr>
       </thead>
       <tbody>
         <tr
           v-for="({ spell, action }) in rows"
           :key="spell.id"
-          :class="rowClass(spell)"
           tabindex="0"
           role="button"
           :aria-label="`${spell.nameRu}, уровень ${spell.level}, ${formatTraditions(spell.tradition)}`"
-          :aria-selected="props.selected.has(spell.id)"
           @click="handleRowClick(spell, $event)"
           @keydown="handleKeyDown(spell, $event)"
         >
@@ -216,15 +202,6 @@ const rows = computed(() =>
               </template>
             </div>
           </td>
-          <td class="select-cell">
-            <input
-              type="checkbox"
-              :checked="props.selected.has(spell.id)"
-              class="w-4 h-4 accent-[var(--color-accent)]"
-              :aria-label="`Выбрать ${spell.nameRu}`"
-              @click.stop="emit('select', spell.id)"
-            />
-          </td>
         </tr>
       </tbody>
     </table>
@@ -233,7 +210,6 @@ const rows = computed(() =>
 
 <style scoped>
 /* Uses global table classes */
-.selected { background: color-mix(in srgb, var(--color-accent) 10%, var(--color-surface)) !important; }
 .traits-cell { display: flex; flex-wrap: wrap; gap: 4px; align-items: flex-start; }
 .trait-chip {
   display: inline-block;
@@ -247,8 +223,6 @@ const rows = computed(() =>
   white-space: nowrap;
   overflow-wrap: anywhere;
 }
-.select-cell { text-align: center; }
-.select-cell input[type='checkbox'] { display: inline-block; vertical-align: middle; }
 .level-cell { vertical-align: middle; }
 .action-cell { display: flex; align-items: center; gap: 6px; }
 .action-sep { color: var(--color-text-secondary); font-size: 0.85rem; }
@@ -277,7 +251,6 @@ const rows = computed(() =>
 .th-sort:hover { color: var(--color-text); }
 .sort-arrow { font-size: 0.85em; }
 :deep(.table td) { vertical-align: top; }
-:deep(.table td.select-cell),
 :deep(.table td.level-cell),
 :deep(.table td.actions-cell) { vertical-align: middle; }
 </style>
