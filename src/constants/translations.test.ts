@@ -5,7 +5,7 @@ import {
   SCHOOL_LABELS,
   TRAIT_LABELS,
   TRADITION_LABELS,
-  actionIcon,
+  actionDisplay,
   actionLabel
 } from './translations'
 
@@ -57,38 +57,65 @@ describe('словари переводов', () => {
 })
 
 describe('иконки затрат действий', () => {
+  const iconFiles = (castTime: string) =>
+    actionDisplay(castTime)
+      .segments.filter((s) => s.kind === 'icon')
+      .map((s) => s.icon?.file)
+
+  const texts = (castTime: string) =>
+    actionDisplay(castTime)
+      .segments.filter((s) => s.kind === 'text')
+      .map((s) => s.text)
+
   it('подбирает иконку для однозначных значений', () => {
-    expect(actionIcon('Single Action')?.file).toBe('PF_action_1.webp')
-    expect(actionIcon('Two Actions')?.file).toBe('PF_action_2.webp')
-    expect(actionIcon('Three Actions')?.file).toBe('PF_action_3.webp')
-    expect(actionIcon('Free Action')?.file).toBe('PF_action_free.webp')
-    expect(actionIcon('Reaction')?.file).toBe('PF_action_reaction.png')
-    expect(actionIcon('2')?.file).toBe('PF_action_2.webp')
+    expect(iconFiles('Single Action')).toEqual(['PF_action_1.webp'])
+    expect(iconFiles('Two Actions')).toEqual(['PF_action_2.webp'])
+    expect(iconFiles('Three Actions')).toEqual(['PF_action_3.webp'])
+    expect(iconFiles('Free Action')).toEqual(['PF_action_free.webp'])
+    expect(iconFiles('Reaction')).toEqual(['PF_action_reaction.png'])
+    expect(iconFiles('2')).toEqual(['PF_action_2.webp'])
   })
 
-  it('не подбирает иконку для диапазонов, комбинаций и длительностей', () => {
-    expect(actionIcon('Single Action to Three Actions')).toBeNull()
-    expect(actionIcon('Two Actions or Three Actions')).toBeNull()
-    expect(actionIcon('Reaction or Single Action')).toBeNull()
-    expect(actionIcon('Two Actions to 2 rounds')).toBeNull()
-    expect(actionIcon('1 minute')).toBeNull()
-    expect(actionIcon('')).toBeNull()
+  it('не подбирает иконку для комбинаций и длительностей', () => {
+    expect(iconFiles('Two Actions or Three Actions')).toEqual([])
+    expect(iconFiles('Reaction or Single Action')).toEqual([])
+    expect(iconFiles('1 minute')).toEqual([])
+    expect(iconFiles('')).toEqual([])
+  })
+
+  it('для диапазона показывает две иконки через тире', () => {
+    const display = actionDisplay('Single Action to Three Actions')
+    expect(display.label).toBe('1–3 действия')
+    expect(display.segments.map((s) => s.kind)).toEqual(['icon', 'sep', 'icon'])
+    expect(iconFiles('Single Action to Three Actions')).toEqual([
+      'PF_action_1.webp',
+      'PF_action_3.webp'
+    ])
+    expect(texts('Single Action to Three Actions')).toEqual([])
+    const sep = display.segments[1]
+    expect(sep.text).toBe('–')
+  })
+
+  it('скрывает текст там, где иконка однозначна', () => {
+    expect(texts('Single Action')).toEqual([])
+    expect(texts('Two Actions')).toEqual([])
+    expect(texts('Three Actions')).toEqual([])
+    expect(texts('Reaction')).toEqual([])
+  })
+
+  it('сохраняет подпись там, где иконка неоднозначна', () => {
+    expect(texts('Free Action')).toEqual(['Свободное действие'])
+    expect(texts('Two Actions or Three Actions')).toEqual(['2 действия или 3 действия'])
+    expect(texts('1 minute')).toEqual(['1 минута'])
+    expect(texts('')).toEqual(['—'])
   })
 
   it('использует путь с базовым префиксом и родные размеры', () => {
-    const icon = actionIcon('Two Actions')
+    const icon = actionDisplay('Two Actions').segments[0].icon
     expect(icon?.src).toMatch(/^.*art\/PF_action_2\.webp$/)
     expect(icon?.width).toBe(277)
     expect(icon?.height).toBe(176)
-  })
-
-  it('заменяет текст иконкой только для 1/2/3 действий', () => {
-    expect(actionIcon('Single Action')?.iconOnly).toBe(true)
-    expect(actionIcon('Two Actions')?.iconOnly).toBe(true)
-    expect(actionIcon('Three Actions')?.iconOnly).toBe(true)
-    expect(actionIcon('2')?.iconOnly).toBe(true)
-    expect(actionIcon('Free Action')?.iconOnly).toBe(false)
-    expect(actionIcon('Reaction')?.iconOnly).toBe(false)
+    expect(icon?.alt).toBe('2 действия')
   })
 })
 

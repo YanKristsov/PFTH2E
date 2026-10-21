@@ -81,6 +81,10 @@ const iconStats = await page.evaluate(() => {
   const countAlts = imgs
     .map((i) => i.getAttribute('alt') ?? '')
     .filter((a) => /^\d+ действи/.test(a))
+  const reactionAlts = imgs.map((i) => i.getAttribute('alt') ?? '').filter((a) => a === 'Реакция')
+  const rangeCells = Array.from(document.querySelectorAll('td.actions-cell')).filter(
+    (td) => td.querySelectorAll('img.action-icon').length === 2
+  )
   return {
     total: imgs.length,
     loaded: loaded.length,
@@ -88,24 +92,30 @@ const iconStats = await page.evaluate(() => {
     alt: first?.getAttribute('alt') ?? null,
     natural: first ? `${first.naturalWidth}x${first.naturalHeight}` : null,
     countAlts: countAlts.length,
-    // у 1/2/3 действий текст скрыт — в ячейке остаётся только иконка
-    countCellsText: Array.from(document.querySelectorAll('td.actions-cell')).map((td) =>
+    reactionAlts: reactionAlts.length,
+    rangeCells: rangeCells.length,
+    rangeIcons: Array.from(
+      rangeCells[0]?.querySelectorAll('img.action-icon') ?? []
+    ).map((i) => (i.getAttribute('src') ?? '').split('/').pop()),
+    rangeSep: rangeCells[0]?.querySelector('.action-sep')?.textContent ?? null,
+    // у ячеек с иконкой текстовых подписей быть не должно
+    cellTexts: Array.from(document.querySelectorAll('td.actions-cell')).map((td) =>
       (td.textContent ?? '').trim()
-    ),
-    alts: Array.from(new Set(countAlts))
+    )
   }
 })
 console.log(`иконок в таблице: ${iconStats.total}, загружено: ${iconStats.loaded}`)
 console.log(`первая иконка: ${iconStats.src} (alt="${iconStats.alt}", ${iconStats.natural})`)
-console.log(`alt у иконок 1/2/3 действий: ${iconStats.alts.join(', ')}`)
+console.log(`alt у иконок 1/2/3 действий: ${iconStats.countAlts} шт.`)
+console.log(`иконок реакции: ${iconStats.reactionAlts} шт.`)
 const iconsOk =
   iconStats.total > 0 && iconStats.loaded > 0 && (iconStats.src ?? '').includes('/art/PF_action_')
 console.log(iconsOk ? 'OK   иконки действий загружаются' : 'FAIL иконки действий не загружаются')
-// текстовые подписи «1/2/3 действия» скрыты: в тексте ячеек их быть не должно
-const hiddenOk = !iconStats.countCellsText.some((t) => /^\d+ действи/.test(t))
+// текстовые подписи «1/2/3 действия» и «Реакция» скрыты
+const hiddenOk = !iconStats.cellTexts.some((t) => /^\d+ действи|^Реакция$/.test(t))
 console.log(
   hiddenOk
-    ? 'OK   подписи «1/2/3 действия» скрыты (только иконка)'
+    ? 'OK   подписи «1/2/3 действия» и «Реакция» скрыты (только иконка)'
     : 'FAIL в ячейке осталась текстовая подпись действия'
 )
 

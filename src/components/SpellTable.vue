@@ -3,7 +3,7 @@ import { computed, ref } from 'vue'
 import type { SpellIndex } from '@/types/spell'
 import { useSettingsStore } from '@/stores'
 import { useSpells } from '@/composables/useSpells'
-import { traditionLabel, traitLabel, schoolLabel, actionLabel, actionOrder, actionIcon } from '@/constants/translations'
+import { traditionLabel, traitLabel, schoolLabel, actionOrder, actionDisplay } from '@/constants/translations'
 
 const props = defineProps<{
   spells: SpellIndex[]
@@ -119,13 +119,9 @@ const rows = computed(() =>
   sortedSpells.value.map((spell) => {
     const full = getSpell(spell.id)
     const castTime = full?.castTime ?? ''
-    const icon = actionIcon(castTime)
     return {
       spell,
-      actionLabel: actionLabel(castTime),
-      actionIcon: icon,
-      // для 1/2/3 действий иконка однозначно показывает количество — текст избыточен
-      showLabel: !(icon && icon.iconOnly)
+      action: actionDisplay(castTime)
     }
   })
 )
@@ -169,7 +165,7 @@ const rows = computed(() =>
       </thead>
       <tbody>
         <tr
-          v-for="({ spell, actionLabel: actionText, actionIcon: actionIconInfo, showLabel }) in rows"
+          v-for="({ spell, action }) in rows"
           :key="spell.id"
           :class="rowClass(spell)"
           tabindex="0"
@@ -203,18 +199,21 @@ const rows = computed(() =>
           </td>
           <td v-if="columns.includes('actions')" class="actions-cell">
             <div class="action-cell">
-              <img
-                v-if="actionIconInfo"
-                class="action-icon"
-                :src="actionIconInfo.src"
-                :alt="actionText"
-                :title="actionText"
-                :width="actionIconInfo.width"
-                :height="actionIconInfo.height"
-                loading="lazy"
-                decoding="async"
-              />
-              <span v-if="showLabel" class="text-sm">{{ actionText }}</span>
+              <template v-for="(seg, i) in action.segments" :key="i">
+                <img
+                  v-if="seg.kind === 'icon' && seg.icon"
+                  class="action-icon"
+                  :src="seg.icon.src"
+                  :alt="seg.icon.alt"
+                  :title="seg.icon.alt"
+                  :width="seg.icon.width"
+                  :height="seg.icon.height"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span v-else-if="seg.kind === 'sep'" class="action-sep" aria-hidden="true">{{ seg.text }}</span>
+                <span v-else class="text-sm">{{ seg.text }}</span>
+              </template>
             </div>
           </td>
           <td class="select-cell">
@@ -252,6 +251,7 @@ const rows = computed(() =>
 .select-cell input[type='checkbox'] { display: inline-block; vertical-align: middle; }
 .level-cell { vertical-align: middle; }
 .action-cell { display: flex; align-items: center; gap: 6px; }
+.action-sep { color: var(--color-text-secondary); font-size: 0.85rem; }
 .action-icon {
   height: 20px;
   width: auto;

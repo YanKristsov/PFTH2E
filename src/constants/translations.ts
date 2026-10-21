@@ -205,42 +205,39 @@ interface ActionIconFile {
   file: string
   width: number
   height: number
-  /**
-   * true — иконка однозначно показывает количество действий (1/2/3 стрелки),
-   * поэтому текстовая подпись избыточна и не выводится.
-   */
-  iconOnly: boolean
 }
 
-export interface ActionIcon extends ActionIconFile {
+export interface ActionIconInfo {
+  file: string
+  width: number
+  height: number
+  alt: string
   src: string
 }
 
-const ACTION_ICON_BY_COUNT: Record<number, ActionIconFile> = {
-  1: { file: 'PF_action_1.webp', width: 176, height: 176, iconOnly: true },
-  2: { file: 'PF_action_2.webp', width: 277, height: 176, iconOnly: true },
-  3: { file: 'PF_action_3.webp', width: 367, height: 177, iconOnly: true }
+/** Сегмент ячейки «Действия»: иконка, текстовая подпись или разделитель. */
+export interface ActionSegment {
+  kind: 'icon' | 'text' | 'sep'
+  icon?: ActionIconInfo
+  text?: string
 }
 
-const ACTION_ICON_FREE: ActionIconFile = {
-  file: 'PF_action_free.webp',
-  width: 178,
-  height: 178,
-  iconOnly: false
+export interface ActionDisplay {
+  label: string
+  segments: ActionSegment[]
 }
+
+const ACTION_ICON_BY_COUNT: Record<number, ActionIconFile> = {
+  1: { file: 'PF_action_1.webp', width: 176, height: 176 },
+  2: { file: 'PF_action_2.webp', width: 277, height: 176 },
+  3: { file: 'PF_action_3.webp', width: 367, height: 177 }
+}
+
+const ACTION_ICON_FREE: ActionIconFile = { file: 'PF_action_free.webp', width: 178, height: 178 }
 const ACTION_ICON_REACTION: ActionIconFile = {
   file: 'PF_action_reaction.png',
   width: 256,
-  height: 222,
-  iconOnly: false
-}
-
-const ACTION_ICON_BY_BASE: Record<string, ActionIconFile> = {
-  'single action': ACTION_ICON_BY_COUNT[1],
-  'two actions': ACTION_ICON_BY_COUNT[2],
-  'three actions': ACTION_ICON_BY_COUNT[3],
-  'free action': ACTION_ICON_FREE,
-  reaction: ACTION_ICON_REACTION
+  height: 222
 }
 
 const DURATION_FORMS: Record<string, [string, string, string]> = {
@@ -271,9 +268,9 @@ function plural(count: number, one: string, few: string, many: string): string {
 
 interface ActionPart {
   count?: number
-  icon?: ActionIconFile
   label: string
   order: number
+  segments: ActionSegment[]
 }
 
 function durationLabel(part: string): string | null {
@@ -296,42 +293,85 @@ function durationMinutes(part: string): number | null {
   return amount * perUnit
 }
 
+function countLabel(count: number): string {
+  return `${count} ${plural(count, 'действие', 'действия', 'действий')}`
+}
+
+function iconSegment(file: ActionIconFile, alt: string): ActionSegment {
+  return {
+    kind: 'icon',
+    icon: {
+      file: file.file,
+      width: file.width,
+      height: file.height,
+      alt,
+      src: `${import.meta.env.BASE_URL}art/${file.file}`
+    }
+  }
+}
+
+function textSegment(text: string): ActionSegment {
+  return { kind: 'text', text }
+}
+
+function sepSegment(text: string): ActionSegment {
+  return { kind: 'sep', text }
+}
+
 function actionBase(part: string): ActionPart | null {
   const value = part.trim().toLowerCase()
   if (ACTION_BASE_LABELS[value]) {
-    return {
-      count: ACTION_BASE_COUNTS[value],
-      icon: ACTION_ICON_BY_BASE[value],
-      label: ACTION_BASE_LABELS[value],
-      order: value === 'free action' ? 4 : value === 'reaction' ? 5 : ACTION_BASE_COUNTS[value] ?? 6
+    const label = ACTION_BASE_LABELS[value]
+    const count = ACTION_BASE_COUNTS[value]
+    const order = value === 'free action' ? 4 : value === 'reaction' ? 5 : count ?? 6
+    if (count !== undefined) {
+      // 1/2/3 действия — количество показывают стрелки на иконке
+      return {
+        count,
+        label,
+        order,
+        segments: [iconSegment(ACTION_ICON_BY_COUNT[count], label)]
+      }
     }
+    if (value === 'free action') {
+      // иконка неоднозначна — подпись остаётся
+      return {
+        label,
+        order,
+        segments: [iconSegment(ACTION_ICON_FREE, label), textSegment(label)]
+      }
+    }
+    // реакция — только иконка
+    return { label, order, segments: [iconSegment(ACTION_ICON_REACTION, label)] }
   }
   const duration = durationLabel(value)
   if (duration) {
     const minutes = durationMinutes(value) ?? 0
-    return { label: duration, order: 6 + minutes / 100000 }
+    return { label: duration, order: 6 + minutes / 100000, segments: [textSegment(duration)] }
   }
   return null
 }
 
 interface ParsedActions {
-  icon?: ActionIconFile
   label: string
   order: number
+  segments: ActionSegment[]
 }
 
 function parseActions(castTime: string): ParsedActions {
   const raw = (castTime || '').trim()
-  if (!raw) return { label: '—', order: 9 }
+  if (!raw) return { label: '—', order: 9, segments: [textSegment('—')] }
   const value = raw.toLowerCase()
 
   const numeric = value.match(/^(\d+)$/)
   if (numeric) {
     const amount = Number(numeric[1])
+    const label = countLabel(amount)
+    const icon = ACTION_ICON_BY_COUNT[amount]
     return {
-      icon: ACTION_ICON_BY_COUNT[amount],
-      label: `${amount} ${plural(amount, 'действие', 'действия', 'действий')}`,
-      order: amount
+      label,
+      order: amount,
+      segments: [icon ? iconSegment(icon, label) : textSegment(label)]
     }
   }
 
@@ -341,26 +381,34 @@ function parseActions(castTime: string): ParsedActions {
     const right = actionBase(parts[2])
     if (left && right) {
       if (parts[1] === 'or') {
-        return { label: `${left.label} или ${right.label}`, order: Math.max(left.order, right.order) }
+        const label = `${left.label} или ${right.label}`
+        return { label, order: Math.max(left.order, right.order), segments: [textSegment(label)] }
       }
       if (left.count !== undefined && right.count !== undefined) {
         const min = Math.min(left.count, right.count)
         const max = Math.max(left.count, right.count)
+        const label = `${min}–${max} ${plural(max, 'действие', 'действия', 'действий')}`
+        // диапазон: иконка минимума, тире, иконка максимума
         return {
-          label: `${min}–${max} ${plural(max, 'действие', 'действия', 'действий')}`,
-          order: max
+          label,
+          order: max,
+          segments: [
+            iconSegment(ACTION_ICON_BY_COUNT[min], countLabel(min)),
+            sepSegment('–'),
+            iconSegment(ACTION_ICON_BY_COUNT[max], countLabel(max))
+          ]
         }
       }
       if (left.count !== undefined) {
-        return { label: left.label, order: left.order }
+        return { label: left.label, order: left.order, segments: left.segments }
       }
-      return { label: left.label, order: left.order }
+      return { label: left.label, order: left.order, segments: left.segments }
     }
   }
 
   const base = actionBase(value)
-  if (base) return { icon: base.icon, label: base.label, order: base.order }
-  return { label: raw, order: 7 }
+  if (base) return { label: base.label, order: base.order, segments: base.segments }
+  return { label: raw, order: 7, segments: [textSegment(raw)] }
 }
 
 export function actionLabel(castTime: string): string {
@@ -368,21 +416,13 @@ export function actionLabel(castTime: string): string {
 }
 
 /**
- * Иконка затрат действий: URL, размеры и alt-подпись.
- * Возвращает null, если значение неоднозначно (диапазон, «или», длительность) —
- * в таких случаях остаётся только текст.
- * `iconOnly` = true означает, что иконка заменяет текстовую подпись (1/2/3 действия).
+ * Что показывать в ячейке «Действия»: текстовая подпись и последовательность сегментов
+ * (иконки и разделители). Иконки выводятся вместо текста там, где они однозначны:
+ * 1/2/3 действия, реакция, диапазон «1–3 действия» (иконка 1, тире, иконка 3).
  */
-export function actionIcon(castTime: string): ActionIcon | null {
-  const icon = parseActions(castTime).icon
-  if (!icon) return null
-  return {
-    file: icon.file,
-    width: icon.width,
-    height: icon.height,
-    iconOnly: icon.iconOnly,
-    src: `${import.meta.env.BASE_URL}art/${icon.file}`
-  }
+export function actionDisplay(castTime: string): ActionDisplay {
+  const parsed = parseActions(castTime)
+  return { label: parsed.label, segments: parsed.segments }
 }
 
 export function actionOrder(castTime: string): number {
