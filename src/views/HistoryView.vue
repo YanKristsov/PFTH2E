@@ -1,13 +1,14 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useSpells } from '@/composables/useSpells'
-import { useHistoryStore } from '@/stores'
+import { useHistoryStore, useComparisonStore } from '@/stores'
+import SpellTable from '@/components/SpellTable.vue'
 import type { SpellIndex } from '@/types/spell'
-import { traditionLabel, schoolLabel, rarityLabel } from '@/constants/translations'
 
 const router = useRouter()
 const historyStore = useHistoryStore()
+const comparisonStore = useComparisonStore()
 const { getSpell } = useSpells()
 
 const historySpells = computed<SpellIndex[]>(() => {
@@ -31,13 +32,34 @@ const historySpells = computed<SpellIndex[]>(() => {
   return result
 })
 
+const selectedSpells = ref<Set<string>>(new Set())
+
 function viewSpell(spellId: string) {
   router.push({ name: 'spell-detail', params: { id: spellId } })
+}
+
+function toggleSelect(spellId: string) {
+  if (selectedSpells.value.has(spellId)) {
+    selectedSpells.value.delete(spellId)
+  } else {
+    selectedSpells.value.add(spellId)
+  }
+}
+
+function addToComparison() {
+  if (selectedSpells.value.size > 3) return
+  selectedSpells.value.forEach(id => comparisonStore.add(id))
+  router.push({ name: 'compare' })
+}
+
+function clearSelection() {
+  selectedSpells.value.clear()
 }
 
 function clearHistory() {
   if (confirm('Очистить всю историю просмотров?')) {
     historyStore.clear()
+    selectedSpells.value.clear()
   }
 }
 </script>
@@ -47,7 +69,7 @@ function clearHistory() {
     <header class="content-header">
       <h1 class="content-title">История просмотров</h1>
       <div class="content-actions">
-        <button class="btn btn-danger" :disabled="historySpells.length === 0" @click="clearHistory">🗑️ Очистить историю</button>
+        <button class="btn btn-danger" :disabled="historySpells.length === 0" @click="clearHistory">Очистить историю</button>
       </div>
     </header>
 
@@ -58,31 +80,21 @@ function clearHistory() {
       <router-link to="/" class="btn btn-primary mt-md">К заклинаниям</router-link>
     </div>
 
-    <div v-else class="spell-grid cards">
-      <article
-        v-for="spell in historySpells"
-        :key="spell.id"
-        class="card"
-        tabindex="0"
-        role="button"
-        @click="viewSpell(spell.id)"
-        @keydown.enter="viewSpell(spell.id)"
-      >
-        <div class="card-header flex items-start justify-between gap-md">
-          <div>
-            <h3 class="font-semibold truncate">{{ spell.nameRu }}</h3>
-            <p v-if="spell.nameEn !== spell.nameRu" class="text-xs text-muted truncate">{{ spell.nameEn }}</p>
-          </div>
-          <span class="badge" :class="`badge-${spell.rarity}`">{{ rarityLabel(spell.rarity) }}</span>
-        </div>
-        <div class="card-body">
-          <div class="flex flex-wrap gap-xs mb-sm">
-            <span class="chip chip-info">Ур. {{ spell.level }}</span>
-            <span v-for="t in spell.tradition" :key="t" class="chip">{{ traditionLabel(t) }}</span>
-          </div>
-          <p class="text-sm text-secondary">{{ schoolLabel(spell.school) }}</p>
-        </div>
-      </article>
+    <template v-else>
+      <SpellTable
+        :spells="historySpells"
+        :selected="selectedSpells"
+        @select="toggleSelect"
+        @view="viewSpell"
+      />
+    </template>
+
+    <div v-if="selectedSpells.size > 0" class="fixed bottom-4 right-4 z-30 flex flex-col gap-sm">
+      <button class="btn btn-primary shadow-lg" @click="addToComparison">
+        <span v-if="selectedSpells.size <= 3">Добавить к сравнению ({{ selectedSpells.size }}/3)</span>
+        <span v-else class="text-error">Максимум 3 заклинания</span>
+      </button>
+      <button class="btn btn-secondary shadow-lg" @click="clearSelection">Очистить выбор</button>
     </div>
   </div>
 </template>
