@@ -21,9 +21,10 @@ const columnLabels: Record<string, string> = {
   tradition: 'Традиция',
   school: 'Школа',
   classes: 'Классы',
-  traits: 'Черты',
-  rarity: 'Редкость'
+  traits: 'Дескрипторы'
 }
+
+const availableColumns = ['name', 'level', 'tradition', 'school', 'classes', 'traits']
 
 const version = import.meta.env.VITE_APP_VERSION || '0.1.0'
 
@@ -141,7 +142,7 @@ function clearAll() {
         <div>
           <label class="input-label">Колонки таблицы</label>
           <div class="flex flex-wrap gap-sm">
-            <label v-for="col in ['name', 'level', 'tradition', 'school', 'classes', 'traits', 'rarity']" :key="col" class="chip cursor-pointer" :class="{ 'chip-primary': settingsStore.state.tableColumns.includes(col) }" @click="toggleColumn(col)">
+            <label v-for="col in availableColumns" :key="col" class="chip cursor-pointer" :class="{ 'chip-primary': settingsStore.state.tableColumns.includes(col) }" @click="toggleColumn(col)">
               <input type="checkbox" :checked="settingsStore.state.tableColumns.includes(col)" class="mr-xs" />
               {{ columnLabels[col] }}
             </label>
