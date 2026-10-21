@@ -44,7 +44,6 @@ const checks: Array<[string, string]> = [
   ['Преграждение', 'школа'],
   ['Некромантия', 'школа'],
   ['Действия', 'столбец действий'],
-  ['1 действие', 'подпись действия'],
   ['Реакция', 'подпись реакции']
 ]
 console.log('\n--- Проверка переводов ---')
@@ -79,19 +78,36 @@ const iconStats = await page.evaluate(() => {
   const imgs = Array.from(document.querySelectorAll('img.action-icon')) as HTMLImageElement[]
   const loaded = imgs.filter((i) => i.complete && i.naturalWidth > 0)
   const first = imgs[0]
+  const countAlts = imgs
+    .map((i) => i.getAttribute('alt') ?? '')
+    .filter((a) => /^\d+ действи/.test(a))
   return {
     total: imgs.length,
     loaded: loaded.length,
     src: first?.getAttribute('src') ?? null,
     alt: first?.getAttribute('alt') ?? null,
-    natural: first ? `${first.naturalWidth}x${first.naturalHeight}` : null
+    natural: first ? `${first.naturalWidth}x${first.naturalHeight}` : null,
+    countAlts: countAlts.length,
+    // у 1/2/3 действий текст скрыт — в ячейке остаётся только иконка
+    countCellsText: Array.from(document.querySelectorAll('td.actions-cell')).map((td) =>
+      (td.textContent ?? '').trim()
+    ),
+    alts: Array.from(new Set(countAlts))
   }
 })
 console.log(`иконок в таблице: ${iconStats.total}, загружено: ${iconStats.loaded}`)
 console.log(`первая иконка: ${iconStats.src} (alt="${iconStats.alt}", ${iconStats.natural})`)
+console.log(`alt у иконок 1/2/3 действий: ${iconStats.alts.join(', ')}`)
 const iconsOk =
   iconStats.total > 0 && iconStats.loaded > 0 && (iconStats.src ?? '').includes('/art/PF_action_')
 console.log(iconsOk ? 'OK   иконки действий загружаются' : 'FAIL иконки действий не загружаются')
+// текстовые подписи «1/2/3 действия» скрыты: в тексте ячеек их быть не должно
+const hiddenOk = !iconStats.countCellsText.some((t) => /^\d+ действи/.test(t))
+console.log(
+  hiddenOk
+    ? 'OK   подписи «1/2/3 действия» скрыты (только иконка)'
+    : 'FAIL в ячейке осталась текстовая подпись действия'
+)
 
 console.log('\n=== CONSOLE ERRORS ===')
 console.log(errors.length ? errors.slice(0, 15).join('\n---\n') : '(none)')
