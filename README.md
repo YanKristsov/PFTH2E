@@ -6,10 +6,18 @@
 - Vite + Vue 3 + TypeScript + Composition API
 - Pinia (state), Vue Router 4, MiniSearch (поиск)
 - Zod (схемы валидации), vite-plugin-pwa (Workbox)
-- JSDOM (парсинг данных), GitHub Actions (cron + деплой)
+- JSDOM (парсинг данных), ручной деплой скриптом `npm run deploy`
 
 ## Данные
-Текущий генератор использует `pf2.ru`: извлекает каталог из встроенных данных списка и получает русские и английские описания пакетным API. В `public/spells.json` около 1 470 записей. Школы, классы и компоненты источник в этих данных не предоставляет. Парсеры Archives of Nethys и `pf2e-ru-translation` пока не включены в генерацию. Ежедневно в 03:00 UTC GitHub Actions запускает генерацию и коммитит JSON.
+Генератор `scripts/parse-spells.ts` собирает каталог из трёх источников:
+- **Archives of Nethys** (`elasticsearch.aonprd.com`) — официальные описания, школа, дескрипторы,
+  уровень, а также трейт-класс (принадлежность заклинания классу);
+- **pf2.ru** — русские названия и описания, фокусные заклинания классов;
+- **pf2e-ru-translation** (readthedocs) — сверка списка классов и их русских названий.
+
+В `public/spells.json` около 2 000 записей; класс указан у 485 из них, остальные помечены
+как «Общее заклинание» (см. `docs/decision_logs/2026-10-21-spell-classes.md`).
+Данные лежат в репозитории; обновление — вручную через `npm run parse:spells`.
 
 ## Запуск
 ```bash
@@ -30,9 +38,10 @@ npm run test       # Vitest
 ## Архитектура
 - `src/types/spell.ts` — Zod-схемы, единый источник типов
 - `src/composables/useSpells.ts` — загрузка JSON, IndexedDB кэш, MiniSearch
-- `src/stores/index.ts` — Pinia: filters, settings, favorites, history, comparison
-- `scripts/parse-spells.ts` — генератор каталога и двуязычных описаний из данных `pf2.ru`
-- `.github/workflows/` — deploy.yml (gh-pages), parse-spells.yml (cron)
+- `src/stores/index.ts` — Pinia: filters, settings, favorites, history
+- `src/constants/translations.ts` — словари переводов (традиции, школы, редкость, дескрипторы, классы, компоненты, фильтры)
+- `scripts/parse-spells.ts` — генератор каталога и двуязычных описаний, сбор сведений о классах
+- `scripts/check-runtime.ts`, `check-dev.ts`, `check-live.ts` — проверки сборки, dev-сервера и живого сайта (Playwright)
 
 ## Деплой
 `https://yankristsov.github.io/PFTH2E/`
