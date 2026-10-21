@@ -187,6 +187,144 @@ export function rarityLabel(rarity: string): string {
   return RARITY_LABELS[rarity] || rarity
 }
 
+const ACTION_BASE_LABELS: Record<string, string> = {
+  'single action': '1 действие',
+  'two actions': '2 действия',
+  'three actions': '3 действия',
+  'free action': 'Свободное действие',
+  reaction: 'Реакция'
+}
+
+const ACTION_BASE_COUNTS: Record<string, number> = {
+  'single action': 1,
+  'two actions': 2,
+  'three actions': 3
+}
+
+const DURATION_FORMS: Record<string, [string, string, string]> = {
+  minute: ['минута', 'минуты', 'минут'],
+  min: ['минута', 'минуты', 'минут'],
+  hour: ['час', 'часа', 'часов'],
+  day: ['день', 'дня', 'дней'],
+  week: ['неделя', 'недели', 'недель'],
+  round: ['раунд', 'раунда', 'раундов']
+}
+
+const DURATION_MINUTES: Record<string, number> = {
+  minute: 1,
+  min: 1,
+  hour: 60,
+  day: 1440,
+  week: 10080,
+  round: 1
+}
+
+function plural(count: number, one: string, few: string, many: string): string {
+  const mod10 = count % 10
+  const mod100 = count % 100
+  if (mod10 === 1 && mod100 !== 11) return one
+  if (mod10 >= 2 && mod10 <= 4 && (mod100 < 12 || mod100 > 14)) return few
+  return many
+}
+
+interface ActionPart {
+  count?: number
+  label: string
+  order: number
+}
+
+function durationLabel(part: string): string | null {
+  const match = part.match(/^(\d+)\s*([a-z]+)$/)
+  if (!match) return null
+  const amount = Number(match[1])
+  const unit = match[2]
+  const forms = DURATION_FORMS[unit] || DURATION_FORMS[unit.replace(/s$/, '')]
+  if (!forms) return null
+  return `${amount} ${plural(amount, ...forms)}`
+}
+
+function durationMinutes(part: string): number | null {
+  const match = part.match(/^(\d+)\s*([a-z]+)$/)
+  if (!match) return null
+  const amount = Number(match[1])
+  const unit = match[2]
+  const perUnit = DURATION_MINUTES[unit] || DURATION_MINUTES[unit.replace(/s$/, '')]
+  if (!perUnit) return null
+  return amount * perUnit
+}
+
+function actionBase(part: string): ActionPart | null {
+  const value = part.trim().toLowerCase()
+  if (ACTION_BASE_LABELS[value]) {
+    return {
+      count: ACTION_BASE_COUNTS[value],
+      label: ACTION_BASE_LABELS[value],
+      order: value === 'free action' ? 4 : value === 'reaction' ? 5 : ACTION_BASE_COUNTS[value] ?? 6
+    }
+  }
+  const duration = durationLabel(value)
+  if (duration) {
+    const minutes = durationMinutes(value) ?? 0
+    return { label: duration, order: 6 + minutes / 100000 }
+  }
+  return null
+}
+
+interface ParsedActions {
+  label: string
+  order: number
+}
+
+function parseActions(castTime: string): ParsedActions {
+  const raw = (castTime || '').trim()
+  if (!raw) return { label: '—', order: 9 }
+  const value = raw.toLowerCase()
+
+  const numeric = value.match(/^(\d+)$/)
+  if (numeric) {
+    const amount = Number(numeric[1])
+    return {
+      label: `${amount} ${plural(amount, 'действие', 'действия', 'действий')}`,
+      order: amount
+    }
+  }
+
+  const parts = value.split(/\s+(to|or)\s+/)
+  if (parts.length === 3) {
+    const left = actionBase(parts[0])
+    const right = actionBase(parts[2])
+    if (left && right) {
+      if (parts[1] === 'or') {
+        return { label: `${left.label} или ${right.label}`, order: Math.max(left.order, right.order) }
+      }
+      if (left.count !== undefined && right.count !== undefined) {
+        const min = Math.min(left.count, right.count)
+        const max = Math.max(left.count, right.count)
+        return {
+          label: `${min}–${max} ${plural(max, 'действие', 'действия', 'действий')}`,
+          order: max
+        }
+      }
+      if (left.count !== undefined) {
+        return { label: left.label, order: left.order }
+      }
+      return { label: left.label, order: left.order }
+    }
+  }
+
+  const base = actionBase(value)
+  if (base) return { label: base.label, order: base.order }
+  return { label: raw, order: 7 }
+}
+
+export function actionLabel(castTime: string): string {
+  return parseActions(castTime).label
+}
+
+export function actionOrder(castTime: string): number {
+  return parseActions(castTime).order
+}
+
 export function filterLabel(key: string): string {
   return FILTER_LABELS[key] || key
 }

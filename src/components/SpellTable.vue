@@ -3,7 +3,7 @@ import { computed, ref } from 'vue'
 import type { SpellIndex } from '@/types/spell'
 import { useSettingsStore } from '@/stores'
 import { useSpells } from '@/composables/useSpells'
-import { traditionLabel, traitLabel, schoolLabel } from '@/constants/translations'
+import { traditionLabel, traitLabel, schoolLabel, actionLabel, actionOrder } from '@/constants/translations'
 
 const props = defineProps<{
   spells: SpellIndex[]
@@ -20,7 +20,7 @@ const { getSpell, getShortDescription } = useSpells()
 
 const columns = computed(() => settingsStore.state.tableColumns)
 
-type SortKey = 'name' | 'traits' | 'level' | 'actions' | 'tradition' | 'source'
+type SortKey = 'name' | 'traits' | 'level' | 'actions' | 'tradition'
 const sortKey = ref<SortKey | null>(null)
 const sortAsc = ref(true)
 
@@ -36,32 +36,6 @@ function toggleSort(key: SortKey) {
 function sortIndicator(key: SortKey): string {
   if (sortKey.value !== key) return ''
   return sortAsc.value ? ' ↓' : ' ↑'
-}
-
-function getActionOrder(castTime: string): number {
-  const v = (castTime || '').toLowerCase()
-  if (/reaction/.test(v)) return 4
-  if (/free/.test(v)) return 3
-  if (/three|3 actions/.test(v)) return 3
-  if (/two|2 actions/.test(v)) return 2
-  if (/single|1 action/.test(v)) return 1
-  if (/minute|min/.test(v)) return 10
-  if (/hour/.test(v)) return 11
-  if (/day|week/.test(v)) return 12
-  return 99
-}
-
-function getActionLabel(castTime: string): string {
-  const v = (castTime || '').toLowerCase()
-  if (/reaction/.test(v)) return 'Реакция'
-  if (/free/.test(v)) return 'Свободное'
-  if (/three|3 actions/.test(v)) return '3 действия'
-  if (/two|2 actions/.test(v)) return '2 действия'
-  if (/single|1 action/.test(v)) return '1 действие'
-  if (/minute|min/.test(v)) return 'Минуты'
-  if (/hour/.test(v)) return 'Часы'
-  if (/day|week/.test(v)) return 'Дни'
-  return castTime || '—'
 }
 
 const sortedSpells = computed(() => {
@@ -86,21 +60,14 @@ const sortedSpells = computed(() => {
       case 'actions': {
         const sa = getSpell(a.id)
         const sb = getSpell(b.id)
-        av = sa ? getActionOrder(sa.castTime) : 99
-        bv = sb ? getActionOrder(sb.castTime) : 99
+        av = sa ? actionOrder(sa.castTime) : 99
+        bv = sb ? actionOrder(sb.castTime) : 99
         break
       }
       case 'tradition':
         av = a.tradition.map(t => traditionLabel(t)).join(',').toLowerCase()
         bv = b.tradition.map(t => traditionLabel(t)).join(',').toLowerCase()
         break
-      case 'source': {
-        const sa = getSpell(a.id)
-        const sb = getSpell(b.id)
-        av = sa?.source?.[0]?.source?.name?.toLowerCase() || ''
-        bv = sb?.source?.[0]?.source?.name?.toLowerCase() || ''
-        break
-      }
       default:
         return 0
     }
@@ -136,11 +103,6 @@ function formatTraditions(traditions: string[]): string {
   return traditions.map(t => traditionLabel(t)).join(', ')
 }
 
-function formatClasses(classes: string[]): string {
-  if (classes.length === 0) return '—'
-  return classes.slice(0, 2).join(', ') + (classes.length > 2 ? ` +${classes.length - 2}` : '')
-}
-
 function formatTraits(traits: string[]): string[] {
   const seen = new Set<string>()
   const result: string[] = []
@@ -156,13 +118,7 @@ function formatTraits(traits: string[]): string[] {
 function getSpellActionLabel(spellId: string): string {
   const spell = getSpell(spellId)
   if (!spell) return '—'
-  return getActionLabel(spell.castTime)
-}
-
-function getSpellSource(spellId: string): string {
-  const spell = getSpell(spellId)
-  if (!spell || !spell.source?.length) return '—'
-  return spell.source[0].source.name
+  return actionLabel(spell.castTime)
 }
 </script>
 
@@ -172,18 +128,39 @@ function getSpellSource(spellId: string): string {
       <caption id="table-desc" class="sr-only">Список заклинаний с фильтрами по уровню, традиции, школе, классам и чертам</caption>
       <thead>
         <tr>
-          <th v-if="columns.includes('name')" scope="col" style="width: 30%;">Название</th>
-          <th v-if="columns.includes('level')" scope="col" style="width: 60px;">Уровень</th>
-          <th v-if="columns.includes('tradition')" scope="col" style="width: 120px;">Традиция</th>
+          <th v-if="columns.includes('name')" scope="col" style="width: 30%;">
+            <button type="button" class="th-sort" :aria-label="`Сортировать по названию`" @click="toggleSort('name')">
+              Название<span class="sort-arrow" aria-hidden="true">{{ sortIndicator('name') }}</span>
+            </button>
+          </th>
+          <th v-if="columns.includes('level')" scope="col" style="width: 60px;">
+            <button type="button" class="th-sort" :aria-label="`Сортировать по уровню`" @click="toggleSort('level')">
+              Уровень<span class="sort-arrow" aria-hidden="true">{{ sortIndicator('level') }}</span>
+            </button>
+          </th>
+          <th v-if="columns.includes('tradition')" scope="col" style="width: 120px;">
+            <button type="button" class="th-sort" :aria-label="`Сортировать по традиции`" @click="toggleSort('tradition')">
+              Традиция<span class="sort-arrow" aria-hidden="true">{{ sortIndicator('tradition') }}</span>
+            </button>
+          </th>
           <th v-if="columns.includes('school')" scope="col" style="width: 120px;">Школа</th>
           <th v-if="columns.includes('classes')" scope="col" style="width: 150px;">Классы</th>
-          <th v-if="columns.includes('traits')" scope="col" style="width: 200px;">Дескрипторы</th>
+          <th v-if="columns.includes('traits')" scope="col" style="width: 200px;">
+            <button type="button" class="th-sort" :aria-label="`Сортировать по дескрипторам`" @click="toggleSort('traits')">
+              Дескрипторы<span class="sort-arrow" aria-hidden="true">{{ sortIndicator('traits') }}</span>
+            </button>
+          </th>
+          <th v-if="columns.includes('actions')" scope="col" style="width: 120px;">
+            <button type="button" class="th-sort" :aria-label="`Сортировать по действиям`" @click="toggleSort('actions')">
+              Действия<span class="sort-arrow" aria-hidden="true">{{ sortIndicator('actions') }}</span>
+            </button>
+          </th>
           <th class="select-cell" scope="col" style="width: 40px;">Выбрать</th>
         </tr>
       </thead>
       <tbody>
         <tr
-          v-for="spell in spells"
+          v-for="spell in sortedSpells"
           :key="spell.id"
           :class="rowClass(spell)"
           tabindex="0"
@@ -214,6 +191,9 @@ function getSpellSource(spellId: string): string {
               <span v-for="(trait, i) in formatTraits(spell.traits)" :key="i" class="trait-chip">{{ trait }}</span>
             </div>
             <span v-else class="text-sm">—</span>
+          </td>
+          <td v-if="columns.includes('actions')">
+            <span class="text-sm">{{ getSpellActionLabel(spell.id) }}</span>
           </td>
           <td class="select-cell">
             <input
@@ -250,6 +230,21 @@ function getSpellSource(spellId: string): string {
 .select-cell input[type='checkbox'] { display: inline-block; vertical-align: middle; }
 .level-cell { vertical-align: middle; }
 .spell-summary { margin-top: 4px; line-height: 1.4; }
+.th-sort {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  text-transform: inherit;
+  letter-spacing: inherit;
+  cursor: pointer;
+}
+.th-sort:hover { color: var(--color-text); }
+.sort-arrow { font-size: 0.85em; }
 :deep(.table td) { vertical-align: top; }
 :deep(.table td.select-cell),
 :deep(.table td.level-cell) { vertical-align: middle; }

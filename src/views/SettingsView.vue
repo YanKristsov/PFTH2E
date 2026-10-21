@@ -21,10 +21,11 @@ const columnLabels: Record<string, string> = {
   tradition: 'Традиция',
   school: 'Школа',
   classes: 'Классы',
-  traits: 'Дескрипторы'
+  traits: 'Дескрипторы',
+  actions: 'Действия'
 }
 
-const availableColumns = ['name', 'level', 'tradition', 'school', 'classes', 'traits']
+const availableColumns = ['name', 'level', 'tradition', 'school', 'classes', 'traits', 'actions']
 
 const version = import.meta.env.VITE_APP_VERSION || '0.1.0'
 
