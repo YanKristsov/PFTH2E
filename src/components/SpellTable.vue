@@ -141,8 +141,16 @@ function formatClasses(classes: string[]): string {
   return classes.slice(0, 2).join(', ') + (classes.length > 2 ? ` +${classes.length - 2}` : '')
 }
 
-function formatTraits(traits: string[]): string {
-  return traits.slice(0, 3).map(t => traitLabel(t)).join(', ') + (traits.length > 3 ? ` +${traits.length - 3}` : '')
+function formatTraits(traits: string[]): string[] {
+  const seen = new Set<string>()
+  const result: string[] = []
+  for (const trait of traits) {
+    const label = traitLabel(trait)
+    if (!label || seen.has(label)) continue
+    seen.add(label)
+    result.push(label)
+  }
+  return result
 }
 
 function getSpellActionLabel(spellId: string): string {
@@ -201,7 +209,10 @@ function getSpellSource(spellId: string): string {
           <td v-if="columns.includes('classes')">
           </td>
           <td v-if="columns.includes('traits')">
-            <span class="text-sm">{{ formatTraits(spell.traits) }}</span>
+            <div v-if="formatTraits(spell.traits).length" class="traits-cell">
+              <span v-for="(trait, i) in formatTraits(spell.traits)" :key="i" class="trait-item">{{ trait }}</span>
+            </div>
+            <span v-else class="text-sm">—</span>
           </td>
           <td>
             <input
@@ -221,4 +232,7 @@ function getSpellSource(spellId: string): string {
 <style scoped>
 /* Uses global table classes */
 .selected { background: color-mix(in srgb, var(--color-accent) 10%, var(--color-surface)) !important; }
+.traits-cell { display: flex; flex-direction: column; gap: 2px; }
+.trait-item { font-size: 0.875rem; line-height: 1.35; overflow-wrap: anywhere; }
+:deep(.table td) { vertical-align: top; }
 </style>
