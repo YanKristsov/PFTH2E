@@ -201,7 +201,7 @@ function getSpellSource(spellId: string): string {
           <td v-if="columns.includes('classes')">
           </td>
           <td v-if="columns.includes('traits')">
-            <span class="text-sm">{{ formatClasses(spell.classes) }}</span>
+            <span class="text-sm">{{ formatTraits(spell.traits) }}</span>
           </td>
           <td>
             <input
