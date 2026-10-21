@@ -178,7 +178,7 @@ function getSpellSource(spellId: string): string {
           <th v-if="columns.includes('school')" scope="col" style="width: 120px;">Школа</th>
           <th v-if="columns.includes('classes')" scope="col" style="width: 150px;">Классы</th>
           <th v-if="columns.includes('traits')" scope="col" style="width: 200px;">Дескрипторы</th>
-          <th style="width: 40px;">Выбрать</th>
+          <th class="select-cell" scope="col" style="width: 40px;">Выбрать</th>
         </tr>
       </thead>
       <tbody>
@@ -214,7 +214,7 @@ function getSpellSource(spellId: string): string {
             </div>
             <span v-else class="text-sm">—</span>
           </td>
-          <td>
+          <td class="select-cell">
             <input
               type="checkbox"
               :checked="props.selected.has(spell.id)"
@@ -234,5 +234,7 @@ function getSpellSource(spellId: string): string {
 .selected { background: color-mix(in srgb, var(--color-accent) 10%, var(--color-surface)) !important; }
 .traits-cell { display: flex; flex-direction: column; gap: 2px; }
 .trait-item { font-size: 0.875rem; line-height: 1.35; overflow-wrap: anywhere; }
+.select-cell { text-align: center; }
+.select-cell input[type='checkbox'] { display: inline-block; vertical-align: middle; }
 :deep(.table td) { vertical-align: top; }
 </style>
