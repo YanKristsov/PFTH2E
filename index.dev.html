@@ -13,6 +13,20 @@
     <link rel="apple-touch-icon" href="/pwa-192x192.png" />
     <link rel="manifest" href="/manifest.webmanifest" />
     <title>PF2E Spells Reference</title>
+    <script>
+      // Тема применяется до первой отрисовки, иначе на тёмной ОС светлая тема
+      // успевает моргнуть тёмной. Дублирует логику applyTheme() из src/stores/index.ts
+      ;(function () {
+        try {
+          var saved = JSON.parse(localStorage.getItem('pf2e-settings') || '{}')
+          var theme = saved.theme || 'system'
+          var isDark = theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)
+          var root = document.documentElement
+          root.classList.toggle('dark', isDark)
+          root.classList.toggle('light', !isDark)
+        } catch (e) { /* настройки недоступны — остаётся тема по умолчанию */ }
+      })()
+    </script>
   </head>
   <body>
     <div id="app"></div>

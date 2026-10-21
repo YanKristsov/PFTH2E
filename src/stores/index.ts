@@ -61,6 +61,10 @@ export const useSettingsStore = defineStore('settings', () => {
     tableColumns: ['name', 'level', 'tradition', 'school', 'traits', 'actions']
   })
 
+  const darkMedia = typeof window !== 'undefined' && typeof window.matchMedia === 'function'
+    ? window.matchMedia('(prefers-color-scheme: dark)')
+    : null
+
   function load() {
     const saved = localStorage.getItem('pf2e-settings')
     if (saved) {
@@ -84,14 +88,23 @@ export const useSettingsStore = defineStore('settings', () => {
     applyTheme()
   }
 
-  function applyTheme() {
+  function isDarkTheme(): boolean {
     const theme = state.value.theme
+    if (theme === 'dark') return true
+    if (theme === 'light') return false
+    return darkMedia ? darkMedia.matches : false
+  }
+
+  /**
+   * Класс `dark`/`light` ставится явно: в CSS есть `@media (prefers-color-scheme: dark)`
+   * с `:root:not(.light):not(.light-mode)`, поэтому без класса `light` на тёмной ОС
+   * светлая тема не применялась.
+   */
+  function applyTheme() {
     const root = document.documentElement
-    if (theme === 'system') {
-      root.classList.toggle('dark', window.matchMedia('(prefers-color-scheme: dark)').matches)
-    } else {
-      root.classList.toggle('dark', theme === 'dark')
-    }
+    const isDark = isDarkTheme()
+    root.classList.toggle('dark', isDark)
+    root.classList.toggle('light', !isDark)
   }
 
   function setTheme(theme: UserSettings['theme']) {
@@ -114,13 +127,10 @@ export const useSettingsStore = defineStore('settings', () => {
     save()
   }
 
-  watchMedia()
-
-  function watchMedia() {
-    if (state.value.theme === 'system') {
-      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applyTheme)
-    }
-  }
+  // смена системной темы применяется сразу, если выбран режим «Системная»
+  darkMedia?.addEventListener('change', () => {
+    if (state.value.theme === 'system') applyTheme()
+  })
 
   return { state, load, save, setTheme, setLanguage, setViewMode, setTableColumns }
 })
