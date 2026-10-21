@@ -33,6 +33,8 @@ console.log('search input:', await page.locator('.search-input').count())
 console.log('spell rows/cards:', await page.locator('tbody tr, .spell-grid .card').count())
 
 // проверка переводов
+// Редкость не проверяется: столбец «Редкость» удалён из таблицы
+// (см. docs/decision_logs/2026-10-21-spells-table-refinement.md), в UI её меток нет.
 const checks: Array<[string, string]> = [
   ['Поиск заклинаний', 'заголовок поиска'],
   ['Арканная', 'традиция'],
@@ -41,14 +43,14 @@ const checks: Array<[string, string]> = [
   ['Первобытная', 'традиция'],
   ['Преграждение', 'школа'],
   ['Некромантия', 'школа'],
-  ['Обычное', 'редкость'],
-  ['Необычное', 'редкость'],
-  ['Редкое', 'редкость'],
-  ['Уникальное', 'редкость']
+  ['Действия', 'столбец действий'],
+  ['1 действие', 'подпись действия'],
+  ['Реакция', 'подпись реакции']
 ]
 console.log('\n--- Проверка переводов ---')
 for (const [needle, what] of checks) {
-  const found = bodyText.includes(needle)
+  // сравнение без учёта регистра: заголовки таблиц отдаются через text-transform: uppercase
+  const found = bodyText.toLowerCase().includes(needle.toLowerCase())
   console.log(`${found ? 'OK  ' : 'FAIL'} ${what}: "${needle}"`)
 }
 
@@ -71,6 +73,25 @@ for (const w of english) {
   const found = uiText.includes(w)
   console.log(`${found ? 'FAIL' : 'OK  '} "${w}"${found ? ' <- НАЙДЕН' : ''}`)
 }
+
+console.log('\n--- Проверка иконок затрат действий ---')
+const iconStats = await page.evaluate(() => {
+  const imgs = Array.from(document.querySelectorAll('img.action-icon')) as HTMLImageElement[]
+  const loaded = imgs.filter((i) => i.complete && i.naturalWidth > 0)
+  const first = imgs[0]
+  return {
+    total: imgs.length,
+    loaded: loaded.length,
+    src: first?.getAttribute('src') ?? null,
+    alt: first?.getAttribute('alt') ?? null,
+    natural: first ? `${first.naturalWidth}x${first.naturalHeight}` : null
+  }
+})
+console.log(`иконок в таблице: ${iconStats.total}, загружено: ${iconStats.loaded}`)
+console.log(`первая иконка: ${iconStats.src} (alt="${iconStats.alt}", ${iconStats.natural})`)
+const iconsOk =
+  iconStats.total > 0 && iconStats.loaded > 0 && (iconStats.src ?? '').includes('/art/PF_action_')
+console.log(iconsOk ? 'OK   иконки действий загружаются' : 'FAIL иконки действий не загружаются')
 
 console.log('\n=== CONSOLE ERRORS ===')
 console.log(errors.length ? errors.slice(0, 15).join('\n---\n') : '(none)')

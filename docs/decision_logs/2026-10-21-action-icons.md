@@ -53,5 +53,17 @@
   и на то, что диапазоны/комбинации/длительности иконки не получают)
 - `npm run build` — успешно; в `dist/sw.js` precache содержит все 5 иконок
 - `npx tsx scripts/check-runtime.ts` — 0 console errors, 0 failed requests
+- `npx tsx scripts/check-dev.ts` — dev-сервер отдаёт `index.dev.html` на всех маршрутах, 0 console errors
 - Playwright-проверка собранного `dist/`: иконки загружаются (`naturalWidth > 0`), `alt`/`title` = подписи,
-  ширина документа = ширина вьюпорта (1440 px)
+  ширина документа = ширина вьюпорта (1440 px и 390 px); в тёмной теме `filter: invert(1)`,
+  в светлой — `none`; фильтр «Свободное» → 10 заклинаний с `PF_action_free.webp`,
+  фильтр «Реакция» → 49 заклинаний с `PF_action_reaction.png` (256×222)
+- Деплой: `npm run deploy` → `gh-pages` (`b175b161`), сайт https://yankristsov.github.io/PFTH2E/
+- `npx tsx scripts/check-live.ts` — 0 console errors, 0 failed requests, иконки грузятся с живого сайта
+
+## Попутные правки
+- `scripts/check-live.ts`: проверки переводов сделаны регистронезависимыми (заголовки таблиц
+  выводятся через `text-transform: uppercase`, а `innerText` возвращает уже транформированный текст —
+  проверка «Действия» падала); проверки редкости убраны (столбец «Редкость» удалён из таблицы);
+  добавлена проверка иконок затрат действий
+- `scripts/check-runtime.ts`: в карту MIME добавлен `image/webp`
