@@ -81,6 +81,15 @@ describe('иконки затрат действий', () => {
     expect(icon?.width).toBe(277)
     expect(icon?.height).toBe(176)
   })
+
+  it('заменяет текст иконкой только для 1/2/3 действий', () => {
+    expect(actionIcon('Single Action')?.iconOnly).toBe(true)
+    expect(actionIcon('Two Actions')?.iconOnly).toBe(true)
+    expect(actionIcon('Three Actions')?.iconOnly).toBe(true)
+    expect(actionIcon('2')?.iconOnly).toBe(true)
+    expect(actionIcon('Free Action')?.iconOnly).toBe(false)
+    expect(actionIcon('Reaction')?.iconOnly).toBe(false)
+  })
 })
 
 describe('подписи затрат действий', () => {

@@ -205,6 +205,11 @@ interface ActionIconFile {
   file: string
   width: number
   height: number
+  /**
+   * true — иконка однозначно показывает количество действий (1/2/3 стрелки),
+   * поэтому текстовая подпись избыточна и не выводится.
+   */
+  iconOnly: boolean
 }
 
 export interface ActionIcon extends ActionIconFile {
@@ -212,16 +217,22 @@ export interface ActionIcon extends ActionIconFile {
 }
 
 const ACTION_ICON_BY_COUNT: Record<number, ActionIconFile> = {
-  1: { file: 'PF_action_1.webp', width: 176, height: 176 },
-  2: { file: 'PF_action_2.webp', width: 277, height: 176 },
-  3: { file: 'PF_action_3.webp', width: 367, height: 177 }
+  1: { file: 'PF_action_1.webp', width: 176, height: 176, iconOnly: true },
+  2: { file: 'PF_action_2.webp', width: 277, height: 176, iconOnly: true },
+  3: { file: 'PF_action_3.webp', width: 367, height: 177, iconOnly: true }
 }
 
-const ACTION_ICON_FREE: ActionIconFile = { file: 'PF_action_free.webp', width: 178, height: 178 }
+const ACTION_ICON_FREE: ActionIconFile = {
+  file: 'PF_action_free.webp',
+  width: 178,
+  height: 178,
+  iconOnly: false
+}
 const ACTION_ICON_REACTION: ActionIconFile = {
   file: 'PF_action_reaction.png',
   width: 256,
-  height: 222
+  height: 222,
+  iconOnly: false
 }
 
 const ACTION_ICON_BY_BASE: Record<string, ActionIconFile> = {
@@ -360,6 +371,7 @@ export function actionLabel(castTime: string): string {
  * Иконка затрат действий: URL, размеры и alt-подпись.
  * Возвращает null, если значение неоднозначно (диапазон, «или», длительность) —
  * в таких случаях остаётся только текст.
+ * `iconOnly` = true означает, что иконка заменяет текстовую подпись (1/2/3 действия).
  */
 export function actionIcon(castTime: string): ActionIcon | null {
   const icon = parseActions(castTime).icon
@@ -368,6 +380,7 @@ export function actionIcon(castTime: string): ActionIcon | null {
     file: icon.file,
     width: icon.width,
     height: icon.height,
+    iconOnly: icon.iconOnly,
     src: `${import.meta.env.BASE_URL}art/${icon.file}`
   }
 }

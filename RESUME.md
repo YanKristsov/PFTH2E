@@ -43,9 +43,11 @@
 - Ассеты лежат в `public/art/` → копируются в корень `dist` → в корень ветки `gh-pages` → путь `/PFTH2E/art/<file>`
   - `PF_action_1.webp` (176×176), `PF_action_2.webp` (277×176), `PF_action_3.webp` (367×177), `PF_action_free.webp` (178×178),
     `PF_action_reaction.png` (256×222)
-- Резолвер — `actionIcon(castTime)` в `src/constants/translations.ts`: возвращает `{ file, src, width, height }` или `null`
+- Резолвер — `actionIcon(castTime)` в `src/constants/translations.ts`: возвращает `{ file, src, width, height, iconOnly }` или `null`
 - **Иконка ставится только для однозначных значений:** 1/2/3 действия, свободное действие, реакция.
   Для диапазонов («1–3 действия»), комбинаций («2 или 3 действия», «Реакция или 1 действие») и длительностей — только текст
+- **Для 1/2/3 действий текстовая подпись скрыта** (`iconOnly: true`) — количество показывают стрелки на иконке.
+  «Реакция» и «Свободное действие» остаются с подписями (их иконки неоднозначны), подпись есть в `alt`/`title` иконки
 - `src` собирается из `import.meta.env.BASE_URL` (`/PFTH2E/art/<file>`), родные размеры отдаются вместе с иконкой —
   браузер резервирует место до загрузки (`loading="lazy"` без скачка вёрстки)
 - **Тёмная тема:** CSS-переменная `--icon-filter` (`none` → `invert(1)`) в `src/assets/styles/variables.css`.

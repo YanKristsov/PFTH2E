@@ -119,10 +119,13 @@ const rows = computed(() =>
   sortedSpells.value.map((spell) => {
     const full = getSpell(spell.id)
     const castTime = full?.castTime ?? ''
+    const icon = actionIcon(castTime)
     return {
       spell,
       actionLabel: actionLabel(castTime),
-      actionIcon: actionIcon(castTime)
+      actionIcon: icon,
+      // для 1/2/3 действий иконка однозначно показывает количество — текст избыточен
+      showLabel: !(icon && icon.iconOnly)
     }
   })
 )
@@ -166,7 +169,7 @@ const rows = computed(() =>
       </thead>
       <tbody>
         <tr
-          v-for="({ spell, actionLabel: actionText, actionIcon: actionIconInfo }) in rows"
+          v-for="({ spell, actionLabel: actionText, actionIcon: actionIconInfo, showLabel }) in rows"
           :key="spell.id"
           :class="rowClass(spell)"
           tabindex="0"
@@ -198,7 +201,7 @@ const rows = computed(() =>
             </div>
             <span v-else class="text-sm">—</span>
           </td>
-          <td v-if="columns.includes('actions')">
+          <td v-if="columns.includes('actions')" class="actions-cell">
             <div class="action-cell">
               <img
                 v-if="actionIconInfo"
@@ -211,7 +214,7 @@ const rows = computed(() =>
                 loading="lazy"
                 decoding="async"
               />
-              <span class="text-sm">{{ actionText }}</span>
+              <span v-if="showLabel" class="text-sm">{{ actionText }}</span>
             </div>
           </td>
           <td class="select-cell">
@@ -275,5 +278,6 @@ const rows = computed(() =>
 .sort-arrow { font-size: 0.85em; }
 :deep(.table td) { vertical-align: top; }
 :deep(.table td.select-cell),
-:deep(.table td.level-cell) { vertical-align: middle; }
+:deep(.table td.level-cell),
+:deep(.table td.actions-cell) { vertical-align: middle; }
 </style>
