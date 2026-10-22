@@ -85,6 +85,7 @@ export const TRAIT_LABELS: Record<string, string> = {
   Illusion: 'Иллюзия',
   Impossible: 'Невероятная',
   Incapacitation: 'Несмертельное',
+  Inhaled: 'Вдыхаемый',
   Incarnate: 'Воплощение',
   Lawful: 'Закон',
   Light: 'Свет',

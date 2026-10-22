@@ -1,11 +1,11 @@
 # PF2E Spells Reference — Статус проекта
 
-> **Обновлено:** 2026-10-21. Актуальный статус после полного перевода интерфейса на русский, исправления деплоя и добавления иконок затрат действий.
+> **Обновлено:** 2026-10-22. Актуальный статус после добавления заклинаний из readthedocs (официальный перевод CRB 2020) как вариантов источника.
 
 ## Общее описание
 Справочник заклинаний Pathfinder 2e на русском языке.
 - **Стек:** Vite 8 + Vue 3 + TypeScript + Pinia + MiniSearch + PWA (vite-plugin-pwa)
-- **Данные:** 2009 записей из pf2.ru и Archives of Nethys
+- **Данные:** 2132 записи из pf2.ru, Archives of Nethys и pf2e-ru-translation (readthedocs)
 - **Деплой:** GitHub Pages → https://yankristsov.github.io/PFTH2E/
 - **Локально:** `npm run dev` → http://localhost:3000/PFTH2E/
 
@@ -16,7 +16,7 @@
 - `npm run test` — 10/10 тестов проходят (5 парсер + 5 словарей переводов)
 - `npm run lint` — 0 ошибок (задеплоенные артефакты `assets/`, `sw.js`, `workbox-*.js` исключены в `eslint.config.js`)
 - `npm run build` — 71 модуль, все ассеты генерируются
-- **Runtime-проверка (Playwright) локально и на живом сайте:** HTTP 200, отрендерено 2009 заклинаний, **0 console errors, 0 failed requests**
+- **Runtime-проверка (Playwright) локально и на живом сайте:** HTTP 200, отрендерено 2132 заклинаний, **0 console errors, 0 failed requests**
 - **Dev-сервер (Playwright):** `http://localhost:3000/PFTH2E/` — 2009 заклинаний, SPA-маршрут `/spell/1` работает, 0 console errors
 - Поиск (MiniSearch) — работает (Fireball → Огненный шар)
 - Фильтры — работают (уровень, традиция, школа, класс, черты, редкость, источник, компоненты)
@@ -68,6 +68,13 @@
   и Enter/Space всегда открывают детали (ранее Ctrl/Cmd+клик и Shift+Enter выбирали для сравнения)
 - `SpellCard` больше не принимает `is-in-comparison` и не эмитит `compare`
 - `/compare` теперь отдаёт 404 → редирект на главную (catch-all маршрут)
+
+### readthedocs CRB 2020 перевод (2026-10-22)
+- Все 704 страниц заклинаний из кэша readthedocs добавлены как варианты источника `pf2e-ru-translation` с `sourceTitle: 'Core Rulebook'`
+- 123 новых уникальных заклинаний добавлено (всего 2132, было 2009)
+- 581 заклинание объединено как вариант источника с существующими записями (по spellKey/английскому названию)
+- Реgex-парсинг без JSDOM (предотвращает OOM при обработке 704 страниц)
+- Подробности: `docs/decision_logs/2026-10-22-readthedocs-crb-addition.md`
 
 ### Классы заклинаний (2026-10-21)
 - Поле `classes` заполняется из трёх источников: трейт-класс AoN (`Sorcerer`, `Cleric`…),

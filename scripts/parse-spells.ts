@@ -5,6 +5,7 @@ import { JSDOM } from 'jsdom'
 import MarkdownIt from 'markdown-it'
 import { resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { readFileSync, existsSync, readdirSync } from 'node:fs'
 
 const SPELL_SOURCES: Array<{
   name: string
@@ -20,6 +21,11 @@ const SPELL_SOURCES: Array<{
     name: 'pf2ru',
     url: 'https://pf2.ru/spells/',
     type: 'pf2ru'
+  },
+  {
+    name: 'readthedocs',
+    url: 'https://pf2e-ru-translation.readthedocs.io/ru/latest/spells/all-spells.html',
+    type: 'pf2e-ru-translation'
   }
 ]
 
@@ -436,6 +442,295 @@ function parsePf2eRuTranslation(html: string): RawSpell[] {
   return spells
 }
 
+/** Русское название дескриптора → английское (readthedocs, CRB 2020 перевод). */
+const READTHEDOCS_TRAIT_RU_TO_EN: Record<string, string> = {
+  эвокация: 'Evocation',
+  ментальный: 'Mental',
+  иллюзия: 'Illusion',
+  очарование: 'Enchantment',
+  преграждение: 'Abjuration',
+  прорицание: 'Divination',
+  некромантия: 'Necromancy',
+  трансмутация: 'Transmutation',
+  воплощение: 'Conjuration',
+  чары: 'Cantrip',
+  недееспособность: 'Incapacitation',
+  концентрация: 'Concentrate',
+  воздействие: 'Manipulate',
+  атака: 'Attack',
+  слуховой: 'Auditory',
+  визуальный: 'Visual',
+  эмоция: 'Emotion',
+  страх: 'Fear',
+  звук: 'Sonic',
+  тень: 'Shadow',
+  сон: 'Sleep',
+  смерть: 'Death',
+  негативный: 'Negative',
+  позитивный: 'Positive',
+  исцеление: 'Healing',
+  земля: 'Earth',
+  вода: 'Water',
+  воздух: 'Air',
+  огонь: 'Fire',
+  холод: 'Cold',
+  электричество: 'Electricity',
+  кислота: 'Acid',
+  яд: 'Poison',
+  растение: 'Plant',
+  проклятие: 'Curse',
+  неудача: 'Misfortune',
+  предсказание: 'Prediction',
+  откровение: 'Revelation',
+  сопряженность: 'Contingency',
+  межпространственный: 'Extradimensional',
+  инкарнация: 'Incarnate',
+  истинное_имя: 'True Name',
+  'истинное имя': 'True Name',
+  освящение: 'Consecration',
+  удача: 'Fortune',
+  сила: 'Force',
+  хаотичный: 'Chaotic',
+  зло: 'Evil',
+  добро: 'Good',
+  принципиальный: 'Unholy',
+  металлический: 'Metal',
+  дерево: 'Wood',
+  движение: 'Move',
+  трансформация: 'Morph',
+  грибковый: 'Fungus',
+  вдыхаемый: 'Inhaled',
+  обонятельный: 'Olfactory',
+  видение: 'Scrying',
+  необычный: 'Uncommon',
+  редкий: 'Rare',
+  несмерственный: 'Nonlethal',
+  болезнь: 'Disease'
+}
+
+/** Русское название действия → английское (readthedocs). */
+const READTHEDOCS_ACTION_RU_TO_EN: Record<string, string> = {
+  'одиночное действие': 'single action',
+  'активность из 2-х действий': 'two actions',
+  'активность из 3-х действий': 'three actions',
+  реакция: 'reaction'
+}
+
+/** Русское название компонента → английское ключевое слово (readthedocs). */
+const READTHEDOCS_COMPONENT_RU_TO_EN: Record<string, string> = {
+  жестовый: 'somatic',
+  словесный: 'verbal',
+  материальный: 'material',
+  фокусный: 'focus'
+}
+
+/** Русская традиция → английская (readthedocs). */
+const READTHEDOCS_TRADITION_RU_TO_EN: Record<string, Tradition> = {
+  арканный: 'arcane',
+  оккультный: 'occult',
+  божественный: 'divine',
+  сакральный: 'divine',
+  первобытный: 'primal'
+}
+
+/** Русская школа → английская (readthedocs). */
+const READTHEDOCS_SCHOOL_RU_TO_EN: Record<string, string> = {
+  эвокация: 'Evocation',
+  преграждение: 'Abjuration',
+  иллюзия: 'Illusion',
+  очарование: 'Enchantment',
+  некромантия: 'Necromancy',
+  трансмутация: 'Transmutation',
+  призыв: 'Conjuration',
+  прорицание: 'Divination'
+}
+
+/** Путь к локальному кэшу страниц readthedocs. */
+const READTHEDOCS_CACHE_DIR = 'C:\\Users\\DNS\\AppData\\Local\\Temp\\kilo\\rtd-cache'
+
+/** Парсит одну страницу заклинания readthedocs (<section class="spell">). */
+export function parseReadthedocsSpell(html: string): RawSpell | undefined {
+  // Извлекаем <section class="spell">...</section>
+  const sectionMatch = html.match(/<section class="spell"[^>]*>([\s\S]*?)<\/section>/)
+  if (!sectionMatch) return undefined
+  const section = sectionMatch[1]
+
+  // h1
+  const h1Match = section.match(/<h1[^>]*>([\s\S]*?)<\/h1>/)
+  if (!h1Match) return undefined
+  const h1Text = stripTags(h1Match[1])
+
+  // h1: «Магический снаряд (Magic Missile) / Закл. 1» или «Аппроксимация (Approximate) / Чары 1»
+  const nameMatch = h1Text.match(/^(.+?)\s*\(([^)]+)\)\s*\/\s*(\S+)\s*(\d+)/)
+  if (!nameMatch) return undefined
+
+  const nameRu = nameMatch[1].trim()
+  const nameEn = nameMatch[2].trim()
+  const level = Number.parseInt(nameMatch[4], 10)
+  if (!Number.isInteger(level) || level < 0 || level > 10) return undefined
+
+  const aonHrefMatch = h1Match[1].match(/href="([^"]*aonprd\.com[^"]*?)"/)
+  const aonHref = aonHrefMatch ? aonHrefMatch[1] : ''
+  const aonIdMatch = aonHref.match(/ID=(\d+)/)
+  const aonId = aonIdMatch ? aonIdMatch[1] : ''
+
+  // Трейты из <ul class="simple">
+  const traits: string[] = []
+  const traitListMatch = section.match(/<ul class="simple">([\s\S]*?)<\/ul>/)
+  if (traitListMatch) {
+    for (const traitMatch of traitListMatch[1].matchAll(/<li[^>]*>\s*<p[^>]*>([^<]+)<\/p>\s*<\/li>/g)) {
+      const traitRu = traitMatch[1].trim().toLowerCase()
+      if (!traitRu) continue
+      const traitEn = READTHEDOCS_TRAIT_RU_TO_EN[traitRu] || traitRu
+      traits.push(traitEn)
+    }
+  }
+
+  // Поля из <p><strong>Label</strong>: value</p> (сырой HTML для атрибутов alt)
+  const getFieldRaw = (strongText: string): string => {
+    const pattern = new RegExp(`<p><strong>${escapeRegExp(strongText)}<\\/strong>:\\s*([\\s\\S]*?)<\\/p>`)
+    const fieldMatch = section.match(pattern)
+    if (!fieldMatch) return ''
+    return fieldMatch[1]
+  }
+  const getField = (strongText: string): string => stripTags(getFieldRaw(strongText)).trim()
+
+  const traditionRaw = getField('Обычай')
+  const tradition: Tradition[] = traditionRaw
+    .split(/[,\s]+/)
+    .map((value) => value.toLowerCase())
+    .filter((value): value is Tradition => value in READTHEDOCS_TRADITION_RU_TO_EN)
+    .map((value) => READTHEDOCS_TRADITION_RU_TO_EN[value])
+
+  const schoolRaw = getField('Школа') || ''
+  let school = READTHEDOCS_SCHOOL_RU_TO_EN[schoolRaw.toLowerCase()] || ''
+  if (!school) {
+    const schoolNames = new Set(Object.values(READTHEDOCS_SCHOOL_RU_TO_EN))
+    school = traits.find((t) => schoolNames.has(t)) || ''
+  }
+
+  // Сотворение: действие + компоненты в скобках (из сырого HTML, чтобы сохранить alt у img)
+  const castRawHtml = getFieldRaw('Сотворение')
+  const castRaw = stripTags(castRawHtml).trim()
+  const actionMatch = castRawHtml.match(/alt="([^"]+)"/g)
+  const actions: string[] = actionMatch
+    ? actionMatch
+        .map((m) => m.replace(/alt="/, '').replace(/"/, ''))
+        .map((value) => READTHEDOCS_ACTION_RU_TO_EN[value] || value)
+        .filter(Boolean)
+    : []
+  const castTime = actions.length > 0 ? actions.join(' or ') : ''
+
+  const componentMatch = castRawHtml.match(/\(([^)]+)\)/)
+  const components = { v: false, s: false, m: false, f: false }
+  if (componentMatch) {
+    const componentList = componentMatch[1].split(',').map((c) => c.trim().toLowerCase())
+    for (const comp of componentList) {
+      const key = READTHEDOCS_COMPONENT_RU_TO_EN[comp]
+      if (key === 'verbal') components.v = true
+      if (key === 'somatic') components.s = true
+      if (key === 'material') components.m = true
+      if (key === 'focus') components.f = true
+    }
+  }
+
+  const range = getField('Дистанция')
+  const target = getField('Цели')
+  const area = getField('Область')
+  const duration = getField('Продолжительность')
+  const save = getField('Спасбросок')
+
+  // Описание между первыми двумя <hr>
+  const hrMatches = [...section.matchAll(/<hr[^>]*>/g)]
+  let description = ''
+  if (hrMatches.length >= 2) {
+    const firstHrEnd = hrMatches[0].index! + hrMatches[0][0].length
+    const secondHrStart = hrMatches[1].index!
+    const descriptionHtml = section.slice(firstHrEnd, secondHrStart)
+    description = stripTags(descriptionHtml)
+  }
+
+  // Усиление после последнего <hr>
+  let heightened: Spell['heightened'] | undefined
+  if (hrMatches.length >= 1) {
+    const lastHrEnd = hrMatches[hrMatches.length - 1].index! + hrMatches[hrMatches.length - 1][0].length
+    const afterLastHtml = section.slice(lastHrEnd)
+    const afterLastText = stripTags(afterLastHtml)
+    const heightenMatch = afterLastText.match(/Усиление\s*\(([^)]+)\)\s*:\s*(.+)/)
+    if (heightenMatch) {
+      const label = heightenMatch[1].trim()
+      const descriptionText = heightenMatch[2].trim()
+      const levels: number[] = []
+      if (label.startsWith('+')) {
+        const increment = Number.parseInt(label.slice(1), 10)
+        for (let lvl = level + increment; lvl <= 10; lvl += increment) {
+          levels.push(lvl)
+        }
+      } else {
+        levels.push(Number.parseInt(label, 10))
+      }
+      heightened = levels
+        .filter((lvl) => Number.isInteger(lvl) && lvl > 0 && lvl <= 10)
+        .map((lvl) => ({ level: lvl, description: descriptionText }))
+    }
+  }
+
+  return {
+    id: generateId(nameEn, 'readthedocs'),
+    name: nameRu,
+    englishName: nameEn,
+    englishDescription: '',
+    level,
+    tradition,
+    school,
+    classes: [],
+    traits,
+    components,
+    castTime,
+    range,
+    target,
+    area,
+    duration,
+    save,
+    description,
+    heightened,
+    source: 'pf2e-ru-translation',
+    sourceTitle: 'Core Rulebook',
+    sourceUrl: aonId ? `https://2e.aonprd.com/Spells.aspx?ID=${aonId}` : undefined,
+    rarity: 'common'
+  }
+}
+
+function stripTags(html: string): string {
+  return html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim()
+}
+
+function escapeRegExp(text: string): string {
+  return text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+}
+
+/** Читает все zaklinania из lokalnogo kasha readthedocs. */
+export function fetchReadthedocsSpells(): RawSpell[] {
+  if (!existsSync(READTHEDOCS_CACHE_DIR)) {
+    console.error(`Readthedocs cache directory not found: ${READTHEDOCS_CACHE_DIR}`)
+    return []
+  }
+
+  const files = readdirSync(READTHEDOCS_CACHE_DIR)
+  const spellFiles = files.filter((f) => /^[A-Z]/.test(f) && f.endsWith('.html'))
+  const spells: RawSpell[] = []
+
+  for (const file of spellFiles) {
+    const filePath = resolve(READTHEDOCS_CACHE_DIR, file)
+    const html = readFileSync(filePath, 'utf8')
+    const spell = parseReadthedocsSpell(html)
+    if (spell) spells.push(spell)
+  }
+
+  console.log(`Readthedocs cache: ${spells.length} spells from ${spellFiles.length} pages`)
+  return spells
+}
+
 export function parsePf2ru(html: string): RawSpell[] {
   const spells: RawSpell[] = []
   const dom = new JSDOM(html)
@@ -712,9 +1007,14 @@ async function main() {
   for (const source of SPELL_SOURCES) {
     try {
       console.log(`Fetching ${source.name}...`)
-      const spells = source.type === 'aonprd'
-        ? await fetchAonprdSpells()
-        : parsePf2ru(await fetchHtml(source.url))
+      let spells: RawSpell[]
+      if (source.type === 'aonprd') {
+        spells = await fetchAonprdSpells()
+      } else if (source.name === 'readthedocs') {
+        spells = fetchReadthedocsSpells()
+      } else {
+        spells = parsePf2ru(await fetchHtml(source.url))
+      }
       
       console.log(`Parsed ${spells.length} spells from ${source.name}`)
       allSpells.push(...spells)

@@ -8,6 +8,7 @@ import {
   parsePf2ruDetail,
   parsePf2ruClassSpells,
   parseReadthedocsClasses,
+  parseReadthedocsSpell,
   pf2ruClassName
 } from './parse-spells.js'
 
@@ -170,5 +171,104 @@ describe('pf2.ru parser', () => {
       'Русское описание источника pf2.ru.',
       'Official source description.'
     ])
+  })
+})
+
+describe('readthedocs spell parser', () => {
+  const magicMissileHtml = `
+    <section class="spell" id="magic-missile-1">
+      <span id="spell-m-magic-missile"></span>
+      <h1>Магический снаряд (<a class="reference external" href="https://2e.aonprd.com/Spells.aspx?ID=180">Magic Missile</a>) / Закл. 1<a class="headerlink" href="#magic-missile-1">¶</a></h1>
+      <ul class="simple">
+        <li><p>эвокация</p></li>
+        <li><p>сила</p></li>
+      </ul>
+      <p><strong>Обычай</strong>: арканный, оккультный</p>
+      <p><strong>Сотворение</strong>: от <img alt="одиночное действие" class="action action-1" src="../../_images/PF_action_1.png" style="height: 1em;" /> до <img alt="активность из 3-х действий" class="action action-3" src="../../_images/PF_action_3.png" style="height: 1em;" /> (жестовый, словесный)</p>
+      <p><strong>Дистанция</strong>: 120 футов</p>
+      <p><strong>Цели</strong>: 1 существо</p>
+      <hr class="docutils" />
+      <p>Вы посылаете дротик силы, летящий в существо.</p>
+      <hr class="docutils" />
+      <p><strong>Усиление (+2)</strong>: Вы выпускаете 1 дополнительный снаряд.</p>
+    </section>
+  `
+
+  it('parses readthedocs spell section: name, english name, level, AoN ID', () => {
+    const spell = parseReadthedocsSpell(magicMissileHtml)
+
+    expect(spell).toBeDefined()
+    expect(spell?.name).toBe('Магический снаряд')
+    expect(spell?.englishName).toBe('Magic Missile')
+    expect(spell?.level).toBe(1)
+    expect(spell?.id).toContain('readthedocs-magic-missile')
+    expect(spell?.sourceUrl).toBe('https://2e.aonprd.com/Spells.aspx?ID=180')
+  })
+
+  it('parses readthedocs traits from ul.simple', () => {
+    const spell = parseReadthedocsSpell(magicMissileHtml)
+
+    expect(spell?.traits).toContain('Evocation')
+    expect(spell?.traits).toContain('Force')
+  })
+
+  it('parses readthedocs traditions from Обычай field', () => {
+    const spell = parseReadthedocsSpell(magicMissileHtml)
+
+    expect(spell?.tradition).toContain('arcane')
+    expect(spell?.tradition).toContain('occult')
+  })
+
+  it('parses readthedocs school', () => {
+    const spell = parseReadthedocsSpell(magicMissileHtml)
+
+    expect(spell?.school).toBe('Evocation')
+  })
+
+  it('parses readthedocs cast time and components from Сотворение', () => {
+    const spell = parseReadthedocsSpell(magicMissileHtml)
+
+    expect(spell?.castTime).toBe('single action or three actions')
+    expect(spell?.components).toEqual({ v: true, s: true, m: false, f: false })
+  })
+
+  it('parses readthedocs range, target, area, duration, save', () => {
+    const spell = parseReadthedocsSpell(magicMissileHtml)
+
+    expect(spell?.range).toBe('120 футов')
+    expect(spell?.target).toBe('1 существо')
+    expect(spell?.area).toBe('')
+    expect(spell?.duration).toBe('')
+    expect(spell?.save).toBe('')
+  })
+
+  it('parses readthedocs description between hr tags', () => {
+    const spell = parseReadthedocsSpell(magicMissileHtml)
+
+    expect(spell?.description).toBe('Вы посылаете дротик силы, летящий в существо.')
+  })
+
+  it('parses readthedocs heightened after last hr', () => {
+    const spell = parseReadthedocsSpell(magicMissileHtml)
+
+    expect(spell?.heightened).toEqual([
+      { level: 3, description: 'Вы выпускаете 1 дополнительный снаряд.' },
+      { level: 5, description: 'Вы выпускаете 1 дополнительный снаряд.' },
+      { level: 7, description: 'Вы выпускаете 1 дополнительный снаряд.' },
+      { level: 9, description: 'Вы выпускаете 1 дополнительный снаряд.' }
+    ])
+  })
+
+  it('returns undefined when no spell section found', () => {
+    expect(parseReadthedocsSpell('<html><body>No spell here</body></html>')).toBeUndefined()
+  })
+
+  it('returns undefined when h1 does not match expected format', () => {
+    const badHtml = `
+      <section class="spell">
+        <h1>Bad format without parentheses</h1>
+      </section>
+    `
+    expect(parseReadthedocsSpell(badHtml)).toBeUndefined()
   })
 })
