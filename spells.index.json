@@ -55,7 +55,9 @@
       "Concentrate",
       "Detection",
       "Manipulate",
-      "Focus"
+      "Focus",
+      "Divination",
+      "обнаружение"
     ],
     "rarity": "common"
   },
@@ -169,6 +171,19 @@
     "rarity": "common"
   },
   {
+    "id": "readthedocs-pass-without-trace",
+    "nameRu": "Бесследный шаг",
+    "nameEn": "Pass without Trace",
+    "level": 1,
+    "tradition": [],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Abjuration"
+    ],
+    "rarity": "common"
+  },
+  {
     "id": "aonprd-spell-1451",
     "nameRu": "Благословение",
     "nameEn": "Bless",
@@ -183,7 +198,8 @@
       "Aura",
       "Concentrate",
       "Manipulate",
-      "Mental"
+      "Mental",
+      "Enchantment"
     ],
     "rarity": "common"
   },
@@ -261,7 +277,8 @@
       "Manipulate",
       "Sanctified",
       "Spirit",
-      "Focus"
+      "Focus",
+      "Evocation"
     ],
     "rarity": "common"
   },
@@ -318,7 +335,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Transmutation"
     ],
     "rarity": "common"
   },
@@ -393,6 +411,23 @@
     "classes": [],
     "traits": [
       "Concentrate",
+      "Fortune"
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "readthedocs-true-strike",
+    "nameRu": "Верный удар",
+    "nameEn": "True Strike",
+    "level": 1,
+    "tradition": [
+      "arcane",
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Divination",
       "Fortune"
     ],
     "rarity": "common"
@@ -526,7 +561,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Divination"
     ],
     "rarity": "common"
   },
@@ -616,7 +652,8 @@
     "classes": [],
     "traits": [
       "Air",
-      "Concentrate"
+      "Concentrate",
+      "Conjuration"
     ],
     "rarity": "common"
   },
@@ -642,6 +679,23 @@
     "rarity": "uncommon"
   },
   {
+    "id": "readthedocs-magic-weapon",
+    "nameRu": "Волшебное оружие",
+    "nameEn": "Magic Weapon",
+    "level": 1,
+    "tradition": [
+      "arcane",
+      "divine",
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Transmutation"
+    ],
+    "rarity": "common"
+  },
+  {
     "id": "aonprd-spell-703",
     "nameRu": "Волшебный Камень",
     "nameEn": "Magic Stone",
@@ -656,6 +710,19 @@
       "Necromancy",
       "Positive",
       "Vitality"
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "readthedocs-magic-fang",
+    "nameRu": "Волшебный клык",
+    "nameEn": "Magic Fang",
+    "level": 1,
+    "tradition": [],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Transmutation"
     ],
     "rarity": "common"
   },
@@ -806,7 +873,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Conjuration"
     ],
     "rarity": "common"
   },
@@ -908,7 +976,8 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Sonic"
+      "Sonic",
+      "Evocation"
     ],
     "rarity": "common"
   },
@@ -1103,7 +1172,8 @@
       "Attack",
       "Concentrate",
       "Manipulate",
-      "Water"
+      "Water",
+      "Evocation"
     ],
     "rarity": "common"
   },
@@ -1199,7 +1269,8 @@
     "traits": [
       "Concentrate",
       "Disease",
-      "Manipulate"
+      "Manipulate",
+      "Necromancy"
     ],
     "rarity": "common"
   },
@@ -1252,7 +1323,8 @@
     "school": "Unknown",
     "classes": [],
     "traits": [
-      "Manipulate"
+      "Manipulate",
+      "Evocation"
     ],
     "rarity": "common"
   },
@@ -1270,7 +1342,8 @@
     "traits": [
       "Concentrate",
       "Earth",
-      "Manipulate"
+      "Manipulate",
+      "Evocation"
     ],
     "rarity": "common"
   },
@@ -1354,7 +1427,8 @@
       "Attack",
       "Concentrate",
       "Electricity",
-      "Manipulate"
+      "Manipulate",
+      "Evocation"
     ],
     "rarity": "common"
   },
@@ -1392,7 +1466,8 @@
       "Concentrate",
       "Earth",
       "Manipulate",
-      "Water"
+      "Water",
+      "Conjuration"
     ],
     "rarity": "common"
   },
@@ -1450,7 +1525,8 @@
       "Incapacitation",
       "Manipulate",
       "Mental",
-      "Устранение"
+      "Устранение",
+      "Enchantment"
     ],
     "rarity": "common"
   },
@@ -1624,7 +1700,8 @@
       "Concentrate",
       "Manipulate",
       "Plant",
-      "Wood"
+      "Wood",
+      "Conjuration"
     ],
     "rarity": "common"
   },
@@ -1678,7 +1755,8 @@
       "Concentrate",
       "Curse",
       "Manipulate",
-      "Misfortune"
+      "Misfortune",
+      "Divination"
     ],
     "rarity": "common"
   },
@@ -1697,7 +1775,8 @@
       "Concentrate",
       "Healing",
       "Manipulate",
-      "Spirit"
+      "Spirit",
+      "Necromancy"
     ],
     "rarity": "common"
   },
@@ -2009,7 +2088,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Abjuration"
     ],
     "rarity": "common"
   },
@@ -2067,7 +2147,8 @@
       "Emotion",
       "Manipulate",
       "Mental",
-      "Focus"
+      "Focus",
+      "Enchantment"
     ],
     "rarity": "common"
   },
@@ -2120,7 +2201,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Abjuration"
     ],
     "rarity": "common"
   },
@@ -2140,7 +2222,8 @@
     "traits": [
       "Cantrip",
       "Concentrate",
-      "Focus"
+      "Focus",
+      "Abjuration"
     ],
     "rarity": "common"
   },
@@ -2234,7 +2317,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Conjuration"
     ],
     "rarity": "common"
   },
@@ -2311,7 +2395,8 @@
     "traits": [
       "Concentrate",
       "Emotion",
-      "Mental"
+      "Mental",
+      "Enchantment"
     ],
     "rarity": "common"
   },
@@ -2372,7 +2457,8 @@
       "Concentrate",
       "Manipulate",
       "Metal",
-      "Focus"
+      "Focus",
+      "металл"
     ],
     "rarity": "common"
   },
@@ -2429,7 +2515,8 @@
       "Healing",
       "Manipulate",
       "Vitality",
-      "Positive"
+      "Positive",
+      "Necromancy"
     ],
     "rarity": "common"
   },
@@ -2547,7 +2634,8 @@
       "Cantrip",
       "Concentrate",
       "Manipulate",
-      "Focus"
+      "Focus",
+      "Conjuration"
     ],
     "rarity": "common"
   },
@@ -2631,7 +2719,8 @@
       "Concentrate",
       "Earth",
       "Manipulate",
-      "Focus"
+      "Focus",
+      "Evocation"
     ],
     "rarity": "common"
   },
@@ -2650,7 +2739,8 @@
       "Concentrate",
       "Extradimensional",
       "Manipulate",
-      "Rare"
+      "Rare",
+      "Divination"
     ],
     "rarity": "rare"
   },
@@ -2725,7 +2815,9 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Force"
+      "Force",
+      "Evocation",
+      "сила"
     ],
     "rarity": "common"
   },
@@ -2743,7 +2835,26 @@
     "traits": [
       "Acid",
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Evocation"
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "readthedocs-acid-splash",
+    "nameRu": "Кислотный всплеск",
+    "nameEn": "Acid Splash",
+    "level": 1,
+    "tradition": [
+      "arcane"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Cantrip",
+      "Evocation",
+      "Attack",
+      "Acid"
     ],
     "rarity": "common"
   },
@@ -2921,7 +3032,9 @@
       "Concentrate",
       "Linguistic",
       "Manipulate",
-      "Sonic"
+      "Sonic",
+      "Evocation",
+      "языковой"
     ],
     "rarity": "common"
   },
@@ -2938,7 +3051,27 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Transmutation"
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "readthedocs-chill-touch",
+    "nameRu": "Ледяное прикосновение",
+    "nameEn": "Chill Touch",
+    "level": 1,
+    "tradition": [
+      "arcane",
+      "divine",
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Cantrip",
+      "Necromancy",
+      "Negative"
     ],
     "rarity": "common"
   },
@@ -2956,7 +3089,8 @@
     "traits": [
       "Cold",
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Evocation"
     ],
     "rarity": "common"
   },
@@ -2979,6 +3113,24 @@
       "Фокальное"
     ],
     "rarity": "uncommon"
+  },
+  {
+    "id": "readthedocs-tanglefoot",
+    "nameRu": "Липкая лоза",
+    "nameEn": "Tanglefoot",
+    "level": 1,
+    "tradition": [
+      "arcane"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Cantrip",
+      "Conjuration",
+      "Attack",
+      "Plant"
+    ],
+    "rarity": "common"
   },
   {
     "id": "aonprd-spell-1887",
@@ -3042,6 +3194,39 @@
     "rarity": "uncommon"
   },
   {
+    "id": "readthedocs-magic-aura",
+    "nameRu": "Магическая аура",
+    "nameEn": "Magic Aura",
+    "level": 1,
+    "tradition": [
+      "arcane",
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Illusion"
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "readthedocs-mage-hand",
+    "nameRu": "Магическая рука",
+    "nameEn": "Mage Hand",
+    "level": 1,
+    "tradition": [
+      "arcane",
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Cantrip",
+      "Evocation"
+    ],
+    "rarity": "common"
+  },
+  {
     "id": "aonprd-spell-1865",
     "nameRu": "Магическая шкура",
     "nameEn": "Magic Hide",
@@ -3079,6 +3264,39 @@
     "rarity": "common"
   },
   {
+    "id": "readthedocs-mage-armor",
+    "nameRu": "Магический доспех",
+    "nameEn": "Mage Armor",
+    "level": 1,
+    "tradition": [
+      "arcane",
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Abjuration"
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "readthedocs-magic-missile",
+    "nameRu": "Магический снаряд",
+    "nameEn": "Magic Missile",
+    "level": 1,
+    "tradition": [
+      "arcane",
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Evocation",
+      "сила"
+    ],
+    "rarity": "common"
+  },
+  {
     "id": "aonprd-spell-1547",
     "nameRu": "Масло",
     "nameEn": "Grease",
@@ -3091,7 +3309,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Conjuration"
     ],
     "rarity": "common"
   },
@@ -3149,7 +3368,8 @@
       "Cantrip",
       "Concentrate",
       "Manipulate",
-      "Focus"
+      "Focus",
+      "Evocation"
     ],
     "rarity": "common"
   },
@@ -3170,7 +3390,8 @@
       "Cantrip",
       "Concentrate",
       "Manipulate",
-      "Focus"
+      "Focus",
+      "Evocation"
     ],
     "rarity": "common"
   },
@@ -3250,7 +3471,8 @@
       "Cantrip",
       "Concentrate",
       "Manipulate",
-      "Focus"
+      "Focus",
+      "Transmutation"
     ],
     "rarity": "common"
   },
@@ -3332,6 +3554,24 @@
     "rarity": "uncommon"
   },
   {
+    "id": "readthedocs-ray-of-frost",
+    "nameRu": "Морозный луч",
+    "nameEn": "Ray of Frost",
+    "level": 1,
+    "tradition": [
+      "arcane"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Cantrip",
+      "Evocation",
+      "Attack",
+      "Cold"
+    ],
+    "rarity": "common"
+  },
+  {
     "id": "aonprd-spell-2324",
     "nameRu": "Мстительный взгляд",
     "nameEn": "Vengeful Glare",
@@ -3382,7 +3622,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Transmutation"
     ],
     "rarity": "common"
   },
@@ -3441,7 +3682,8 @@
       "Concentrate",
       "Manipulate",
       "Sonic",
-      "Focus"
+      "Focus",
+      "Evocation"
     ],
     "rarity": "common"
   },
@@ -3536,7 +3778,8 @@
     "traits": [
       "Cantrip",
       "Concentrate",
-      "Focus"
+      "Focus",
+      "Divination"
     ],
     "rarity": "common"
   },
@@ -3609,6 +3852,22 @@
       "Concentrate",
       "Illusion",
       "Manipulate"
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "readthedocs-unseen-servant",
+    "nameRu": "Незримый слуга",
+    "nameEn": "Unseen Servant",
+    "level": 1,
+    "tradition": [
+      "arcane",
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Conjuration"
     ],
     "rarity": "common"
   },
@@ -3723,7 +3982,9 @@
       "Concentrate",
       "Manipulate",
       "Poison",
-      "Focus"
+      "Focus",
+      "Evocation",
+      "Inhaled"
     ],
     "rarity": "common"
   },
@@ -3823,7 +4084,9 @@
       "Concentrate",
       "Detection",
       "Manipulate",
-      "Focus"
+      "Focus",
+      "Divination",
+      "обнаружение"
     ],
     "rarity": "common"
   },
@@ -3864,7 +4127,8 @@
     "traits": [
       "Detection",
       "Divination",
-      "Uncommon"
+      "Uncommon",
+      "обнаружение"
     ],
     "rarity": "uncommon"
   },
@@ -3883,7 +4147,9 @@
       "Concentrate",
       "Detection",
       "Manipulate",
-      "Uncommon"
+      "Uncommon",
+      "обнаружение",
+      "Divination"
     ],
     "rarity": "uncommon"
   },
@@ -3981,7 +4247,8 @@
       "Concentrate",
       "Emotion",
       "Manipulate",
-      "Mental"
+      "Mental",
+      "Enchantment"
     ],
     "rarity": "common"
   },
@@ -4003,6 +4270,23 @@
     "rarity": "common"
   },
   {
+    "id": "readthedocs-animate-dead",
+    "nameRu": "Оживление мертвого",
+    "nameEn": "Animate Dead",
+    "level": 1,
+    "tradition": [
+      "arcane",
+      "divine",
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Necromancy"
+    ],
+    "rarity": "common"
+  },
+  {
     "id": "aonprd-spell-2754",
     "nameRu": "Омолодить верного зверя",
     "nameEn": "Juvenile Companion",
@@ -4015,7 +4299,9 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Polymorph"
+      "Polymorph",
+      "Transmutation",
+      "полиморф"
     ],
     "rarity": "common"
   },
@@ -4112,7 +4398,9 @@
     "traits": [
       "Auditory",
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Enchantment",
+      "Mental"
     ],
     "rarity": "common"
   },
@@ -4131,6 +4419,24 @@
       "Concentrate",
       "Earth",
       "Manipulate"
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "readthedocs-ray-of-enfeeblement",
+    "nameRu": "Ослабляющий луч",
+    "nameEn": "Ray of Enfeeblement",
+    "level": 1,
+    "tradition": [
+      "arcane",
+      "divine",
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Necromancy",
+      "Attack"
     ],
     "rarity": "common"
   },
@@ -4270,7 +4576,8 @@
       "Aura",
       "Concentrate",
       "Manipulate",
-      "Mental"
+      "Mental",
+      "Enchantment"
     ],
     "rarity": "common"
   },
@@ -4330,7 +4637,23 @@
       "Concentrate",
       "Fortune",
       "Manipulate",
-      "Focus"
+      "Focus",
+      "Abjuration"
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "readthedocs-purify-food-and-drink",
+    "nameRu": "Очищение еды и питья",
+    "nameEn": "Purify Food And Drink",
+    "level": 1,
+    "tradition": [
+      "arcane"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Necromancy"
     ],
     "rarity": "common"
   },
@@ -4407,6 +4730,23 @@
     "rarity": "uncommon"
   },
   {
+    "id": "readthedocs-floating-disk",
+    "nameRu": "Парящий диск",
+    "nameEn": "Floating Disk",
+    "level": 1,
+    "tradition": [
+      "arcane",
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Conjuration",
+      "сила"
+    ],
+    "rarity": "common"
+  },
+  {
     "id": "aonprd-spell-1684",
     "nameRu": "Паучий укус",
     "nameEn": "Spider Sting",
@@ -4420,7 +4760,8 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Poison"
+      "Poison",
+      "Necromancy"
     ],
     "rarity": "common"
   },
@@ -4659,6 +5000,21 @@
     "rarity": "common"
   },
   {
+    "id": "readthedocs-feather-fall",
+    "nameRu": "Плавное падение",
+    "nameEn": "Feather Fall",
+    "level": 1,
+    "tradition": [
+      "arcane"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Abjuration"
+    ],
+    "rarity": "common"
+  },
+  {
     "id": "aonprd-spell-1383",
     "nameRu": "Плавучие пузыри",
     "nameEn": "Buoyant Bubbles",
@@ -4729,7 +5085,9 @@
     "traits": [
       "Light",
       "Focus",
-      "Evocation"
+      "Evocation",
+      "Cantrip",
+      "свет"
     ],
     "rarity": "common"
   },
@@ -4746,7 +5104,8 @@
     "traits": [
       "Manipulate",
       "Void",
-      "Negative"
+      "Negative",
+      "Necromancy"
     ],
     "rarity": "common"
   },
@@ -4799,7 +5158,8 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Mental"
+      "Mental",
+      "Divination"
     ],
     "rarity": "common"
   },
@@ -4839,7 +5199,8 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Uncommon"
+      "Uncommon",
+      "Divination"
     ],
     "rarity": "uncommon"
   },
@@ -4940,7 +5301,9 @@
       "Concentrate",
       "Darkness",
       "Manipulate",
-      "Shadow"
+      "Shadow",
+      "Evocation",
+      "тьма"
     ],
     "rarity": "common"
   },
@@ -4958,7 +5321,9 @@
     "classes": [],
     "traits": [
       "Manipulate",
-      "Teleportation"
+      "Teleportation",
+      "Conjuration",
+      "телепортация"
     ],
     "rarity": "common"
   },
@@ -4994,7 +5359,8 @@
     "traits": [
       "Air",
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Evocation"
     ],
     "rarity": "common"
   },
@@ -5072,7 +5438,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Transmutation"
     ],
     "rarity": "common"
   },
@@ -5091,7 +5458,8 @@
       "Cantrip",
       "Concentrate",
       "Manipulate",
-      "Focus"
+      "Focus",
+      "Abjuration"
     ],
     "rarity": "common"
   },
@@ -5132,7 +5500,8 @@
       "Manipulate",
       "Mental",
       "Subtle",
-      "Устранение"
+      "Устранение",
+      "Enchantment"
     ],
     "rarity": "common"
   },
@@ -5149,7 +5518,26 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Abjuration"
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "readthedocs-ghost-sound",
+    "nameRu": "Призрачный звук",
+    "nameEn": "Ghost Sound",
+    "level": 1,
+    "tradition": [
+      "arcane",
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Cantrip",
+      "Illusion",
+      "Auditory"
     ],
     "rarity": "common"
   },
@@ -5168,7 +5556,8 @@
       "Concentrate",
       "Manipulate",
       "Summon",
-      "Призыв"
+      "Призыв",
+      "Conjuration"
     ],
     "rarity": "common"
   },
@@ -5188,7 +5577,8 @@
       "Cantrip",
       "Concentrate",
       "Manipulate",
-      "Focus"
+      "Focus",
+      "Conjuration"
     ],
     "rarity": "common"
   },
@@ -5206,7 +5596,8 @@
       "Concentrate",
       "Manipulate",
       "Summon",
-      "Призыв"
+      "Призыв",
+      "Conjuration"
     ],
     "rarity": "common"
   },
@@ -5224,7 +5615,8 @@
       "Concentrate",
       "Manipulate",
       "Summon",
-      "Призыв"
+      "Призыв",
+      "Conjuration"
     ],
     "rarity": "common"
   },
@@ -5262,7 +5654,8 @@
       "Concentrate",
       "Manipulate",
       "Summon",
-      "Призыв"
+      "Призыв",
+      "Conjuration"
     ],
     "rarity": "common"
   },
@@ -5281,7 +5674,8 @@
       "Concentrate",
       "Manipulate",
       "Summon",
-      "Призыв"
+      "Призыв",
+      "Conjuration"
     ],
     "rarity": "common"
   },
@@ -5302,7 +5696,9 @@
       "Concentrate",
       "Linguistic",
       "Manipulate",
-      "Mental"
+      "Mental",
+      "Enchantment",
+      "языковой"
     ],
     "rarity": "common"
   },
@@ -5567,7 +5963,8 @@
     "classes": [],
     "traits": [
       "Manipulate",
-      "Move"
+      "Move",
+      "Transmutation"
     ],
     "rarity": "common"
   },
@@ -5629,6 +6026,22 @@
       "Void",
       "Negative",
       "Focus"
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "readthedocs-burning-hands",
+    "nameRu": "Пылающие руки",
+    "nameEn": "Burning Hands",
+    "level": 1,
+    "tradition": [
+      "arcane"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Evocation",
+      "Fire"
     ],
     "rarity": "common"
   },
@@ -5713,6 +6126,22 @@
     "rarity": "uncommon"
   },
   {
+    "id": "readthedocs-disrupting-weapons",
+    "nameRu": "Разрушающее оружие",
+    "nameEn": "Disrupting Weapons",
+    "level": 1,
+    "tradition": [
+      "divine"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Necromancy",
+      "Positive"
+    ],
+    "rarity": "common"
+  },
+  {
     "id": "aonprd-spell-2364",
     "nameRu": "Разрушающийся драгоценный камень",
     "nameEn": "Shattering Gem",
@@ -5726,7 +6155,25 @@
     "traits": [
       "Concentrate",
       "Earth",
-      "Manipulate"
+      "Manipulate",
+      "Abjuration"
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "readthedocs-disrupt-undead",
+    "nameRu": "Разрушение нежити",
+    "nameEn": "Disrupt Undead",
+    "level": 1,
+    "tradition": [
+      "divine"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Cantrip",
+      "Necromancy",
+      "Positive"
     ],
     "rarity": "common"
   },
@@ -5765,7 +6212,8 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Sonic"
+      "Sonic",
+      "Divination"
     ],
     "rarity": "common"
   },
@@ -5982,7 +6430,9 @@
       "Concentrate",
       "Linguistic",
       "Manipulate",
-      "Mental"
+      "Mental",
+      "Divination",
+      "языковой"
     ],
     "rarity": "common"
   },
@@ -6199,7 +6649,9 @@
       "Concentrate",
       "Light",
       "Manipulate",
-      "Focus"
+      "Focus",
+      "Evocation",
+      "свет"
     ],
     "rarity": "common"
   },
@@ -6237,7 +6689,8 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Mental"
+      "Mental",
+      "Divination"
     ],
     "rarity": "common"
   },
@@ -6358,7 +6811,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Abjuration"
     ],
     "rarity": "common"
   },
@@ -6453,7 +6907,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Divination"
     ],
     "rarity": "common"
   },
@@ -6471,6 +6926,21 @@
       "Concentrate",
       "Manipulate",
       "Metal"
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "readthedocs-longstrider",
+    "nameRu": "Скороход",
+    "nameEn": "Longstrider",
+    "level": 1,
+    "tradition": [
+      "arcane"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Transmutation"
     ],
     "rarity": "common"
   },
@@ -6569,7 +7039,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Transmutation"
     ],
     "rarity": "common"
   },
@@ -6650,7 +7121,8 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Water"
+      "Water",
+      "Conjuration"
     ],
     "rarity": "common"
   },
@@ -6729,7 +7201,8 @@
       "Mental",
       "Sleep",
       "Сон",
-      "Устранение"
+      "Устранение",
+      "Enchantment"
     ],
     "rarity": "common"
   },
@@ -6773,7 +7246,8 @@
       "Linguistic",
       "Mental",
       "Subtle",
-      "Focus"
+      "Focus",
+      "языковой"
     ],
     "rarity": "common"
   },
@@ -6796,6 +7270,24 @@
     "rarity": "uncommon"
   },
   {
+    "id": "readthedocs-produce-flame",
+    "nameRu": "Сотворение пламени",
+    "nameEn": "Produce Flame",
+    "level": 1,
+    "tradition": [
+      "arcane"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Cantrip",
+      "Evocation",
+      "Attack",
+      "Fire"
+    ],
+    "rarity": "common"
+  },
+  {
     "id": "aonprd-spell-2366",
     "nameRu": "Сотрясающая волна",
     "nameEn": "Shockwave",
@@ -6809,7 +7301,8 @@
     "traits": [
       "Concentrate",
       "Earth",
-      "Manipulate"
+      "Manipulate",
+      "Evocation"
     ],
     "rarity": "common"
   },
@@ -6831,7 +7324,8 @@
       "Manipulate",
       "Vitality",
       "Positive",
-      "Focus"
+      "Focus",
+      "Necromancy"
     ],
     "rarity": "common"
   },
@@ -6946,7 +7440,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Sonic"
+      "Sonic",
+      "Evocation"
     ],
     "rarity": "common"
   },
@@ -6966,7 +7461,8 @@
       "Concentrate",
       "Manipulate",
       "Water",
-      "Focus"
+      "Focus",
+      "Evocation"
     ],
     "rarity": "common"
   },
@@ -6989,7 +7485,9 @@
       "Mental",
       "Nonlethal",
       "Несмертельное",
-      "Focus"
+      "Focus",
+      "Enchantment",
+      "несмертельный"
     ],
     "rarity": "common"
   },
@@ -7008,7 +7506,8 @@
     "classes": [],
     "traits": [
       "Extradimensional",
-      "Manipulate"
+      "Manipulate",
+      "Conjuration"
     ],
     "rarity": "common"
   },
@@ -7028,7 +7527,8 @@
       "Concentrate",
       "Manipulate",
       "Subtle",
-      "Focus"
+      "Focus",
+      "Divination"
     ],
     "rarity": "common"
   },
@@ -7067,7 +7567,8 @@
       "Cantrip",
       "Concentrate",
       "Manipulate",
-      "Focus"
+      "Focus",
+      "Evocation"
     ],
     "rarity": "common"
   },
@@ -7105,7 +7606,8 @@
       "Concentrate",
       "Manipulate",
       "Void",
-      "Negative"
+      "Negative",
+      "Necromancy"
     ],
     "rarity": "common"
   },
@@ -7145,7 +7647,8 @@
       "Manipulate",
       "Morph",
       "Метаморфоза",
-      "Focus"
+      "Focus",
+      "Transmutation"
     ],
     "rarity": "common"
   },
@@ -7248,7 +7751,9 @@
       "Manipulate",
       "Mental",
       "Nonlethal",
-      "Несмертельное"
+      "Несмертельное",
+      "Enchantment",
+      "несмертельный"
     ],
     "rarity": "common"
   },
@@ -7265,7 +7770,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Abjuration"
     ],
     "rarity": "common"
   },
@@ -7287,7 +7793,26 @@
       "Emotion",
       "Fear",
       "Manipulate",
-      "Mental"
+      "Mental",
+      "Enchantment"
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "readthedocs-know-direction",
+    "nameRu": "Узнать направление",
+    "nameEn": "Know Direction",
+    "level": 1,
+    "tradition": [
+      "divine",
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Cantrip",
+      "Divination",
+      "обнаружение"
     ],
     "rarity": "common"
   },
@@ -7347,7 +7872,8 @@
       "Concentrate",
       "Manipulate",
       "Mental",
-      "Focus"
+      "Focus",
+      "Enchantment"
     ],
     "rarity": "common"
   },
@@ -7366,7 +7892,8 @@
       "Emotion",
       "Healing",
       "Manipulate",
-      "Mental"
+      "Mental",
+      "Enchantment"
     ],
     "rarity": "common"
   },
@@ -7403,7 +7930,9 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Enchantment",
+      "Mental"
     ],
     "rarity": "common"
   },
@@ -7497,7 +8026,8 @@
       "Manipulate",
       "Mental",
       "Nonlethal",
-      "Несмертельное"
+      "Несмертельное",
+      "несмертельный"
     ],
     "rarity": "common"
   },
@@ -7573,7 +8103,9 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Polymorph"
+      "Polymorph",
+      "Transmutation",
+      "полиморф"
     ],
     "rarity": "common"
   },
@@ -7631,7 +8163,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Abjuration"
     ],
     "rarity": "common"
   },
@@ -7691,6 +8224,24 @@
       "Manipulate",
       "Visual",
       "Устранение"
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "readthedocs-color-spray",
+    "nameRu": "Цветные брызги",
+    "nameEn": "Color Spray",
+    "level": 1,
+    "tradition": [
+      "arcane",
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Illusion",
+      "Incapacitation",
+      "Visual"
     ],
     "rarity": "common"
   },
@@ -7797,7 +8348,9 @@
       "Concentrate",
       "Detection",
       "Manipulate",
-      "Focus"
+      "Focus",
+      "Divination",
+      "обнаружение"
     ],
     "rarity": "common"
   },
@@ -7813,7 +8366,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Divination"
     ],
     "rarity": "common"
   },
@@ -7870,7 +8424,8 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Prediction"
+      "Prediction",
+      "Divination"
     ],
     "rarity": "common"
   },
@@ -7911,6 +8466,23 @@
     "rarity": "common"
   },
   {
+    "id": "readthedocs-shocking-grasp",
+    "nameRu": "Шоковое прикосновение",
+    "nameEn": "Shocking Grasp",
+    "level": 1,
+    "tradition": [
+      "arcane"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Evocation",
+      "Attack",
+      "Electricity"
+    ],
+    "rarity": "common"
+  },
+  {
     "id": "aonprd-spell-1994",
     "nameRu": "Штормовой порыв",
     "nameEn": "Gale Blast",
@@ -7926,7 +8498,8 @@
       "Cantrip",
       "Concentrate",
       "Manipulate",
-      "Focus"
+      "Focus",
+      "Evocation"
     ],
     "rarity": "common"
   },
@@ -7946,7 +8519,8 @@
       "Concentrate",
       "Manipulate",
       "Void",
-      "Negative"
+      "Negative",
+      "Necromancy"
     ],
     "rarity": "common"
   },
@@ -7966,7 +8540,9 @@
       "Cantrip",
       "Concentrate",
       "Force",
-      "Focus"
+      "Focus",
+      "Abjuration",
+      "сила"
     ],
     "rarity": "common"
   },
@@ -7986,7 +8562,8 @@
       "Concentrate",
       "Electricity",
       "Manipulate",
-      "Focus"
+      "Focus",
+      "Evocation"
     ],
     "rarity": "common"
   },
@@ -8024,7 +8601,8 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Poison"
+      "Poison",
+      "Evocation"
     ],
     "rarity": "common"
   },
@@ -9634,6 +10212,39 @@
     "rarity": "common"
   },
   {
+    "id": "readthedocs-hideous-laughter",
+    "nameRu": "Безудержный смех",
+    "nameEn": "Hideous Laughter",
+    "level": 2,
+    "tradition": [
+      "arcane",
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Enchantment",
+      "Emotion",
+      "Mental"
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "readthedocs-glitterdust",
+    "nameRu": "Блестки",
+    "nameEn": "Glitterdust",
+    "level": 2,
+    "tradition": [
+      "arcane"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Evocation"
+    ],
+    "rarity": "common"
+  },
+  {
     "id": "aonprd-spell-2361",
     "nameRu": "Блистательное поле",
     "nameEn": "Radiant Field",
@@ -9693,6 +10304,24 @@
     "rarity": "unique"
   },
   {
+    "id": "readthedocs-continual-flame",
+    "nameRu": "Вечное пламя",
+    "nameEn": "Continual Flame",
+    "level": 2,
+    "tradition": [
+      "arcane",
+      "divine",
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Evocation",
+      "свет"
+    ],
+    "rarity": "common"
+  },
+  {
     "id": "aonprd-spell-1518",
     "nameRu": "Вечный свет",
     "nameEn": "Everlight",
@@ -9709,6 +10338,23 @@
       "Concentrate",
       "Light",
       "Manipulate"
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "readthedocs-sound-burst",
+    "nameRu": "Взрыв звука",
+    "nameEn": "Sound Burst",
+    "level": 2,
+    "tradition": [
+      "divine",
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Evocation",
+      "Sonic"
     ],
     "rarity": "common"
   },
@@ -9788,6 +10434,24 @@
     "rarity": "common"
   },
   {
+    "id": "readthedocs-see-invisibility",
+    "nameRu": "Видеть невидимое",
+    "nameEn": "See Invisibility",
+    "level": 2,
+    "tradition": [
+      "arcane",
+      "divine",
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Divination",
+      "Revelation"
+    ],
+    "rarity": "common"
+  },
+  {
     "id": "aonprd-spell-2033",
     "nameRu": "Внезапное увядание",
     "nameEn": "Sudden Blight",
@@ -9802,7 +10466,8 @@
       "Concentrate",
       "Manipulate",
       "Void",
-      "Negative"
+      "Negative",
+      "Necromancy"
     ],
     "rarity": "common"
   },
@@ -9862,7 +10527,26 @@
       "Curse",
       "Emotion",
       "Manipulate",
-      "Mental"
+      "Mental",
+      "Enchantment"
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "readthedocs-magic-mouth",
+    "nameRu": "Волшебный рот",
+    "nameEn": "Magic Mouth",
+    "level": 2,
+    "tradition": [
+      "arcane",
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Illusion",
+      "Auditory",
+      "Visual"
     ],
     "rarity": "common"
   },
@@ -9901,6 +10585,23 @@
     "traits": [
       "Healing",
       "Necromancy"
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "readthedocs-restore-senses",
+    "nameRu": "Восстановление чувств",
+    "nameEn": "Restore Senses",
+    "level": 2,
+    "tradition": [
+      "divine",
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Necromancy",
+      "Healing"
     ],
     "rarity": "common"
   },
@@ -10012,7 +10713,8 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Prediction"
+      "Prediction",
+      "Divination"
     ],
     "rarity": "common"
   },
@@ -10031,7 +10733,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Necromancy"
     ],
     "rarity": "common"
   },
@@ -10050,7 +10753,10 @@
       "Concentrate",
       "Curse",
       "Manipulate",
-      "Mental"
+      "Mental",
+      "Necromancy",
+      "Disease",
+      "Evil"
     ],
     "rarity": "common"
   },
@@ -10086,7 +10792,8 @@
       "Concentrate",
       "Fungus",
       "Manipulate",
-      "Poison"
+      "Poison",
+      "Conjuration"
     ],
     "rarity": "common"
   },
@@ -10103,7 +10810,8 @@
     "traits": [
       "Concentrate",
       "Fungus",
-      "Manipulate"
+      "Manipulate",
+      "Necromancy"
     ],
     "rarity": "common"
   },
@@ -10121,7 +10829,8 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Mental"
+      "Mental",
+      "Enchantment"
     ],
     "rarity": "common"
   },
@@ -10196,7 +10905,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Transmutation"
     ],
     "rarity": "common"
   },
@@ -10215,7 +10925,8 @@
       "Concentrate",
       "Manipulate",
       "Void",
-      "Negative"
+      "Negative",
+      "Necromancy"
     ],
     "rarity": "common"
   },
@@ -10260,6 +10971,37 @@
     "rarity": "common"
   },
   {
+    "id": "readthedocs-barkskin",
+    "nameRu": "Дубовая кожа",
+    "nameEn": "Barkskin",
+    "level": 2,
+    "tradition": [],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Abjuration",
+      "Plant"
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "readthedocs-touch-of-idiocy",
+    "nameRu": "Дурманящее касание",
+    "nameEn": "Touch of Idiocy",
+    "level": 2,
+    "tradition": [
+      "arcane",
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Enchantment",
+      "Mental"
+    ],
+    "rarity": "common"
+  },
+  {
     "id": "aonprd-spell-1945",
     "nameRu": "Дух зверя",
     "nameEn": "Spirit of the Beast",
@@ -10281,6 +11023,23 @@
     "rarity": "uncommon"
   },
   {
+    "id": "readthedocs-spiritual-weapon",
+    "nameRu": "Духовное оружие",
+    "nameEn": "Spiritual Weapon",
+    "level": 2,
+    "tradition": [
+      "divine",
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Evocation",
+      "сила"
+    ],
+    "rarity": "common"
+  },
+  {
     "id": "aonprd-spell-1755",
     "nameRu": "Дыхание под водой",
     "nameEn": "Water Breathing",
@@ -10295,7 +11054,8 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Water"
+      "Water",
+      "Transmutation"
     ],
     "rarity": "common"
   },
@@ -10330,7 +11090,8 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Mental"
+      "Mental",
+      "Enchantment"
     ],
     "rarity": "common"
   },
@@ -10368,7 +11129,8 @@
       "Concentrate",
       "Fire",
       "Manipulate",
-      "Sonic"
+      "Sonic",
+      "Evocation"
     ],
     "rarity": "common"
   },
@@ -10445,6 +11207,37 @@
     "rarity": "common"
   },
   {
+    "id": "readthedocs-endure-elements",
+    "nameRu": "Защита от непогоды",
+    "nameEn": "Endure Elements",
+    "level": 2,
+    "tradition": [
+      "arcane",
+      "divine"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Abjuration"
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "readthedocs-shield-other",
+    "nameRu": "Защищать другого",
+    "nameEn": "Shield Other",
+    "level": 2,
+    "tradition": [
+      "divine"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Necromancy"
+    ],
+    "rarity": "common"
+  },
+  {
     "id": "aonprd-spell-1866",
     "nameRu": "Звериная черта",
     "nameEn": "Animal Feature",
@@ -10517,6 +11310,39 @@
       "Concentrate",
       "Healing",
       "Manipulate"
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "readthedocs-remove-paralysis",
+    "nameRu": "Избавление от паралича",
+    "nameEn": "Remove Paralysis",
+    "level": 2,
+    "tradition": [
+      "divine",
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Necromancy",
+      "Healing"
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "readthedocs-remove-fear",
+    "nameRu": "Избавление от страха",
+    "nameEn": "Remove Fear",
+    "level": 2,
+    "tradition": [
+      "divine",
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Enchantment"
     ],
     "rarity": "common"
   },
@@ -10622,7 +11448,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Evocation"
     ],
     "rarity": "common"
   },
@@ -10701,6 +11528,23 @@
       "Concentrate",
       "Extradimensional",
       "Manipulate"
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "readthedocs-acid-arrow",
+    "nameRu": "Кислотная стрела",
+    "nameEn": "Acid Arrow",
+    "level": 2,
+    "tradition": [
+      "arcane"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Evocation",
+      "Attack",
+      "Acid"
     ],
     "rarity": "common"
   },
@@ -10809,7 +11653,8 @@
     "school": "Unknown",
     "classes": [],
     "traits": [
-      "Curse"
+      "Curse",
+      "Necromancy"
     ],
     "rarity": "common"
   },
@@ -10918,7 +11763,9 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Polymorph"
+      "Polymorph",
+      "Transmutation",
+      "полиморф"
     ],
     "rarity": "common"
   },
@@ -10973,6 +11820,22 @@
     "traits": [
       "Concentrate",
       "Manipulate"
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "readthedocs-false-life",
+    "nameRu": "Ложная жизнь",
+    "nameEn": "False Life",
+    "level": 2,
+    "tradition": [
+      "arcane",
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Necromancy"
     ],
     "rarity": "common"
   },
@@ -11095,7 +11958,8 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Mental"
+      "Mental",
+      "Abjuration"
     ],
     "rarity": "common"
   },
@@ -11215,6 +12079,22 @@
     "rarity": "common"
   },
   {
+    "id": "readthedocs-obscuring-mist",
+    "nameRu": "Непроглядный туман",
+    "nameEn": "Obscuring Mist",
+    "level": 2,
+    "tradition": [
+      "arcane"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Conjuration",
+      "Water"
+    ],
+    "rarity": "common"
+  },
+  {
     "id": "aonprd-spell-1974",
     "nameRu": "Неслыханная щедрость",
     "nameEn": "Charitable Urge",
@@ -11231,7 +12111,8 @@
       "Incapacitation",
       "Manipulate",
       "Mental",
-      "Устранение"
+      "Устранение",
+      "Enchantment"
     ],
     "rarity": "common"
   },
@@ -11267,7 +12148,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Divination"
     ],
     "rarity": "common"
   },
@@ -11287,7 +12169,8 @@
       "Emotion",
       "Fear",
       "Manipulate",
-      "Mental"
+      "Mental",
+      "Enchantment"
     ],
     "rarity": "common"
   },
@@ -11306,7 +12189,8 @@
       "Air",
       "Concentrate",
       "Fire",
-      "Manipulate"
+      "Manipulate",
+      "Conjuration"
     ],
     "rarity": "common"
   },
@@ -11325,7 +12209,8 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Metal"
+      "Metal",
+      "металл"
     ],
     "rarity": "common"
   },
@@ -11369,6 +12254,23 @@
     "rarity": "common"
   },
   {
+    "id": "readthedocs-scorching-ray",
+    "nameRu": "Опаляющий луч",
+    "nameEn": "Scorching Ray",
+    "level": 2,
+    "tradition": [
+      "arcane"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Evocation",
+      "Attack",
+      "Fire"
+    ],
+    "rarity": "common"
+  },
+  {
     "id": "aonprd-spell-1515",
     "nameRu": "Опутывание",
     "nameEn": "Entangling Flora",
@@ -11384,6 +12286,20 @@
       "Manipulate",
       "Plant",
       "Wood"
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "readthedocs-entangle",
+    "nameRu": "Опутывание",
+    "nameEn": "Entangle",
+    "level": 2,
+    "tradition": [],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Transmutation",
+      "Plant"
     ],
     "rarity": "common"
   },
@@ -11568,7 +12484,23 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Conjuration"
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "readthedocs-spider-climb",
+    "nameRu": "Паучьи лапы",
+    "nameEn": "Spider Climb",
+    "level": 2,
+    "tradition": [
+      "arcane"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Transmutation"
     ],
     "rarity": "common"
   },
@@ -11662,7 +12594,8 @@
     "traits": [
       "Concentrate",
       "Curse",
-      "Manipulate"
+      "Manipulate",
+      "Necromancy"
     ],
     "rarity": "common"
   },
@@ -11680,7 +12613,8 @@
     "traits": [
       "Concentrate",
       "Fire",
-      "Manipulate"
+      "Manipulate",
+      "Evocation"
     ],
     "rarity": "common"
   },
@@ -11756,6 +12690,23 @@
     "rarity": "common"
   },
   {
+    "id": "readthedocs-comprehend-language",
+    "nameRu": "Понимание языка",
+    "nameEn": "Comprehend Language",
+    "level": 2,
+    "tradition": [
+      "arcane",
+      "divine",
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Divination"
+    ],
+    "rarity": "common"
+  },
+  {
     "id": "aonprd-spell-1992",
     "nameRu": "Последняя жертва",
     "nameEn": "Final Sacrifice",
@@ -11771,7 +12722,8 @@
     "traits": [
       "Concentrate",
       "Fire",
-      "Manipulate"
+      "Manipulate",
+      "Evocation"
     ],
     "rarity": "common"
   },
@@ -11795,6 +12747,23 @@
     "rarity": "common"
   },
   {
+    "id": "readthedocs-gentle-repose",
+    "nameRu": "Посмертный покой",
+    "nameEn": "Gentle Repose",
+    "level": 2,
+    "tradition": [
+      "arcane",
+      "divine",
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Necromancy"
+    ],
+    "rarity": "common"
+  },
+  {
     "id": "aonprd-spell-2785",
     "nameRu": "Постоянный слуга",
     "nameEn": "Persistent Servant",
@@ -11807,7 +12776,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Conjuration"
     ],
     "rarity": "common"
   },
@@ -11826,7 +12796,10 @@
       "Concentrate",
       "Force",
       "Light",
-      "Manipulate"
+      "Manipulate",
+      "Necromancy",
+      "сила",
+      "свет"
     ],
     "rarity": "common"
   },
@@ -11864,7 +12837,8 @@
     "traits": [
       "Concentrate",
       "Contingency",
-      "Manipulate"
+      "Manipulate",
+      "Necromancy"
     ],
     "rarity": "common"
   },
@@ -11883,7 +12857,8 @@
       "Concentrate",
       "Manipulate",
       "Plant",
-      "Wood"
+      "Wood",
+      "Transmutation"
     ],
     "rarity": "common"
   },
@@ -11904,6 +12879,22 @@
       "Fire",
       "Healing",
       "Manipulate"
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "readthedocs-spectral-hand",
+    "nameRu": "Призрачная рука",
+    "nameEn": "Spectral Hand",
+    "level": 2,
+    "tradition": [
+      "arcane",
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Necromancy"
     ],
     "rarity": "common"
   },
@@ -11958,7 +12949,8 @@
       "Concentrate",
       "Manipulate",
       "Summon",
-      "Призыв"
+      "Призыв",
+      "Conjuration"
     ],
     "rarity": "common"
   },
@@ -12033,7 +13025,25 @@
       "Concentrate",
       "Detection",
       "Manipulate",
-      "Mental"
+      "Mental",
+      "Divination",
+      "обнаружение"
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "readthedocs-flaming-sphere",
+    "nameRu": "Пылающая сфера",
+    "nameEn": "Flaming Sphere",
+    "level": 2,
+    "tradition": [
+      "arcane"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Evocation",
+      "Fire"
     ],
     "rarity": "common"
   },
@@ -12110,7 +13120,8 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Sonic"
+      "Sonic",
+      "Evocation"
     ],
     "rarity": "common"
   },
@@ -12126,7 +13137,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Divination"
     ],
     "rarity": "common"
   },
@@ -12181,7 +13193,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Abjuration"
     ],
     "rarity": "common"
   },
@@ -12202,7 +13215,9 @@
       "Concentrate",
       "Death",
       "Light",
-      "Manipulate"
+      "Manipulate",
+      "Necromancy",
+      "свет"
     ],
     "rarity": "common"
   },
@@ -12239,7 +13254,8 @@
     "classes": [],
     "traits": [
       "Manipulate",
-      "Mental"
+      "Mental",
+      "Divination"
     ],
     "rarity": "common"
   },
@@ -12327,7 +13343,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Conjuration"
     ],
     "rarity": "common"
   },
@@ -12365,7 +13382,8 @@
       "Auditory",
       "Concentrate",
       "Manipulate",
-      "Sonic"
+      "Sonic",
+      "Conjuration"
     ],
     "rarity": "common"
   },
@@ -12384,7 +13402,9 @@
     "traits": [
       "Concentrate",
       "Detection",
-      "Manipulate"
+      "Manipulate",
+      "Divination",
+      "обнаружение"
     ],
     "rarity": "common"
   },
@@ -12406,6 +13426,25 @@
       "Manipulate",
       "Mental",
       "Устранение"
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "readthedocs-calm-emotions",
+    "nameRu": "Спокойствие",
+    "nameEn": "Calm Emotions",
+    "level": 2,
+    "tradition": [
+      "divine",
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Enchantment",
+      "Incapacitation",
+      "Emotion",
+      "Mental"
     ],
     "rarity": "common"
   },
@@ -12458,7 +13497,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Evocation"
     ],
     "rarity": "common"
   },
@@ -12496,7 +13536,8 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Превращение"
+      "Превращение",
+      "Transmutation"
     ],
     "rarity": "common"
   },
@@ -12514,7 +13555,8 @@
     "traits": [
       "Concentrate",
       "Earth",
-      "Manipulate"
+      "Manipulate",
+      "Transmutation"
     ],
     "rarity": "common"
   },
@@ -12531,7 +13573,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Transmutation"
     ],
     "rarity": "common"
   },
@@ -12550,7 +13593,8 @@
     "traits": [
       "Concentrate",
       "Contingency",
-      "Manipulate"
+      "Manipulate",
+      "Divination"
     ],
     "rarity": "common"
   },
@@ -12588,7 +13632,9 @@
       "Attack",
       "Concentrate",
       "Force",
-      "Manipulate"
+      "Manipulate",
+      "Evocation",
+      "сила"
     ],
     "rarity": "common"
   },
@@ -12605,7 +13651,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Evocation"
     ],
     "rarity": "common"
   },
@@ -12752,7 +13799,9 @@
     "traits": [
       "Concentrate",
       "Darkness",
-      "Manipulate"
+      "Manipulate",
+      "Evocation",
+      "тьма"
     ],
     "rarity": "common"
   },
@@ -12770,7 +13819,9 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Polymorph"
+      "Polymorph",
+      "полиморф",
+      "Transmutation"
     ],
     "rarity": "common"
   },
@@ -12806,7 +13857,8 @@
     "school": "Unknown",
     "classes": [],
     "traits": [
-      "Превращение"
+      "Превращение",
+      "Transmutation"
     ],
     "rarity": "common"
   },
@@ -12824,7 +13876,9 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Polymorph"
+      "Polymorph",
+      "Transmutation",
+      "полиморф"
     ],
     "rarity": "common"
   },
@@ -12880,7 +13934,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Abjuration"
     ],
     "rarity": "common"
   },
@@ -12924,6 +13979,22 @@
     "rarity": "common"
   },
   {
+    "id": "readthedocs-phantom-steed",
+    "nameRu": "Фантомный скакун",
+    "nameEn": "Phantom Steed",
+    "level": 2,
+    "tradition": [
+      "arcane",
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Conjuration"
+    ],
+    "rarity": "common"
+  },
+  {
     "id": "pf2ru-107",
     "nameRu": "Фейское Сияние",
     "nameEn": "Faerie Fire",
@@ -12937,7 +14008,8 @@
     "classes": [],
     "traits": [
       "Light",
-      "Evocation"
+      "Evocation",
+      "свет"
     ],
     "rarity": "common"
   },
@@ -12956,7 +14028,24 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Polymorph"
+      "Polymorph",
+      "Transmutation",
+      "полиморф"
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "readthedocs-tree-shape",
+    "nameRu": "Форма дерева",
+    "nameEn": "Tree Shape",
+    "level": 2,
+    "tradition": [],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Transmutation",
+      "полиморф",
+      "Plant"
     ],
     "rarity": "common"
   },
@@ -12973,7 +14062,9 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Polymorph"
+      "Polymorph",
+      "Transmutation",
+      "полиморф"
     ],
     "rarity": "common"
   },
@@ -12992,7 +14083,8 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Water"
+      "Water",
+      "Transmutation"
     ],
     "rarity": "common"
   },
@@ -13052,7 +14144,9 @@
       "Concentrate",
       "Detection",
       "Manipulate",
-      "Mental"
+      "Mental",
+      "Divination",
+      "обнаружение"
     ],
     "rarity": "common"
   },
@@ -13087,7 +14181,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Necromancy"
     ],
     "rarity": "common"
   },
@@ -14533,7 +15628,8 @@
     "traits": [
       "Concentrate",
       "Extradimensional",
-      "Manipulate"
+      "Manipulate",
+      "Conjuration"
     ],
     "rarity": "common"
   },
@@ -14551,7 +15647,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Abjuration"
     ],
     "rarity": "common"
   },
@@ -14681,7 +15778,8 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Water"
+      "Water",
+      "Evocation"
     ],
     "rarity": "common"
   },
@@ -14701,7 +15799,27 @@
       "Concentrate",
       "Emotion",
       "Manipulate",
-      "Mental"
+      "Mental",
+      "Enchantment"
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "readthedocs-vampiric-touch",
+    "nameRu": "Вампирское касание",
+    "nameEn": "Vampiric Touch",
+    "level": 3,
+    "tradition": [
+      "arcane",
+      "divine",
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Necromancy",
+      "Death",
+      "Negative"
     ],
     "rarity": "common"
   },
@@ -14755,7 +15873,8 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Water"
+      "Water",
+      "Conjuration"
     ],
     "rarity": "common"
   },
@@ -14967,7 +16086,8 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Mental"
+      "Mental",
+      "Enchantment"
     ],
     "rarity": "common"
   },
@@ -14982,7 +16102,8 @@
     "school": "Unknown",
     "classes": [],
     "traits": [
-      "Concentrate"
+      "Concentrate",
+      "Divination"
     ],
     "rarity": "common"
   },
@@ -15055,7 +16176,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Evocation"
     ],
     "rarity": "common"
   },
@@ -15114,7 +16236,9 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Enchantment",
+      "Divination"
     ],
     "rarity": "common"
   },
@@ -15148,7 +16272,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Conjuration"
     ],
     "rarity": "common"
   },
@@ -15261,7 +16386,8 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Mental"
+      "Mental",
+      "Divination"
     ],
     "rarity": "common"
   },
@@ -15279,7 +16405,25 @@
     "traits": [
       "Concentrate",
       "Contingency",
-      "Manipulate"
+      "Manipulate",
+      "Necromancy"
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "readthedocs-hypnotic-pattern",
+    "nameRu": "Завораживающий узор",
+    "nameEn": "Hypnotic Pattern",
+    "level": 3,
+    "tradition": [
+      "arcane",
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Illusion",
+      "Visual"
     ],
     "rarity": "common"
   },
@@ -15297,7 +16441,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Transmutation"
     ],
     "rarity": "common"
   },
@@ -15352,7 +16497,8 @@
       "Auditory",
       "Concentrate",
       "Emotion",
-      "Manipulate"
+      "Manipulate",
+      "Enchantment"
     ],
     "rarity": "common"
   },
@@ -15454,6 +16600,23 @@
     "rarity": "common"
   },
   {
+    "id": "readthedocs-zone-of-truth",
+    "nameRu": "Зона истины",
+    "nameEn": "Zone of Truth",
+    "level": 3,
+    "tradition": [
+      "divine",
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Enchantment",
+      "Mental"
+    ],
+    "rarity": "common"
+  },
+  {
     "id": "aonprd-spell-2365",
     "nameRu": "Зыбучий песок",
     "nameEn": "Shifting Sand",
@@ -15467,7 +16630,8 @@
     "traits": [
       "Concentrate",
       "Earth",
-      "Manipulate"
+      "Manipulate",
+      "Transmutation"
     ],
     "rarity": "common"
   },
@@ -15536,7 +16700,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Necromancy"
     ],
     "rarity": "common"
   },
@@ -15610,7 +16775,8 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Превращение"
+      "Превращение",
+      "Transmutation"
     ],
     "rarity": "common"
   },
@@ -15825,7 +16991,8 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Mental"
+      "Mental",
+      "Enchantment"
     ],
     "rarity": "common"
   },
@@ -15922,7 +17089,9 @@
     "traits": [
       "Concentrate",
       "Force",
-      "Manipulate"
+      "Manipulate",
+      "Abjuration",
+      "сила"
     ],
     "rarity": "common"
   },
@@ -15941,7 +17110,8 @@
     "traits": [
       "Concentrate",
       "Curse",
-      "Manipulate"
+      "Manipulate",
+      "Necromancy"
     ],
     "rarity": "common"
   },
@@ -15977,7 +17147,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Evocation"
     ],
     "rarity": "common"
   },
@@ -15997,7 +17168,10 @@
       "Concentrate",
       "Darkness",
       "Manipulate",
-      "Unholy"
+      "Unholy",
+      "Evocation",
+      "тьма",
+      "Evil"
     ],
     "rarity": "common"
   },
@@ -16127,7 +17301,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Conjuration"
     ],
     "rarity": "common"
   },
@@ -16191,6 +17366,38 @@
     "rarity": "uncommon"
   },
   {
+    "id": "readthedocs-neutralize-poison",
+    "nameRu": "Нейтрализация яда",
+    "nameEn": "Neutralize Poison",
+    "level": 3,
+    "tradition": [
+      "divine"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Necromancy",
+      "Healing"
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "readthedocs-nondetection",
+    "nameRu": "Необнаружимость",
+    "nameEn": "Nondetection",
+    "level": 3,
+    "tradition": [
+      "arcane",
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Abjuration"
+    ],
+    "rarity": "common"
+  },
+  {
     "id": "aonprd-spell-1525",
     "nameRu": "Ноги-ласты",
     "nameEn": "Feet to Fins",
@@ -16205,7 +17412,8 @@
       "Concentrate",
       "Manipulate",
       "Morph",
-      "Метаморфоза"
+      "Метаморфоза",
+      "Transmutation"
     ],
     "rarity": "common"
   },
@@ -16282,7 +17490,8 @@
     "traits": [
       "Concentrate",
       "Fire",
-      "Manipulate"
+      "Manipulate",
+      "Evocation"
     ],
     "rarity": "common"
   },
@@ -16300,7 +17509,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Abjuration"
     ],
     "rarity": "common"
   },
@@ -16392,7 +17602,24 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Transmutation"
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "readthedocs-sanctified-ground",
+    "nameRu": "Освященная земля",
+    "nameEn": "Sanctified Ground",
+    "level": 3,
+    "tradition": [
+      "divine"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Abjuration",
+      "Consecration"
     ],
     "rarity": "common"
   },
@@ -16469,6 +17696,25 @@
     "rarity": "uncommon"
   },
   {
+    "id": "readthedocs-searing-light",
+    "nameRu": "Палящий свет",
+    "nameEn": "Searing Light",
+    "level": 3,
+    "tradition": [
+      "divine"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Evocation",
+      "Attack",
+      "Fire",
+      "Good",
+      "свет"
+    ],
+    "rarity": "common"
+  },
+  {
     "id": "aonprd-spell-1622",
     "nameRu": "Паралич",
     "nameEn": "Paralyze",
@@ -16484,7 +17730,8 @@
       "Incapacitation",
       "Manipulate",
       "Mental",
-      "Устранение"
+      "Устранение",
+      "Enchantment"
     ],
     "rarity": "common"
   },
@@ -16590,7 +17837,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Necromancy"
     ],
     "rarity": "common"
   },
@@ -16629,7 +17877,8 @@
       "Air",
       "Concentrate",
       "Fire",
-      "Manipulate"
+      "Manipulate",
+      "Evocation"
     ],
     "rarity": "common"
   },
@@ -16717,7 +17966,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Abjuration"
     ],
     "rarity": "common"
   },
@@ -16757,7 +18007,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Necromancy"
     ],
     "rarity": "common"
   },
@@ -16893,7 +18144,8 @@
     "traits": [
       "Concentrate",
       "Earth",
-      "Manipulate"
+      "Manipulate",
+      "Transmutation"
     ],
     "rarity": "common"
   },
@@ -17028,7 +18280,8 @@
       "Curse",
       "Manipulate",
       "Void",
-      "Negative"
+      "Negative",
+      "Transmutation"
     ],
     "rarity": "common"
   },
@@ -17097,7 +18350,8 @@
     "school": "Unknown",
     "classes": [],
     "traits": [
-      "Concentrate"
+      "Concentrate",
+      "Transmutation"
     ],
     "rarity": "common"
   },
@@ -17114,7 +18368,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Divination"
     ],
     "rarity": "common"
   },
@@ -17190,7 +18445,8 @@
       "Concentrate",
       "Manipulate",
       "Plant",
-      "Wood"
+      "Wood",
+      "Divination"
     ],
     "rarity": "common"
   },
@@ -17289,7 +18545,8 @@
       "Emotion",
       "Fear",
       "Manipulate",
-      "Mental"
+      "Mental",
+      "Enchantment"
     ],
     "rarity": "common"
   },
@@ -17469,7 +18726,8 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Scrying"
+      "Scrying",
+      "Divination"
     ],
     "rarity": "common"
   },
@@ -17548,7 +18806,8 @@
       "Concentrate",
       "Incapacitation",
       "Manipulate",
-      "Устранение"
+      "Устранение",
+      "Necromancy"
     ],
     "rarity": "common"
   },
@@ -17590,6 +18849,22 @@
     "rarity": "common"
   },
   {
+    "id": "readthedocs-meld-into-stone",
+    "nameRu": "Слияние с камнем",
+    "nameEn": "Meld into Stone",
+    "level": 3,
+    "tradition": [
+      "arcane"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Transmutation",
+      "Earth"
+    ],
+    "rarity": "common"
+  },
+  {
     "id": "aonprd-spell-309",
     "nameRu": "Смрадное Облако",
     "nameEn": "Stinking Cloud",
@@ -17622,7 +18897,8 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Mental"
+      "Mental",
+      "Enchantment"
     ],
     "rarity": "common"
   },
@@ -17675,7 +18951,8 @@
     "traits": [
       "Air",
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Evocation"
     ],
     "rarity": "common"
   },
@@ -17753,6 +19030,22 @@
     "rarity": "common"
   },
   {
+    "id": "readthedocs-invisibility-sphere",
+    "nameRu": "Сфера невидимости",
+    "nameEn": "Invisibility Sphere",
+    "level": 3,
+    "tradition": [
+      "arcane",
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Illusion"
+    ],
+    "rarity": "common"
+  },
+  {
     "id": "aonprd-spell-270",
     "nameRu": "Тайная Страница",
     "nameEn": "Secret Page",
@@ -17802,7 +19095,8 @@
       "Manipulate",
       "Mental",
       "Shadow",
-      "Visual"
+      "Visual",
+      "Illusion"
     ],
     "rarity": "common"
   },
@@ -17819,7 +19113,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Necromancy"
     ],
     "rarity": "common"
   },
@@ -17880,7 +19175,8 @@
       "Concentrate",
       "Manipulate",
       "Plant",
-      "Wood"
+      "Wood",
+      "Conjuration"
     ],
     "rarity": "common"
   },
@@ -17917,7 +19213,9 @@
       "Concentrate",
       "Manipulate",
       "Teleportation",
-      "Uncommon"
+      "Uncommon",
+      "Conjuration",
+      "телепортация"
     ],
     "rarity": "uncommon"
   },
@@ -17954,7 +19252,9 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Polymorph"
+      "Polymorph",
+      "Transmutation",
+      "полиморф"
     ],
     "rarity": "common"
   },
@@ -17991,7 +19291,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Transmutation"
     ],
     "rarity": "common"
   },
@@ -18009,7 +19310,8 @@
     "traits": [
       "Concentrate",
       "Electricity",
-      "Manipulate"
+      "Manipulate",
+      "Evocation"
     ],
     "rarity": "common"
   },
@@ -18029,7 +19331,9 @@
       "Concentrate",
       "Detection",
       "Manipulate",
-      "Uncommon"
+      "Uncommon",
+      "Divination",
+      "обнаружение"
     ],
     "rarity": "uncommon"
   },
@@ -18047,7 +19351,9 @@
     "traits": [
       "Concentrate",
       "Detection",
-      "Manipulate"
+      "Manipulate",
+      "Divination",
+      "обнаружение"
     ],
     "rarity": "common"
   },
@@ -18101,7 +19407,9 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Polymorph"
+      "Polymorph",
+      "Transmutation",
+      "полиморф"
     ],
     "rarity": "common"
   },
@@ -18119,7 +19427,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Necromancy"
     ],
     "rarity": "common"
   },
@@ -18137,7 +19446,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Transmutation"
     ],
     "rarity": "common"
   },
@@ -18156,7 +19466,8 @@
       "Concentrate",
       "Manipulate",
       "Plant",
-      "Wood"
+      "Wood",
+      "Conjuration"
     ],
     "rarity": "common"
   },
@@ -18212,7 +19523,8 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Wood"
+      "Wood",
+      "Conjuration"
     ],
     "rarity": "common"
   },
@@ -18232,7 +19544,8 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Scrying"
+      "Scrying",
+      "Divination"
     ],
     "rarity": "common"
   },
@@ -18290,7 +19603,9 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Polymorph"
+      "Polymorph",
+      "Transmutation",
+      "полиморф"
     ],
     "rarity": "common"
   },
@@ -18308,7 +19623,9 @@
     "traits": [
       "Concentrate",
       "Force",
-      "Manipulate"
+      "Manipulate",
+      "Evocation",
+      "сила"
     ],
     "rarity": "common"
   },
@@ -18365,7 +19682,9 @@
       "Detection",
       "Manipulate",
       "Mental",
-      "Uncommon"
+      "Uncommon",
+      "Divination",
+      "обнаружение"
     ],
     "rarity": "uncommon"
   },
@@ -18401,7 +19720,8 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Poison"
+      "Poison",
+      "Necromancy"
     ],
     "rarity": "common"
   },
@@ -18419,7 +19739,8 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Scrying"
+      "Scrying",
+      "Divination"
     ],
     "rarity": "common"
   },
@@ -18493,7 +19814,8 @@
       "Concentrate",
       "Incapacitation",
       "Manipulate",
-      "Prediction"
+      "Prediction",
+      "Divination"
     ],
     "rarity": "common"
   },
@@ -19226,7 +20548,8 @@
     "classes": [],
     "traits": [
       "Polymorph",
-      "Transmutation"
+      "Transmutation",
+      "полиморф"
     ],
     "rarity": "common"
   },
@@ -19664,7 +20987,8 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Uncommon"
+      "Uncommon",
+      "Conjuration"
     ],
     "rarity": "uncommon"
   },
@@ -19840,7 +21164,24 @@
       "Concentrate",
       "Manipulate",
       "Sanctified",
-      "Spirit"
+      "Spirit",
+      "Evocation"
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "readthedocs-glibness",
+    "nameRu": "Бойкая речь",
+    "nameEn": "Glibness",
+    "level": 4,
+    "tradition": [
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Enchantment",
+      "Mental"
     ],
     "rarity": "common"
   },
@@ -19858,7 +21199,8 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Sonic"
+      "Sonic",
+      "Evocation"
     ],
     "rarity": "common"
   },
@@ -19877,7 +21219,9 @@
       "Aura",
       "Concentrate",
       "Manipulate",
-      "Превращение"
+      "Превращение",
+      "аура",
+      "Transmutation"
     ],
     "rarity": "common"
   },
@@ -19894,7 +21238,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Evocation"
     ],
     "rarity": "common"
   },
@@ -19913,7 +21258,8 @@
       "Concentrate",
       "Manipulate",
       "Plant",
-      "Wood"
+      "Wood",
+      "Conjuration"
     ],
     "rarity": "common"
   },
@@ -19933,7 +21279,8 @@
       "Concentrate",
       "Manipulate",
       "Void",
-      "Negative"
+      "Negative",
+      "Necromancy"
     ],
     "rarity": "common"
   },
@@ -20059,7 +21406,9 @@
       "Manipulate",
       "Mental",
       "Subtle",
-      "Устранение"
+      "Устранение",
+      "Enchantment",
+      "языковой"
     ],
     "rarity": "common"
   },
@@ -20113,7 +21462,9 @@
       "Concentrate",
       "Manipulate",
       "Teleportation",
-      "Uncommon"
+      "Uncommon",
+      "Conjuration",
+      "телепортация"
     ],
     "rarity": "uncommon"
   },
@@ -20271,6 +21622,23 @@
     "rarity": "common"
   },
   {
+    "id": "readthedocs-gaseous-form",
+    "nameRu": "Газообразность",
+    "nameEn": "Gaseous Form",
+    "level": 4,
+    "tradition": [
+      "arcane",
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Transmutation",
+      "полиморф"
+    ],
+    "rarity": "common"
+  },
+  {
     "id": "aonprd-spell-1230",
     "nameRu": "Героический фантазм",
     "nameEn": "Phantasmal Protagonist",
@@ -20301,7 +21669,8 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Water"
+      "Water",
+      "Evocation"
     ],
     "rarity": "common"
   },
@@ -20396,7 +21765,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Necromancy"
     ],
     "rarity": "common"
   },
@@ -20412,7 +21782,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Transmutation"
     ],
     "rarity": "common"
   },
@@ -20436,6 +21807,23 @@
       "Фокальное"
     ],
     "rarity": "uncommon"
+  },
+  {
+    "id": "readthedocs-dimension-door",
+    "nameRu": "Дверь в пространстве",
+    "nameEn": "Dimension Door",
+    "level": 4,
+    "tradition": [
+      "arcane",
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Conjuration",
+      "телепортация"
+    ],
+    "rarity": "common"
   },
   {
     "id": "aonprd-spell-2402",
@@ -20624,7 +22012,8 @@
       "Concentrate",
       "Emotion",
       "Manipulate",
-      "Mental"
+      "Mental",
+      "Enchantment"
     ],
     "rarity": "common"
   },
@@ -20679,7 +22068,8 @@
       "Auditory",
       "Concentrate",
       "Manipulate",
-      "Mental"
+      "Mental",
+      "Enchantment"
     ],
     "rarity": "common"
   },
@@ -20735,7 +22125,9 @@
       "Concentrate",
       "Curse",
       "Manipulate",
-      "Polymorph"
+      "Polymorph",
+      "Transmutation",
+      "полиморф"
     ],
     "rarity": "common"
   },
@@ -20858,6 +22250,22 @@
     "rarity": "uncommon"
   },
   {
+    "id": "readthedocs-modify-memory",
+    "nameRu": "Изменение памяти",
+    "nameEn": "Modify Memory",
+    "level": 4,
+    "tradition": [
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Divination",
+      "Mental"
+    ],
+    "rarity": "common"
+  },
+  {
     "id": "aonprd-spell-1905",
     "nameRu": "Изменчивая форма",
     "nameEn": "Shifting Form",
@@ -20876,6 +22284,22 @@
       "Фокальное"
     ],
     "rarity": "uncommon"
+  },
+  {
+    "id": "readthedocs-hallucinatory-terrain",
+    "nameRu": "Иллюзорная местность",
+    "nameEn": "Hallucinatory Terrain",
+    "level": 4,
+    "tradition": [
+      "arcane",
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Illusion"
+    ],
+    "rarity": "common"
   },
   {
     "id": "aonprd-spell-1803",
@@ -20958,6 +22382,22 @@
     "rarity": "uncommon"
   },
   {
+    "id": "readthedocs-stoneskin",
+    "nameRu": "Каменная кожа",
+    "nameEn": "Stoneskin",
+    "level": 4,
+    "tradition": [
+      "arcane"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Abjuration",
+      "Earth"
+    ],
+    "rarity": "common"
+  },
+  {
     "id": "aonprd-spell-1827",
     "nameRu": "Карающая боль",
     "nameEn": "Retributive Pain",
@@ -21031,7 +22471,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Conjuration"
     ],
     "rarity": "common"
   },
@@ -21130,7 +22571,8 @@
       "Death",
       "Manipulate",
       "Void",
-      "Negative"
+      "Negative",
+      "Necromancy"
     ],
     "rarity": "common"
   },
@@ -21171,7 +22613,9 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Polymorph"
+      "Polymorph",
+      "Transmutation",
+      "полиморф"
     ],
     "rarity": "common"
   },
@@ -21189,7 +22633,8 @@
     "traits": [
       "Cold",
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Evocation"
     ],
     "rarity": "common"
   },
@@ -21365,6 +22810,23 @@
     "rarity": "common"
   },
   {
+    "id": "readthedocs-blink",
+    "nameRu": "Мерцание",
+    "nameEn": "Blink",
+    "level": 4,
+    "tradition": [
+      "arcane",
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Conjuration",
+      "телепортация"
+    ],
+    "rarity": "common"
+  },
+  {
     "id": "aonprd-spell-1604",
     "nameRu": "Мираж",
     "nameEn": "Mirage",
@@ -21490,7 +22952,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Divination"
     ],
     "rarity": "common"
   },
@@ -21609,6 +23072,24 @@
     "rarity": "common"
   },
   {
+    "id": "readthedocs-enervation",
+    "nameRu": "Обессиливание",
+    "nameEn": "Enervation",
+    "level": 4,
+    "tradition": [
+      "arcane",
+      "divine",
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Necromancy",
+      "Negative"
+    ],
+    "rarity": "common"
+  },
+  {
     "id": "aonprd-spell-1976",
     "nameRu": "Обесцвечивание",
     "nameEn": "Chroma Leach",
@@ -21620,7 +23101,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Necromancy"
     ],
     "rarity": "common"
   },
@@ -21638,7 +23120,8 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Metal"
+      "Metal",
+      "металл"
     ],
     "rarity": "common"
   },
@@ -21677,7 +23160,9 @@
       "Concentrate",
       "Detection",
       "Manipulate",
-      "Uncommon"
+      "Uncommon",
+      "Divination",
+      "обнаружение"
     ],
     "rarity": "uncommon"
   },
@@ -21718,7 +23203,8 @@
     "traits": [
       "Concentrate",
       "Fire",
-      "Manipulate"
+      "Manipulate",
+      "Evocation"
     ],
     "rarity": "common"
   },
@@ -21736,7 +23222,8 @@
     "traits": [
       "Concentrate",
       "Fire",
-      "Manipulate"
+      "Manipulate",
+      "Evocation"
     ],
     "rarity": "common"
   },
@@ -21756,7 +23243,8 @@
       "Emotion",
       "Fear",
       "Manipulate",
-      "Mental"
+      "Mental",
+      "Enchantment"
     ],
     "rarity": "common"
   },
@@ -21793,7 +23281,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Abjuration"
     ],
     "rarity": "common"
   },
@@ -22037,7 +23526,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Abjuration"
     ],
     "rarity": "common"
   },
@@ -22110,7 +23600,8 @@
     "school": "Unknown",
     "classes": [],
     "traits": [
-      "Concentrate"
+      "Concentrate",
+      "Divination"
     ],
     "rarity": "common"
   },
@@ -22242,7 +23733,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Transmutation"
     ],
     "rarity": "common"
   },
@@ -22318,7 +23810,8 @@
     "traits": [
       "Concentrate",
       "Earth",
-      "Manipulate"
+      "Manipulate",
+      "Transmutation"
     ],
     "rarity": "common"
   },
@@ -22355,7 +23848,8 @@
       "Concentrate",
       "Curse",
       "Death",
-      "Manipulate"
+      "Manipulate",
+      "Necromancy"
     ],
     "rarity": "common"
   },
@@ -22374,7 +23868,8 @@
       "Concentrate",
       "Manipulate",
       "Spirit",
-      "Uncommon"
+      "Uncommon",
+      "Divination"
     ],
     "rarity": "uncommon"
   },
@@ -22397,6 +23892,26 @@
       "Фокальное"
     ],
     "rarity": "uncommon"
+  },
+  {
+    "id": "readthedocs-phantasmal-killer",
+    "nameRu": "Призрачный убийца",
+    "nameEn": "Phantasmal Killer",
+    "level": 4,
+    "tradition": [
+      "arcane",
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Illusion",
+      "Death",
+      "Emotion",
+      "Fear",
+      "Mental"
+    ],
+    "rarity": "common"
   },
   {
     "id": "aonprd-spell-2304",
@@ -22432,7 +23947,8 @@
       "Curse",
       "Manipulate",
       "Mental",
-      "Misfortune"
+      "Misfortune",
+      "Enchantment"
     ],
     "rarity": "common"
   },
@@ -22469,7 +23985,8 @@
     "traits": [
       "Concentrate",
       "Electricity",
-      "Manipulate"
+      "Manipulate",
+      "Evocation"
     ],
     "rarity": "common"
   },
@@ -22549,7 +24066,8 @@
       "Curse",
       "Manipulate",
       "Mental",
-      "Misfortune"
+      "Misfortune",
+      "Enchantment"
     ],
     "rarity": "common"
   },
@@ -22568,7 +24086,8 @@
     "traits": [
       "Concentrate",
       "Curse",
-      "Manipulate"
+      "Manipulate",
+      "Necromancy"
     ],
     "rarity": "common"
   },
@@ -22613,6 +24132,43 @@
       "Uncommon"
     ],
     "rarity": "uncommon"
+  },
+  {
+    "id": "readthedocs-savant-s-curse",
+    "nameRu": "Проклятие саванта",
+    "nameEn": "Savant's Curse",
+    "level": 4,
+    "tradition": [
+      "arcane",
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Enchantment",
+      "Attack",
+      "Curse",
+      "Misfortune",
+      "Mental"
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "readthedocs-dimensional-anchor",
+    "nameRu": "Пространственный якорь",
+    "nameEn": "Dimensional Anchor",
+    "level": 4,
+    "tradition": [
+      "arcane",
+      "divine",
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Abjuration"
+    ],
+    "rarity": "common"
   },
   {
     "id": "aonprd-spell-2731",
@@ -22687,7 +24243,8 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Uncommon"
+      "Uncommon",
+      "Necromancy"
     ],
     "rarity": "uncommon"
   },
@@ -22705,7 +24262,8 @@
     "traits": [
       "Attack",
       "Evocation",
-      "Light"
+      "Light",
+      "свет"
     ],
     "rarity": "common"
   },
@@ -22917,7 +24475,8 @@
       "Healing",
       "Manipulate",
       "Vitality",
-      "Positive"
+      "Positive",
+      "Necromancy"
     ],
     "rarity": "common"
   },
@@ -22962,6 +24521,22 @@
     "rarity": "common"
   },
   {
+    "id": "readthedocs-freedom-of-movement",
+    "nameRu": "Свобода движений",
+    "nameEn": "Freedom of Movement",
+    "level": 4,
+    "tradition": [
+      "arcane",
+      "divine"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Abjuration"
+    ],
+    "rarity": "common"
+  },
+  {
     "id": "aonprd-spell-2000",
     "nameRu": "Священный каскад",
     "nameEn": "Holy Cascade",
@@ -22975,7 +24550,10 @@
       "Concentrate",
       "Holy",
       "Manipulate",
-      "Water"
+      "Water",
+      "Evocation",
+      "Good",
+      "Positive"
     ],
     "rarity": "common"
   },
@@ -22998,6 +24576,23 @@
       "Void",
       "Positive",
       "Negative"
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "readthedocs-resilient-sphere",
+    "nameRu": "Силовая сфера",
+    "nameEn": "Resilient Sphere",
+    "level": 4,
+    "tradition": [
+      "arcane",
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Abjuration",
+      "сила"
     ],
     "rarity": "common"
   },
@@ -23307,6 +24902,23 @@
     "rarity": "uncommon"
   },
   {
+    "id": "readthedocs-globe-of-invulnerability",
+    "nameRu": "Сфера неуязвимости",
+    "nameEn": "Globe of Invulnerability",
+    "level": 4,
+    "tradition": [
+      "arcane",
+      "divine",
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Abjuration"
+    ],
+    "rarity": "common"
+  },
+  {
     "id": "aonprd-spell-1494",
     "nameRu": "Сфера рассеивания",
     "nameEn": "Dispelling Globe",
@@ -23377,7 +24989,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Conjuration"
     ],
     "rarity": "common"
   },
@@ -23396,7 +25009,9 @@
       "Concentrate",
       "Linguistic",
       "Manipulate",
-      "Mental"
+      "Mental",
+      "Divination",
+      "языковой"
     ],
     "rarity": "common"
   },
@@ -23478,6 +25093,23 @@
     "rarity": "uncommon"
   },
   {
+    "id": "readthedocs-rope-trick",
+    "nameRu": "Трюк с веревкой",
+    "nameEn": "Rope Trick",
+    "level": 4,
+    "tradition": [
+      "arcane",
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Conjuration",
+      "Extradimensional"
+    ],
+    "rarity": "common"
+  },
+  {
     "id": "aonprd-spell-1392",
     "nameRu": "Туманное воспоминание",
     "nameEn": "Misty Memory",
@@ -23531,7 +25163,8 @@
       "Concentrate",
       "Manipulate",
       "Plant",
-      "Wood"
+      "Wood",
+      "Conjuration"
     ],
     "rarity": "common"
   },
@@ -23569,6 +25202,22 @@
       "Concentrate",
       "Manipulate",
       "Poison"
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "readthedocs-private-sanctum",
+    "nameRu": "Уединенное убежище",
+    "nameEn": "Private Sanctum",
+    "level": 4,
+    "tradition": [
+      "arcane",
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Abjuration"
     ],
     "rarity": "common"
   },
@@ -23642,7 +25291,9 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Polymorph"
+      "Polymorph",
+      "Transmutation",
+      "полиморф"
     ],
     "rarity": "common"
   },
@@ -23680,7 +25331,9 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Polymorph"
+      "Polymorph",
+      "Transmutation",
+      "полиморф"
     ],
     "rarity": "common"
   },
@@ -23790,7 +25443,8 @@
     "classes": [],
     "traits": [
       "Abjuration",
-      "Light"
+      "Light",
+      "свет"
     ],
     "rarity": "common"
   },
@@ -23830,7 +25484,8 @@
       "Manipulate",
       "Vitality",
       "Water",
-      "Positive"
+      "Positive",
+      "Necromancy"
     ],
     "rarity": "common"
   },
@@ -23847,7 +25502,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Transmutation"
     ],
     "rarity": "common"
   },
@@ -23866,7 +25522,8 @@
       "Concentrate",
       "Manipulate",
       "Prediction",
-      "Uncommon"
+      "Uncommon",
+      "Divination"
     ],
     "rarity": "uncommon"
   },
@@ -23982,7 +25639,8 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Scrying"
+      "Scrying",
+      "Divination"
     ],
     "rarity": "common"
   },
@@ -24202,7 +25860,8 @@
       "Linguistic",
       "Mental",
       "Rare",
-      "True Name"
+      "True Name",
+      "языковой"
     ],
     "rarity": "rare"
   },
@@ -24613,7 +26272,8 @@
       "Enchantment",
       "Linguistic",
       "Mental",
-      "Uncommon"
+      "Uncommon",
+      "языковой"
     ],
     "rarity": "uncommon"
   },
@@ -25480,7 +27140,8 @@
     "school": "Unknown",
     "classes": [],
     "traits": [
-      "Manipulate"
+      "Manipulate",
+      "Abjuration"
     ],
     "rarity": "common"
   },
@@ -25597,7 +27258,8 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Water"
+      "Water",
+      "Evocation"
     ],
     "rarity": "common"
   },
@@ -25620,7 +27282,8 @@
       "Manipulate",
       "Mental",
       "Void",
-      "Negative"
+      "Negative",
+      "Necromancy"
     ],
     "rarity": "common"
   },
@@ -25712,7 +27375,8 @@
       "Death",
       "Manipulate",
       "Void",
-      "Negative"
+      "Negative",
+      "Necromancy"
     ],
     "rarity": "common"
   },
@@ -25771,7 +27435,8 @@
       "Concentrate",
       "Fire",
       "Manipulate",
-      "Water"
+      "Water",
+      "Evocation"
     ],
     "rarity": "common"
   },
@@ -25827,7 +27492,8 @@
     "traits": [
       "Concentrate",
       "Electricity",
-      "Manipulate"
+      "Manipulate",
+      "Evocation"
     ],
     "rarity": "common"
   },
@@ -25958,6 +27624,21 @@
     "rarity": "uncommon"
   },
   {
+    "id": "readthedocs-tree-stride",
+    "nameRu": "Древесный переход",
+    "nameEn": "Tree Stride",
+    "level": 5,
+    "tradition": [],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Conjuration",
+      "телепортация",
+      "Plant"
+    ],
+    "rarity": "common"
+  },
+  {
     "id": "aonprd-spell-2851",
     "nameRu": "Древо жизни и смерти",
     "nameEn": "Tree of Life and Death",
@@ -25996,7 +27677,8 @@
       "Concentrate",
       "Healing",
       "Vitality",
-      "Positive"
+      "Positive",
+      "Necromancy"
     ],
     "rarity": "common"
   },
@@ -26056,7 +27738,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Transmutation"
     ],
     "rarity": "common"
   },
@@ -26134,7 +27817,8 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Превращение"
+      "Превращение",
+      "Transmutation"
     ],
     "rarity": "common"
   },
@@ -26232,7 +27916,9 @@
       "Linguistic",
       "Manipulate",
       "Mental",
-      "Uncommon"
+      "Uncommon",
+      "Divination",
+      "языковой"
     ],
     "rarity": "uncommon"
   },
@@ -26253,7 +27939,8 @@
       "Concentrate",
       "Incapacitation",
       "Manipulate",
-      "Устранение"
+      "Устранение",
+      "Abjuration"
     ],
     "rarity": "common"
   },
@@ -26371,7 +28058,8 @@
     "traits": [
       "Concentrate",
       "Earth",
-      "Manipulate"
+      "Manipulate",
+      "Conjuration"
     ],
     "rarity": "common"
   },
@@ -26389,7 +28077,24 @@
     "traits": [
       "Acid",
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Evocation"
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "readthedocs-cone-of-cold",
+    "nameRu": "Конус холода",
+    "nameEn": "Cone of Cold",
+    "level": 5,
+    "tradition": [
+      "arcane"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Evocation",
+      "Cold"
     ],
     "rarity": "common"
   },
@@ -26521,7 +28226,8 @@
       "Concentrate",
       "Manipulate",
       "Morph",
-      "Метаморфоза"
+      "Метаморфоза",
+      "Transmutation"
     ],
     "rarity": "common"
   },
@@ -26560,7 +28266,8 @@
       "Fire",
       "Manipulate",
       "Morph",
-      "Метаморфоза"
+      "Метаморфоза",
+      "Transmutation"
     ],
     "rarity": "common"
   },
@@ -26580,7 +28287,8 @@
       "Concentrate",
       "Manipulate",
       "Morph",
-      "Метаморфоза"
+      "Метаморфоза",
+      "Transmutation"
     ],
     "rarity": "common"
   },
@@ -26641,7 +28349,10 @@
       "Concentrate",
       "Force",
       "Manipulate",
-      "Teleportation"
+      "Teleportation",
+      "Conjuration",
+      "сила",
+      "телепортация"
     ],
     "rarity": "common"
   },
@@ -26756,7 +28467,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Necromancy"
     ],
     "rarity": "common"
   },
@@ -26813,7 +28525,8 @@
       "Incapacitation",
       "Manipulate",
       "Mental",
-      "Устранение"
+      "Устранение",
+      "Enchantment"
     ],
     "rarity": "common"
   },
@@ -26832,7 +28545,24 @@
       "Concentrate",
       "Curse",
       "Manipulate",
-      "Prediction"
+      "Prediction",
+      "Divination"
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "readthedocs-flame-strike",
+    "nameRu": "Огненный столп",
+    "nameEn": "Flame Strike",
+    "level": 5,
+    "tradition": [
+      "divine"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Evocation",
+      "Fire"
     ],
     "rarity": "common"
   },
@@ -27022,7 +28752,8 @@
       "Light",
       "Manipulate",
       "Mental",
-      "Устранение"
+      "Устранение",
+      "свет"
     ],
     "rarity": "common"
   },
@@ -27061,7 +28792,9 @@
       "Manipulate",
       "Mental",
       "Subtle",
-      "Устранение"
+      "Устранение",
+      "Enchantment",
+      "языковой"
     ],
     "rarity": "common"
   },
@@ -27114,7 +28847,24 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Mental"
+      "Mental",
+      "Divination"
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "readthedocs-secret-chest",
+    "nameRu": "Потайной сундук",
+    "nameEn": "Secret Chest",
+    "level": 5,
+    "tradition": [
+      "arcane",
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Conjuration"
     ],
     "rarity": "common"
   },
@@ -27203,7 +28953,9 @@
       "Concentrate",
       "Manipulate",
       "Sanctified",
-      "Spirit"
+      "Spirit",
+      "Abjuration",
+      "сила"
     ],
     "rarity": "common"
   },
@@ -27222,7 +28974,8 @@
       "Manipulate",
       "Summon",
       "Unholy",
-      "Призыв"
+      "Призыв",
+      "Conjuration"
     ],
     "rarity": "common"
   },
@@ -27240,7 +28993,8 @@
       "Concentrate",
       "Manipulate",
       "Summon",
-      "Призыв"
+      "Призыв",
+      "Conjuration"
     ],
     "rarity": "common"
   },
@@ -27261,7 +29015,8 @@
       "Concentrate",
       "Manipulate",
       "Summon",
-      "Призыв"
+      "Призыв",
+      "Conjuration"
     ],
     "rarity": "common"
   },
@@ -27298,7 +29053,8 @@
       "Holy",
       "Manipulate",
       "Summon",
-      "Призыв"
+      "Призыв",
+      "Conjuration"
     ],
     "rarity": "common"
   },
@@ -27316,7 +29072,8 @@
       "Concentrate",
       "Manipulate",
       "Summon",
-      "Призыв"
+      "Призыв",
+      "Conjuration"
     ],
     "rarity": "common"
   },
@@ -27375,7 +29132,8 @@
       "Enchantment",
       "Incapacitation",
       "Mental",
-      "Устранение"
+      "Устранение",
+      "аура"
     ],
     "rarity": "common"
   },
@@ -27414,7 +29172,8 @@
     "traits": [
       "Concentrate",
       "Curse",
-      "Manipulate"
+      "Manipulate",
+      "Necromancy"
     ],
     "rarity": "common"
   },
@@ -27456,7 +29215,8 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Metal"
+      "Metal",
+      "Conjuration"
     ],
     "rarity": "common"
   },
@@ -27479,6 +29239,22 @@
       "Focus"
     ],
     "rarity": "uncommon"
+  },
+  {
+    "id": "readthedocs-passwall",
+    "nameRu": "Проход сквозь стену",
+    "nameEn": "Passwall",
+    "level": 5,
+    "tradition": [
+      "arcane"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Conjuration",
+      "Earth"
+    ],
+    "rarity": "common"
   },
   {
     "id": "aonprd-spell-2065",
@@ -27569,7 +29345,26 @@
       "Concentrate",
       "Earth",
       "Fire",
-      "Manipulate"
+      "Manipulate",
+      "Evocation"
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "readthedocs-prying-eye",
+    "nameRu": "Пытливый глаз",
+    "nameEn": "Prying Eye",
+    "level": 5,
+    "tradition": [
+      "arcane",
+      "divine",
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Divination",
+      "Scrying"
     ],
     "rarity": "common"
   },
@@ -27663,7 +29458,8 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Mental"
+      "Mental",
+      "Divination"
     ],
     "rarity": "common"
   },
@@ -27687,6 +29483,23 @@
     "rarity": "uncommon"
   },
   {
+    "id": "readthedocs-cloudkill",
+    "nameRu": "Смертельное облако",
+    "nameEn": "Cloudkill",
+    "level": 5,
+    "tradition": [
+      "arcane"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Necromancy",
+      "Death",
+      "Poison"
+    ],
+    "rarity": "common"
+  },
+  {
     "id": "aonprd-spell-1757",
     "nameRu": "Сокрушительное отчаяние",
     "nameEn": "Wave of Despair",
@@ -27706,6 +29519,24 @@
     "rarity": "common"
   },
   {
+    "id": "readthedocs-crushing-despair",
+    "nameRu": "Сокрушительное отчаяние",
+    "nameEn": "Crushing Despair",
+    "level": 5,
+    "tradition": [
+      "arcane",
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Enchantment",
+      "Emotion",
+      "Mental"
+    ],
+    "rarity": "common"
+  },
+  {
     "id": "aonprd-spell-1504",
     "nameRu": "Спящий потенциал",
     "nameEn": "Dreaming Potential",
@@ -27718,7 +29549,8 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Mental"
+      "Mental",
+      "Enchantment"
     ],
     "rarity": "common"
   },
@@ -27737,7 +29569,8 @@
       "Cold",
       "Concentrate",
       "Manipulate",
-      "Water"
+      "Water",
+      "Evocation"
     ],
     "rarity": "common"
   },
@@ -27755,7 +29588,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Necromancy"
     ],
     "rarity": "common"
   },
@@ -27830,7 +29664,8 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Water"
+      "Water",
+      "Evocation"
     ],
     "rarity": "common"
   },
@@ -27882,7 +29717,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Evocation"
     ],
     "rarity": "common"
   },
@@ -27903,6 +29739,24 @@
       "Uncommon"
     ],
     "rarity": "uncommon"
+  },
+  {
+    "id": "readthedocs-shadow-walk",
+    "nameRu": "Теневая прогулка",
+    "nameEn": "Shadow Walk",
+    "level": 5,
+    "tradition": [
+      "arcane",
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Conjuration",
+      "Shadow",
+      "телепортация"
+    ],
+    "rarity": "common"
   },
   {
     "id": "aonprd-spell-274",
@@ -27935,7 +29789,8 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Shadow"
+      "Shadow",
+      "Evocation"
     ],
     "rarity": "common"
   },
@@ -28072,7 +29927,8 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Превращение"
+      "Превращение",
+      "Transmutation"
     ],
     "rarity": "common"
   },
@@ -28109,7 +29965,9 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Polymorph"
+      "Polymorph",
+      "Transmutation",
+      "полиморф"
     ],
     "rarity": "common"
   },
@@ -28128,7 +29986,9 @@
       "Manipulate",
       "Plant",
       "Polymorph",
-      "Wood"
+      "Wood",
+      "Transmutation",
+      "полиморф"
     ],
     "rarity": "common"
   },
@@ -28146,7 +30006,9 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Polymorph"
+      "Polymorph",
+      "Transmutation",
+      "полиморф"
     ],
     "rarity": "common"
   },
@@ -28199,7 +30061,8 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Visual"
+      "Visual",
+      "Illusion"
     ],
     "rarity": "common"
   },
@@ -28219,7 +30082,24 @@
       "Healing",
       "Manipulate",
       "Vitality",
-      "Positive"
+      "Positive",
+      "Necromancy"
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "readthedocs-black-tentacles",
+    "nameRu": "Черные щупальцы",
+    "nameEn": "Black Tentacles",
+    "level": 5,
+    "tradition": [
+      "arcane",
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Conjuration"
     ],
     "rarity": "common"
   },
@@ -28237,7 +30117,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Transmutation"
     ],
     "rarity": "common"
   },
@@ -28315,7 +30196,26 @@
     "traits": [
       "Concentrate",
       "Force",
-      "Manipulate"
+      "Manipulate",
+      "Evocation",
+      "сила"
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "readthedocs-tongues",
+    "nameRu": "Языки",
+    "nameEn": "Tongues",
+    "level": 5,
+    "tradition": [
+      "arcane",
+      "divine",
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Divination"
     ],
     "rarity": "common"
   },
@@ -28694,7 +30594,8 @@
     "classes": [],
     "traits": [
       "Evocation",
-      "Force"
+      "Force",
+      "сила"
     ],
     "rarity": "common"
   },
@@ -29099,7 +31000,8 @@
     "classes": [],
     "traits": [
       "Evocation",
-      "Force"
+      "Force",
+      "сила"
     ],
     "rarity": "common"
   },
@@ -29705,7 +31607,8 @@
     "school": "Unknown",
     "classes": [],
     "traits": [
-      "Manipulate"
+      "Manipulate",
+      "Abjuration"
     ],
     "rarity": "common"
   },
@@ -29726,7 +31629,8 @@
       "Death",
       "Manipulate",
       "Void",
-      "Negative"
+      "Negative",
+      "Necromancy"
     ],
     "rarity": "common"
   },
@@ -29763,7 +31667,8 @@
       "Concentrate",
       "Healing",
       "Manipulate",
-      "Uncommon"
+      "Uncommon",
+      "Necromancy"
     ],
     "rarity": "uncommon"
   },
@@ -29840,6 +31745,23 @@
     "rarity": "common"
   },
   {
+    "id": "readthedocs-baleful-polymorph",
+    "nameRu": "Губительный полиморф",
+    "nameEn": "Baleful Polymorph",
+    "level": 6,
+    "tradition": [
+      "arcane"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Transmutation",
+      "Incapacitation",
+      "полиморф"
+    ],
+    "rarity": "common"
+  },
+  {
     "id": "aonprd-spell-1492",
     "nameRu": "Дезинтеграция",
     "nameEn": "Disintegrate",
@@ -29852,7 +31774,8 @@
     "traits": [
       "Attack",
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Evocation"
     ],
     "rarity": "common"
   },
@@ -29872,7 +31795,9 @@
       "Concentrate",
       "Curse",
       "Force",
-      "Manipulate"
+      "Manipulate",
+      "Abjuration",
+      "сила"
     ],
     "rarity": "common"
   },
@@ -29908,7 +31833,9 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Spirit"
+      "Spirit",
+      "Necromancy",
+      "сила"
     ],
     "rarity": "common"
   },
@@ -29968,7 +31895,8 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Mental"
+      "Mental",
+      "Divination"
     ],
     "rarity": "common"
   },
@@ -30087,6 +32015,24 @@
     "rarity": "common"
   },
   {
+    "id": "readthedocs-true-seeing",
+    "nameRu": "Истинное зрение",
+    "nameEn": "True Seeing",
+    "level": 6,
+    "tradition": [
+      "arcane",
+      "divine",
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Divination",
+      "Revelation"
+    ],
+    "rarity": "common"
+  },
+  {
     "id": "aonprd-spell-311",
     "nameRu": "Камень В Плоть",
     "nameEn": "Stone to Flesh",
@@ -30137,7 +32083,9 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Teleportation"
+      "Teleportation",
+      "Conjuration",
+      "телепортация"
     ],
     "rarity": "common"
   },
@@ -30370,7 +32318,8 @@
       "Concentrate",
       "Manipulate",
       "Void",
-      "Negative"
+      "Negative",
+      "Necromancy"
     ],
     "rarity": "common"
   },
@@ -30387,7 +32336,9 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Teleportation"
+      "Teleportation",
+      "Conjuration",
+      "телепортация"
     ],
     "rarity": "common"
   },
@@ -30424,6 +32375,21 @@
       "Concentrate",
       "Manipulate",
       "Water"
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "readthedocs-fire-seeds",
+    "nameRu": "Огненные семена",
+    "nameEn": "Fire Seeds",
+    "level": 6,
+    "tradition": [],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Evocation",
+      "Fire",
+      "Plant"
     ],
     "rarity": "common"
   },
@@ -30479,7 +32445,8 @@
       "Concentrate",
       "Manipulate",
       "Plant",
-      "Wood"
+      "Wood",
+      "Conjuration"
     ],
     "rarity": "common"
   },
@@ -30517,7 +32484,9 @@
       "Aura",
       "Concentrate",
       "Manipulate",
-      "Mental"
+      "Mental",
+      "Abjuration",
+      "аура"
     ],
     "rarity": "common"
   },
@@ -30574,7 +32543,23 @@
       "Air",
       "Concentrate",
       "Fire",
-      "Manipulate"
+      "Manipulate",
+      "Evocation"
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "readthedocs-flesh-to-stone",
+    "nameRu": "Плоть в камень",
+    "nameEn": "Flesh to Stone",
+    "level": 6,
+    "tradition": [
+      "arcane"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Transmutation"
     ],
     "rarity": "common"
   },
@@ -30596,7 +32581,8 @@
       "Manipulate",
       "Mental",
       "Uncommon",
-      "Устранение"
+      "Устранение",
+      "Enchantment"
     ],
     "rarity": "uncommon"
   },
@@ -30637,7 +32623,8 @@
       "Healing",
       "Manipulate",
       "Vitality",
-      "Positive"
+      "Positive",
+      "Necromancy"
     ],
     "rarity": "common"
   },
@@ -30676,6 +32663,22 @@
       "Rare"
     ],
     "rarity": "rare"
+  },
+  {
+    "id": "readthedocs-righteous-might",
+    "nameRu": "Праведная мощь",
+    "nameEn": "Righteous Might",
+    "level": 6,
+    "tradition": [
+      "divine"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Transmutation",
+      "полиморф"
+    ],
+    "rarity": "common"
   },
   {
     "id": "aonprd-spell-2495",
@@ -30813,6 +32816,22 @@
     "rarity": "common"
   },
   {
+    "id": "readthedocs-stone-tell",
+    "nameRu": "Разговор с камнями",
+    "nameEn": "Stone Tell",
+    "level": 6,
+    "tradition": [
+      "divine"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Evocation",
+      "Earth"
+    ],
+    "rarity": "common"
+  },
+  {
     "id": "aonprd-spell-2020",
     "nameRu": "Сакральная форма",
     "nameEn": "Sacred Form",
@@ -30880,7 +32899,9 @@
     "traits": [
       "Concentrate",
       "Force",
-      "Manipulate"
+      "Manipulate",
+      "Evocation",
+      "сила"
     ],
     "rarity": "common"
   },
@@ -30906,6 +32927,25 @@
     "rarity": "common"
   },
   {
+    "id": "readthedocs-feeblemind",
+    "nameRu": "Слабоумие",
+    "nameEn": "Feeblemind",
+    "level": 6,
+    "tradition": [
+      "arcane",
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Enchantment",
+      "Incapacitation",
+      "Curse",
+      "Mental"
+    ],
+    "rarity": "common"
+  },
+  {
     "id": "aonprd-spell-1968",
     "nameRu": "Слепящая ярость",
     "nameEn": "Blinding Fury",
@@ -30923,7 +32963,8 @@
       "Emotion",
       "Incapacitation",
       "Mental",
-      "Устранение"
+      "Устранение",
+      "Enchantment"
     ],
     "rarity": "common"
   },
@@ -30946,7 +32987,24 @@
       "Manipulate",
       "Metal",
       "Water",
-      "Wood"
+      "Wood",
+      "Conjuration"
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "readthedocs-blade-barrier",
+    "nameRu": "Стена лезвий",
+    "nameEn": "Blade Barrier",
+    "level": 6,
+    "tradition": [
+      "divine"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Evocation",
+      "сила"
     ],
     "rarity": "common"
   },
@@ -30987,7 +33045,8 @@
       "Concentrate",
       "Manipulate",
       "Scrying",
-      "Uncommon"
+      "Uncommon",
+      "Divination"
     ],
     "rarity": "uncommon"
   },
@@ -31006,7 +33065,9 @@
       "Concentrate",
       "Manipulate",
       "Teleportation",
-      "Uncommon"
+      "Uncommon",
+      "Conjuration",
+      "телепортация"
     ],
     "rarity": "uncommon"
   },
@@ -31083,7 +33144,8 @@
       "Concentrate",
       "Emotion",
       "Manipulate",
-      "Mental"
+      "Mental",
+      "Enchantment"
     ],
     "rarity": "common"
   },
@@ -31142,7 +33204,10 @@
       "Concentrate",
       "Manipulate",
       "Polymorph",
-      "Unholy"
+      "Unholy",
+      "Transmutation",
+      "полиморф",
+      "Evil"
     ],
     "rarity": "common"
   },
@@ -31161,7 +33226,11 @@
       "Concentrate",
       "Manipulate",
       "Polymorph",
-      "Unholy"
+      "Unholy",
+      "Transmutation",
+      "полиморф",
+      "Chaotic",
+      "Evil"
     ],
     "rarity": "common"
   },
@@ -31181,7 +33250,9 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Polymorph"
+      "Polymorph",
+      "Transmutation",
+      "полиморф"
     ],
     "rarity": "common"
   },
@@ -31200,7 +33271,10 @@
       "Concentrate",
       "Manipulate",
       "Polymorph",
-      "Unholy"
+      "Unholy",
+      "Transmutation",
+      "полиморф",
+      "Evil"
     ],
     "rarity": "common"
   },
@@ -31254,7 +33328,8 @@
     "traits": [
       "Concentrate",
       "Electricity",
-      "Manipulate"
+      "Manipulate",
+      "Evocation"
     ],
     "rarity": "common"
   },
@@ -31311,7 +33386,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Evocation"
     ],
     "rarity": "common"
   },
@@ -31375,7 +33451,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Necromancy"
     ],
     "rarity": "common"
   },
@@ -31980,7 +34057,8 @@
       "Curse",
       "Manipulate",
       "Mental",
-      "Prediction"
+      "Prediction",
+      "Divination"
     ],
     "rarity": "common"
   },
@@ -32130,7 +34208,8 @@
       "Concentrate",
       "Manipulate",
       "Sanctified",
-      "Spirit"
+      "Spirit",
+      "Evocation"
     ],
     "rarity": "common"
   },
@@ -32202,7 +34281,8 @@
     "traits": [
       "Concentrate",
       "Fortune",
-      "Prediction"
+      "Prediction",
+      "Divination"
     ],
     "rarity": "common"
   },
@@ -32242,7 +34322,9 @@
       "Darkness",
       "Manipulate",
       "Void",
-      "Negative"
+      "Negative",
+      "Necromancy",
+      "тьма"
     ],
     "rarity": "common"
   },
@@ -32319,7 +34401,9 @@
       "Mental",
       "Possession",
       "Uncommon",
-      "Устранение"
+      "Устранение",
+      "Necromancy",
+      "одержимость"
     ],
     "rarity": "uncommon"
   },
@@ -32355,7 +34439,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Conjuration"
     ],
     "rarity": "common"
   },
@@ -32411,7 +34496,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Abjuration"
     ],
     "rarity": "common"
   },
@@ -32484,7 +34570,8 @@
     "traits": [
       "Concentrate",
       "Fire",
-      "Manipulate"
+      "Manipulate",
+      "Evocation"
     ],
     "rarity": "common"
   },
@@ -32505,7 +34592,8 @@
       "Incapacitation",
       "Manipulate",
       "Mental",
-      "Устранение"
+      "Устранение",
+      "Enchantment"
     ],
     "rarity": "common"
   },
@@ -32543,7 +34631,9 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Polymorph"
+      "Polymorph",
+      "Transmutation",
+      "полиморф"
     ],
     "rarity": "common"
   },
@@ -32626,7 +34716,8 @@
     "school": "Unknown",
     "classes": [],
     "traits": [
-      "Manipulate"
+      "Manipulate",
+      "Divination"
     ],
     "rarity": "common"
   },
@@ -32644,7 +34735,9 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Teleportation"
+      "Teleportation",
+      "Conjuration",
+      "телепортация"
     ],
     "rarity": "common"
   },
@@ -32701,7 +34794,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Abjuration"
     ],
     "rarity": "common"
   },
@@ -32773,7 +34867,9 @@
       "Concentrate",
       "Fire",
       "Manipulate",
-      "Polymorph"
+      "Polymorph",
+      "Transmutation",
+      "полиморф"
     ],
     "rarity": "common"
   },
@@ -32815,6 +34911,21 @@
     "rarity": "uncommon"
   },
   {
+    "id": "readthedocs-spell-turning",
+    "nameRu": "Отражение заклинания",
+    "nameEn": "Spell Turning",
+    "level": 7,
+    "tradition": [
+      "arcane"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Abjuration"
+    ],
+    "rarity": "common"
+  },
+  {
     "id": "aonprd-spell-2063",
     "nameRu": "Паутина теней",
     "nameEn": "Shadow's Web",
@@ -32832,6 +34943,22 @@
       "Фокальное"
     ],
     "rarity": "uncommon"
+  },
+  {
+    "id": "readthedocs-finger-of-death",
+    "nameRu": "Перст смерти",
+    "nameEn": "Finger of Death",
+    "level": 7,
+    "tradition": [
+      "divine"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Necromancy",
+      "Death"
+    ],
+    "rarity": "common"
   },
   {
     "id": "aonprd-spell-1635",
@@ -32870,6 +34997,24 @@
       "Uncommon"
     ],
     "rarity": "uncommon"
+  },
+  {
+    "id": "readthedocs-plane-shift",
+    "nameRu": "Планарный переход",
+    "nameEn": "Plane Shift",
+    "level": 7,
+    "tradition": [
+      "arcane",
+      "divine",
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Conjuration",
+      "телепортация"
+    ],
+    "rarity": "common"
   },
   {
     "id": "aonprd-spell-2906",
@@ -32985,6 +35130,23 @@
     "rarity": "common"
   },
   {
+    "id": "readthedocs-dimensional-lock",
+    "nameRu": "Пространственный замок",
+    "nameEn": "Dimensional Lock",
+    "level": 7,
+    "tradition": [
+      "arcane",
+      "divine",
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Abjuration"
+    ],
+    "rarity": "common"
+  },
+  {
     "id": "aonprd-spell-233",
     "nameRu": "Радужные Брызги",
     "nameEn": "Prismatic Spray",
@@ -32997,7 +35159,8 @@
     "classes": [],
     "traits": [
       "Evocation",
-      "Light"
+      "Light",
+      "свет"
     ],
     "rarity": "common"
   },
@@ -33034,7 +35197,8 @@
       "Acid",
       "Polymorph",
       "Transmutation",
-      "Превращение"
+      "Превращение",
+      "полиморф"
     ],
     "rarity": "common"
   },
@@ -33054,7 +35218,8 @@
       "Healing",
       "Manipulate",
       "Vitality",
-      "Positive"
+      "Positive",
+      "Necromancy"
     ],
     "rarity": "common"
   },
@@ -33071,7 +35236,25 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Divination"
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "readthedocs-magnificent-mansion",
+    "nameRu": "Роскошный особняк",
+    "nameEn": "Magnificent Mansion",
+    "level": 7,
+    "tradition": [
+      "arcane",
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Conjuration",
+      "Extradimensional"
     ],
     "rarity": "common"
   },
@@ -33091,6 +35274,23 @@
       "Manipulate",
       "Plant",
       "Wood"
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "readthedocs-force-cage",
+    "nameRu": "Силовая клетка",
+    "nameEn": "Force Cage",
+    "level": 7,
+    "tradition": [
+      "arcane",
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Evocation",
+      "сила"
     ],
     "rarity": "common"
   },
@@ -33150,7 +35350,9 @@
       "Light",
       "Manipulate",
       "Vitality",
-      "Positive"
+      "Positive",
+      "Evocation",
+      "свет"
     ],
     "rarity": "common"
   },
@@ -33202,7 +35404,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Evocation"
     ],
     "rarity": "common"
   },
@@ -33241,7 +35444,9 @@
       "Force",
       "Manipulate",
       "Sanctified",
-      "Spirit"
+      "Spirit",
+      "Evocation",
+      "сила"
     ],
     "rarity": "common"
   },
@@ -33299,7 +35504,10 @@
       "Concentrate",
       "Holy",
       "Manipulate",
-      "Polymorph"
+      "Polymorph",
+      "Transmutation",
+      "полиморф",
+      "Good"
     ],
     "rarity": "common"
   },
@@ -33318,7 +35526,8 @@
       "Cold",
       "Concentrate",
       "Manipulate",
-      "Water"
+      "Water",
+      "Evocation"
     ],
     "rarity": "common"
   },
@@ -33383,7 +35592,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Abjuration"
     ],
     "rarity": "common"
   },
@@ -33402,7 +35612,8 @@
       "Conjuration",
       "Teleportation",
       "Uncommon",
-      "Incarnate"
+      "Incarnate",
+      "телепортация"
     ],
     "rarity": "uncommon"
   },
@@ -33929,7 +36140,8 @@
       "Incapacitation",
       "Manipulate",
       "Mental",
-      "Устранение"
+      "Устранение",
+      "Enchantment"
     ],
     "rarity": "common"
   },
@@ -33945,7 +36157,8 @@
     "classes": [],
     "traits": [
       "Abjuration",
-      "Aura"
+      "Aura",
+      "аура"
     ],
     "rarity": "common"
   },
@@ -33962,7 +36175,8 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Mental"
+      "Mental",
+      "Enchantment"
     ],
     "rarity": "common"
   },
@@ -33984,7 +36198,8 @@
       "Vitality",
       "Void",
       "Positive",
-      "Negative"
+      "Negative",
+      "Necromancy"
     ],
     "rarity": "common"
   },
@@ -34000,7 +36215,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Conjuration"
     ],
     "rarity": "common"
   },
@@ -34095,6 +36311,24 @@
     "rarity": "uncommon"
   },
   {
+    "id": "readthedocs-discern-location",
+    "nameRu": "Выявить местоположение",
+    "nameEn": "Discern Location",
+    "level": 8,
+    "tradition": [
+      "arcane",
+      "divine",
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Divination",
+      "обнаружение"
+    ],
+    "rarity": "common"
+  },
+  {
     "id": "aonprd-spell-1633",
     "nameRu": "Выявление местоположения",
     "nameEn": "Pinpoint",
@@ -34185,7 +36419,8 @@
       "Concentrate",
       "Curse",
       "Manipulate",
-      "Spirit"
+      "Spirit",
+      "Necromancy"
     ],
     "rarity": "common"
   },
@@ -34204,7 +36439,9 @@
       "Concentrate",
       "Manipulate",
       "Metal",
-      "Polymorph"
+      "Polymorph",
+      "металл",
+      "полиморф"
     ],
     "rarity": "common"
   },
@@ -34223,6 +36460,22 @@
       "Concentrate",
       "Manipulate",
       "Void",
+      "Negative"
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "readthedocs-horrid-wilting",
+    "nameRu": "Жуткое иссушение",
+    "nameEn": "Horrid Wilting",
+    "level": 8,
+    "tradition": [
+      "arcane"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Necromancy",
       "Negative"
     ],
     "rarity": "common"
@@ -34261,7 +36514,26 @@
     "traits": [
       "Concentrate",
       "Earth",
-      "Manipulate"
+      "Manipulate",
+      "Evocation"
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "readthedocs-scintillating-pattern",
+    "nameRu": "Искрящийся узор",
+    "nameEn": "Scintillating Pattern",
+    "level": 8,
+    "tradition": [
+      "arcane",
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Illusion",
+      "Incapacitation",
+      "Visual"
     ],
     "rarity": "common"
   },
@@ -34313,7 +36585,26 @@
     "traits": [
       "Air",
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Evocation"
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "readthedocs-maze",
+    "nameRu": "Лабиринт",
+    "nameEn": "Maze",
+    "level": 8,
+    "tradition": [
+      "arcane",
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Conjuration",
+      "Extradimensional",
+      "телепортация"
     ],
     "rarity": "common"
   },
@@ -34348,7 +36639,8 @@
     "traits": [
       "Concentrate",
       "Healing",
-      "Manipulate"
+      "Manipulate",
+      "Necromancy"
     ],
     "rarity": "common"
   },
@@ -34366,7 +36658,8 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Scrying"
+      "Scrying",
+      "Divination"
     ],
     "rarity": "common"
   },
@@ -34404,7 +36697,8 @@
       "Concentrate",
       "Incapacitation",
       "Manipulate",
-      "Устранение"
+      "Устранение",
+      "Evocation"
     ],
     "rarity": "common"
   },
@@ -34488,7 +36782,8 @@
       "Emotion",
       "Fear",
       "Manipulate",
-      "Mental"
+      "Mental",
+      "Enchantment"
     ],
     "rarity": "common"
   },
@@ -34506,7 +36801,9 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Spirit"
+      "Spirit",
+      "Necromancy",
+      "сила"
     ],
     "rarity": "common"
   },
@@ -34545,6 +36842,23 @@
       "Rare"
     ],
     "rarity": "rare"
+  },
+  {
+    "id": "readthedocs-polar-ray",
+    "nameRu": "Полярный луч",
+    "nameEn": "Polar Ray",
+    "level": 8,
+    "tradition": [
+      "arcane"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Evocation",
+      "Attack",
+      "Cold"
+    ],
+    "rarity": "common"
   },
   {
     "id": "aonprd-spell-1444",
@@ -34602,6 +36916,22 @@
     "rarity": "common"
   },
   {
+    "id": "readthedocs-summon-archmage",
+    "nameRu": "Призыв архимага",
+    "nameEn": "Summon Archmage",
+    "level": 8,
+    "tradition": [
+      "arcane"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Conjuration",
+      "Incarnate"
+    ],
+    "rarity": "common"
+  },
+  {
     "id": "pf2ru-1007",
     "nameRu": "Призыв божественного вестника",
     "nameEn": "Summon Deific Herald",
@@ -34612,7 +36942,8 @@
     "school": "Unknown",
     "classes": [],
     "traits": [
-      "Incarnate"
+      "Incarnate",
+      "Conjuration"
     ],
     "rarity": "common"
   },
@@ -34656,6 +36987,20 @@
     "rarity": "uncommon"
   },
   {
+    "id": "readthedocs-wind-walk",
+    "nameRu": "Путешествие с ветром",
+    "nameEn": "Wind Walk",
+    "level": 8,
+    "tradition": [],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Transmutation",
+      "Air"
+    ],
+    "rarity": "common"
+  },
+  {
     "id": "aonprd-spell-2650",
     "nameRu": "Пылающие цветы",
     "nameEn": "Burning Blossoms",
@@ -34670,7 +37015,8 @@
       "Concentrate",
       "Fire",
       "Manipulate",
-      "Plant"
+      "Plant",
+      "Enchantment"
     ],
     "rarity": "common"
   },
@@ -34687,7 +37033,8 @@
     "classes": [],
     "traits": [
       "Abjuration",
-      "Light"
+      "Light",
+      "свет"
     ],
     "rarity": "common"
   },
@@ -34835,6 +37182,22 @@
     "rarity": "uncommon"
   },
   {
+    "id": "readthedocs-mind-blank",
+    "nameRu": "Сокрытие разума",
+    "nameEn": "Mind Blank",
+    "level": 8,
+    "tradition": [
+      "arcane",
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Abjuration"
+    ],
+    "rarity": "common"
+  },
+  {
     "id": "aonprd-spell-2899",
     "nameRu": "Цунами плоти",
     "nameEn": "Flesh Tsunami",
@@ -34867,7 +37230,9 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Polymorph"
+      "Polymorph",
+      "Transmutation",
+      "полиморф"
     ],
     "rarity": "common"
   },
@@ -35227,7 +37592,8 @@
       "Concentrate",
       "Incarnate",
       "Manipulate",
-      "Rare"
+      "Rare",
+      "Conjuration"
     ],
     "rarity": "rare"
   },
@@ -35270,6 +37636,21 @@
       "Uncommon"
     ],
     "rarity": "uncommon"
+  },
+  {
+    "id": "readthedocs-storm-of-vengeance",
+    "nameRu": "Буря возмездия",
+    "nameEn": "Storm of Vengeance",
+    "level": 9,
+    "tradition": [],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Evocation",
+      "Electricity",
+      "Air"
+    ],
+    "rarity": "common"
   },
   {
     "id": "aonprd-spell-1759",
@@ -35348,6 +37729,25 @@
     "rarity": "uncommon"
   },
   {
+    "id": "readthedocs-wail-of-the-banshee",
+    "nameRu": "Вой банши",
+    "nameEn": "Wail of the Banshee",
+    "level": 9,
+    "tradition": [
+      "divine",
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Necromancy",
+      "Death",
+      "Auditory",
+      "Negative"
+    ],
+    "rarity": "common"
+  },
+  {
     "id": "aonprd-spell-1747",
     "nameRu": "Вой проклятых",
     "nameEn": "Wails of the Damned",
@@ -35402,7 +37802,8 @@
       "Enchantment",
       "Linguistic",
       "Mental",
-      "Uncommon"
+      "Uncommon",
+      "языковой"
     ],
     "rarity": "uncommon"
   },
@@ -35420,7 +37821,45 @@
       "Concentrate",
       "Earth",
       "Manipulate",
-      "Plant"
+      "Plant",
+      "Transmutation"
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "readthedocs-weird",
+    "nameRu": "Жуть",
+    "nameEn": "Weird",
+    "level": 9,
+    "tradition": [
+      "arcane",
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Illusion",
+      "Death",
+      "Emotion",
+      "Fear",
+      "Mental"
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "readthedocs-bind-soul",
+    "nameRu": "Захват души",
+    "nameEn": "Bind Soul",
+    "level": 9,
+    "tradition": [
+      "divine",
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Necromancy",
+      "Evil"
     ],
     "rarity": "common"
   },
@@ -35442,6 +37881,21 @@
       "Фокальное"
     ],
     "rarity": "uncommon"
+  },
+  {
+    "id": "readthedocs-disjunction",
+    "nameRu": "Магическое размыкание",
+    "nameEn": "Disjunction",
+    "level": 9,
+    "tradition": [
+      "arcane"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Abjuration"
+    ],
+    "rarity": "common"
   },
   {
     "id": "aonprd-spell-1372",
@@ -35493,6 +37947,22 @@
     "traits": [
       "Concentrate",
       "Manipulate"
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "readthedocs-meteor-swarm",
+    "nameRu": "Метеорный поток",
+    "nameEn": "Meteor Swarm",
+    "level": 9,
+    "tradition": [
+      "arcane"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Evocation",
+      "Fire"
     ],
     "rarity": "common"
   },
@@ -35554,7 +38024,10 @@
       "Manipulate",
       "Unholy",
       "Void",
-      "Negative"
+      "Negative",
+      "Necromancy",
+      "аура",
+      "Evil"
     ],
     "rarity": "common"
   },
@@ -35576,7 +38049,8 @@
       "Incapacitation",
       "Manipulate",
       "Mental",
-      "Устранение"
+      "Устранение",
+      "Enchantment"
     ],
     "rarity": "common"
   },
@@ -35594,7 +38068,8 @@
       "Concentrate",
       "Manipulate",
       "Plant",
-      "Wood"
+      "Wood",
+      "Enchantment"
     ],
     "rarity": "common"
   },
@@ -35636,6 +38111,22 @@
     "rarity": "common"
   },
   {
+    "id": "readthedocs-weapon-of-judgement",
+    "nameRu": "Оружие суда",
+    "nameEn": "Weapon of Judgement",
+    "level": 9,
+    "tradition": [
+      "divine"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Evocation",
+      "сила"
+    ],
+    "rarity": "common"
+  },
+  {
     "id": "aonprd-spell-1621",
     "nameRu": "Ошеломительное присутствие",
     "nameEn": "Overwhelming Presence",
@@ -35653,7 +38144,8 @@
       "Manipulate",
       "Mental",
       "Visual",
-      "Устранение"
+      "Устранение",
+      "Enchantment"
     ],
     "rarity": "common"
   },
@@ -35755,7 +38247,8 @@
       "Concentrate",
       "Manipulate",
       "Mental",
-      "Prediction"
+      "Prediction",
+      "Divination"
     ],
     "rarity": "common"
   },
@@ -35770,7 +38263,8 @@
     "school": "Unknown",
     "classes": [],
     "traits": [
-      "Incarnate"
+      "Incarnate",
+      "Conjuration"
     ],
     "rarity": "common"
   },
@@ -35808,7 +38302,8 @@
     "classes": [],
     "traits": [
       "Abjuration",
-      "Light"
+      "Light",
+      "свет"
     ],
     "rarity": "common"
   },
@@ -35825,7 +38320,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Conjuration"
     ],
     "rarity": "common"
   },
@@ -35846,7 +38342,8 @@
       "Death",
       "Manipulate",
       "Void",
-      "Negative"
+      "Negative",
+      "Necromancy"
     ],
     "rarity": "common"
   },
@@ -35864,7 +38361,8 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Structure"
+      "Structure",
+      "Conjuration"
     ],
     "rarity": "common"
   },
@@ -35904,6 +38402,22 @@
     "rarity": "uncommon"
   },
   {
+    "id": "readthedocs-shapechange",
+    "nameRu": "Смена форм",
+    "nameEn": "Shapechange",
+    "level": 9,
+    "tradition": [
+      "arcane"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Transmutation",
+      "полиморф"
+    ],
+    "rarity": "common"
+  },
+  {
     "id": "aonprd-spell-1572",
     "nameRu": "Схлопывание",
     "nameEn": "Implosion",
@@ -35916,7 +38430,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Evocation"
     ],
     "rarity": "common"
   },
@@ -35938,7 +38453,9 @@
       "Linguistic",
       "Manipulate",
       "Mental",
-      "Устранение"
+      "Устранение",
+      "Enchantment",
+      "языковой"
     ],
     "rarity": "common"
   },
@@ -36500,7 +39017,9 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Polymorph"
+      "Polymorph",
+      "Transmutation",
+      "полиморф"
     ],
     "rarity": "common"
   },
@@ -36519,7 +39038,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Abjuration"
     ],
     "rarity": "common"
   },
@@ -36614,7 +39134,9 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Polymorph"
+      "Polymorph",
+      "Transmutation",
+      "полиморф"
     ],
     "rarity": "common"
   },
@@ -36631,7 +39153,9 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Polymorph"
+      "Polymorph",
+      "Transmutation",
+      "полиморф"
     ],
     "rarity": "common"
   },
@@ -36651,7 +39175,8 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Uncommon"
+      "Uncommon",
+      "Conjuration"
     ],
     "rarity": "uncommon"
   },
@@ -36671,7 +39196,9 @@
       "Concentrate",
       "Manipulate",
       "Teleportation",
-      "Uncommon"
+      "Uncommon",
+      "Conjuration",
+      "телепортация"
     ],
     "rarity": "uncommon"
   },
@@ -36775,6 +39302,21 @@
     "rarity": "uncommon"
   },
   {
+    "id": "readthedocs-alter-reality",
+    "nameRu": "Изменение реальности",
+    "nameEn": "Alter Reality",
+    "level": 10,
+    "tradition": [
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Divination"
+    ],
+    "rarity": "common"
+  },
+  {
     "id": "aonprd-spell-1460",
     "nameRu": "Катаклизм",
     "nameEn": "Cataclysm",
@@ -36794,7 +39336,8 @@
       "Electricity",
       "Fire",
       "Manipulate",
-      "Water"
+      "Water",
+      "Evocation"
     ],
     "rarity": "common"
   },
@@ -36813,7 +39356,8 @@
       "Incapacitation",
       "Manipulate",
       "Mental",
-      "Устранение"
+      "Устранение",
+      "Enchantment"
     ],
     "rarity": "common"
   },
@@ -36855,7 +39399,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Abjuration"
     ],
     "rarity": "common"
   },
@@ -36875,7 +39420,8 @@
       "Healing",
       "Manipulate",
       "Vitality",
-      "Positive"
+      "Positive",
+      "Necromancy"
     ],
     "rarity": "common"
   },
@@ -36918,6 +39464,22 @@
     "rarity": "common"
   },
   {
+    "id": "readthedocs-time-stop",
+    "nameRu": "Остановка времени",
+    "nameEn": "Time Stop",
+    "level": 10,
+    "tradition": [
+      "arcane",
+      "occult"
+    ],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Transmutation"
+    ],
+    "rarity": "common"
+  },
+  {
     "id": "aonprd-spell-2014",
     "nameRu": "Первобытное стадо",
     "nameEn": "Primal Herd",
@@ -36930,7 +39492,9 @@
     "traits": [
       "Concentrate",
       "Manipulate",
-      "Polymorph"
+      "Polymorph",
+      "Transmutation",
+      "полиморф"
     ],
     "rarity": "common"
   },
@@ -36984,6 +39548,20 @@
       "Rare"
     ],
     "rarity": "rare"
+  },
+  {
+    "id": "readthedocs-summon-kaiju",
+    "nameRu": "Призыв кайдзю",
+    "nameEn": "Summon Kaiju",
+    "level": 10,
+    "tradition": [],
+    "school": "Unknown",
+    "classes": [],
+    "traits": [
+      "Conjuration",
+      "Incarnate"
+    ],
+    "rarity": "common"
   },
   {
     "id": "aonprd-spell-2162",
@@ -37059,7 +39637,8 @@
     "classes": [],
     "traits": [
       "Concentrate",
-      "Manipulate"
+      "Manipulate",
+      "Divination"
     ],
     "rarity": "common"
   },
