@@ -87,7 +87,7 @@ function filterValueText(filter: { key: keyof FilterState; value: FilterState[ke
         <span class="sidebar-link-icon" aria-hidden="true">{{ item.icon }}</span>
         <span>{{ item.label }}</span>
       </router-link>
-      <router-link to="/settings" class="sidebar-link mt-sm" :class="{ active: activeNav === 'settings' }">
+      <router-link to="/settings" class="sidebar-link" :class="{ active: activeNav === 'settings' }">
         <span class="sidebar-link-icon" aria-hidden="true">⚙️</span>
         <span>Настройки</span>
       </router-link>
