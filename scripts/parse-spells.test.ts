@@ -222,7 +222,7 @@ describe('readthedocs spell parser', () => {
   it('parses readthedocs school', () => {
     const spell = parseReadthedocsSpell(magicMissileHtml)
 
-    expect(spell?.school).toBe('Evocation')
+    expect(spell?.school).toBe('evocation')
   })
 
   it('parses readthedocs cast time and components from Сотворение', () => {

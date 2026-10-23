@@ -151,6 +151,27 @@ console.log(classColumnOk ? 'OK   колонка «Классы» в табли�
 const classCellsOk = classStats.cells.some((c) => c.length > 0)
 console.log(classCellsOk ? 'OK   ячейки «Классы» заполнены' : 'FAIL ячейки «Классы» пустые')
 
+console.log('\n--- Проверка перевода характеристик заклинаний ---')
+const charStats = await page.evaluate(() => {
+  const rows = Array.from(document.querySelectorAll('tbody tr'))
+  const sample = rows.slice(0, 5)
+  return sample.map((tr) => {
+    const tds = Array.from(tr.querySelectorAll('td'))
+    return tds.map((td) => td.textContent ?? '').join(' | ')
+  })
+})
+const englishChars = ['two actions', 'three actions', '30 feet', '15-foot burst', '1 round', '1 minute', 'Reflex', 'Fortitude', 'Will', 'Reaction']
+let charOk = true
+for (const rowText of charStats) {
+  for (const en of englishChars) {
+    if (rowText.toLowerCase().includes(en.toLowerCase())) {
+      console.log(`FAIL английская характеристика в строке: "${rowText.slice(0, 80)}…" (нашёлся "${en}")`)
+      charOk = false
+    }
+  }
+}
+console.log(charOk ? 'OK   характеристики заклинаний на русском' : 'FAIL найдены английские характеристики')
+
 console.log('\n=== CONSOLE ERRORS ===')
 console.log(errors.length ? errors.slice(0, 15).join('\n---\n') : '(none)')
 console.log('\n=== FAILED REQUESTS ===')

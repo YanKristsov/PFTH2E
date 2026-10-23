@@ -482,3 +482,261 @@ export function actionOrder(castTime: string): number {
 export function filterLabel(key: string): string {
   return FILTER_LABELS[key] || key
 }
+
+/** Английские значения времени произнесения → русские (fallback, когда нет данных pf2.ru). */
+export const CAST_TIME_LABELS: Record<string, string> = {
+  '1': '1 действие',
+  '2': '2 действия',
+  '3': '3 действия',
+  'one action': '1 действие',
+  'two actions': '2 действия',
+  'three actions': '3 действия',
+  reaction: 'Реакция',
+  'free action': 'Свободное действие',
+  '1 minute': '1 минута',
+  '1 round': '1 раунд',
+  '10 minutes': '10 минут',
+  '1 hour': '1 час',
+  '1 day': '1 день',
+  '2 hours': '2 часа',
+  '3 hours': '3 часа',
+  '4 hours': '4 часа',
+  '8 hours': '8 часов',
+  '30 minutes': '30 минут',
+  '2 days': '2 дня',
+  '3 days': '3 дня',
+  '4 days': '4 дня',
+  '5 days': '5 дней',
+  '6 days': '6 дней',
+  '7 days': '7 дней',
+  '9 days': '9 дней',
+  '14 days': '14 дней',
+  '24 hours': '24 часа',
+  '4d12 hours': '4к12 часов',
+  'two actions to 2 rounds': '2 действия до 2 раундов',
+  'reaction or single action': 'Реакция или 1 действие',
+  '1 day ': '1 день',
+  'until dispelled': 'до рассеивания',
+  instantaneous: 'мгновенно'
+}
+
+/** Английские значения дистанции → русские (fallback). */
+export const RANGE_LABELS: Record<string, string> = {
+  touch: 'Касание',
+  '5 feet': '5 футов',
+  '10 feet': '10 футов',
+  '15 feet': '15 футов',
+  '20 feet': '20 футов',
+  '25 feet': '25 футов',
+  '30 feet': '30 футов',
+  '40 feet': '40 футов',
+  '50 feet': '50 футов',
+  '60 feet': '60 футов',
+  '100 feet': '100 футов',
+  '120 feet': '120 футов',
+  '240 feet': '240 футов',
+  '250 feet': '250 футов',
+  '500 feet': '500 футов',
+  '1,000 feet': '1000 футов',
+  '90 feet': '90 футов',
+  '1 mile': '1 миля',
+  '5 miles': '5 миль',
+  '10 miles': '10 миль',
+  '100 miles': '100 миль',
+  '1,000 miles': '1000 миль',
+  '30-foot': '30-футовый'
+}
+
+/** Английские значения цели → русские (fallback). */
+export const TARGET_LABELS: Record<string, string> = {
+  '1 creature': '1 существо',
+  '1 willing creature': '1 согласившееся существо',
+  '1 object': '1 объект',
+  'the triggering creature': 'существо, desencadeвшее',
+  'up to 10 creatures': 'до 10 существ',
+  '2 существа или объектаobjects': '2 существа или объекта'
+}
+
+/** Английские значения области → русские (fallback). */
+export const AREA_LABELS: Record<string, string> = {
+  '15-foot burst': '15-футовый взрыв',
+  '20-foot burst': '20-футовый взрыв',
+  '30-foot cone': '30-футовый конус',
+  '5-foot emanation': '5-футовая эманация',
+  '10-foot emanation': '10-футовая эманация',
+  '15-foot cone': '15-футовый конус',
+  '5-foot cube': 'куб 5 футов',
+  '20-foot emanation': '20-футовая эманация',
+  '30-foot line': '30-футовая линия',
+  '10-foot burst': '10-футовый взрыв',
+  '60-foot emanation': '60-футовая эманация',
+  '40-foot burst': '40-футовый взрыв',
+  '20-foot cone': '20-футовый конус',
+  '30-foot emanation': '30-футовая эманация',
+  '40-foot-radius burst': 'взрыв радиусом 40 футов',
+  '30-foot-radius emanation': 'эманация радиусом 30 футов',
+  '1,000-foot radius': 'радиус 1000 футов',
+  '30-foot-radius emanation centered on you': 'эманация радиусом 30 футов с центром на вас',
+  '40-foot burst centered on you': '40-футовый взрыв с центром на вас',
+  '120-foot line': '120-футовая линия',
+  '500-foot radius centered on you': 'радиус 500 футов с центром на вас',
+  '30-foot burst': '30-футовый взрыв',
+  '60-foot burst': '60-футовый взрыв',
+  '1-mile burst': 'взрыв на 1 милю',
+  '1-mile emanation': 'эманация на 1 милю',
+  '120-foot emanation': '120-футовая эманация',
+  '80-foot burst': '80-футовый взрыв',
+  '150-foot burst': '150-футовый взрыв',
+  '20-foot-radius burst': 'взрыв радиусом 20 футов',
+  '5-foot emanation or more': '5-футовая эманация или более',
+  'a 10-foot square': 'квадрат 10 футов',
+  'a 5-foot square': 'квадрат 5 футов',
+  '10-foot square': 'квадрат 10 футов',
+  '20-foot взрыв': '20-футовый взрыв',
+  '30-foot взрыв': '30-футовый взрыв',
+  '10-foot взрыв': '10-футовый взрыв',
+  '15-foot взрыв': '15-футовый взрыв',
+  '250-foot взрыв': '250-футовый взрыв',
+  '200-foot взрыв': '200-футовый взрыв',
+  '30-foot конус': '30-футовый конус',
+  '15-foot конус': '15-футовый конус',
+  '10-foot эманация': '10-футовая эманация',
+  '60-foot эманация': '60-футовая эманация',
+  '30-foot эманация': '30-футовая эманация',
+  '15-foot эманация': '15-футовая эманация',
+  '5-foot burst or more': '5-футовая эманация или более',
+  '1 5-foot cube': 'куб 5 футов',
+  '40-футовый-radius burst around an immobile altar, shrine, or fixture of your deity': 'взрыв радиусом 40 футов вокруг неподвижного алтаря, святилища или атрибута вашего божества',
+  'all squares in a 20-футовый burst': 'все квадраты в 20-футовом взрыве',
+  'a horizontal earthen or sandy surface within a 20-футовый burst': 'горизонтальная земляная или песканая поверхность в 20-футовом взрыве',
+  '15-футовый emanation': '15-футовая эманация',
+  '100-футовый emanation from the building’s keystone': '100-футовая эманация от ключевого камня здания',
+  '30-футовый emanation centered on you': '30-футовая эманация с центром на вас',
+  '30-футовый burst centered on you': '30-футовый взрыв с центром на вас'
+}
+
+/** Английские значения длительности → русские (fallback). */
+export const DURATION_LABELS: Record<string, string> = {
+  '1 round': '1 раунд',
+  '1 minute': '1 минута',
+  '1 hour': '1 час',
+  '1 day': '1 день',
+  '2 days': '2 дня',
+  '3 days': '3 дня',
+  '4 days': '4 дня',
+  '5 days': '5 дней',
+  '7 days': '7 дней',
+  '8 hours': '8 часов',
+  '10 minutes': '10 минут',
+  '24 hours': '24 часа',
+  '14 days': '14 дней',
+  'sustained up to 1 minute': 'поддерживается до 1 минуты',
+  'sustained up to 5 rounds': 'поддерживается до 5 раундов',
+  'sustained up to 10 minutes': 'поддерживается до 10 минут',
+  'sustained for up to 1 minute': 'поддерживается до 1 минуты',
+  'sustained (up to 1 minute)': 'поддерживается (до 1 минуты)',
+  'sustained, up to 1 minute': 'поддерживается, до 1 минуты',
+  'up to 10 minutes': 'до 10 минут',
+  'up to 1 minute': 'до 1 минуты',
+  '3 rounds': '3 раунда',
+  '2 rounds': '2 раунда',
+  '5 rounds': '5 раундов',
+  '3 hours': '3 часа',
+  '4 hours': '4 часа',
+  '12 hours': '12 часов',
+  '4 rounds': '4 раунда',
+  'sustained': 'поддерживается',
+  'поддерживается up to 1 minute': 'поддерживается до 1 минуты',
+  '5 minutes': '5 минут',
+  '7 hours': '7 часов',
+  '1 hour or until expended': '1 час или до израсходования',
+  '1 minute or until discharged': '1 минута или до израсходования',
+  '4d12 hours': '4к12 часов',
+  '24 hours (see text)': '24 часа (см. текст)',
+  '1 round (см. текст)': '1 раунд (см. текст)',
+  instantaneous: 'мгновенно',
+  'until dispelled': 'до рассеивания'
+}
+
+/** Английские значения спасброска → русские (fallback). */
+export const SAVE_LABELS: Record<string, string> = {
+  reflex: 'Рефлекс',
+  fortitude: 'Стойкость',
+  will: 'Воля',
+  'basic reflex': 'базовый Рефлекс',
+  'basic fortitude': 'базовая Стойкость',
+  'basic will': 'базовая Воля',
+  'basic reflex and fortitude': 'базовый Рефлекс и Стойкость',
+  'ac and basic reflex': 'КД и базовый Рефлекс',
+  'ac and basic fortitude': 'КД и базовая Стойкость',
+  'ac and basic reflex and fortitude (see text)': 'КД и базовый Рефлекс и Стойкость (см. текст)',
+  'will and basic reflex (see text)': 'Воля и базовый Рефлекс (см. текст)',
+  'reflex (see text)': 'Рефлекс (см. текст)',
+  'basic reflex (see text)': 'базовый Рефлекс (см. текст)',
+  'fortitude (see text)': 'Стойкость (см. текст)',
+  'basic fortitude (see text)': 'базовая Стойкость (см. текст)',
+  'basic fortitude, see text': 'базовая Стойкость (см. текст)',
+  'fortitude or basic reflex (see text)': 'Стойкость или базовый Рефлекс (см. текст)',
+  'ac and basic fortitude (see text)': 'КД и базовая Стойкость (см. текст)',
+  'basic reflex and fortitude (see text)': 'базовый Рефлекс и Стойкость (см. текст)',
+  'basic reflex or will (target\'s choice)': 'базовый Рефлекс или Воля (по выбору цели)',
+  'basic reflex or will (target’s choice)': 'базовый Рефлекс или Воля (по выбору цели)'
+}
+
+/** Перевод английской характеристики заклинания на русский (fallback). */
+/** Заменяет шаблоны AoN {{rules X "TYPE"}} и {{actions X "TYPE"}} на русские эквиваленты. */
+function normalizeAoNTemplates(value: string): string {
+  return value
+    .replace(/\{\{rules \d+ "burst"\}\}/gi, 'взрыв')
+    .replace(/\{\{rules \d+ "cone"\}\}/gi, 'конус')
+    .replace(/\{\{rules \d+ "emanation"\}\}/gi, 'эманация')
+    .replace(/\{\{rules \d+ "touch"\}\}/gi, 'касание')
+    .replace(/\{\{actions \d+ "sustained"\}\}/gi, 'поддерживается')
+    .replace(/\{\{[^}]*\}\}/g, '')
+}
+
+/** Переводит измерения и единицы типа "N-foot" → "N-футовый" в строках характеристик. */
+function translateMeasurements(value: string): string {
+  return value
+    .replace(/(\d+)-foot/gi, '$1-футовый')
+    .replace(/(\d+)-mile/gi, '$1-мильный')
+    .replace(/ burst\b/gi, ' взрыв')
+    .replace(/ emanation\b/gi, ' эманация')
+    .replace(/ cone\b/gi, ' конус')
+    .replace(/ line\b/gi, ' линия')
+    .replace(/ radius\b/gi, ' радиус')
+    .replace(/ centered on you\b/gi, ' с центром на вас')
+    .replace(/ squares\b/gi, ' квадраты')
+    .replace(/ square\b/gi, ' квадрат')
+    .replace(/up to 1 minute/gi, 'до 1 минуты')
+}
+
+export function castTimeLabel(castTime: string): string {
+  return CAST_TIME_LABELS[castTime.toLowerCase()] || translateMeasurements(castTime) || castTime
+}
+
+export function rangeLabel(range: string): string {
+  const normalized = normalizeAoNTemplates(range)
+  if (normalized !== range) return translateMeasurements(normalized) || normalized
+  return RANGE_LABELS[range.toLowerCase()] || translateMeasurements(range) || range
+}
+
+export function targetLabel(target: string): string {
+  return TARGET_LABELS[target.toLowerCase()] || translateMeasurements(target) || target
+}
+
+export function areaLabel(area: string): string {
+  const normalized = normalizeAoNTemplates(area)
+  if (normalized !== area) return translateMeasurements(normalized) || normalized
+  return AREA_LABELS[area.toLowerCase()] || translateMeasurements(area) || area
+}
+
+export function durationValueLabel(duration: string): string {
+  const normalized = normalizeAoNTemplates(duration)
+  if (normalized !== duration) return translateMeasurements(normalized) || normalized
+  return DURATION_LABELS[duration.toLowerCase()] || translateMeasurements(duration) || duration
+}
+
+export function saveLabel(save: string): string {
+  return SAVE_LABELS[save.toLowerCase()] || translateMeasurements(save) || save
+}

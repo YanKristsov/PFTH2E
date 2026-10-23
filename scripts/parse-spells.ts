@@ -1,5 +1,5 @@
 import { SpellSchema, type Spell } from '../src/types/spell.js'
-import { CLASS_LABELS, TRAIT_LABELS } from '../src/constants/translations.js'
+import { CLASS_LABELS, TRAIT_LABELS, castTimeLabel, rangeLabel, targetLabel, areaLabel, durationValueLabel, saveLabel } from '../src/constants/translations.js'
 import { z } from 'zod'
 import { JSDOM } from 'jsdom'
 import MarkdownIt from 'markdown-it'
@@ -343,7 +343,7 @@ export function parseAoNRecord(record: AoNRecord): RawSpell | undefined {
     tradition: (record.tradition ?? []).map(value => value.toLowerCase()).filter((value): value is Tradition =>
       ['arcane', 'divine', 'occult', 'primal'].includes(value)
     ),
-    school: record.school || traits.find(trait => schoolNames.has(trait)) || '',
+    school: (record.school || traits.find(trait => schoolNames.has(trait)) || '').toLowerCase() || '',
     classes,
     traits,
     components,
@@ -603,10 +603,10 @@ export function parseReadthedocsSpell(html: string): RawSpell | undefined {
     .map((value) => READTHEDOCS_TRADITION_RU_TO_EN[value])
 
   const schoolRaw = getField('Школа') || ''
-  let school = READTHEDOCS_SCHOOL_RU_TO_EN[schoolRaw.toLowerCase()] || ''
+  let school = (READTHEDOCS_SCHOOL_RU_TO_EN[schoolRaw.toLowerCase()] || '').toLowerCase()
   if (!school) {
     const schoolNames = new Set(Object.values(READTHEDOCS_SCHOOL_RU_TO_EN))
-    school = traits.find((t) => schoolNames.has(t)) || ''
+    school = traits.find((t) => schoolNames.has(t))?.toLowerCase() || ''
   }
 
   // Сотворение: действие + компоненты в скобках (из сырого HTML, чтобы сохранить alt у img)
@@ -857,6 +857,7 @@ export function parsePf2ruDetail(html: string, document: Document) {
 
   return {
     description: descriptionParts.join('').replace(/\s+/g, ' ').trim(),
+    castTime: getField(['время произнесения', 'сотворение', 'cast time', 'actions']),
     range: getField(['дистанция', 'range']),
     area: getField(['область', 'area']),
     target: getField(['цель', 'цели', 'target', 'targets']),
@@ -904,6 +905,7 @@ async function enrichPf2ruSpells(spells: RawSpell[]): Promise<void> {
         const parsed = parsePf2ruDetail(detail.text_output, document)
         if (language === 'ru') {
           spell.description = parsed.description
+          spell.castTime = parsed.castTime || spell.castTime
           spell.range = parsed.range || spell.range
           spell.area = parsed.area || spell.area
           spell.target = parsed.target || spell.target
@@ -936,7 +938,7 @@ export function mergeSpells(allSpells: RawSpell[]): Spell[] {
   
   for (const [key, variants] of byKey) {
     const primary = variants.find(v => v.source === 'aonprd') || variants[0]
-    const russianVariant = variants.find(v => v.source === 'pf2ru' && v.description)
+    const russianVariant = variants.find(v => v.source !== 'aonprd' && v.description)
     const englishVariant = variants.find(v => v.source === 'aonprd' && v.englishDescription)
       || variants.find(v => v.englishDescription)
     
@@ -954,12 +956,12 @@ export function mergeSpells(allSpells: RawSpell[]): Spell[] {
       classes: [...new Set(variants.flatMap(v => v.classes))],
       traits: [...new Set(variants.flatMap(v => v.traits))],
       components: { v: primary.components.v, s: primary.components.s, m: primary.components.m, f: primary.components.f },
-      castTime: primary.castTime,
-      range: primary.range,
-      target: primary.target,
-      area: primary.area,
-      duration: primary.duration,
-      save: primary.save,
+      castTime: castTimeLabel(russianVariant?.castTime || primary.castTime || ''),
+      range: rangeLabel(russianVariant?.range || primary.range || ''),
+      target: targetLabel(russianVariant?.target || primary.target || ''),
+      area: areaLabel(russianVariant?.area || primary.area || ''),
+      duration: durationValueLabel(russianVariant?.duration || primary.duration || ''),
+      save: saveLabel(russianVariant?.save || primary.save || ''),
       sr: primary.sr,
       description: {
         ru: russianVariant?.description || '',

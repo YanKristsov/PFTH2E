@@ -76,6 +76,15 @@
 - Реgex-парсинг без JSDOM (предотвращает OOM при обработке 704 страниц)
 - Подробности: `docs/decision_logs/2026-10-22-readthedocs-crb-addition.md`
 
+### Перевод характеристик заклинаний на русский (2026-10-23)
+- Все структурированные характеристики заклинаний переведены на русский: Время произнесения (castTime), Дальность (range), Цель (target), Область (area), Длительность (duration), Спасбросок (save)
+- Источник переводов: pf2.ru API (русские детали заклинаний) — приоритет над AoN (английский)
+- Fallback-переводы для AoN-заклинаний без данных pf2.ru: `CAST_TIME_LABELS`, `RANGE_LABELS`, `TARGET_LABELS`, `AREA_LABELS`, `DURATION_LABELS`, `SAVE_LABELS` в `src/constants/translations.ts`
+- Функции: `castTimeLabel()`, `rangeLabel()`, `targetLabel()`, `areaLabel()`, `durationValueLabel()`, `saveLabel()` — применяются в `mergeSpells()` как fallback
+- Поддержка шаблонов AoN `{{rules X "TYPE"}}` и `{{actions X "TYPE"}}` → русские эквиваленты (`normalizeAoNTemplates()`)
+- Поддержка измерений `N-foot` → `N-футовый`, `burst` → `взрыв`, `emanation` → `эманация` и т.д. (`translateMeasurements()`)
+- 0 английских значений в структурированных полях после перегенерации
+
 ### Классы заклинаний (2026-10-21)
 - Поле `classes` заполняется из трёх источников: трейт-класс AoN (`Sorcerer`, `Cleric`…),
   фокусные списки классов pf2.ru (страницы `https://pf2.ru/classes/<slug>`),
