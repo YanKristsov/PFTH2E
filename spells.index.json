@@ -48,7 +48,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "divination",
     "classes": [],
     "traits": [
       "Cantrip",
@@ -176,7 +176,7 @@
     "nameEn": "Pass without Trace",
     "level": 1,
     "tradition": [],
-    "school": "Unknown",
+    "school": "abjuration",
     "classes": [],
     "traits": [
       "Abjuration"
@@ -192,7 +192,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "enchantment",
     "classes": [],
     "traits": [
       "Aura",
@@ -268,7 +268,7 @@
     "tradition": [
       "divine"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Attack",
@@ -331,7 +331,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -424,7 +424,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "divination",
     "classes": [],
     "traits": [
       "Divination",
@@ -557,7 +557,7 @@
     "tradition": [
       "occult"
     ],
-    "school": "Unknown",
+    "school": "divination",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -648,7 +648,7 @@
       "divine",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Air",
@@ -688,7 +688,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Transmutation"
@@ -719,7 +719,7 @@
     "nameEn": "Magic Fang",
     "level": 1,
     "tradition": [],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Transmutation"
@@ -869,7 +869,7 @@
     "tradition": [
       "arcane"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -971,7 +971,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -1166,7 +1166,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Attack",
@@ -1264,7 +1264,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -1320,7 +1320,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Manipulate",
@@ -1337,7 +1337,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -1421,7 +1421,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Attack",
@@ -1460,7 +1460,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -1518,7 +1518,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "enchantment",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -1694,7 +1694,7 @@
     "tradition": [
       "primal"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -1749,7 +1749,7 @@
     "tradition": [
       "occult"
     ],
-    "school": "Unknown",
+    "school": "divination",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -1769,7 +1769,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -2084,7 +2084,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "abjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -2139,7 +2139,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "enchantment",
     "classes": [],
     "traits": [
       "Cantrip",
@@ -2197,7 +2197,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "abjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -2217,7 +2217,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "abjuration",
     "classes": [],
     "traits": [
       "Cantrip",
@@ -2313,7 +2313,7 @@
     "tradition": [
       "primal"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -2390,7 +2390,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "enchantment",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -2399,6 +2399,23 @@
       "Enchantment"
     ],
     "rarity": "common"
+  },
+  {
+    "id": "aonprd-spell-1075",
+    "nameRu": "Зов болота",
+    "nameEn": "Swampcall",
+    "level": 1,
+    "tradition": [
+      "primal"
+    ],
+    "school": "transmutation",
+    "classes": [],
+    "traits": [
+      "Earth",
+      "Transmutation",
+      "Uncommon"
+    ],
+    "rarity": "uncommon"
   },
   {
     "id": "aonprd-spell-1792",
@@ -2509,7 +2526,7 @@
       "divine",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Healing",
@@ -2628,7 +2645,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Cantrip",
@@ -2682,6 +2699,23 @@
     "rarity": "uncommon"
   },
   {
+    "id": "aonprd-spell-925",
+    "nameRu": "Исцеляющий гипс",
+    "nameEn": "Healing Plaster",
+    "level": 1,
+    "tradition": [
+      "primal"
+    ],
+    "school": "transmutation",
+    "classes": [],
+    "traits": [
+      "Cantrip",
+      "Earth",
+      "Transmutation"
+    ],
+    "rarity": "common"
+  },
+  {
     "id": "aonprd-spell-2130",
     "nameRu": "Калечащий ужас",
     "nameEn": "Debilitating Terror",
@@ -2712,7 +2746,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Cantrip",
@@ -2733,7 +2767,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "divination",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -2811,13 +2845,12 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Concentrate",
       "Force",
-      "Evocation",
-      "сила"
+      "Evocation"
     ],
     "rarity": "common"
   },
@@ -2830,7 +2863,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Acid",
@@ -2848,7 +2881,7 @@
     "tradition": [
       "arcane"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Cantrip",
@@ -3024,7 +3057,7 @@
     "tradition": [
       "occult"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Attack",
@@ -3047,7 +3080,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -3066,7 +3099,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Cantrip",
@@ -3084,7 +3117,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Cold",
@@ -3122,7 +3155,7 @@
     "tradition": [
       "arcane"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Cantrip",
@@ -3202,7 +3235,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "illusion",
     "classes": [],
     "traits": [
       "Illusion"
@@ -3218,7 +3251,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Cantrip",
@@ -3272,7 +3305,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "abjuration",
     "classes": [],
     "traits": [
       "Abjuration"
@@ -3288,11 +3321,11 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Evocation",
-      "сила"
+      "Force"
     ],
     "rarity": "common"
   },
@@ -3305,7 +3338,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -3361,7 +3394,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Attack",
@@ -3384,7 +3417,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Cantrip",
@@ -3465,7 +3498,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Cantrip",
@@ -3561,7 +3594,7 @@
     "tradition": [
       "arcane"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Cantrip",
@@ -3618,7 +3651,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -3674,7 +3707,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Auditory",
@@ -3773,7 +3806,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "divination",
     "classes": [],
     "traits": [
       "Cantrip",
@@ -3864,7 +3897,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Conjuration"
@@ -3975,7 +4008,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Cantrip",
@@ -4077,7 +4110,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "divination",
     "classes": [],
     "traits": [
       "Cantrip",
@@ -4141,7 +4174,7 @@
       "divine",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "divination",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -4241,7 +4274,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "enchantment",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -4279,7 +4312,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Necromancy"
@@ -4294,7 +4327,7 @@
     "tradition": [
       "primal"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -4393,7 +4426,7 @@
     "tradition": [
       "occult"
     ],
-    "school": "Unknown",
+    "school": "enchantment",
     "classes": [],
     "traits": [
       "Auditory",
@@ -4432,7 +4465,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Necromancy",
@@ -4570,7 +4603,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "enchantment",
     "classes": [],
     "traits": [
       "Aura",
@@ -4630,7 +4663,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "abjuration",
     "classes": [],
     "traits": [
       "Cantrip",
@@ -4650,7 +4683,7 @@
     "tradition": [
       "arcane"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Necromancy"
@@ -4738,11 +4771,11 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Conjuration",
-      "сила"
+      "Force"
     ],
     "rarity": "common"
   },
@@ -4755,7 +4788,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -5007,7 +5040,7 @@
     "tradition": [
       "arcane"
     ],
-    "school": "Unknown",
+    "school": "abjuration",
     "classes": [],
     "traits": [
       "Abjuration"
@@ -5080,7 +5113,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Light",
@@ -5099,7 +5132,7 @@
     "tradition": [
       "divine"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Manipulate",
@@ -5153,7 +5186,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "divination",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -5194,7 +5227,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "divination",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -5295,7 +5328,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -5317,7 +5350,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Manipulate",
@@ -5354,7 +5387,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Air",
@@ -5434,7 +5467,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -5452,7 +5485,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "abjuration",
     "classes": [],
     "traits": [
       "Cantrip",
@@ -5491,7 +5524,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "enchantment",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -5514,7 +5547,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "abjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -5532,7 +5565,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "illusion",
     "classes": [],
     "traits": [
       "Cantrip",
@@ -5550,7 +5583,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -5571,7 +5604,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Cantrip",
@@ -5590,7 +5623,7 @@
     "tradition": [
       "arcane"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -5609,7 +5642,7 @@
     "tradition": [
       "divine"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -5648,7 +5681,7 @@
     "tradition": [
       "primal"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -5668,7 +5701,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -5689,7 +5722,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "enchantment",
     "classes": [],
     "traits": [
       "Auditory",
@@ -5959,7 +5992,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Manipulate",
@@ -6037,7 +6070,7 @@
     "tradition": [
       "arcane"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Evocation",
@@ -6133,7 +6166,7 @@
     "tradition": [
       "divine"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Necromancy",
@@ -6150,7 +6183,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "abjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -6168,7 +6201,7 @@
     "tradition": [
       "divine"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Cantrip",
@@ -6207,7 +6240,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "divination",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -6424,7 +6457,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "divination",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -6642,7 +6675,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Cantrip",
@@ -6684,7 +6717,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "divination",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -6807,7 +6840,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "abjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -6903,7 +6936,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "divination",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -6937,7 +6970,7 @@
     "tradition": [
       "arcane"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Transmutation"
@@ -7035,7 +7068,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -7116,7 +7149,7 @@
       "divine",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -7192,7 +7225,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "enchantment",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -7277,7 +7310,7 @@
     "tradition": [
       "arcane"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Cantrip",
@@ -7296,7 +7329,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -7315,7 +7348,7 @@
       "divine",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Cantrip",
@@ -7436,7 +7469,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -7454,7 +7487,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Cantrip",
@@ -7476,7 +7509,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "enchantment",
     "classes": [],
     "traits": [
       "Cantrip",
@@ -7502,7 +7535,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Extradimensional",
@@ -7520,7 +7553,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "divination",
     "classes": [],
     "traits": [
       "Cantrip",
@@ -7560,7 +7593,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Attack",
@@ -7600,7 +7633,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -7638,7 +7671,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Attack",
@@ -7744,7 +7777,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "enchantment",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -7766,7 +7799,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "abjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -7786,7 +7819,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "enchantment",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -7807,7 +7840,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "divination",
     "classes": [],
     "traits": [
       "Cantrip",
@@ -7864,7 +7897,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "enchantment",
     "classes": [],
     "traits": [
       "Auditory",
@@ -7885,7 +7918,7 @@
     "tradition": [
       "occult"
     ],
-    "school": "Unknown",
+    "school": "enchantment",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -7926,7 +7959,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "enchantment",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -8098,7 +8131,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -8159,7 +8192,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "abjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -8236,7 +8269,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "illusion",
     "classes": [],
     "traits": [
       "Illusion",
@@ -8341,7 +8374,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "divination",
     "classes": [],
     "traits": [
       "Cantrip",
@@ -8362,7 +8395,7 @@
     "tradition": [
       "occult"
     ],
-    "school": "Unknown",
+    "school": "divination",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -8400,7 +8433,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "divination",
     "classes": [],
     "traits": [
       "Cantrip",
@@ -8419,7 +8452,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "divination",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -8473,7 +8506,7 @@
     "tradition": [
       "arcane"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Evocation",
@@ -8491,7 +8524,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Air",
@@ -8513,7 +8546,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -8534,15 +8567,14 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "abjuration",
     "classes": [],
     "traits": [
       "Cantrip",
       "Concentrate",
       "Force",
       "Focus",
-      "Abjuration",
-      "сила"
+      "Abjuration"
     ],
     "rarity": "common"
   },
@@ -8555,7 +8587,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Cantrip",
@@ -8596,7 +8628,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -9458,23 +9490,6 @@
     "rarity": "uncommon"
   },
   {
-    "id": "aonprd-spell-925",
-    "nameRu": "Healing Plaster",
-    "nameEn": "Healing Plaster",
-    "level": 1,
-    "tradition": [
-      "primal"
-    ],
-    "school": "transmutation",
-    "classes": [],
-    "traits": [
-      "Cantrip",
-      "Earth",
-      "Transmutation"
-    ],
-    "rarity": "common"
-  },
-  {
     "id": "aonprd-spell-1286",
     "nameRu": "Helpful Steps",
     "nameEn": "Helpful Steps",
@@ -9943,23 +9958,6 @@
     "rarity": "uncommon"
   },
   {
-    "id": "aonprd-spell-1075",
-    "nameRu": "Swampcall",
-    "nameEn": "Swampcall",
-    "level": 1,
-    "tradition": [
-      "primal"
-    ],
-    "school": "transmutation",
-    "classes": [],
-    "traits": [
-      "Earth",
-      "Transmutation",
-      "Uncommon"
-    ],
-    "rarity": "uncommon"
-  },
-  {
     "id": "aonprd-spell-1126",
     "nameRu": "Synchronize Steps",
     "nameEn": "Synchronize Steps",
@@ -10220,7 +10218,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "enchantment",
     "classes": [],
     "traits": [
       "Enchantment",
@@ -10237,7 +10235,7 @@
     "tradition": [
       "arcane"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Evocation"
@@ -10313,7 +10311,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Evocation",
@@ -10350,7 +10348,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Evocation",
@@ -10443,7 +10441,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "divination",
     "classes": [],
     "traits": [
       "Divination",
@@ -10460,7 +10458,7 @@
       "divine",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -10520,7 +10518,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "enchantment",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -10541,7 +10539,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "illusion",
     "classes": [],
     "traits": [
       "Illusion",
@@ -10580,7 +10578,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Healing",
@@ -10597,7 +10595,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Necromancy",
@@ -10708,7 +10706,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "divination",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -10729,7 +10727,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -10747,7 +10745,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -10786,7 +10784,7 @@
     "tradition": [
       "primal"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -10805,7 +10803,7 @@
     "tradition": [
       "primal"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -10824,7 +10822,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "enchantment",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -10901,7 +10899,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -10919,7 +10917,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -10976,7 +10974,7 @@
     "nameEn": "Barkskin",
     "level": 2,
     "tradition": [],
-    "school": "Unknown",
+    "school": "abjuration",
     "classes": [],
     "traits": [
       "Abjuration",
@@ -10993,7 +10991,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "enchantment",
     "classes": [],
     "traits": [
       "Enchantment",
@@ -11031,11 +11029,11 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Evocation",
-      "сила"
+      "Force"
     ],
     "rarity": "common"
   },
@@ -11049,12 +11047,28 @@
       "divine",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Concentrate",
       "Manipulate",
       "Water",
+      "Transmutation"
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "aonprd-spell-579",
+    "nameRu": "Железные внутренности",
+    "nameEn": "Iron Gut",
+    "level": 2,
+    "tradition": [
+      "arcane",
+      "primal"
+    ],
+    "school": "transmutation",
+    "classes": [],
+    "traits": [
       "Transmutation"
     ],
     "rarity": "common"
@@ -11085,7 +11099,7 @@
     "tradition": [
       "primal"
     ],
-    "school": "Unknown",
+    "school": "enchantment",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -11123,7 +11137,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -11215,7 +11229,7 @@
       "arcane",
       "divine"
     ],
-    "school": "Unknown",
+    "school": "abjuration",
     "classes": [],
     "traits": [
       "Abjuration"
@@ -11230,7 +11244,7 @@
     "tradition": [
       "divine"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Necromancy"
@@ -11322,7 +11336,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Necromancy",
@@ -11339,7 +11353,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "enchantment",
     "classes": [],
     "traits": [
       "Enchantment"
@@ -11444,7 +11458,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -11539,7 +11553,7 @@
     "tradition": [
       "arcane"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Evocation",
@@ -11650,7 +11664,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Curse",
@@ -11758,7 +11772,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -11832,7 +11846,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Necromancy"
@@ -11953,7 +11967,7 @@
     "tradition": [
       "occult"
     ],
-    "school": "Unknown",
+    "school": "abjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -12086,7 +12100,7 @@
     "tradition": [
       "arcane"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Conjuration",
@@ -12104,7 +12118,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "enchantment",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -12144,7 +12158,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "divination",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -12161,7 +12175,7 @@
     "tradition": [
       "occult"
     ],
-    "school": "Unknown",
+    "school": "enchantment",
     "classes": [],
     "traits": [
       "Auditory",
@@ -12183,7 +12197,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Air",
@@ -12261,7 +12275,7 @@
     "tradition": [
       "arcane"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Evocation",
@@ -12295,7 +12309,7 @@
     "nameEn": "Entangle",
     "level": 2,
     "tradition": [],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Transmutation",
@@ -12480,7 +12494,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -12497,7 +12511,7 @@
     "tradition": [
       "arcane"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Transmutation"
@@ -12580,6 +12594,23 @@
     "rarity": "uncommon"
   },
   {
+    "id": "aonprd-spell-1066",
+    "nameRu": "Песнь когтей",
+    "nameEn": "Clawsong",
+    "level": 2,
+    "tradition": [
+      "divine",
+      "primal"
+    ],
+    "school": "transmutation",
+    "classes": [],
+    "traits": [
+      "Transmutation",
+      "Uncommon"
+    ],
+    "rarity": "uncommon"
+  },
+  {
     "id": "aonprd-spell-2351",
     "nameRu": "Пир из пепла",
     "nameEn": "Feast of Ashes",
@@ -12589,7 +12620,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -12608,7 +12639,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -12699,7 +12730,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "divination",
     "classes": [],
     "traits": [
       "Divination"
@@ -12717,7 +12748,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -12756,7 +12787,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Necromancy"
@@ -12772,7 +12803,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -12790,7 +12821,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -12798,7 +12829,6 @@
       "Light",
       "Manipulate",
       "Necromancy",
-      "сила",
       "свет"
     ],
     "rarity": "common"
@@ -12832,7 +12862,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -12851,7 +12881,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -12891,7 +12921,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Necromancy"
@@ -12943,7 +12973,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -13019,7 +13049,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "divination",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -13039,7 +13069,7 @@
     "tradition": [
       "arcane"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Evocation",
@@ -13115,7 +13145,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -13133,7 +13163,7 @@
     "tradition": [
       "primal"
     ],
-    "school": "Unknown",
+    "school": "divination",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -13189,7 +13219,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "abjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -13208,7 +13238,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Aura",
@@ -13250,7 +13280,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "divination",
     "classes": [],
     "traits": [
       "Manipulate",
@@ -13339,7 +13369,7 @@
       "divine",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -13376,7 +13406,7 @@
     "tradition": [
       "occult"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Auditory",
@@ -13397,7 +13427,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "divination",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -13438,7 +13468,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "enchantment",
     "classes": [],
     "traits": [
       "Enchantment",
@@ -13493,7 +13523,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -13531,7 +13561,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -13550,7 +13580,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -13569,7 +13599,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -13588,7 +13618,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "divination",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -13626,15 +13656,14 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Attack",
       "Concentrate",
       "Force",
       "Manipulate",
-      "Evocation",
-      "сила"
+      "Evocation"
     ],
     "rarity": "common"
   },
@@ -13647,7 +13676,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -13794,7 +13823,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -13814,7 +13843,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -13854,7 +13883,7 @@
       "divine",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Превращение",
@@ -13871,7 +13900,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -13930,7 +13959,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "abjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -13987,7 +14016,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Conjuration"
@@ -14004,7 +14033,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Light",
@@ -14023,7 +14052,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -14040,7 +14069,7 @@
     "nameEn": "Tree Shape",
     "level": 2,
     "tradition": [],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Transmutation",
@@ -14057,7 +14086,7 @@
     "tradition": [
       "primal"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -14078,7 +14107,7 @@
       "divine",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -14138,7 +14167,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "divination",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -14177,7 +14206,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -14522,23 +14551,6 @@
     "rarity": "uncommon"
   },
   {
-    "id": "aonprd-spell-1066",
-    "nameRu": "Clawsong",
-    "nameEn": "Clawsong",
-    "level": 2,
-    "tradition": [
-      "divine",
-      "primal"
-    ],
-    "school": "transmutation",
-    "classes": [],
-    "traits": [
-      "Transmutation",
-      "Uncommon"
-    ],
-    "rarity": "uncommon"
-  },
-  {
     "id": "aonprd-spell-1281",
     "nameRu": "Confetti Cloud",
     "nameEn": "Confetti Cloud",
@@ -14874,22 +14886,6 @@
       "Focus"
     ],
     "rarity": "uncommon"
-  },
-  {
-    "id": "aonprd-spell-579",
-    "nameRu": "Iron Gut",
-    "nameEn": "Iron Gut",
-    "level": 2,
-    "tradition": [
-      "arcane",
-      "primal"
-    ],
-    "school": "transmutation",
-    "classes": [],
-    "traits": [
-      "Transmutation"
-    ],
-    "rarity": "common"
   },
   {
     "id": "aonprd-ritual-234",
@@ -15623,7 +15619,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -15643,7 +15639,7 @@
       "divine",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "abjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -15773,7 +15769,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -15793,7 +15789,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "enchantment",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -15814,7 +15810,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Necromancy",
@@ -15868,7 +15864,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -15896,6 +15892,26 @@
       "Rare"
     ],
     "rarity": "rare"
+  },
+  {
+    "id": "aonprd-spell-902",
+    "nameRu": "Волна стихийной аннигиляции",
+    "nameEn": "Elemental Annihilation Wave",
+    "level": 3,
+    "tradition": [
+      "arcane",
+      "primal"
+    ],
+    "school": "evocation",
+    "classes": [],
+    "traits": [
+      "Air",
+      "Earth",
+      "Evocation",
+      "Fire",
+      "Water"
+    ],
+    "rarity": "common"
   },
   {
     "id": "aonprd-spell-2330",
@@ -16081,7 +16097,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "enchantment",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -16099,7 +16115,7 @@
     "tradition": [
       "occult"
     ],
-    "school": "Unknown",
+    "school": "divination",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -16172,7 +16188,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -16232,7 +16248,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "enchantment",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -16268,7 +16284,7 @@
     "tradition": [
       "primal"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -16381,7 +16397,7 @@
     "tradition": [
       "primal"
     ],
-    "school": "Unknown",
+    "school": "divination",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -16400,7 +16416,7 @@
       "divine",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -16419,7 +16435,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "illusion",
     "classes": [],
     "traits": [
       "Illusion",
@@ -16437,7 +16453,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -16491,7 +16507,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "enchantment",
     "classes": [],
     "traits": [
       "Auditory",
@@ -16608,7 +16624,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "enchantment",
     "classes": [],
     "traits": [
       "Enchantment",
@@ -16625,7 +16641,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -16696,7 +16712,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -16714,7 +16730,7 @@
       "divine",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Healing",
@@ -16770,7 +16786,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -16986,7 +17002,7 @@
     "tradition": [
       "divine"
     ],
-    "school": "Unknown",
+    "school": "enchantment",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -17084,14 +17100,13 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "abjuration",
     "classes": [],
     "traits": [
       "Concentrate",
       "Force",
       "Manipulate",
-      "Abjuration",
-      "сила"
+      "Abjuration"
     ],
     "rarity": "common"
   },
@@ -17105,7 +17120,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -17143,7 +17158,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -17160,7 +17175,7 @@
     "tradition": [
       "divine"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Attack",
@@ -17297,7 +17312,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -17373,7 +17388,7 @@
     "tradition": [
       "divine"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Necromancy",
@@ -17390,7 +17405,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "abjuration",
     "classes": [],
     "traits": [
       "Abjuration"
@@ -17406,7 +17421,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -17485,7 +17500,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -17505,7 +17520,7 @@
       "divine",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "abjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -17598,7 +17613,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -17615,7 +17630,7 @@
     "tradition": [
       "divine"
     ],
-    "school": "Unknown",
+    "school": "abjuration",
     "classes": [],
     "traits": [
       "Abjuration",
@@ -17703,7 +17718,7 @@
     "tradition": [
       "divine"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Evocation",
@@ -17723,7 +17738,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "enchantment",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -17833,7 +17848,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -17871,7 +17886,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Air",
@@ -17962,7 +17977,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "abjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -18003,12 +18018,31 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Concentrate",
       "Manipulate",
       "Necromancy"
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "aonprd-spell-972",
+    "nameRu": "Позитивная настройка",
+    "nameEn": "Positive Attunement",
+    "level": 3,
+    "tradition": [
+      "divine",
+      "primal"
+    ],
+    "school": "necromancy",
+    "classes": [],
+    "traits": [
+      "Healing",
+      "Necromancy",
+      "Positive",
+      "Vitality"
     ],
     "rarity": "common"
   },
@@ -18139,7 +18173,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -18273,7 +18307,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -18347,7 +18381,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -18364,7 +18398,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "divination",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -18439,7 +18473,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "divination",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -18537,7 +18571,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "enchantment",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -18721,7 +18755,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "divination",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -18800,7 +18834,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -18856,7 +18890,7 @@
     "tradition": [
       "arcane"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Transmutation",
@@ -18892,7 +18926,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "enchantment",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -18946,7 +18980,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Air",
@@ -19022,7 +19056,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "abjuration",
     "classes": [],
     "traits": [
       "Abjuration"
@@ -19038,7 +19072,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "illusion",
     "classes": [],
     "traits": [
       "Illusion"
@@ -19089,7 +19123,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "illusion",
     "classes": [],
     "traits": [
       "Manipulate",
@@ -19109,7 +19143,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -19169,7 +19203,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -19207,7 +19241,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -19247,7 +19281,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -19287,7 +19321,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -19305,13 +19339,33 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Concentrate",
       "Electricity",
       "Manipulate",
       "Evocation"
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "aonprd-spell-2601",
+    "nameRu": "Узреть плетение",
+    "nameEn": "Behold the Weave",
+    "level": 3,
+    "tradition": [
+      "divine",
+      "occult"
+    ],
+    "school": "divination",
+    "classes": [],
+    "traits": [
+      "Concentrate",
+      "Incapacitation",
+      "Manipulate",
+      "Prediction",
+      "Divination"
     ],
     "rarity": "common"
   },
@@ -19325,7 +19379,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "divination",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -19346,7 +19400,7 @@
       "divine",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "divination",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -19402,7 +19456,7 @@
     "tradition": [
       "arcane"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -19423,7 +19477,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -19442,7 +19496,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -19460,7 +19514,7 @@
       "divine",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -19518,7 +19572,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -19539,7 +19593,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "divination",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -19598,11 +19652,29 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Concentrate",
       "Manipulate",
+      "Polymorph",
+      "Transmutation",
+      "полиморф"
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "aonprd-spell-962",
+    "nameRu": "Форма слизи",
+    "nameEn": "Ooze Form",
+    "level": 3,
+    "tradition": [
+      "arcane",
+      "occult"
+    ],
+    "school": "transmutation",
+    "classes": [],
+    "traits": [
       "Polymorph",
       "Transmutation",
       "полиморф"
@@ -19618,14 +19690,13 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Concentrate",
       "Force",
       "Manipulate",
-      "Evocation",
-      "сила"
+      "Evocation"
     ],
     "rarity": "common"
   },
@@ -19675,7 +19746,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "divination",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -19715,7 +19786,7 @@
     "tradition": [
       "primal"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -19734,7 +19805,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "divination",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -19798,26 +19869,6 @@
       "Rare"
     ],
     "rarity": "rare"
-  },
-  {
-    "id": "aonprd-spell-2601",
-    "nameRu": "Behold the Weave",
-    "nameEn": "Behold the Weave",
-    "level": 3,
-    "tradition": [
-      "divine",
-      "occult"
-    ],
-    "school": "Unknown",
-    "classes": [],
-    "traits": [
-      "Concentrate",
-      "Incapacitation",
-      "Manipulate",
-      "Prediction",
-      "Divination"
-    ],
-    "rarity": "common"
   },
   {
     "id": "aonprd-spell-779",
@@ -20051,26 +20102,6 @@
       "Focus"
     ],
     "rarity": "rare"
-  },
-  {
-    "id": "aonprd-spell-902",
-    "nameRu": "Elemental Annihilation Wave",
-    "nameEn": "Elemental Annihilation Wave",
-    "level": 3,
-    "tradition": [
-      "arcane",
-      "primal"
-    ],
-    "school": "evocation",
-    "classes": [],
-    "traits": [
-      "Air",
-      "Earth",
-      "Evocation",
-      "Fire",
-      "Water"
-    ],
-    "rarity": "common"
   },
   {
     "id": "aonprd-spell-1264",
@@ -20536,24 +20567,6 @@
     "rarity": "common"
   },
   {
-    "id": "aonprd-spell-962",
-    "nameRu": "Ooze Form",
-    "nameEn": "Ooze Form",
-    "level": 3,
-    "tradition": [
-      "arcane",
-      "occult"
-    ],
-    "school": "transmutation",
-    "classes": [],
-    "traits": [
-      "Polymorph",
-      "Transmutation",
-      "полиморф"
-    ],
-    "rarity": "common"
-  },
-  {
     "id": "aonprd-ritual-222",
     "nameRu": "Owb Pact",
     "nameEn": "Owb Pact",
@@ -20634,25 +20647,6 @@
       "Uncommon"
     ],
     "rarity": "uncommon"
-  },
-  {
-    "id": "aonprd-spell-972",
-    "nameRu": "Positive Attunement",
-    "nameEn": "Positive Attunement",
-    "level": 3,
-    "tradition": [
-      "divine",
-      "primal"
-    ],
-    "school": "necromancy",
-    "classes": [],
-    "traits": [
-      "Healing",
-      "Necromancy",
-      "Positive",
-      "Vitality"
-    ],
-    "rarity": "common"
   },
   {
     "id": "aonprd-spell-645",
@@ -20982,7 +20976,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -21158,7 +21152,7 @@
     "tradition": [
       "divine"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -21177,7 +21171,7 @@
     "tradition": [
       "occult"
     ],
-    "school": "Unknown",
+    "school": "enchantment",
     "classes": [],
     "traits": [
       "Enchantment",
@@ -21194,7 +21188,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -21213,7 +21207,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Aura",
@@ -21234,7 +21228,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -21251,7 +21245,7 @@
     "tradition": [
       "primal"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Air",
@@ -21273,7 +21267,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -21397,7 +21391,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "enchantment",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -21456,7 +21450,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -21552,7 +21546,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "illusion",
     "classes": [],
     "traits": [
       "Visual",
@@ -21630,7 +21624,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Transmutation",
@@ -21664,7 +21658,7 @@
     "tradition": [
       "primal"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -21761,7 +21755,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -21778,7 +21772,7 @@
     "tradition": [
       "primal"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -21817,7 +21811,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Conjuration",
@@ -21880,6 +21874,23 @@
       "Metal",
       "Uncommon",
       "Фокальное"
+    ],
+    "rarity": "uncommon"
+  },
+  {
+    "id": "aonprd-spell-1001",
+    "nameRu": "Духовная настройка",
+    "nameEn": "Spiritual Attunement",
+    "level": 4,
+    "tradition": [
+      "divine",
+      "occult"
+    ],
+    "school": "abjuration",
+    "classes": [],
+    "traits": [
+      "Abjuration",
+      "Uncommon"
     ],
     "rarity": "uncommon"
   },
@@ -22006,7 +22017,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "enchantment",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -22055,6 +22066,22 @@
     "rarity": "common"
   },
   {
+    "id": "aonprd-spell-936",
+    "nameRu": "Занавес невидимости",
+    "nameEn": "Invisibility Curtain",
+    "level": 4,
+    "tradition": [
+      "arcane",
+      "occult"
+    ],
+    "school": "illusion",
+    "classes": [],
+    "traits": [
+      "Illusion"
+    ],
+    "rarity": "common"
+  },
+  {
     "id": "aonprd-spell-2749",
     "nameRu": "Заразительная мелодия",
     "nameEn": "Infectious Melody",
@@ -22062,7 +22089,7 @@
     "tradition": [
       "occult"
     ],
-    "school": "Unknown",
+    "school": "enchantment",
     "classes": [],
     "traits": [
       "Auditory",
@@ -22119,7 +22146,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -22257,7 +22284,7 @@
     "tradition": [
       "occult"
     ],
-    "school": "Unknown",
+    "school": "divination",
     "classes": [],
     "traits": [
       "Divination",
@@ -22294,7 +22321,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "illusion",
     "classes": [],
     "traits": [
       "Illusion"
@@ -22389,7 +22416,7 @@
     "tradition": [
       "arcane"
     ],
-    "school": "Unknown",
+    "school": "abjuration",
     "classes": [],
     "traits": [
       "Abjuration",
@@ -22467,7 +22494,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -22564,7 +22591,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -22608,7 +22635,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -22628,7 +22655,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Cold",
@@ -22774,6 +22801,27 @@
     "rarity": "uncommon"
   },
   {
+    "id": "aonprd-spell-1068",
+    "nameRu": "Марш Джизаньи",
+    "nameEn": "Girzanje's March",
+    "level": 4,
+    "tradition": [
+      "divine",
+      "occult"
+    ],
+    "school": "enchantment",
+    "classes": [],
+    "traits": [
+      "Auditory",
+      "Enchantment",
+      "Linguistic",
+      "Mental",
+      "Uncommon",
+      "языковой"
+    ],
+    "rarity": "uncommon"
+  },
+  {
     "id": "aonprd-spell-1907",
     "nameRu": "Междисциплинарное волшебство",
     "nameEn": "Interdisciplinary Incantation",
@@ -22818,7 +22866,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Conjuration",
@@ -22948,7 +22996,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "divination",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -23081,7 +23129,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Necromancy",
@@ -23097,7 +23145,7 @@
     "tradition": [
       "occult"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -23154,7 +23202,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "divination",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -23198,7 +23246,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -23217,7 +23265,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -23236,7 +23284,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "enchantment",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -23277,7 +23325,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "abjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -23522,7 +23570,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "abjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -23597,7 +23645,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "divination",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -23729,7 +23777,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -23805,7 +23853,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -23842,7 +23890,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -23862,7 +23910,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "divination",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -23902,7 +23950,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "illusion",
     "classes": [],
     "traits": [
       "Illusion",
@@ -23940,7 +23988,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "enchantment",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -23980,7 +24028,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -24059,7 +24107,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "enchantment",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -24081,7 +24129,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -24142,7 +24190,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "enchantment",
     "classes": [],
     "traits": [
       "Enchantment",
@@ -24163,7 +24211,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "abjuration",
     "classes": [],
     "traits": [
       "Abjuration"
@@ -24238,7 +24286,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -24468,7 +24516,7 @@
       "divine",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -24529,7 +24577,7 @@
       "arcane",
       "divine"
     ],
-    "school": "Unknown",
+    "school": "abjuration",
     "classes": [],
     "traits": [
       "Abjuration"
@@ -24544,7 +24592,7 @@
     "tradition": [
       "divine"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -24588,11 +24636,11 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "abjuration",
     "classes": [],
     "traits": [
       "Abjuration",
-      "сила"
+      "Force"
     ],
     "rarity": "common"
   },
@@ -24737,7 +24785,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Healing",
@@ -24911,7 +24959,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "abjuration",
     "classes": [],
     "traits": [
       "Abjuration"
@@ -24985,7 +25033,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -25003,7 +25051,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "divination",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -25101,7 +25149,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Conjuration",
@@ -25156,7 +25204,7 @@
     "tradition": [
       "primal"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Attack",
@@ -25214,7 +25262,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "abjuration",
     "classes": [],
     "traits": [
       "Abjuration"
@@ -25286,7 +25334,7 @@
     "tradition": [
       "primal"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -25326,7 +25374,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -25476,7 +25524,7 @@
       "divine",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -25498,7 +25546,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -25516,7 +25564,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "divination",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -25634,7 +25682,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "divination",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -26257,27 +26305,6 @@
     "rarity": "common"
   },
   {
-    "id": "aonprd-spell-1068",
-    "nameRu": "Girzanje's March",
-    "nameEn": "Girzanje's March",
-    "level": 4,
-    "tradition": [
-      "divine",
-      "occult"
-    ],
-    "school": "enchantment",
-    "classes": [],
-    "traits": [
-      "Auditory",
-      "Enchantment",
-      "Linguistic",
-      "Mental",
-      "Uncommon",
-      "языковой"
-    ],
-    "rarity": "uncommon"
-  },
-  {
     "id": "aonprd-spell-2946",
     "nameRu": "Glimpse The Netherworld",
     "nameEn": "Glimpse The Netherworld",
@@ -26312,22 +26339,6 @@
       "Focus"
     ],
     "rarity": "rare"
-  },
-  {
-    "id": "aonprd-spell-936",
-    "nameRu": "Invisibility Curtain",
-    "nameEn": "Invisibility Curtain",
-    "level": 4,
-    "tradition": [
-      "arcane",
-      "occult"
-    ],
-    "school": "illusion",
-    "classes": [],
-    "traits": [
-      "Illusion"
-    ],
-    "rarity": "common"
   },
   {
     "id": "aonprd-spell-2588",
@@ -26785,23 +26796,6 @@
     "rarity": "uncommon"
   },
   {
-    "id": "aonprd-spell-1001",
-    "nameRu": "Spiritual Attunement",
-    "nameEn": "Spiritual Attunement",
-    "level": 4,
-    "tradition": [
-      "divine",
-      "occult"
-    ],
-    "school": "abjuration",
-    "classes": [],
-    "traits": [
-      "Abjuration",
-      "Uncommon"
-    ],
-    "rarity": "uncommon"
-  },
-  {
     "id": "aonprd-spell-2472",
     "nameRu": "Spiritual Renewal",
     "nameEn": "Spiritual Renewal",
@@ -27137,7 +27131,7 @@
       "divine",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "abjuration",
     "classes": [],
     "traits": [
       "Manipulate",
@@ -27253,7 +27247,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -27273,7 +27267,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -27369,7 +27363,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Death",
@@ -27429,7 +27423,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -27487,7 +27481,7 @@
     "tradition": [
       "primal"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -27629,7 +27623,7 @@
     "nameEn": "Tree Stride",
     "level": 5,
     "tradition": [],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Conjuration",
@@ -27671,7 +27665,7 @@
     "tradition": [
       "divine"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -27734,7 +27728,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -27812,7 +27806,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -27909,7 +27903,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "divination",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -27933,7 +27927,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "abjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -28053,7 +28047,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -28072,7 +28066,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Acid",
@@ -28090,7 +28084,7 @@
     "tradition": [
       "arcane"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Evocation",
@@ -28220,7 +28214,7 @@
     "tradition": [
       "primal"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -28259,7 +28253,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -28280,7 +28274,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Cold",
@@ -28343,7 +28337,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -28351,7 +28345,6 @@
       "Manipulate",
       "Teleportation",
       "Conjuration",
-      "сила",
       "телепортация"
     ],
     "rarity": "common"
@@ -28463,7 +28456,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -28518,7 +28511,7 @@
     "tradition": [
       "occult"
     ],
-    "school": "Unknown",
+    "school": "enchantment",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -28539,7 +28532,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "divination",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -28558,7 +28551,7 @@
     "tradition": [
       "divine"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Evocation",
@@ -28618,6 +28611,23 @@
       "Concentrate",
       "Manipulate",
       "Poison"
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "aonprd-spell-982",
+    "nameRu": "Отталкивающий импульс",
+    "nameEn": "Repelling Pulse",
+    "level": 5,
+    "tradition": [
+      "divine",
+      "occult"
+    ],
+    "school": "evocation",
+    "classes": [],
+    "traits": [
+      "Evocation",
+      "Force"
     ],
     "rarity": "common"
   },
@@ -28775,6 +28785,24 @@
     "rarity": "common"
   },
   {
+    "id": "aonprd-spell-866",
+    "nameRu": "Погибель бандита",
+    "nameEn": "Bandit's Doom",
+    "level": 5,
+    "tradition": [
+      "arcane",
+      "divine",
+      "occult"
+    ],
+    "school": "abjuration",
+    "classes": [],
+    "traits": [
+      "Abjuration",
+      "Curse"
+    ],
+    "rarity": "common"
+  },
+  {
     "id": "aonprd-spell-1692",
     "nameRu": "Подсознательное внушение",
     "nameEn": "Subconscious Suggestion",
@@ -28783,7 +28811,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "enchantment",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -28842,7 +28870,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "divination",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -28861,7 +28889,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Conjuration"
@@ -28947,7 +28975,7 @@
     "tradition": [
       "divine"
     ],
-    "school": "Unknown",
+    "school": "abjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -28955,7 +28983,37 @@
       "Sanctified",
       "Spirit",
       "Abjuration",
-      "сила"
+      "Force"
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "aonprd-spell-1006",
+    "nameRu": "Призыв аксиома",
+    "nameEn": "Summon Axiom",
+    "level": 5,
+    "tradition": [
+      "divine"
+    ],
+    "school": "conjuration",
+    "classes": [],
+    "traits": [
+      "Conjuration"
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "aonprd-spell-1004",
+    "nameRu": "Призыв анарха",
+    "nameEn": "Summon Anarch",
+    "level": 5,
+    "tradition": [
+      "divine"
+    ],
+    "school": "conjuration",
+    "classes": [],
+    "traits": [
+      "Conjuration"
     ],
     "rarity": "common"
   },
@@ -28967,7 +29025,7 @@
     "tradition": [
       "divine"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -28987,7 +29045,7 @@
     "tradition": [
       "primal"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -29009,7 +29067,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -29019,6 +29077,27 @@
       "Conjuration"
     ],
     "rarity": "common"
+  },
+  {
+    "id": "aonprd-spell-1257",
+    "nameRu": "Призыв исцеляющего слуги",
+    "nameEn": "Summon Healing Servitor",
+    "level": 5,
+    "tradition": [
+      "divine",
+      "primal"
+    ],
+    "school": "necromancy",
+    "classes": [],
+    "traits": [
+      "Healing",
+      "Incarnate",
+      "Necromancy",
+      "Positive",
+      "Uncommon",
+      "Vitality"
+    ],
+    "rarity": "uncommon"
   },
   {
     "id": "aonprd-spell-1704",
@@ -29046,7 +29125,7 @@
     "tradition": [
       "divine"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -29066,7 +29145,7 @@
     "tradition": [
       "occult"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -29167,7 +29246,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -29210,7 +29289,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -29248,7 +29327,7 @@
     "tradition": [
       "arcane"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Conjuration",
@@ -29339,7 +29418,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -29360,7 +29439,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "divination",
     "classes": [],
     "traits": [
       "Divination",
@@ -29427,6 +29506,23 @@
     "rarity": "common"
   },
   {
+    "id": "aonprd-spell-915",
+    "nameRu": "Рука силы",
+    "nameEn": "Forceful Hand",
+    "level": 5,
+    "tradition": [
+      "arcane",
+      "occult"
+    ],
+    "school": "evocation",
+    "classes": [],
+    "traits": [
+      "Evocation",
+      "Force"
+    ],
+    "rarity": "common"
+  },
+  {
     "id": "aonprd-spell-1777",
     "nameRu": "Симфония безудержных сердец",
     "nameEn": "Symphony of the Unfettered Heart",
@@ -29453,7 +29549,7 @@
     "tradition": [
       "occult"
     ],
-    "school": "Unknown",
+    "school": "divination",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -29490,7 +29586,7 @@
     "tradition": [
       "arcane"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Necromancy",
@@ -29527,7 +29623,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "enchantment",
     "classes": [],
     "traits": [
       "Enchantment",
@@ -29544,7 +29640,7 @@
     "tradition": [
       "occult"
     ],
-    "school": "Unknown",
+    "school": "enchantment",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -29563,7 +29659,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Cold",
@@ -29584,7 +29680,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -29659,7 +29755,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -29713,7 +29809,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -29749,7 +29845,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Conjuration",
@@ -29784,7 +29880,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -29922,7 +30018,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -29960,7 +30056,7 @@
     "tradition": [
       "occult"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -29979,7 +30075,7 @@
     "tradition": [
       "primal"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -30001,7 +30097,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -30056,7 +30152,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "illusion",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -30075,7 +30171,7 @@
       "divine",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -30096,7 +30192,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Conjuration"
@@ -30113,7 +30209,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -30191,14 +30287,13 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Concentrate",
       "Force",
       "Manipulate",
-      "Evocation",
-      "сила"
+      "Evocation"
     ],
     "rarity": "common"
   },
@@ -30212,7 +30307,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "divination",
     "classes": [],
     "traits": [
       "Divination"
@@ -30231,24 +30326,6 @@
       "Uncommon"
     ],
     "rarity": "uncommon"
-  },
-  {
-    "id": "aonprd-spell-866",
-    "nameRu": "Bandit's Doom",
-    "nameEn": "Bandit's Doom",
-    "level": 5,
-    "tradition": [
-      "arcane",
-      "divine",
-      "occult"
-    ],
-    "school": "abjuration",
-    "classes": [],
-    "traits": [
-      "Abjuration",
-      "Curse"
-    ],
-    "rarity": "common"
   },
   {
     "id": "aonprd-spell-1278",
@@ -30580,24 +30657,6 @@
       "Rare"
     ],
     "rarity": "rare"
-  },
-  {
-    "id": "aonprd-spell-915",
-    "nameRu": "Forceful Hand",
-    "nameEn": "Forceful Hand",
-    "level": 5,
-    "tradition": [
-      "arcane",
-      "occult"
-    ],
-    "school": "evocation",
-    "classes": [],
-    "traits": [
-      "Evocation",
-      "Force",
-      "сила"
-    ],
-    "rarity": "common"
   },
   {
     "id": "aonprd-ritual-147",
@@ -30988,24 +31047,6 @@
     "rarity": "uncommon"
   },
   {
-    "id": "aonprd-spell-982",
-    "nameRu": "Repelling Pulse",
-    "nameEn": "Repelling Pulse",
-    "level": 5,
-    "tradition": [
-      "divine",
-      "occult"
-    ],
-    "school": "evocation",
-    "classes": [],
-    "traits": [
-      "Evocation",
-      "Force",
-      "сила"
-    ],
-    "rarity": "common"
-  },
-  {
     "id": "aonprd-ritual-123",
     "nameRu": "Resurrect",
     "nameEn": "Resurrect",
@@ -31267,57 +31308,6 @@
       "Unique"
     ],
     "rarity": "unique"
-  },
-  {
-    "id": "aonprd-spell-1004",
-    "nameRu": "Summon Anarch",
-    "nameEn": "Summon Anarch",
-    "level": 5,
-    "tradition": [
-      "divine"
-    ],
-    "school": "conjuration",
-    "classes": [],
-    "traits": [
-      "Conjuration"
-    ],
-    "rarity": "common"
-  },
-  {
-    "id": "aonprd-spell-1006",
-    "nameRu": "Summon Axiom",
-    "nameEn": "Summon Axiom",
-    "level": 5,
-    "tradition": [
-      "divine"
-    ],
-    "school": "conjuration",
-    "classes": [],
-    "traits": [
-      "Conjuration"
-    ],
-    "rarity": "common"
-  },
-  {
-    "id": "aonprd-spell-1257",
-    "nameRu": "Summon Healing Servitor",
-    "nameEn": "Summon Healing Servitor",
-    "level": 5,
-    "tradition": [
-      "divine",
-      "primal"
-    ],
-    "school": "necromancy",
-    "classes": [],
-    "traits": [
-      "Healing",
-      "Incarnate",
-      "Necromancy",
-      "Positive",
-      "Uncommon",
-      "Vitality"
-    ],
-    "rarity": "uncommon"
   },
   {
     "id": "aonprd-spell-1016",
@@ -31604,7 +31594,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "abjuration",
     "classes": [],
     "traits": [
       "Manipulate",
@@ -31622,7 +31612,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -31661,7 +31651,7 @@
     "tradition": [
       "divine"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -31752,7 +31742,7 @@
     "tradition": [
       "arcane"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Transmutation",
@@ -31769,7 +31759,7 @@
     "tradition": [
       "arcane"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Attack",
@@ -31789,15 +31779,14 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "abjuration",
     "classes": [],
     "traits": [
       "Concentrate",
       "Curse",
       "Force",
       "Manipulate",
-      "Abjuration",
-      "сила"
+      "Abjuration"
     ],
     "rarity": "common"
   },
@@ -31828,14 +31817,14 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Concentrate",
       "Manipulate",
       "Spirit",
       "Necromancy",
-      "сила"
+      "Force"
     ],
     "rarity": "common"
   },
@@ -31890,7 +31879,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "divination",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -32024,7 +32013,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "divination",
     "classes": [],
     "traits": [
       "Divination",
@@ -32078,7 +32067,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -32312,7 +32301,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -32332,7 +32321,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -32384,7 +32373,7 @@
     "nameEn": "Fire Seeds",
     "level": 6,
     "tradition": [],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Evocation",
@@ -32439,7 +32428,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -32469,6 +32458,27 @@
     "rarity": "common"
   },
   {
+    "id": "aonprd-spell-2607",
+    "nameRu": "Отложенное возмездие",
+    "nameEn": "Suspended Retribution",
+    "level": 6,
+    "tradition": [
+      "divine",
+      "occult"
+    ],
+    "school": "divination",
+    "classes": [],
+    "traits": [
+      "Concentrate",
+      "Curse",
+      "Manipulate",
+      "Mental",
+      "Prediction",
+      "Divination"
+    ],
+    "rarity": "common"
+  },
+  {
     "id": "aonprd-spell-1650",
     "nameRu": "Отторжение",
     "nameEn": "Repulsion",
@@ -32478,7 +32488,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "abjuration",
     "classes": [],
     "traits": [
       "Aura",
@@ -32537,7 +32547,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Air",
@@ -32556,7 +32566,7 @@
     "tradition": [
       "arcane"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Transmutation"
@@ -32573,7 +32583,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "enchantment",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -32616,7 +32626,7 @@
       "divine",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -32672,7 +32682,7 @@
     "tradition": [
       "divine"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Transmutation",
@@ -32716,6 +32726,25 @@
       "Focus"
     ],
     "rarity": "uncommon"
+  },
+  {
+    "id": "aonprd-spell-2600",
+    "nameRu": "Пробуждение энтропии",
+    "nameEn": "Awaken Entropy",
+    "level": 6,
+    "tradition": [
+      "arcane",
+      "divine",
+      "occult"
+    ],
+    "school": "necromancy",
+    "classes": [],
+    "traits": [
+      "Concentrate",
+      "Manipulate",
+      "Necromancy"
+    ],
+    "rarity": "common"
   },
   {
     "id": "aonprd-spell-1479",
@@ -32823,7 +32852,7 @@
     "tradition": [
       "divine"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Evocation",
@@ -32894,14 +32923,13 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Concentrate",
       "Force",
       "Manipulate",
-      "Evocation",
-      "сила"
+      "Evocation"
     ],
     "rarity": "common"
   },
@@ -32935,7 +32963,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "enchantment",
     "classes": [],
     "traits": [
       "Enchantment",
@@ -32955,7 +32983,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "enchantment",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -32977,7 +33005,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Air",
@@ -33000,11 +33028,11 @@
     "tradition": [
       "divine"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Evocation",
-      "сила"
+      "Force"
     ],
     "rarity": "common"
   },
@@ -33039,7 +33067,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "divination",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -33059,7 +33087,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -33138,7 +33166,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "enchantment",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -33198,7 +33226,7 @@
       "arcane",
       "divine"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -33220,7 +33248,7 @@
       "arcane",
       "divine"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -33245,7 +33273,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -33265,7 +33293,7 @@
       "arcane",
       "divine"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -33323,7 +33351,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -33382,7 +33410,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -33436,25 +33464,6 @@
       "Uncommon"
     ],
     "rarity": "uncommon"
-  },
-  {
-    "id": "aonprd-spell-2600",
-    "nameRu": "Awaken Entropy",
-    "nameEn": "Awaken Entropy",
-    "level": 6,
-    "tradition": [
-      "arcane",
-      "divine",
-      "occult"
-    ],
-    "school": "Unknown",
-    "classes": [],
-    "traits": [
-      "Concentrate",
-      "Manipulate",
-      "Necromancy"
-    ],
-    "rarity": "common"
   },
   {
     "id": "aonprd-ritual-245",
@@ -34042,27 +34051,6 @@
     "rarity": "uncommon"
   },
   {
-    "id": "aonprd-spell-2607",
-    "nameRu": "Suspended Retribution",
-    "nameEn": "Suspended Retribution",
-    "level": 6,
-    "tradition": [
-      "divine",
-      "occult"
-    ],
-    "school": "Unknown",
-    "classes": [],
-    "traits": [
-      "Concentrate",
-      "Curse",
-      "Manipulate",
-      "Mental",
-      "Prediction",
-      "Divination"
-    ],
-    "rarity": "common"
-  },
-  {
     "id": "aonprd-spell-2457",
     "nameRu": "Tanglecurse",
     "nameEn": "Tanglecurse",
@@ -34202,7 +34190,7 @@
     "tradition": [
       "divine"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -34239,7 +34227,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Incarnate",
@@ -34276,7 +34264,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "divination",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -34314,7 +34302,7 @@
       "divine",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Cold",
@@ -34392,7 +34380,7 @@
     "tradition": [
       "occult"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -34435,7 +34423,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -34492,7 +34480,7 @@
     "tradition": [
       "arcane"
     ],
-    "school": "Unknown",
+    "school": "abjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -34565,7 +34553,7 @@
     "tradition": [
       "primal"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -34584,7 +34572,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "enchantment",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -34626,7 +34614,7 @@
       "divine",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -34713,7 +34701,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "divination",
     "classes": [],
     "traits": [
       "Manipulate",
@@ -34730,7 +34718,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -34790,7 +34778,7 @@
     "tradition": [
       "primal"
     ],
-    "school": "Unknown",
+    "school": "abjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -34861,7 +34849,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -34918,7 +34906,7 @@
     "tradition": [
       "arcane"
     ],
-    "school": "Unknown",
+    "school": "abjuration",
     "classes": [],
     "traits": [
       "Abjuration"
@@ -34952,7 +34940,7 @@
     "tradition": [
       "divine"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Necromancy",
@@ -35008,7 +34996,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Conjuration",
@@ -35139,7 +35127,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "abjuration",
     "classes": [],
     "traits": [
       "Abjuration"
@@ -35211,7 +35199,7 @@
       "divine",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -35232,7 +35220,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "divination",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -35250,7 +35238,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Conjuration",
@@ -35286,11 +35274,11 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Evocation",
-      "сила"
+      "Force"
     ],
     "rarity": "common"
   },
@@ -35342,7 +35330,7 @@
       "divine",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -35400,7 +35388,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -35436,7 +35424,7 @@
     "tradition": [
       "divine"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Attack",
@@ -35445,8 +35433,7 @@
       "Manipulate",
       "Sanctified",
       "Spirit",
-      "Evocation",
-      "сила"
+      "Evocation"
     ],
     "rarity": "common"
   },
@@ -35498,7 +35485,7 @@
     "tradition": [
       "divine"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -35520,7 +35507,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Cold",
@@ -35588,7 +35575,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "abjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -36133,7 +36120,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "enchantment",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -36170,7 +36157,7 @@
     "tradition": [
       "divine"
     ],
-    "school": "Unknown",
+    "school": "enchantment",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -36188,7 +36175,7 @@
     "tradition": [
       "divine"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -36211,7 +36198,7 @@
     "tradition": [
       "primal"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -36320,7 +36307,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "divination",
     "classes": [],
     "traits": [
       "Divination",
@@ -36413,7 +36400,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -36472,7 +36459,7 @@
     "tradition": [
       "arcane"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Necromancy",
@@ -36509,7 +36496,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -36528,7 +36515,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "illusion",
     "classes": [],
     "traits": [
       "Illusion",
@@ -36580,7 +36567,7 @@
     "tradition": [
       "primal"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Air",
@@ -36599,7 +36586,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Conjuration",
@@ -36634,7 +36621,7 @@
       "divine",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -36653,7 +36640,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "divination",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -36691,7 +36678,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -36773,7 +36760,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "enchantment",
     "classes": [],
     "traits": [
       "Auditory",
@@ -36796,14 +36783,14 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Concentrate",
       "Manipulate",
       "Spirit",
       "Necromancy",
-      "сила"
+      "Force"
     ],
     "rarity": "common"
   },
@@ -36851,7 +36838,7 @@
     "tradition": [
       "arcane"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Evocation",
@@ -36923,7 +36910,7 @@
     "tradition": [
       "arcane"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Conjuration",
@@ -36939,7 +36926,7 @@
     "tradition": [
       "divine"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Incarnate",
@@ -36992,7 +36979,7 @@
     "nameEn": "Wind Walk",
     "level": 8,
     "tradition": [],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Transmutation",
@@ -37009,7 +36996,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "enchantment",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -37190,7 +37177,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "abjuration",
     "classes": [],
     "traits": [
       "Abjuration"
@@ -37225,7 +37212,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -37586,7 +37573,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -37643,7 +37630,7 @@
     "nameEn": "Storm of Vengeance",
     "level": 9,
     "tradition": [],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Evocation",
@@ -37737,7 +37724,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Necromancy",
@@ -37815,7 +37802,7 @@
     "tradition": [
       "primal"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -37835,7 +37822,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "illusion",
     "classes": [],
     "traits": [
       "Illusion",
@@ -37855,7 +37842,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Necromancy",
@@ -37890,7 +37877,7 @@
     "tradition": [
       "arcane"
     ],
-    "school": "Unknown",
+    "school": "abjuration",
     "classes": [],
     "traits": [
       "Abjuration"
@@ -37958,7 +37945,7 @@
     "tradition": [
       "arcane"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Evocation",
@@ -38015,7 +38002,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Aura",
@@ -38039,7 +38026,7 @@
     "tradition": [
       "occult"
     ],
-    "school": "Unknown",
+    "school": "enchantment",
     "classes": [],
     "traits": [
       "Auditory",
@@ -38062,7 +38049,7 @@
     "tradition": [
       "primal"
     ],
-    "school": "Unknown",
+    "school": "enchantment",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -38118,11 +38105,11 @@
     "tradition": [
       "divine"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Evocation",
-      "сила"
+      "Force"
     ],
     "rarity": "common"
   },
@@ -38135,7 +38122,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "enchantment",
     "classes": [],
     "traits": [
       "Auditory",
@@ -38241,7 +38228,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "divination",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -38260,7 +38247,7 @@
     "tradition": [
       "arcane"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Incarnate",
@@ -38316,7 +38303,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -38335,7 +38322,7 @@
       "divine",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -38356,7 +38343,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -38409,7 +38396,7 @@
     "tradition": [
       "arcane"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Transmutation",
@@ -38426,7 +38413,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -38445,7 +38432,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "enchantment",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -39012,7 +38999,7 @@
     "tradition": [
       "divine"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -39034,7 +39021,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "abjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -39129,7 +39116,7 @@
     "tradition": [
       "primal"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -39148,7 +39135,7 @@
     "tradition": [
       "primal"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -39170,7 +39157,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -39190,7 +39177,7 @@
       "divine",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -39251,7 +39238,7 @@
     "tradition": [
       "arcane"
     ],
-    "school": "Unknown",
+    "school": "divination",
     "classes": [],
     "traits": [
       "Rare",
@@ -39309,7 +39296,7 @@
     "tradition": [
       "occult"
     ],
-    "school": "Unknown",
+    "school": "divination",
     "classes": [],
     "traits": [
       "Divination"
@@ -39325,7 +39312,7 @@
       "arcane",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "evocation",
     "classes": [],
     "traits": [
       "Acid",
@@ -39349,7 +39336,7 @@
     "tradition": [
       "occult"
     ],
-    "school": "Unknown",
+    "school": "enchantment",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -39395,7 +39382,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "abjuration",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -39413,7 +39400,7 @@
       "divine",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "necromancy",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -39472,7 +39459,7 @@
       "arcane",
       "occult"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Transmutation"
@@ -39487,7 +39474,7 @@
     "tradition": [
       "primal"
     ],
-    "school": "Unknown",
+    "school": "transmutation",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -39506,7 +39493,7 @@
     "tradition": [
       "primal"
     ],
-    "school": "Unknown",
+    "school": "divination",
     "classes": [],
     "traits": [
       "Divination"
@@ -39555,7 +39542,7 @@
     "nameEn": "Summon Kaiju",
     "level": 10,
     "tradition": [],
-    "school": "Unknown",
+    "school": "conjuration",
     "classes": [],
     "traits": [
       "Conjuration",
@@ -39633,7 +39620,7 @@
       "occult",
       "primal"
     ],
-    "school": "Unknown",
+    "school": "divination",
     "classes": [],
     "traits": [
       "Concentrate",
@@ -39689,7 +39676,7 @@
     "tradition": [
       "divine"
     ],
-    "school": "Unknown",
+    "school": "divination",
     "classes": [],
     "traits": [
       "Divination"
