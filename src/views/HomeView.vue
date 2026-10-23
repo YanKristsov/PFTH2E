@@ -71,7 +71,7 @@ function toggleFavorite(spellId: string) {
         >
           <span v-if="viewMode === 'table'" aria-hidden="true">📋</span>
           <span v-else aria-hidden="true">📊</span>
-          <span class="hidden mobile:hidden">{{ viewMode === 'table' ? 'Карточки' : 'Таблица' }}</span>
+          <span>{{ viewMode === 'table' ? 'Карточки' : 'Таблица' }}</span>
         </button>
       </div>
     </header>
