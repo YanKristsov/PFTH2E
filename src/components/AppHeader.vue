@@ -80,18 +80,10 @@ function getThemeIcon() {
     </div>
   </header>
 
-  <Teleport to="body">
-    <div v-if="showMobileMenu" class="sidebar-overlay open" aria-hidden="true" @click="showMobileMenu = false"></div>
-    <aside v-if="showMobileMenu" class="sidebar open" role="dialog" aria-label="Меню и фильтры" @click="onSidebarClick">
-      <div class="flex items-center justify-between p-md border-b border-[var(--color-border)]">
-        <h2 class="text-lg font-semibold">Меню и фильтры</h2>
-        <button class="btn btn-ghost" aria-label="Закрыть меню" @click="showMobileMenu = false">✕</button>
-      </div>
-      <div class="flex-1 overflow-y-auto">
-        <AppSidebar />
-      </div>
-    </aside>
-  </Teleport>
+    <Teleport to="body">
+      <div v-if="showMobileMenu" class="sidebar-overlay open" aria-hidden="true" @click="showMobileMenu = false"></div>
+      <AppSidebar v-if="showMobileMenu" class="open" mobile @close="showMobileMenu = false" @click="onSidebarClick" />
+    </Teleport>
 </template>
 
 <style scoped>

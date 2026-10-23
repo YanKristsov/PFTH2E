@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, defineEmits, defineProps } from 'vue'
+const props = defineProps<{ mobile?: boolean }>()
+const emit = defineEmits<{ close: [] }>()
 import { useRoute } from 'vue-router'
 import { useSpells } from '@/composables/useSpells'
 import { useFilterStore } from '@/stores'
@@ -66,6 +68,10 @@ function filterValueText(filter: { key: keyof FilterState; value: FilterState[ke
 
 <template>
   <aside class="sidebar" role="navigation" aria-label="Фильтры и навигация">
+    <div v-if="props.mobile" class="flex items-center justify-between p-md border-b border-[var(--color-border)]">
+      <h2 class="text-lg font-semibold">Меню и фильтры</h2>
+      <button class="btn btn-ghost" aria-label="Закрыть меню" @click="emit('close')">✕</button>
+    </div>
     <nav class="sidebar-nav p-md border-b border-[var(--color-border)]" aria-label="Основная навигация">
       <router-link
         v-for="item in [
