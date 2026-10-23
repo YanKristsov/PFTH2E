@@ -2,12 +2,11 @@
 import { computed, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useSpells } from '@/composables/useSpells'
-import { useFavoritesStore, useHistoryStore, useSettingsStore } from '@/stores'
+import { useFavoritesStore, useHistoryStore } from '@/stores'
 import { rarityLabel, schoolLabel, traditionLabel, traitLabel, classLabel, COMPONENT_LABELS, GENERIC_CLASS_LABEL } from '@/constants/translations'
 
 const route = useRoute()
 const router = useRouter()
-const settingsStore = useSettingsStore()
 const favoritesStore = useFavoritesStore()
 const historyStore = useHistoryStore()
 const { getSpell, loadError, spells } = useSpells()
@@ -15,35 +14,14 @@ const { getSpell, loadError, spells } = useSpells()
 const spellId = computed(() => route.params.id as string)
 const spell = computed(() => getSpell(spellId.value))
 
-const activeTab = ref<'brief' | 'full'>('brief')
-const activeDescription = computed(() => {
-  const currentSpell = spell.value
-  const language = settingsStore.state.language
-  if (!currentSpell) {
-    return { text: '', language, source: '', isHtml: false }
-  }
-  const translated = currentSpell?.description[language] || ''
-  if (translated) {
-    return {
-      text: translated,
-      language,
-      source: '',
-      isHtml: currentSpell.source.some(variant =>
-        variant.source.type === 'aonprd' && variant.description === translated
-      )
-    }
-  }
-
-  const official = currentSpell?.source.find(variant =>
-    variant.source.type === 'aonprd' && variant.description
-  )
-  return {
-    text: official?.description || '',
-    language: 'en' as const,
-    source: official?.source.name || '',
-    isHtml: Boolean(official)
-  }
+const SOURCE_ORDER: Record<string, number> = { pf2ru: 0, 'pf2e-ru-translation': 1, aonprd: 2 }
+const orderedSources = computed(() => {
+  if (!spell.value) return []
+  return [...spell.value.source].sort((a, b) => (SOURCE_ORDER[a.source.type] ?? 9) - (SOURCE_ORDER[b.source.type] ?? 9))
 })
+const activeSourceIndex = ref(0)
+const activeVariant = computed(() => orderedSources.value[activeSourceIndex.value])
+watch(orderedSources, () => { activeSourceIndex.value = 0 })
 
 // Данные загружаются асинхронно (App.vue → useSpells().load()), поэтому проверять
 // существование заклинания можно только после загрузки списка — иначе прямая
@@ -65,7 +43,7 @@ watch(
 )
 
 watch(spellId, () => {
-  activeTab.value = 'brief'
+  activeSourceIndex.value = 0
 })
 
 function escapeHtml(text: string): string {
@@ -184,97 +162,47 @@ function exportSpell() {
         <div class="mt-md flex flex-wrap gap-xs">
           <span v-for="t in spell.traits" :key="t" class="chip">{{ traitLabel(t) }}</span>
         </div>
-
-        <div v-if="spell.source.length > 1" class="mt-md p-sm bg-[var(--color-background)] rounded">
-          <p class="text-sm font-medium mb-xs">Варианты источника:</p>
-          <div class="flex flex-wrap gap-sm text-sm">
-              <span v-for="(src, sourceIndex) in spell.source" :key="`${src.source.type}-${src.source.name}-${sourceIndex}`" class="chip" :data-tooltip="src.source.url">{{ src.source.name }}: {{ src.name }}</span>
-          </div>
-        </div>
       </div>
     </header>
 
-    <div class="tabs" role="tablist" aria-label="Вкладки описания заклинания">
+    <div class="tabs" role="tablist" aria-label="Варианты источника">
       <button
-        id="tab-brief"
+        v-for="(src, i) in orderedSources"
+        :key="`${src.source.type}-${src.source.name}-${i}`"
         role="tab"
-        :class="['tab', { active: activeTab === 'brief' }]"
-        :aria-selected="activeTab === 'brief'"
-        :aria-controls="`panel-brief`"
-        @click="activeTab = 'brief'"
+        :class="['tab', { active: activeSourceIndex === i }]"
+        :aria-selected="activeSourceIndex === i"
+        @click="activeSourceIndex = i"
       >
-        Кратко
-      </button>
-      <button
-        id="tab-full"
-        role="tab"
-        :class="['tab', { active: activeTab === 'full' }]"
-        :aria-selected="activeTab === 'full'"
-        :aria-controls="`panel-full`"
-        @click="activeTab = 'full'"
-      >
-        Полно
+        {{ src.source.name }}
       </button>
     </div>
 
-    <div id="panel-brief" role="tabpanel" :aria-labelledby="`tab-brief`" :hidden="activeTab !== 'brief'" class="card mt-md">
-      <div class="card-body prose">
-        <p v-if="activeDescription.source" class="text-sm text-secondary mb-sm">
-          Русский перевод недоступен; показывается английский из {{ activeDescription.source }}.
-        </p>
-        <!-- eslint-disable vue/no-v-html -->
-        <div v-if="activeDescription.text" v-html="formatDescription(activeDescription.text, 'brief', activeDescription.isHtml)"></div>
-        <p v-else>Описание недоступно для этого языка.</p>
-        <div v-if="spell.heightened && spell.heightened.length > 0" class="mt-md">
-          <h4 class="font-semibold mb-sm">Усиление</h4>
-          <ul class="space-y-sm">
-            <li v-for="h in spell.heightened" :key="h.level">
-              <strong>{{ h.level }} ур.: </strong>
+    <div v-if="activeVariant" class="card mt-md">
+      <div class="card-body">
+        <header class="mb-sm">
+          <h3 class="font-semibold">
+            <a v-if="activeVariant.source.url" :href="activeVariant.source.url" target="_blank" rel="noopener noreferrer">{{ activeVariant.source.name }}</a>
+            <span v-else>{{ activeVariant.source.name }}</span>
+          </h3>
+          <p class="text-sm text-secondary">{{ activeVariant.name }}</p>
+        </header>
+        <div v-if="activeVariant.description" class="prose">
+          <p class="text-xs text-muted mb-sm">{{ activeVariant.source.type === 'aonprd' ? 'Английский' : 'Русский' }}</p>
+          <!-- eslint-disable vue/no-v-html -->
+          <div v-if="activeVariant.source.type === 'aonprd'" v-html="formatDescription(activeVariant.description, 'full', true)"></div>
+          <p v-else class="whitespace-pre-line">{{ activeVariant.description }}</p>
+        </div>
+        <p v-else class="text-sm text-muted">Описание недоступно для этой публикации.</p>
+        <div v-if="activeVariant.heightened?.length" class="mt-md">
+          <h4 class="font-medium mb-xs">Усиление</h4>
+          <ul class="space-y-xs">
+            <li v-for="heightened in activeVariant.heightened" :key="heightened.level">
+              <strong>{{ heightened.level }} ур.: </strong>
               <!-- eslint-disable vue/no-v-html -->
-              <span v-html="h.description"></span>
+              <span v-html="heightened.description"></span>
             </li>
           </ul>
-        </div>
-      </div>
-    </div>
-
-    <div id="panel-full" role="tabpanel" :aria-labelledby="`tab-full`" :hidden="activeTab !== 'full'" class="card mt-md">
-      <div class="card-body">
-        <div class="space-y-lg">
-          <section
-            v-for="(src, sourceIndex) in spell.source"
-            :key="`${src.source.type}-${src.source.name}-${sourceIndex}`"
-            class="border-t border-[var(--color-border)] pt-md first:border-t-0 first:pt-0"
-          >
-            <header class="mb-sm">
-              <h3 class="font-semibold">
-                <a v-if="src.source.url" :href="src.source.url" target="_blank" rel="noopener noreferrer">{{ src.source.name }}</a>
-                <span v-else>{{ src.source.name }}</span>
-              </h3>
-              <p class="text-sm text-secondary">{{ src.name }}</p>
-            </header>
-            <div v-if="src.description" class="prose">
-              <p class="text-xs text-muted">{{ src.source.type === 'aonprd' ? 'Английский' : 'Русский' }}</p>
-              <!-- eslint-disable vue/no-v-html -->
-              <div v-if="src.source.type === 'aonprd'" v-html="formatDescription(src.description, 'full', true)"></div>
-              <p v-else class="whitespace-pre-line">{{ src.description }}</p>
-            </div>
-            <p v-else class="text-sm text-muted">Описание недоступно для этой публикации.</p>
-            <div v-if="src.descriptionEn" class="prose mt-sm">
-              <p class="text-xs text-muted">Английский</p>
-              <p class="whitespace-pre-line">{{ src.descriptionEn }}</p>
-            </div>
-            <div v-if="src.heightened?.length" class="mt-md">
-              <h4 class="font-medium mb-xs">Усиление</h4>
-              <ul class="space-y-xs">
-                <li v-for="heightened in src.heightened" :key="heightened.level">
-                  <strong>{{ heightened.level }} ур.: </strong>
-                  <!-- eslint-disable vue/no-v-html -->
-                  <span v-html="heightened.description"></span>
-                </li>
-              </ul>
-            </div>
-          </section>
         </div>
       </div>
     </div>
