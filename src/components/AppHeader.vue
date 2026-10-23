@@ -3,11 +3,22 @@ import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useSettingsStore } from '@/stores'
 import MobileMenuButton from './MobileMenuButton.vue'
+import AppSidebar from './AppSidebar.vue'
 
 const settingsStore = useSettingsStore()
 const router = useRouter()
 const searchQuery = ref('')
 const showMobileMenu = ref(false)
+
+function onSidebarClick(e: Event) {
+  const target = e.target as HTMLElement
+  if (target.closest('a, button')) {
+    // close only for navigation links, not filter toggles
+    if (target.closest('a[href], .sidebar-link')) {
+      showMobileMenu.value = false
+    }
+  }
+}
 
 function handleSearch(e: Event) {
   e.preventDefault()
@@ -75,29 +86,14 @@ function getThemeIcon() {
 
   <Teleport to="body">
     <div v-if="showMobileMenu" class="sidebar-overlay open" aria-hidden="true" @click="showMobileMenu = false"></div>
-    <aside v-if="showMobileMenu" class="sidebar open" role="dialog" aria-label="Меню навигации">
+    <aside v-if="showMobileMenu" class="sidebar open" role="dialog" aria-label="Меню и фильтры" @click="onSidebarClick">
       <div class="flex items-center justify-between p-md border-b border-[var(--color-border)]">
-        <h2 class="text-lg font-semibold">Меню</h2>
+        <h2 class="text-lg font-semibold">Меню и фильтры</h2>
         <button class="btn btn-ghost" aria-label="Закрыть меню" @click="showMobileMenu = false">✕</button>
       </div>
-      <nav class="flex-1 p-md overflow-y-auto">
-        <router-link to="/" class="sidebar-link" @click="showMobileMenu = false">
-          <span class="sidebar-link-icon" aria-hidden="true">🏠</span>
-          <span>Главная</span>
-        </router-link>
-        <router-link to="/favorites" class="sidebar-link" @click="showMobileMenu = false">
-          <span class="sidebar-link-icon" aria-hidden="true">⭐</span>
-          <span>Избранное</span>
-        </router-link>
-        <router-link to="/history" class="sidebar-link" @click="showMobileMenu = false">
-          <span class="sidebar-link-icon" aria-hidden="true">🕐</span>
-          <span>История</span>
-        </router-link>
-        <router-link to="/settings" class="sidebar-link" @click="showMobileMenu = false">
-          <span class="sidebar-link-icon" aria-hidden="true">⚙️</span>
-          <span>Настройки</span>
-        </router-link>
-      </nav>
+      <div class="flex-1 overflow-y-auto">
+        <AppSidebar />
+      </div>
     </aside>
   </Teleport>
 </template>
