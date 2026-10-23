@@ -77,10 +77,6 @@ function getThemeIcon() {
         ⭐
         <span class="hidden mobile:hidden">Избранное</span>
       </router-link>
-      <router-link to="/settings" class="btn btn-ghost" aria-label="Настройки">
-        ⚙️
-        <span class="hidden mobile:hidden">Настройки</span>
-      </router-link>
     </div>
   </header>
 
