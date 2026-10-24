@@ -171,13 +171,17 @@ function toggleFavorite(spellId: string) {
                 {{ page }}
               </button>
               <span v-else-if="page === currentPage - 3 || page === currentPage + 3" class="px-xs text-muted">…</span>
-            </template>
-          </template>
+</template>
+</template>
           <button class="btn btn-secondary btn-sm" :disabled="showAll || currentPage === totalPages" @click="goToPage(currentPage + 1)">Вперёд →</button>
         </div>
         <button class="btn btn-secondary" @click="showFullList">{{ showAll ? 'По страницам' : 'Список заклинаний' }}</button>
         <div class="text-sm text-muted">Всего: {{ filteredSpells.length }} заклинаний</div>
       </div>
-    </template>
+</template>
+
+<style scoped>
+.sort-card { grid-column: 1 / -1; padding: var(--spacing-md) var(--spacing-lg); min-height: 44px; }
+</style>
   </div>
 </template>
