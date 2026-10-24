@@ -182,7 +182,8 @@ function toggleFavorite(spellId: string) {
 </template>
 
 <style scoped>
-.sort-card { grid-column: 1 / -1; padding: var(--spacing-md) var(--spacing-lg); min-height: 44px; }
+.sort-card { grid-column: 1 / -1; padding: var(--spacing-md) var(--spacing-lg); min-height: 44px; background: transparent; border: none; box-shadow: none; }
+.sort-card button { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text-secondary); }
 </style>
   </div>
 </template>
