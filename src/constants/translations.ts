@@ -582,7 +582,9 @@ export function actionOrder(castTime: string): number {
 }
 
 export function sourceLabel(name: string): string {
-  return name.startsWith('pf2.ru:') ? 'Pf2.ru' : name
+  if (name.startsWith('pf2.ru:')) return 'Pf2.ru'
+  if (name.startsWith('Archives of Nethys:')) return 'Archives of Nethys'
+  return name
 }
 
 export function filterLabel(key: string): string {
