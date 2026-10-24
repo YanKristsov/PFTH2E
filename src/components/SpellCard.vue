@@ -113,5 +113,5 @@ const rarityColors: Record<string, string> = {
 .card-summary { margin-top: 4px; line-height: 1.4; }
 .card-description { text-align: justify; width: 100%; }
 .action-icon { height: 16px; width: auto; max-width: 32px; object-fit: contain; filter: var(--icon-filter); }
-:deep(.card-body) { padding-bottom: 0; }
+:deep(.card-body) { padding-bottom: var(--spacing-sm); }
 </style>
