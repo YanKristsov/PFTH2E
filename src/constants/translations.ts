@@ -248,7 +248,13 @@ const ACTION_BASE_LABELS: Record<string, string> = {
   '3 действия': '3 действия',
   'свободное действие': 'Свободное действие',
   'свободное': 'Свободное действие',
-  'реакция': 'Реакция'
+  'реакция': 'Реакция',
+  '3: реагент, жестовый, словесный': '3 действия',
+  '3: материальный, жестовой, вербальный': '3 действия',
+  '1: словесный': '1 действие',
+  '2: жестовый, словесный': '2 действия',
+  '4 действия': '4 действия',
+  '5 действий': '5 действий'
 }
 
 const ACTION_BASE_COUNTS: Record<string, number> = {
@@ -257,7 +263,11 @@ const ACTION_BASE_COUNTS: Record<string, number> = {
   'three actions': 3,
   '1 действие': 1,
   '2 действия': 2,
-  '3 действия': 3
+  '3 действия': 3,
+  '3: реагент, жестовый, словесный': 3,
+  '3: материальный, жестовой, вербальный': 3,
+  '1: словесный': 1,
+  '2: жестовый, словесный': 2
 }
 
 interface ActionIconFile {
@@ -426,6 +436,12 @@ function parseActions(castTime: string): ParsedActions {
   if (numeric) {
     const amount = Number(numeric[1])
     const label = countLabel(amount)
+    if (amount === 4) {
+      return { label, order: 4, segments: [iconSegment(ACTION_ICON_FREE, label)] }
+    }
+    if (amount === 5) {
+      return { label, order: 5, segments: [iconSegment(ACTION_ICON_REACTION, label)] }
+    }
     const icon = ACTION_ICON_BY_COUNT[amount]
     return {
       label,
@@ -440,6 +456,13 @@ function parseActions(castTime: string): ParsedActions {
     const right = actionBase(parts[2])
     if (left && right) {
       if (parts[1] === 'or') {
+        if (left.segments.some(s => s.kind === 'icon') && right.segments.some(s => s.kind === 'icon')) {
+          return {
+            label: `${left.label} или ${right.label}`,
+            order: Math.max(left.order, right.order),
+            segments: [...left.segments, sepSegment('или'), ...right.segments]
+          }
+        }
         const label = `${left.label} или ${right.label}`
         return { label, order: Math.max(left.order, right.order), segments: [textSegment(label)] }
       }
