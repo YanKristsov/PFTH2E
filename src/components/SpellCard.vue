@@ -36,7 +36,6 @@ const rarityColors: Record<string, string> = {
       <div class="flex-1 min-w-0">
         <h3 class="font-semibold text-lg truncate">{{ spellIndex.nameRu }}</h3>
         <p v-if="spellIndex.nameEn !== spellIndex.nameRu" class="text-sm text-muted truncate">{{ spellIndex.nameEn }}</p>
-        <p v-if="description" class="text-sm text-secondary card-summary card-description">{{ description }}</p>
       </div>
       <div class="flex items-center gap-sm flex-shrink-0">
         <span
@@ -58,6 +57,7 @@ const rarityColors: Record<string, string> = {
     </div>
 
     <div class="card-body">
+      <p v-if="description" class="text-sm text-secondary card-summary card-description">{{ description }}</p>
       <div class="flex flex-wrap gap-xs mb-sm">
         <span class="chip chip-info" :data-tooltip="`Уровень ${spellIndex.level}`">Ур. {{ spellIndex.level }}</span>
         <span v-for="t in spellIndex.tradition" :key="t" class="chip" :data-tooltip="traditionLabel(t)">{{ traditionLabel(t) }}</span>
