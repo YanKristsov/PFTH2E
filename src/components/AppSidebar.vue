@@ -194,7 +194,7 @@ function filterValueText(filter: { key: keyof FilterState; value: FilterState[ke
       </div>
 
       <div class="sidebar-section">
-        <h3 class="sidebar-title">Черты</h3>
+        <h3 class="sidebar-title">Дескрипторы</h3>
         <div class="flex flex-col gap-2xs max-h-48 overflow-y-auto">
           <label v-for="t in allTraits" :key="t" class="flex items-center justify-between gap-sm cursor-pointer py-2xs">
             <span class="truncate">{{ traitLabel(t) }}</span>
