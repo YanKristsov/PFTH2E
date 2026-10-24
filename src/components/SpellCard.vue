@@ -61,9 +61,9 @@ const rarityColors: Record<string, string> = {
       <div class="flex flex-wrap gap-xs mb-sm">
         <span class="chip chip-info" :data-tooltip="`Уровень ${spellIndex.level}`">Ур. {{ spellIndex.level }}</span>
         <span v-for="t in spellIndex.tradition" :key="t" class="chip" :data-tooltip="traditionLabel(t)">{{ traditionLabel(t) }}</span>
+        <span class="chip">{{ schoolLabel(spellIndex.school) }}</span>
+        <span v-if="getSpell(spellIndex.id)?.isFocus" class="chip chip-info">Фокус</span>
       </div>
-
-      <p class="text-sm text-secondary mb-sm">{{ schoolLabel(spellIndex.school) }}</p>
 
       <div class="flex flex-wrap gap-xs mb-sm">
         <span v-for="c in spellIndex.classes" :key="c" class="chip">{{ classLabel(c) }}</span>
