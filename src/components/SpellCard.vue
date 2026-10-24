@@ -113,5 +113,6 @@ const rarityColors: Record<string, string> = {
 .card-summary { margin-top: 4px; line-height: 1.4; }
 .card-description { text-align: justify; width: 100%; }
 .favorite-star { font-size: 1.25rem; line-height: 1; }
+.action-icon { height: 24px; width: auto; max-width: 40px; object-fit: contain; filter: var(--icon-filter); }
 :deep(.card-body) { padding-bottom: var(--spacing-sm); }
 </style>

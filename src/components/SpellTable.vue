@@ -231,7 +231,7 @@ const rows = computed(() =>
 .action-cell { display: flex; align-items: center; gap: 6px; }
 .action-sep { color: var(--color-text-secondary); font-size: 0.85rem; }
 .action-icon {
-  height: 20px;
+  height: 24px;
   width: auto;
   max-width: 44px;
   object-fit: contain;
