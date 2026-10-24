@@ -12,7 +12,7 @@ const columnLabels: Record<string, string> = {
   school: 'Школа',
   classes: 'Классы',
   traits: 'Дескрипторы',
-  actions: 'Действия'
+  actions: 'Время сотворения'
 }
 
 const availableColumns = ['name', 'level', 'tradition', 'school', 'classes', 'traits', 'actions']

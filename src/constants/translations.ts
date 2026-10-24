@@ -158,7 +158,7 @@ export const FILTER_LABELS: Record<string, string> = {
   components: 'Компонент',
   rarity: 'Редкость',
   source: 'Источник',
-  actions: 'Действия',
+  actions: 'Время сотворения',
   searchQuery: 'Поиск'
 }
 
@@ -431,6 +431,52 @@ function parseActions(castTime: string): ParsedActions {
   const raw = (castTime || '').trim()
   if (!raw) return { label: '—', order: 9, segments: [textSegment('—')] }
   const value = raw.toLowerCase()
+
+  if (value === '1: жестовый') {
+    return { label: raw, order: 1, segments: [iconSegment(ACTION_ICON_BY_COUNT[1], '1 действие')] }
+  }
+  if (value === 'от 1 до 3 (словесный, жестовый):' || value === '1 - 3') {
+    return {
+      label: raw,
+      order: 3,
+      segments: [iconSegment(ACTION_ICON_BY_COUNT[1], '1 действие'), sepSegment('–'), iconSegment(ACTION_ICON_BY_COUNT[3], '3 действия')]
+    }
+  }
+  if (value === 'от 1 до 2:') {
+    return {
+      label: raw,
+      order: 2,
+      segments: [iconSegment(ACTION_ICON_BY_COUNT[1], '1 действие'), sepSegment('–'), iconSegment(ACTION_ICON_BY_COUNT[2], '2 действия')]
+    }
+  }
+  if (value === 'от 1 до 3:') {
+    return {
+      label: raw,
+      order: 3,
+      segments: [iconSegment(ACTION_ICON_BY_COUNT[1], '1 действие'), sepSegment('–'), iconSegment(ACTION_ICON_BY_COUNT[2], '2 действия')]
+    }
+  }
+  if (value === '1 / 2') {
+    return {
+      label: raw,
+      order: 2,
+      segments: [iconSegment(ACTION_ICON_BY_COUNT[1], '1 действие'), sepSegment('или'), iconSegment(ACTION_ICON_FREE, 'Свободное действие')]
+    }
+  }
+  if (value === 'реакция или 1 действие') {
+    return {
+      label: raw,
+      order: 5,
+      segments: [iconSegment(ACTION_ICON_REACTION, 'Реакция'), sepSegment('или'), iconSegment(ACTION_ICON_BY_COUNT[1], '1 действие')]
+    }
+  }
+  if (value === '2 или 3:') {
+    return {
+      label: raw,
+      order: 3,
+      segments: [iconSegment(ACTION_ICON_BY_COUNT[2], '2 действия'), sepSegment('или'), iconSegment(ACTION_ICON_BY_COUNT[3], '3 действия')]
+    }
+  }
 
   const numeric = value.match(/^(\d+)$/)
   if (numeric) {

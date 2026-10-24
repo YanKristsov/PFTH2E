@@ -146,7 +146,7 @@ const rows = computed(() =>
           </th>
           <th v-if="columns.includes('actions')" scope="col" style="width: 120px;">
             <button type="button" class="th-sort" :aria-label="`Сортировать по действиям`" @click="toggleSort('actions')">
-              Действия<span class="sort-arrow" aria-hidden="true">{{ sortIndicator('actions') }}</span>
+               Время сотворения<span class="sort-arrow" aria-hidden="true">{{ sortIndicator('actions') }}</span>
             </button>
           </th>
         </tr>
