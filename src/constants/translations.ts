@@ -242,13 +242,22 @@ const ACTION_BASE_LABELS: Record<string, string> = {
   'two actions': '2 действия',
   'three actions': '3 действия',
   'free action': 'Свободное действие',
-  reaction: 'Реакция'
+  reaction: 'Реакция',
+  '1 действие': '1 действие',
+  '2 действия': '2 действия',
+  '3 действия': '3 действия',
+  'свободное действие': 'Свободное действие',
+  'свободное': 'Свободное действие',
+  'реакция': 'Реакция'
 }
 
 const ACTION_BASE_COUNTS: Record<string, number> = {
   'single action': 1,
   'two actions': 2,
-  'three actions': 3
+  'three actions': 3,
+  '1 действие': 1,
+  '2 действия': 2,
+  '3 действия': 3
 }
 
 interface ActionIconFile {
