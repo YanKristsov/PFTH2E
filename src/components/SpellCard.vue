@@ -57,7 +57,7 @@ const rarityColors: Record<string, string> = {
             :aria-pressed="isFavorite"
             @click.stop="$emit('favorite', spellIndex.id)"
           >
-            <span aria-hidden="true">{{ isFavorite ? '⭐' : '☆' }}</span>
+            <span class="favorite-star" aria-hidden="true">{{ isFavorite ? '⭐' : '☆' }}</span>
           </button>
         </div>
         <div v-if="action" class="flex flex-wrap justify-end gap-xs">
@@ -112,6 +112,6 @@ const rarityColors: Record<string, string> = {
 /* Uses global card, chip, badge classes */
 .card-summary { margin-top: 4px; line-height: 1.4; }
 .card-description { text-align: justify; width: 100%; }
-.action-icon { height: 16px; width: auto; max-width: 32px; object-fit: contain; filter: var(--icon-filter); }
+.favorite-star { font-size: 1.25rem; line-height: 1; }
 :deep(.card-body) { padding-bottom: var(--spacing-sm); }
 </style>
