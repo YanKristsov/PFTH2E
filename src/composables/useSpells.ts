@@ -176,6 +176,14 @@ export function useSpells() {
       })
     }
 
+    if (filters.source?.length) {
+      filtered = filtered.filter(r => {
+        const spell = spells.value.find(s => s.id === r.id)
+        if (!spell) return false
+        return spell.source.some(src => filters.source!.includes(sourceLabel(src.source.name)))
+      })
+    }
+
     return filtered
   }
 
