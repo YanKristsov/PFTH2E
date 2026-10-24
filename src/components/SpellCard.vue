@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import type { SpellIndex } from '@/types/spell'
-import { rarityLabel, schoolLabel, traditionLabel, traitLabel, classLabel, GENERIC_CLASS_LABEL } from '@/constants/translations'
+import { rarityLabel, schoolLabel, traditionLabel, traitLabel, classLabel, GENERIC_CLASS_LABEL, actionDisplay } from '@/constants/translations'
 import { useSpells } from '@/composables/useSpells'
 
 const { spellIndex, isFavorite } = defineProps<{
@@ -10,6 +10,11 @@ const { spellIndex, isFavorite } = defineProps<{
 }>()
 
 const { getSpell } = useSpells()
+
+const action = computed(() => {
+  const spell = getSpell(spellIndex.id)
+  return spell ? actionDisplay(spell.castTime) : null
+})
 
 const description = computed(() => {
   const spell = getSpell(spellIndex.id)
@@ -37,22 +42,41 @@ const rarityColors: Record<string, string> = {
         <h3 class="font-semibold text-lg truncate">{{ spellIndex.nameRu }}</h3>
         <p v-if="spellIndex.nameEn !== spellIndex.nameRu" class="text-sm text-muted truncate">{{ spellIndex.nameEn }}</p>
       </div>
-      <div class="flex items-center gap-sm flex-shrink-0">
-        <span
-          class="badge"
-          :class="`badge-${spellIndex.rarity}`"
-          :style="{ color: rarityColors[spellIndex.rarity], backgroundColor: `color-mix(in srgb, ${rarityColors[spellIndex.rarity]} 20%, var(--color-surface))` }"
-        >
-          {{ rarityLabel(spellIndex.rarity) }}
-        </span>
-        <button
-          class="btn btn-ghost btn-sm"
-          :aria-label="isFavorite ? 'Убрать из избранного' : 'Добавить в избранное'"
-          :aria-pressed="isFavorite"
-          @click.stop="$emit('favorite', spellIndex.id)"
-        >
-          <span aria-hidden="true">{{ isFavorite ? '⭐' : '☆' }}</span>
-        </button>
+      <div class="flex flex-col items-end gap-sm flex-shrink-0">
+        <div class="flex items-center gap-sm">
+          <span
+            class="badge"
+            :class="`badge-${spellIndex.rarity}`"
+            :style="{ color: rarityColors[spellIndex.rarity], backgroundColor: `color-mix(in srgb, ${rarityColors[spellIndex.rarity]} 20%, var(--color-surface))` }"
+          >
+            {{ rarityLabel(spellIndex.rarity) }}
+          </span>
+          <button
+            class="btn btn-ghost btn-sm"
+            :aria-label="isFavorite ? 'Убрать из избранного' : 'Добавить в избранное'"
+            :aria-pressed="isFavorite"
+            @click.stop="$emit('favorite', spellIndex.id)"
+          >
+            <span aria-hidden="true">{{ isFavorite ? '⭐' : '☆' }}</span>
+          </button>
+        </div>
+        <div v-if="action" class="flex flex-wrap justify-end gap-xs">
+          <template v-for="(seg, i) in action.segments" :key="i">
+            <img
+              v-if="seg.kind === 'icon' && seg.icon"
+              class="action-icon"
+              :src="seg.icon.src"
+              :alt="seg.icon.alt"
+              :title="seg.icon.alt"
+              :width="seg.icon.width"
+              :height="seg.icon.height"
+              loading="lazy"
+              decoding="async"
+            />
+            <span v-else-if="seg.kind === 'sep'" class="action-sep" aria-hidden="true">{{ seg.text }}</span>
+            <span v-else class="chip">{{ seg.text }}</span>
+          </template>
+        </div>
       </div>
     </div>
 
@@ -88,4 +112,6 @@ const rarityColors: Record<string, string> = {
 /* Uses global card, chip, badge classes */
 .card-summary { margin-top: 4px; line-height: 1.4; }
 .card-description { text-align: justify; width: 100%; }
+.action-icon { height: 16px; width: auto; max-width: 32px; object-fit: contain; filter: var(--icon-filter); }
+:deep(.card-body) { padding-bottom: 0; }
 </style>
