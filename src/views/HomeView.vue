@@ -137,7 +137,7 @@ function toggleFavorite(spellId: string) {
         :spells="pagedSpells"
         @view="viewSpell"
       />
-      <div v-else class="spell-grid cards">
+      <div v-else>
         <div class="card sort-card mb-md">
           <div class="flex flex-wrap gap-sm">
             <button class="btn btn-secondary btn-sm" @click="toggleSort('name')">Название{{ sortIndicator('name') }}</button>
@@ -147,7 +147,8 @@ function toggleFavorite(spellId: string) {
             <button class="btn btn-secondary btn-sm" @click="toggleSort('actions')">Время сотворения{{ sortIndicator('actions') }}</button>
           </div>
         </div>
-        <SpellCard
+        <div class="spell-grid cards">
+          <SpellCard
           v-for="spellIndex in pagedSpells"
           :key="spellIndex.id"
           :spell-index="spellIndex"
@@ -155,8 +156,8 @@ function toggleFavorite(spellId: string) {
           @view="viewSpell"
           @favorite="toggleFavorite"
         />
+        </div>
       </div>
-
       <div class="flex flex-col items-center gap-md mt-xl mb-md">
         <div class="flex flex-wrap items-center justify-center gap-xs">
           <button class="btn btn-secondary btn-sm" :disabled="showAll || currentPage === 1" @click="goToPage(currentPage - 1)">← Назад</button>
