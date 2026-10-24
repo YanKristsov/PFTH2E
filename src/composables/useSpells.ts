@@ -1,7 +1,7 @@
 import { ref, computed } from 'vue'
 import type { Spell, SpellIndex, FilterState } from '@/types/spell'
 import MiniSearch from 'minisearch'
-import { GENERIC_CLASS, classLabel } from '@/constants/translations'
+import { GENERIC_CLASS, classLabel, sourceLabel } from '@/constants/translations'
 
   const spells = ref<Spell[]>([])
   const spellsIndex = ref<SpellIndex[]>([])
@@ -192,7 +192,7 @@ export function useSpells() {
   const allClasses = computed(() => [...new Set(spellsIndex.value.flatMap(s => s.classes))]
     .sort((a, b) => classLabel(a).localeCompare(classLabel(b), 'ru')))
   const allTraits = computed(() => [...new Set(spellsIndex.value.flatMap(s => s.traits))].sort())
-  const allSources = computed(() => [...new Set(spells.value.flatMap(s => s.source.map(src => src.source.name)))].sort())
+  const allSources = computed(() => [...new Set(spells.value.flatMap(s => s.source.map(src => sourceLabel(src.source.name))))].sort())
 
   return {
     spells,

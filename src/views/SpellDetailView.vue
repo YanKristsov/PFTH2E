@@ -3,7 +3,7 @@ import { computed, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useSpells } from '@/composables/useSpells'
 import { useFavoritesStore, useHistoryStore } from '@/stores'
-import { rarityLabel, schoolLabel, traditionLabel, traitLabel, classLabel, COMPONENT_LABELS, GENERIC_CLASS_LABEL } from '@/constants/translations'
+import { rarityLabel, schoolLabel, traditionLabel, traitLabel, classLabel, COMPONENT_LABELS, GENERIC_CLASS_LABEL, sourceLabel } from '@/constants/translations'
 
 const route = useRoute()
 const router = useRouter()
@@ -174,7 +174,7 @@ function exportSpell() {
         :aria-selected="activeSourceIndex === i"
         @click="activeSourceIndex = i"
       >
-        {{ src.source.name }}
+        {{ sourceLabel(src.source.name) }}
       </button>
     </div>
 
@@ -182,8 +182,8 @@ function exportSpell() {
       <div class="card-body">
         <header class="mb-sm">
           <h3 class="font-semibold">
-            <a v-if="activeVariant.source.url" :href="activeVariant.source.url" target="_blank" rel="noopener noreferrer">{{ activeVariant.source.name }}</a>
-            <span v-else>{{ activeVariant.source.name }}</span>
+            <a v-if="activeVariant.source.url" :href="activeVariant.source.url" target="_blank" rel="noopener noreferrer">{{ sourceLabel(activeVariant.source.name) }}</a>
+            <span v-else>{{ sourceLabel(activeVariant.source.name) }}</span>
           </h3>
           <p class="text-sm text-secondary">{{ activeVariant.name }}</p>
         </header>

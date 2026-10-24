@@ -581,6 +581,10 @@ export function actionOrder(castTime: string): number {
   return parseActions(castTime).order
 }
 
+export function sourceLabel(name: string): string {
+  return name.startsWith('pf2.ru:') ? 'Pf2.ru' : name
+}
+
 export function filterLabel(key: string): string {
   return FILTER_LABELS[key] || key
 }
