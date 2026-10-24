@@ -9,9 +9,13 @@ const { spellIndex, isFavorite } = defineProps<{
   isFavorite: boolean
 }>()
 
-const { getShortDescription } = useSpells()
+const { getSpell } = useSpells()
 
-const shortDescription = computed(() => getShortDescription(spellIndex.id))
+const description = computed(() => {
+  const spell = getSpell(spellIndex.id)
+  if (!spell) return ''
+  return (spell.description.ru || spell.description.en || '').replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim()
+})
 
 defineEmits<{
   view: [spellId: string]
@@ -32,7 +36,7 @@ const rarityColors: Record<string, string> = {
       <div class="flex-1 min-w-0">
         <h3 class="font-semibold text-lg truncate">{{ spellIndex.nameRu }}</h3>
         <p v-if="spellIndex.nameEn !== spellIndex.nameRu" class="text-sm text-muted truncate">{{ spellIndex.nameEn }}</p>
-        <p v-if="shortDescription" class="text-sm text-secondary card-summary">{{ shortDescription }}</p>
+        <p v-if="description" class="text-sm text-secondary card-summary card-description">{{ description }}</p>
       </div>
       <div class="flex items-center gap-sm flex-shrink-0">
         <span
@@ -62,25 +66,20 @@ const rarityColors: Record<string, string> = {
       <p class="text-sm text-secondary mb-sm">{{ schoolLabel(spellIndex.school) }}</p>
 
       <div class="flex flex-wrap gap-xs mb-sm">
-        <span v-for="c in spellIndex.classes.slice(0, 3)" :key="c" class="chip">{{ classLabel(c) }}</span>
-        <span v-if="spellIndex.classes.length > 3" class="chip chip-info">+{{ spellIndex.classes.length - 3 }}</span>
+        <span v-for="c in spellIndex.classes" :key="c" class="chip">{{ classLabel(c) }}</span>
         <span v-if="spellIndex.classes.length === 0" class="chip chip-info">{{ GENERIC_CLASS_LABEL }}</span>
       </div>
 
       <div class="flex flex-wrap gap-xs">
-        <span v-for="t in spellIndex.traits.slice(0, 4)" :key="t" class="chip">{{ traitLabel(t) }}</span>
-        <span v-if="spellIndex.traits.length > 4" class="chip chip-info">+{{ spellIndex.traits.length - 4 }}</span>
+        <span v-for="t in spellIndex.traits" :key="t" class="chip">{{ traitLabel(t) }}</span>
       </div>
     </div>
 
-    <div class="card-footer flex items-center justify-between">
-      <span class="text-xs text-muted">Посмотреть детали</span>
-      <kbd class="text-xs text-muted px-sm py-xs rounded bg-[var(--color-background)]">Ввод</kbd>
-    </div>
   </article>
 </template>
 
 <style scoped>
 /* Uses global card, chip, badge classes */
 .card-summary { margin-top: 4px; line-height: 1.4; }
+.card-description { text-align: justify; width: 100%; }
 </style>
