@@ -432,6 +432,30 @@ function parseActions(castTime: string): ParsedActions {
   if (!raw) return { label: '—', order: 9, segments: [textSegment('—')] }
   const value = raw.toLowerCase()
 
+  if (value === '2 действия до 2 раундов') {
+    return {
+      label: raw,
+      order: 2,
+      segments: [textSegment('от '), iconSegment(ACTION_ICON_BY_COUNT[2], '2 действия'), textSegment(' до 2-х раундов')]
+    }
+  }
+  if (value === '2: соматический, вербальный') {
+    return { label: raw, order: 2, segments: [iconSegment(ACTION_ICON_BY_COUNT[2], '2 действия')] }
+  }
+  if (value === '5: словесный') {
+    return { label: raw, order: 5, segments: [iconSegment(ACTION_ICON_REACTION, 'Реакция')] }
+  }
+  if (value === '1 - 2') {
+    return {
+      label: raw,
+      order: 2,
+      segments: [iconSegment(ACTION_ICON_BY_COUNT[1], '1 действие'), sepSegment('–'), iconSegment(ACTION_ICON_BY_COUNT[2], '2 действия')]
+    }
+  }
+  if (value === '2: словесный, жестовый' || value === '2: словестный, жестовый') {
+    return { label: raw, order: 2, segments: [iconSegment(ACTION_ICON_BY_COUNT[2], '2 действия')] }
+  }
+
   if (value === '1: жестовый') {
     return { label: raw, order: 1, segments: [iconSegment(ACTION_ICON_BY_COUNT[1], '1 действие')] }
   }
