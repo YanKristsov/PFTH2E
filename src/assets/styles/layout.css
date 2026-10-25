@@ -67,15 +67,18 @@
 .spell-grid { display: grid; gap: var(--spacing-md); }
 .spell-grid.table { grid-template-columns: minmax(0, 1fr); }
 .spell-grid.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 320px));
-  gap: var(--spacing-md);
-  justify-content: start;
-  align-items: stretch;
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 320px)) !important;
+  gap: var(--spacing-md) !important;
+  justify-content: start !important;
+  align-items: stretch !important;
+  columns: unset !important;
 }
 .spell-grid.cards > * {
-  width: 100%;
-  max-width: 320px;
+  width: 100% !important;
+  max-width: 320px !important;
+  break-inside: unset !important;
+  margin-bottom: 0 !important;
 }
 /* без min-width: 0 широкая таблица растягивает grid-трек и ломает горизонтальный скролл */
 .spell-grid > * { min-width: 0; }
