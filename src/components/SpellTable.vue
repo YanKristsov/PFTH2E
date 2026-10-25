@@ -167,9 +167,8 @@ const rows = computed(() =>
           @keydown="handleKeyDown(spell, $event)"
         >
           <td v-if="columns.includes('name')">
-            <div class="font-medium">{{ spell.nameRu }}</div>
-            <div v-if="spell.nameEn !== spell.nameRu" class="text-xs text-muted truncate">{{ spell.nameEn }}</div>
-            <p v-if="getShortDescription(spell.id)" class="spell-summary text-xs text-secondary">{{ getShortDescription(spell.id) }}</p>
+            <div class="spell-name-cell font-medium">{{ spell.nameRu }}</div>
+            <div v-if="spell.nameEn && spell.nameEn !== spell.nameRu" class="spell-name-cell text-xs text-muted">{{ spell.nameEn }}</div>
           </td>
           <td v-if="columns.includes('level')" class="level-cell">
             <span class="chip chip-info">Ур. {{ spell.level }}</span>
@@ -269,8 +268,5 @@ const rows = computed(() =>
   cursor: pointer;
 }
 .th-sort:hover { color: var(--color-text); }
-.sort-arrow { font-size: 0.85em; }
-:deep(.table td) { vertical-align: top; }
-:deep(.table td.level-cell),
-:deep(.table td.actions-cell) { vertical-align: middle; }
+.spell-name-cell { text-align: justify; hyphens: auto; -webkit-hyphens: auto; -ms-hyphens: auto; word-break: break-word; }
 </style>
