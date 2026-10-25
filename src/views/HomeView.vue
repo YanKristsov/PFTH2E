@@ -83,6 +83,7 @@ function toggleFavorite(spellId: string) {
       <SpellTable
         :spells="pagedSpells"
         @view="viewSpell"
+        @toggle-favorite="toggleFavorite"
       />
       <div class="flex flex-col items-center gap-md mt-xl mb-md">
         <div class="flex flex-wrap items-center justify-center gap-xs">

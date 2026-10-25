@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import type { SpellIndex } from '@/types/spell'
-import { useSettingsStore } from '@/stores'
+import { useSettingsStore, useFavoritesStore } from '@/stores'
 import { useSpells } from '@/composables/useSpells'
 import { traditionLabel, traitLabel, schoolLabel, classLabel, actionOrder, actionDisplay, GENERIC_CLASS_LABEL } from '@/constants/translations'
 
@@ -11,9 +11,11 @@ const props = defineProps<{
 
 const emit = defineEmits<{
   view: [spellId: string]
+  toggleFavorite: [spellId: string]
 }>()
 
 const settingsStore = useSettingsStore()
+const favoritesStore = useFavoritesStore()
 const { getSpell, getShortDescription } = useSpells()
 
 const columns = computed(() => settingsStore.state.tableColumns)
@@ -149,6 +151,8 @@ const rows = computed(() =>
                Время сотворения<span class="sort-arrow" aria-hidden="true">{{ sortIndicator('actions') }}</span>
             </button>
           </th>
+          <th scope="col" style="width: 40px;"></th>
+          <th scope="col" style="width: 40px;"></th>
         </tr>
       </thead>
       <tbody>
@@ -205,6 +209,16 @@ const rows = computed(() =>
                 <span v-else class="text-sm">{{ seg.text }}</span>
               </template>
             </div>
+          </td>
+          <td>
+            <button
+              class="btn btn-ghost btn-sm"
+              type="button"
+              :aria-label="favoritesStore.favoriteIds.has(spell.id) ? 'Убрать из избранного' : 'Добавить в избранное'"
+              @click.stop="emit('toggleFavorite', spell.id)"
+            >
+              <span aria-hidden="true">{{ favoritesStore.favoriteIds.has(spell.id) ? '★' : '☆' }}</span>
+            </button>
           </td>
         </tr>
       </tbody>
