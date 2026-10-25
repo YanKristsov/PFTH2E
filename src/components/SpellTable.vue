@@ -169,6 +169,7 @@ const rows = computed(() =>
           <td v-if="columns.includes('name')">
             <div class="spell-name-cell font-medium">{{ spell.nameRu }}</div>
             <div v-if="spell.nameEn && spell.nameEn !== spell.nameRu" class="spell-name-cell text-xs text-muted">{{ spell.nameEn }}</div>
+            <div v-if="getShortDescription(spell.id)" class="spell-summary text-xs text-muted">{{ getShortDescription(spell.id) }}</div>
           </td>
           <td v-if="columns.includes('level')" class="level-cell">
             <span class="chip chip-info">Ур. {{ spell.level }}</span>
