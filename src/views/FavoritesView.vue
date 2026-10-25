@@ -54,6 +54,16 @@ function updateNotes(spellId: string, notes: string) {
   <div class="favorites-view">
     <header class="content-header">
       <h1 class="content-title">Избранное</h1>
+      <div class="content-actions">
+        <button
+          class="btn btn-secondary"
+          type="button"
+          :aria-pressed="settingsStore.state.viewMode === 'cards'"
+          @click="settingsStore.setViewMode(settingsStore.state.viewMode === 'table' ? 'cards' : 'table')"
+        >
+          <span>{{ settingsStore.state.viewMode === 'table' ? 'Карточки' : 'Таблица' }}</span>
+        </button>
+      </div>
     </header>
 
     <div v-if="favoriteSpells.length === 0" class="empty-state">
