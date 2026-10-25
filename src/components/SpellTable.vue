@@ -211,10 +211,11 @@ const rows = computed(() =>
               </template>
             </div>
           </td>
-          <td>
+          <td style="text-align: center; vertical-align: middle;">
             <button
               class="btn btn-ghost btn-sm"
               type="button"
+              style="font-size: 1.25rem; line-height: 1; padding: 0.25rem 0.375rem;"
               :aria-label="favoritesStore.favoriteIds.has(spell.id) ? 'Убрать из избранного' : 'Добавить в избранное'"
               @click.stop="emit('toggleFavorite', spell.id)"
             >
