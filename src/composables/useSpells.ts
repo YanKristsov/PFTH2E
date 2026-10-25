@@ -40,9 +40,14 @@ function initMiniSearch(index: SpellIndex[]) {
     fields: ['nameRu', 'nameEn', 'traits', 'school'],
     storeFields: ['id', 'nameRu', 'nameEn', 'level', 'tradition', 'school', 'classes', 'traits', 'rarity'],
     searchOptions: {
-      boost: { nameRu: 4, nameEn: 3, traits: 2, school: 1 },
-      fuzzy: 0.2,
-      prefix: true
+      boost: { nameRu: 5, nameEn: 4, traits: 2, school: 1 },
+      fuzzy: 0.3,
+      prefix: true,
+      combineWith: 'OR'
+    },
+    tokenize: (string) => {
+      const s = String(string || '').toLowerCase()
+      return s.split(/[\s\-_,;:.!?(){}"'|+]+/).filter(Boolean)
     }
   })
   miniSearch.value.addAll(index)
@@ -140,36 +145,76 @@ export function useSpells() {
   function search(query: string, filters: FilterState = {} as FilterState): SpellIndex[] {
     if (!miniSearch.value) return []
 
-    let filtered = query.trim()
-      ? (() => {
-        const results = miniSearch.value!.search(query)
-        const ids = new Set(results.map(result => result.id))
-        return spellsIndex.value.filter(spell => ids.has(spell.id))
-      })()
-      : [...spellsIndex.value]
+    const q = query.trim().toLowerCase()
+    let filteredSpells: SpellIndex[]
+    if (!q) {
+      filteredSpells = [...spellsIndex.value]
+    } else {
+      const resultIds = new Set<string>()
+
+      try {
+        const results = miniSearch.value.search(query, {
+          prefix: true,
+          fuzzy: 0.3,
+          combineWith: 'OR'
+        } as any)
+        for (const r of results) {
+          if ((r as any).id) resultIds.add((r as any).id)
+        }
+      } catch {
+        // ignore minisearch errors
+      }
+
+      for (const spell of spells.value) {
+        const nameRu = (spell.name.ru || '').toLowerCase()
+        const nameEn = (spell.name.en || '').toLowerCase()
+        const descRu = stripHtml(spell.description?.ru || '').toLowerCase()
+        const descEn = stripHtml(spell.description?.en || '').toLowerCase()
+        const traitsStr = (spell.traits || []).join(' ').toLowerCase()
+        const componentsStr = [
+          spell.components?.v ? 'verbal' : '',
+          spell.components?.s ? 'somatic' : '',
+          spell.components?.m ? 'material' : '',
+          spell.components?.f ? 'focus' : ''
+        ].join(' ').toLowerCase()
+
+        if (
+          nameRu.includes(q) ||
+          nameEn.includes(q) ||
+          descRu.includes(q) ||
+          descEn.includes(q) ||
+          traitsStr.includes(q) ||
+          componentsStr.includes(q)
+        ) {
+          resultIds.add(spell.id)
+        }
+      }
+
+      filteredSpells = spellsIndex.value.filter(spell => resultIds.has(spell.id))
+    }
 
     if (filters.level?.length) {
-      filtered = filtered.filter(r => filters.level!.includes(r.level))
+      filteredSpells = filteredSpells.filter(r => filters.level!.includes(r.level))
     }
     if (filters.tradition?.length) {
-      filtered = filtered.filter(r => filters.tradition!.some(t => r.tradition.includes(t)))
+      filteredSpells = filteredSpells.filter(r => filters.tradition!.some(t => r.tradition.includes(t)))
     }
     if (filters.school?.length) {
-      filtered = filtered.filter(r => filters.school!.includes(r.school))
+      filteredSpells = filteredSpells.filter(r => filters.school!.includes(r.school))
     }
     if (filters.class?.length) {
-      filtered = filtered.filter(r => filters.class!.some(c => (
+      filteredSpells = filteredSpells.filter(r => filters.class!.some(c => (
         c === GENERIC_CLASS ? r.classes.length === 0 : r.classes.includes(c)
       )))
     }
     if (filters.traits?.length) {
-      filtered = filtered.filter(r => filters.traits!.some(t => r.traits.includes(t)))
+      filteredSpells = filteredSpells.filter(r => filters.traits!.some(t => r.traits.includes(t)))
     }
     if (filters.rarity?.length) {
-      filtered = filtered.filter(r => filters.rarity!.includes(r.rarity))
+      filteredSpells = filteredSpells.filter(r => filters.rarity!.includes(r.rarity))
     }
     if (filters.actions?.length) {
-      filtered = filtered.filter(r => {
+      filteredSpells = filteredSpells.filter(r => {
         const spell = spells.value.find(s => s.id === r.id)
         if (!spell) return false
         return filters.actions!.includes(getActionCategory(spell.castTime) as any)
@@ -177,14 +222,14 @@ export function useSpells() {
     }
 
     if (filters.source?.length) {
-      filtered = filtered.filter(r => {
+      filteredSpells = filteredSpells.filter(r => {
         const spell = spells.value.find(s => s.id === r.id)
         if (!spell) return false
         return spell.source.some(src => filters.source!.includes(sourceLabel(src.source.name)))
       })
     }
 
-    return filtered
+    return filteredSpells
   }
 
   function getAllSpells(): Spell[] {

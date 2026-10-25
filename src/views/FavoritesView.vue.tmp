@@ -1,0 +1,159 @@
+﻿<script setup lang="ts">
+import { computed, ref } from 'vue'
+import { useRouter } from 'vue-router'
+import { useSpells } from '@/composables/useSpells'
+import { useFavoritesStore } from '@/stores'
+import SpellCard from '@/components/SpellCard.vue'
+import type { SpellIndex } from '@/types/spell'
+
+const router = useRouter()
+const favoritesStore = useFavoritesStore()
+const { getSpell } = useSpells()
+
+type SortKey = 'name' | 'level' | 'tradition' | 'traits' | 'actions'
+const sortKey = ref<SortKey>('name')
+const sortAsc = ref(true)
+
+interface FavoriteSpellWithNotes extends SpellIndex {
+  notes: string
+}
+
+const favoriteSpells = computed<FavoriteSpellWithNotes[]>(() => {
+  return favoritesStore.items
+    .map(fav => {
+      const spell = getSpell(fav.spellId)
+      if (!spell) return null
+      return {
+        id: spell.id,
+        nameRu: spell.name.ru,
+        nameEn: spell.name.en,
+        level: spell.level,
+        tradition: spell.tradition,
+        school: spell.school,
+        classes: spell.classes,
+        traits: spell.traits,
+        rarity: spell.rarity,
+        notes: fav.notes
+      }
+    })
+    .filter((s): s is FavoriteSpellWithNotes => s !== null)
+})
+
+const sortedFavoriteSpells = computed(() => {
+  const list = [...favoriteSpells.value]
+  list.sort((a, b) => {
+    let cmp = 0
+    if (sortKey.value === 'name') {
+      cmp = (a.nameRu || a.nameEn).localeCompare(b.nameRu || b.nameEn, 'ru')
+    } else if (sortKey.value === 'level') {
+      cmp = a.level - b.level
+    } else if (sortKey.value === 'tradition') {
+      cmp = (a.tradition[0] || '').localeCompare(b.tradition[0] || '', 'ru')
+    } else if (sortKey.value === 'traits') {
+      cmp = (a.traits[0] || '').localeCompare(b.traits[0] || '', 'ru')
+    } else if (sortKey.value === 'actions') {
+      const getActionOrder = (id: string) => {
+        const spell = getSpell(id)
+        if (!spell) return 99
+        const ct = (spell.castTime || '').toLowerCase()
+        if (ct.includes('reaction')) return 0
+        if (ct.includes('free')) return 1
+        if (ct.includes('single') || ct.includes('1')) return 2
+        if (ct.includes('two') || ct.includes('2')) return 3
+        if (ct.includes('three') || ct.includes('3')) return 4
+        if (ct.includes('minute') || ct.includes('hour') || ct.includes('day')) return 5
+        return 6
+      }
+      cmp = getActionOrder(a.id) - getActionOrder(b.id)
+    }
+    return sortAsc.value ? cmp : -cmp
+  })
+  return list
+})
+
+function toggleSort(key: SortKey) {
+  if (sortKey.value === key) {
+    sortAsc.value = !sortAsc.value
+  } else {
+    sortKey.value = key
+    sortAsc.value = true
+  }
+}
+
+function sortIndicator(key: SortKey) {
+  if (sortKey.value !== key) return ''
+  return sortAsc.value ? ' в†‘' : ' в†“'
+}
+
+function viewSpell(spellId: string) {
+  router.push({ name: 'spell-detail', params: { id: spellId } })
+}
+
+function toggleFavorite(spellId: string) {
+  favoritesStore.toggle(spellId)
+}
+
+function updateNotes(spellId: string, notes: string) {
+  favoritesStore.updateNotes(spellId, notes)
+}
+</script>
+
+<template>
+  <div class="favorites-view">
+    <header class="content-header">
+      <h1 class="content-title">РР·Р±СЂР°РЅРЅРѕРµ</h1>
+    </header>
+
+  <div v-if="favoriteSpells.length === 0" class="empty-state">
+    <div class="empty-state-icon" aria-hidden="true">в…</div>
+    <h3>РќРµС‚ РёР·Р±СЂР°РЅРЅС‹С…</h3>
+    <p>Р”РѕР±Р°РІР»СЏР№С‚Рµ Р·Р°РєР»РёРЅР°РЅРёСЏ РІ РёР·Р±СЂР°РЅРЅРѕРµ, РЅР°Р¶РёРјР°СЏ Р·РІС‘Р·РґРѕС‡РєСѓ РЅР° РєР°СЂС‚РѕС‡РєРµ РёР»Рё РІ РґРµС‚Р°Р»СЏС…</p>
+    <router-link to="/" class="btn btn-primary mt-md">Рљ Р·Р°РєР»РёРЅР°РЅРёСЏРј</router-link>
+  </div>
+
+  <div v-else>
+    <div class="card sort-card mb-md">
+      <button class="btn btn-secondary btn-sm" @click="toggleSort('name')">РќР°Р·РІР°РЅРёРµ{{ sortIndicator('name') }}</button>
+      <button class="btn btn-secondary btn-sm" @click="toggleSort('level')">РЈСЂРѕРІРµРЅСЊ{{ sortIndicator('level') }}</button>
+      <button class="btn btn-secondary btn-sm" @click="toggleSort('tradition')">РўСЂР°РґРёС†РёСЏ{{ sortIndicator('tradition') }}</button>
+      <button class="btn btn-secondary btn-sm" @click="toggleSort('traits')">Р”РµСЃРєСЂРёРїС‚РѕСЂС‹{{ sortIndicator('traits') }}</button>
+      <button class="btn btn-secondary btn-sm" @click="toggleSort('actions')">Р’СЂРµРјСЏ СЃРѕС‚РІРѕСЂРµРЅРёСЏ{{ sortIndicator('actions') }}</button>
+    </div>
+    <div class="spell-grid cards">
+        <SpellCard
+          v-for="s in sortedFavoriteSpells"
+          :key="(s as any).id"
+          :spell-index="s as any"
+          :is-favorite="true"
+          @view="(id:any)=>viewSpell(id)"
+          @favorite="(id:any)=>toggleFavorite(id)"
+        />
+    </div>
+  </div>
+              <td>
+                <button class="btn btn-ghost btn-sm" aria-label="РЈР±СЂР°С‚СЊ РёР· РёР·Р±СЂР°РЅРЅРѕРіРѕ" @click.stop="favoritesStore.remove(spell.id)">вњ•</button>
+              </td>
+              <td>
+                <div class="font-medium">{{ spell.nameRu }}</div>
+                <div v-if="spell.nameEn !== spell.nameRu" class="text-xs text-muted">{{ spell.nameEn }}</div>
+              </td>
+              <td><span class="chip chip-info">РЈСЂ. {{ spell.level }}</span></td>
+              <td><span class="text-sm">{{ spell.tradition.map((t: string) => traditionLabel(t)).join(' ') }}</span></td>
+              <td>{{ schoolLabel(spell.school) }}</td>
+              <td>
+                <textarea
+                  :value="(spell as any).notes"
+                  class="w-full min-h-[60px] resize-none bg-transparent border-none focus:outline-none text-sm"
+                  placeholder="Р—Р°РјРµС‚РєРё..."
+                  aria-label="Р—Р°РјРµС‚РєРё Р·Р°РєР»РёРЅР°РЅРёСЏ"
+                  @input="updateNotes((spell as any).id, ($event.target as HTMLTextAreaElement).value)"
+                  @click.stop
+                ></textarea>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</template>
