@@ -139,13 +139,11 @@ function toggleFavorite(spellId: string) {
       />
       <div v-else>
         <div class="card sort-card mb-md">
-          <div class="flex flex-wrap gap-sm">
-            <button class="btn btn-secondary btn-sm" @click="toggleSort('name')">Название{{ sortIndicator('name') }}</button>
-            <button class="btn btn-secondary btn-sm" @click="toggleSort('level')">Уровень{{ sortIndicator('level') }}</button>
-            <button class="btn btn-secondary btn-sm" @click="toggleSort('tradition')">Традиция{{ sortIndicator('tradition') }}</button>
-            <button class="btn btn-secondary btn-sm" @click="toggleSort('traits')">Дескрипторы{{ sortIndicator('traits') }}</button>
-            <button class="btn btn-secondary btn-sm" @click="toggleSort('actions')">Время сотворения{{ sortIndicator('actions') }}</button>
-          </div>
+          <button class="btn btn-secondary btn-sm" @click="toggleSort('name')">Название{{ sortIndicator('name') }}</button>
+          <button class="btn btn-secondary btn-sm" @click="toggleSort('level')">Уровень{{ sortIndicator('level') }}</button>
+          <button class="btn btn-secondary btn-sm" @click="toggleSort('tradition')">Традиция{{ sortIndicator('tradition') }}</button>
+          <button class="btn btn-secondary btn-sm" @click="toggleSort('traits')">Дескрипторы{{ sortIndicator('traits') }}</button>
+          <button class="btn btn-secondary btn-sm" @click="toggleSort('actions')">Время сотворения{{ sortIndicator('actions') }}</button>
         </div>
         <div class="spell-grid cards">
           <SpellCard
