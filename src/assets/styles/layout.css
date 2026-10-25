@@ -77,6 +77,8 @@
 .spell-grid.cards > * {
   width: 100% !important;
   max-width: 320px !important;
+  min-width: 280px !important;
+  justify-self: start !important;
   break-inside: unset !important;
   margin-bottom: 0 !important;
 }
