@@ -180,7 +180,7 @@ function toggleFavorite(spellId: string) {
 </template>
 
 <style scoped>
-.sort-card { grid-column: 1 / -1; padding: var(--spacing-md) var(--spacing-lg); min-height: 44px; background: transparent; border: none; box-shadow: none; display: flex; flex-wrap: wrap; gap: var(--spacing-md); }
+.sort-card { grid-column: 1 / -1; padding: var(--spacing-md) var(--spacing-lg); min-height: 44px; background: transparent; border: none; box-shadow: none; display: flex; flex-wrap: wrap; gap: var(--spacing-lg); }
 .sort-card button { font-size: 1.125rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text-secondary); padding: var(--spacing-sm) var(--spacing-md); }
 </style>
   </div>
