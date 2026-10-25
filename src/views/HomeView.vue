@@ -3,7 +3,6 @@ import { computed, ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { useSpells } from '@/composables/useSpells'
 import { useFilterStore, useSettingsStore, useHistoryStore, useFavoritesStore } from '@/stores'
-import SpellCard from '@/components/SpellCard.vue'
 import SpellTable from '@/components/SpellTable.vue'
 
 const router = useRouter()
@@ -11,51 +10,11 @@ const filterStore = useFilterStore()
 const settingsStore = useSettingsStore()
 const historyStore = useHistoryStore()
 const favoritesStore = useFavoritesStore()
-const { search, getSpell } = useSpells()
+const { search } = useSpells()
 const isLoading = computed(() => useSpells().isLoading.value)
 const loadError = computed(() => useSpells().loadError.value)
 
-const viewMode = computed(() => settingsStore.state.viewMode)
 const filteredSpells = computed(() => search(filterStore.state.searchQuery, filterStore.state))
-
-type SortKey = 'name' | 'traits' | 'level' | 'actions' | 'tradition'
-const sortKey = ref<SortKey | null>(null)
-const sortAsc = ref(true)
-
-function toggleSort(key: SortKey) {
-  if (sortKey.value === key) sortAsc.value = !sortAsc.value
-  else { sortKey.value = key; sortAsc.value = true }
-}
-
-function sortIndicator(key: SortKey): string {
-  if (sortKey.value !== key) return ''
-  return sortAsc.value ? ' ↓' : ' ↑'
-}
-
-const sortedSpells = computed(() => {
-  if (!sortKey.value) return filteredSpells.value
-  const list = [...filteredSpells.value]
-  list.sort((a, b) => {
-    let av: string | number
-    let bv: string | number
-    switch (sortKey.value) {
-      case 'name': av = a.nameRu.toLowerCase(); bv = b.nameRu.toLowerCase(); break
-      case 'traits': av = a.traits.map(t => t).join(',').toLowerCase(); bv = b.traits.map(t => t).join(',').toLowerCase(); break
-      case 'level': av = a.level; bv = b.level; break
-      case 'actions': {
-        const sa = getSpell(a.id); const sb = getSpell(b.id)
-        av = sa ? 0 : 99; bv = sb ? 0 : 99
-        break
-      }
-      case 'tradition': av = a.tradition.join(',').toLowerCase(); bv = b.tradition.join(',').toLowerCase(); break
-      default: return 0
-    }
-    if (av < bv) return sortAsc.value ? -1 : 1
-    if (av > bv) return sortAsc.value ? 1 : -1
-    return 0
-  })
-  return list
-})
 
 const PAGE_SIZE = 50
 const showAll = ref(false)
@@ -64,9 +23,9 @@ const currentPage = ref(1)
 const totalPages = computed(() => Math.max(1, Math.ceil(filteredSpells.value.length / PAGE_SIZE)))
 
 const pagedSpells = computed(() => {
-  if (showAll.value) return sortedSpells.value
+  if (showAll.value) return filteredSpells.value
   const start = (currentPage.value - 1) * PAGE_SIZE
-  return sortedSpells.value.slice(start, start + PAGE_SIZE)
+  return filteredSpells.value.slice(start, start + PAGE_SIZE)
 })
 
 watch(filteredSpells, () => {
@@ -102,17 +61,6 @@ function toggleFavorite(spellId: string) {
   <div class="home-view">
     <header class="content-header">
       <h1 class="content-title">Заклинания Pathfinder 2e</h1>
-      <div class="content-actions">
-        <button
-          class="btn btn-secondary"
-          :aria-pressed="viewMode === 'cards'"
-          @click="viewMode === 'table' ? settingsStore.setViewMode('cards') : settingsStore.setViewMode('table')"
-        >
-          <span v-if="viewMode === 'table'" aria-hidden="true">📋</span>
-          <span v-else aria-hidden="true">📊</span>
-          <span>{{ viewMode === 'table' ? 'Карточки' : 'Таблица' }}</span>
-        </button>
-      </div>
     </header>
 
     <div v-if="loadError" class="card p-md mb-md" style="border-color: var(--color-error);">
@@ -133,29 +81,9 @@ function toggleFavorite(spellId: string) {
 
     <template v-else>
       <SpellTable
-        v-if="viewMode === 'table'"
         :spells="pagedSpells"
         @view="viewSpell"
       />
-      <div v-else>
-        <div class="card sort-card mb-md">
-          <button class="btn btn-secondary btn-sm" @click="toggleSort('name')">Название{{ sortIndicator('name') }}</button>
-          <button class="btn btn-secondary btn-sm" @click="toggleSort('level')">Уровень{{ sortIndicator('level') }}</button>
-          <button class="btn btn-secondary btn-sm" @click="toggleSort('tradition')">Традиция{{ sortIndicator('tradition') }}</button>
-          <button class="btn btn-secondary btn-sm" @click="toggleSort('traits')">Дескрипторы{{ sortIndicator('traits') }}</button>
-          <button class="btn btn-secondary btn-sm" @click="toggleSort('actions')">Время сотворения{{ sortIndicator('actions') }}</button>
-        </div>
-        <div class="spell-grid cards">
-          <SpellCard
-          v-for="spellIndex in pagedSpells"
-          :key="spellIndex.id"
-          :spell-index="spellIndex"
-          :is-favorite="favoritesStore.favoriteIds.has(spellIndex.id)"
-          @view="viewSpell"
-          @favorite="toggleFavorite"
-        />
-        </div>
-      </div>
       <div class="flex flex-col items-center gap-md mt-xl mb-md">
         <div class="flex flex-wrap items-center justify-center gap-xs">
           <button class="btn btn-secondary btn-sm" :disabled="showAll || currentPage === 1" @click="goToPage(currentPage - 1)">← Назад</button>
@@ -178,10 +106,5 @@ function toggleFavorite(spellId: string) {
         <div class="text-sm text-muted">Всего: {{ filteredSpells.length }} заклинаний</div>
       </div>
 </template>
-
-<style scoped>
-.sort-card { grid-column: 1 / -1; padding: var(--spacing-md) var(--spacing-lg); min-height: 44px; background: transparent; border: none; box-shadow: none; display: flex; flex-wrap: wrap; gap: var(--spacing-lg); }
-.sort-card button { font-size: 1.125rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text-secondary); padding: var(--spacing-sm) var(--spacing-md); }
-</style>
   </div>
 </template>
