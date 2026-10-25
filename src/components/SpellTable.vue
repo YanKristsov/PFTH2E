@@ -153,6 +153,7 @@ const rows = computed(() =>
           </th>
           <th scope="col" style="width: 40px;"></th>
           <th scope="col" style="width: 40px;"></th>
+          <th scope="col" style="width: 40px;"></th>
         </tr>
       </thead>
       <tbody>
