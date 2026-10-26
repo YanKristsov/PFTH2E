@@ -36,7 +36,7 @@ const rarityColors: Record<string, string> = {
 </script>
 
 <template>
-  <article class="card" tabindex="0" role="button" :aria-label="`Посмотреть ${spellIndex.nameRu}`" @click="$emit('view', spellIndex.id)" @keydown.enter="$emit('view', spellIndex.id)">
+  <article class="card spell-card-fixed" tabindex="0" role="button" :aria-label="`Посмотреть ${spellIndex.nameRu}`" @click="$emit('view', spellIndex.id)" @keydown.enter="$emit('view', spellIndex.id)">
     <div class="card-header flex items-start justify-between gap-md">
       <div class="flex-1 min-w-0">
         <h3 class="font-semibold text-lg truncate">{{ spellIndex.nameRu }}</h3>
@@ -115,4 +115,5 @@ const rarityColors: Record<string, string> = {
 .favorite-star { font-size: 1.25rem; line-height: 1; }
 .action-icon { height: 23px; width: auto; max-width: 40px; object-fit: contain; filter: var(--icon-filter); }
 :deep(.card-body) { padding-bottom: var(--spacing-md); }
+.spell-card-fixed { width: 100%; max-width: 320px; min-width: 0; box-sizing: border-box; }
 </style>

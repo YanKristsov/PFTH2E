@@ -74,10 +74,12 @@
   align-items: stretch !important;
   columns: unset !important;
 }
-.spell-grid.cards > * {
+.spell-grid.cards > *,
+.spell-card-fixed {
   width: 100% !important;
   max-width: 320px !important;
-  min-width: 280px !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
   justify-self: start !important;
   break-inside: unset !important;
   margin-bottom: 0 !important;
