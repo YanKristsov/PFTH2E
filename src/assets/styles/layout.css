@@ -72,6 +72,9 @@
   gap: var(--spacing-md) !important;
   justify-content: start !important;
   align-items: stretch !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
   columns: unset !important;
 }
 .spell-grid.cards > *,
