@@ -169,6 +169,7 @@ const rows = computed(() =>
               {{ spell.nameRu }}
               <button
                 class="name-favorite-btn"
+                :class="{ 'is-favorite': favoritesStore.favoriteIds.has(spell.id) }"
                 type="button"
                 :aria-label="favoritesStore.favoriteIds.has(spell.id) ? 'Убрать из избранного' : 'Добавить в избранное'"
                 @click.stop="emit('toggleFavorite', spell.id)"
@@ -283,11 +284,11 @@ const rows = computed(() =>
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 18px;
-  height: 18px;
+  width: 21px;
+  height: 21px;
   padding: 0;
   margin-left: 6px;
-  font-size: 1rem;
+  font-size: 1.125rem;
   line-height: 1;
   border: none;
   background: none;
@@ -295,8 +296,10 @@ const rows = computed(() =>
   color: var(--color-text-muted);
   flex-shrink: 0;
   vertical-align: middle;
+  transition: color var(--transition-fast);
 }
 .name-favorite-btn:hover { color: var(--color-warning); }
+.name-favorite-btn.is-favorite { color: var(--color-warning); }
 .name-favorite-btn:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 1px; border-radius: 2px; }
 
 /* Звёздочка «Избранное» в таблице — по высоте иконок действий (24px) */
