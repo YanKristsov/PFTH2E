@@ -36,8 +36,7 @@ function componentLabel(c: string) {
 function filterValueLabel(key: keyof FilterState, value: unknown): string {
   const raw = String(value)
   if (raw && raw.charAt(0) === '-') {
-    const base = filterValueLabel(key, raw.substring(1))
-    return base
+    return 'не ' + filterValueLabel(key, raw.substring(1))
   }
   if (key === 'actions') {
     const map: Record<string, string> = {
@@ -122,17 +121,26 @@ function filterValueText(filter: { key: keyof FilterState; value: FilterState[ke
 
       <div class="sidebar-section">
         <h3 class="sidebar-title">Уровень</h3>
-          <label class="level-chip-label">
-            <input
-              type="checkbox"
-              class="sr-only filter-checkbox"
-              :class="{ 'filter-include': (filterStore.state.level as any[]).includes(0), 'filter-exclude': (filterStore.state.level as any[]).includes('-0') }"
-              :checked="(filterStore.state.level as any[]).includes(0)"
-              :indeterminate="(filterStore.state.level as any[]).includes('-0')"
-              @click.prevent="filterStore.toggleFilter('level', 0)"
-            />
-            <span class="chip level-chip" :class="{ 'chip-primary': (filterStore.state.level as any[]).includes(0), 'chip-secondary': (filterStore.state.level as any[]).includes('-0') }">0</span>
-          </label>
+        <div class="level-grid">
+          <button
+            class="chip level-chip"
+            :class="{ 'chip-primary': filterStore.state.level.includes(0), 'chip-secondary': (filterStore.state.level as any[]).includes('-0') }"
+            :aria-pressed="filterStore.state.level.includes(0) || (filterStore.state.level as any[]).includes('-0')"
+            @click="filterStore.toggleFilter('level', 0)"
+          >
+            0
+          </button>
+          <button
+            v-for="l in 10"
+            :key="l"
+            class="chip level-chip"
+            :class="{ 'chip-primary': filterStore.state.level.includes(l), 'chip-secondary': (filterStore.state.level as any[]).includes('-'+l) }"
+            :aria-pressed="filterStore.state.level.includes(l) || (filterStore.state.level as any[]).includes('-'+l)"
+            @click="filterStore.toggleFilter('level', l)"
+          >
+            {{ l }}
+          </button>
+        </div>
       </div>
 
       <div class="sidebar-section">
@@ -142,10 +150,9 @@ function filterValueText(filter: { key: keyof FilterState; value: FilterState[ke
             <span class="capitalize">{{ traditionLabel(t) }}</span>
             <input
               type="checkbox"
-              class="flex-shrink-0 filter-checkbox"
-              :class="{ 'filter-include': (filterStore.state.tradition as any[]).includes(t), 'filter-exclude': (filterStore.state.tradition as any[]).includes('-' + t) }"
-              :checked="(filterStore.state.tradition as any[]).includes(t)"
-              :indeterminate="(filterStore.state.tradition as any[]).includes('-' + t)"
+              class="flex-shrink-0"
+              :checked="(filterStore.state.tradition as string[]).includes(t)"
+              :indeterminate="(filterStore.state.tradition as string[]).includes('-' + t)"
               @click.prevent="filterStore.toggleFilter('tradition', t)"
             />
           </label>
@@ -159,10 +166,9 @@ function filterValueText(filter: { key: keyof FilterState; value: FilterState[ke
             <span class="truncate">{{ schoolLabel(s) }}</span>
             <input
               type="checkbox"
-              class="flex-shrink-0 filter-checkbox"
-              :class="{ 'filter-include': (filterStore.state.school as any[]).includes(s), 'filter-exclude': (filterStore.state.school as any[]).includes('-' + s) }"
-              :checked="(filterStore.state.school as any[]).includes(s)"
-              :indeterminate="(filterStore.state.school as any[]).includes('-' + s)"
+              class="flex-shrink-0"
+              :checked="(filterStore.state.school as string[]).includes(s)"
+              :indeterminate="(filterStore.state.school as string[]).includes('-' + s)"
               @click.prevent="filterStore.toggleFilter('school', s)"
             />
           </label>
