@@ -53,7 +53,9 @@ onUnmounted(() => {
       <main class="content" role="main">
         <router-view v-slot="{ Component }">
           <transition name="fade" mode="out-in">
-            <component :is="Component" />
+            <keep-alive include="HomeView">
+              <component :is="Component" />
+            </keep-alive>
           </transition>
         </router-view>
       </main>

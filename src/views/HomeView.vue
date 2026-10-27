@@ -1,9 +1,11 @@
 <script setup lang="ts">
-import { computed, ref, watch } from 'vue'
+import { computed, ref, watch, onActivated } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { useSpells } from '@/composables/useSpells'
 import { useFilterStore, useSettingsStore, useHistoryStore, useFavoritesStore } from '@/stores'
 import SpellTable from '@/components/SpellTable.vue'
+
+defineOptions({ name: 'HomeView' })
 
 const router = useRouter()
 const route = useRoute()
@@ -26,8 +28,8 @@ watch(() => route.query.q, (q) => {
 const filteredSpells = computed(() => search(filterStore.state.searchQuery, filterStore.state))
 
 const PAGE_SIZE = 50
-const showAll = ref(false)
-const currentPage = ref(1)
+const showAll = ref(sessionStorage.getItem('home:showAll') === '1')
+const currentPage = ref(Number(sessionStorage.getItem('home:page') || '1'))
 
 const totalPages = computed(() => Math.max(1, Math.ceil(filteredSpells.value.length / PAGE_SIZE)))
 
@@ -39,27 +41,50 @@ const pagedSpells = computed(() => {
 
 watch(filteredSpells, () => {
   currentPage.value = 1
+  sessionStorage.setItem('home:page', '1')
 })
 
 watch(() => filterStore.state, () => {
   currentPage.value = 1
+  sessionStorage.setItem('home:page', '1')
 }, { deep: true })
+
+watch(showAll, (v) => {
+  sessionStorage.setItem('home:showAll', v ? '1' : '0')
+})
+
+watch(currentPage, (v) => {
+  sessionStorage.setItem('home:page', String(v))
+})
 
 function goToPage(page: number) {
   currentPage.value = page
+  sessionStorage.setItem('home:page', String(page))
   window.scrollTo({ top: 0, behavior: 'smooth' })
 }
 
 function showFullList() {
   showAll.value = !showAll.value
   currentPage.value = 1
+  sessionStorage.setItem('home:page', '1')
+  sessionStorage.setItem('home:showAll', showAll.value ? '1' : '0')
   if (!showAll.value) window.scrollTo({ top: 0, behavior: 'smooth' })
 }
 
-function viewSpell(spellId: string) {
-    historyStore.add(spellId)
-    router.push({ name: 'spell-detail', params: { id: spellId } })
+onActivated(() => {
+  const y = sessionStorage.getItem('home:scroll')
+  if (y) {
+    requestAnimationFrame(() => {
+      window.scrollTo({ top: Number(y), behavior: 'auto' })
+    })
   }
+})
+
+function viewSpell(spellId: string) {
+  sessionStorage.setItem('home:scroll', String(window.scrollY))
+  historyStore.add(spellId)
+  router.push({ name: 'spell-detail', params: { id: spellId } })
+}
 
 function toggleFavorite(spellId: string) {
   favoritesStore.toggle(spellId)
