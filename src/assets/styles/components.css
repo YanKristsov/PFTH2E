@@ -251,7 +251,7 @@
   accent-color: var(--color-accent);
   cursor: pointer;
 }
-.sidebar-section .flex.items-center.justify-between input[type="checkbox"]:checked {
+.sidebar-section .flex.items-center.justify-between input[type="checkbox"].cb-green {
   accent-color: #22c55e;
 }
 .sidebar-section .flex.items-center.justify-between span {
