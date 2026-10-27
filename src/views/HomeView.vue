@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 import { useSpells } from '@/composables/useSpells'
 import { useFilterStore, useSettingsStore, useHistoryStore, useFavoritesStore } from '@/stores'
 import SpellTable from '@/components/SpellTable.vue'
 
 const router = useRouter()
+const route = useRoute()
 const filterStore = useFilterStore()
 const settingsStore = useSettingsStore()
 const historyStore = useHistoryStore()
@@ -13,6 +14,14 @@ const favoritesStore = useFavoritesStore()
 const { search } = useSpells()
 const isLoading = computed(() => useSpells().isLoading.value)
 const loadError = computed(() => useSpells().loadError.value)
+
+// Sync search query from route
+watch(() => route.query.q, (q) => {
+  const query = typeof q === 'string' ? q : ''
+  if (filterStore.state.searchQuery !== query) {
+    filterStore.setFilter('searchQuery', query)
+  }
+}, { immediate: true })
 
 const filteredSpells = computed(() => search(filterStore.state.searchQuery, filterStore.state))
 
