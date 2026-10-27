@@ -21,7 +21,7 @@ export const SCHOOL_LABELS: Record<string, string> = {
   illusion: 'Иллюзия',
   necromancy: 'Некромантия',
   transmutation: 'Превращение',
-  Unknown: 'Неизвестно'
+  Unknown: '—'
 }
 
 export const COMPONENT_LABELS: Record<string, string> = {
