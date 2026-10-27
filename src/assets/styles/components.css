@@ -258,8 +258,8 @@
   position: relative;
 }
 .sidebar-section .flex.items-center.justify-between input[type="checkbox"]:checked {
-  background: var(--color-accent);
-  border-color: var(--color-accent);
+  background: #22c55e;
+  border-color: #22c55e;
 }
 .sidebar-section .flex.items-center.justify-between input[type="checkbox"]:checked::after {
   content: '';
