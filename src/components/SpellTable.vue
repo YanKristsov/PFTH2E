@@ -124,7 +124,7 @@ const rows = computed(() =>
       <caption id="table-desc" class="sr-only">Список заклинаний с фильтрами по уровню, традиции, школе, классам и чертам</caption>
       <thead>
         <tr>
-          <th v-if="columns.includes('name')" scope="col" style="width: 30%;">
+          <th v-if="columns.includes('name')" scope="col" style="width: 415px;">
             <button type="button" class="th-sort" :aria-label="`Сортировать по названию`" @click="toggleSort('name')">
               Название<span class="sort-arrow" aria-hidden="true">{{ sortIndicator('name') }}</span>
             </button>
@@ -151,8 +151,6 @@ const rows = computed(() =>
                Время сотворения<span class="sort-arrow" aria-hidden="true">{{ sortIndicator('actions') }}</span>
             </button>
           </th>
-          <th scope="col" style="width: 40px;"></th>
-          <th scope="col" style="width: 40px;"></th>
           <th scope="col" style="width: 40px;"></th>
         </tr>
       </thead>
