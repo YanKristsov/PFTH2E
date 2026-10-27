@@ -250,42 +250,6 @@
   width: 1.1rem; height: 1.1rem;
   accent-color: var(--color-accent);
   cursor: pointer;
-  appearance: none;
-  -webkit-appearance: none;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
-  background: var(--color-surface);
-  position: relative;
-}
-.sidebar-section .flex.items-center.justify-between input[type="checkbox"]:checked {
-  background: #22c55e;
-  border-color: #22c55e;
-}
-.sidebar-section .flex.items-center.justify-between input[type="checkbox"]:checked::after {
-  content: '';
-  position: absolute;
-  left: 0.32rem;
-  top: 0.08rem;
-  width: 0.25rem;
-  height: 0.5rem;
-  border: solid white;
-  border-width: 0 2px 2px 0;
-  transform: rotate(45deg);
-}
-.sidebar-section .flex.items-center.justify-between input[type="checkbox"]:indeterminate {
-  background: #dc2626;
-  border-color: #dc2626;
-}
-.sidebar-section .flex.items-center.justify-between input[type="checkbox"]:indeterminate::after {
-  content: '×';
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-  font-size: 0.8rem;
-  line-height: 1;
-  font-weight: 700;
 }
 .sidebar-section .flex.items-center.justify-between span {
   font-size: 0.875rem;
