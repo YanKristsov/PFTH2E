@@ -258,3 +258,6 @@
 .py-2xs { padding-top: 2px; padding-bottom: 2px; }
 .gap-2xs { gap: 2px; }
 .flex-shrink-0 { flex-shrink: 0; }
+.filter-checkbox { accent-color: var(--color-accent); }
+.filter-checkbox.filter-include { accent-color: #22c55e; }
+.filter-checkbox.filter-exclude { accent-color: #ef4444; }
