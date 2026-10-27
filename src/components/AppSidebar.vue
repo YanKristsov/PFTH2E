@@ -162,7 +162,7 @@ function filterValueText(filter: { key: keyof FilterState; value: string; exclud
               type="checkbox"
               class="flex-shrink-0"
               :class="{ 'cb-green': (filterStore.state.tradition as string[]).includes(t) }"
-              :checked="(filterStore.state.tradition as string[]).includes(t)"
+              :checked="(filterStore.state.tradition as string[]).includes(t) || (filterStore.state.tradition as string[]).includes('-' + t)"
               @click.prevent="filterStore.toggleFilter('tradition', t)"
             />
           </label>
@@ -177,8 +177,8 @@ function filterValueText(filter: { key: keyof FilterState; value: string; exclud
             <input
               type="checkbox"
               class="flex-shrink-0"
-              :class="{ 'cb-green': (filterStore.state.school as string[]).includes(s) }"
-              :checked="(filterStore.state.school as string[]).includes(s)"
+              :class="{ 'cb-green': (filterStore.state.school as string[]).includes(s) || (filterStore.state.school as string[]).includes('-' + s) }"
+              :checked="(filterStore.state.school as string[]).includes(s) || (filterStore.state.school as string[]).includes('-' + s)"
               @click.prevent="filterStore.toggleFilter('school', s)"
             />
           </label>
@@ -193,8 +193,8 @@ function filterValueText(filter: { key: keyof FilterState; value: string; exclud
             <input
               type="checkbox"
               class="flex-shrink-0"
-              :class="{ 'cb-green': (filterStore.state.class as string[]).includes(GENERIC_CLASS) }"
-              :checked="(filterStore.state.class as string[]).includes(GENERIC_CLASS)"
+              :class="{ 'cb-green': (filterStore.state.class as string[]).includes(GENERIC_CLASS) || (filterStore.state.class as string[]).includes('-' + GENERIC_CLASS) }"
+              :checked="(filterStore.state.class as string[]).includes(GENERIC_CLASS) || (filterStore.state.class as string[]).includes('-' + GENERIC_CLASS)"
               @click.prevent="filterStore.toggleFilter('class', GENERIC_CLASS)"
             />
           </label>
@@ -203,8 +203,8 @@ function filterValueText(filter: { key: keyof FilterState; value: string; exclud
             <input
               type="checkbox"
               class="flex-shrink-0"
-              :class="{ 'cb-green': (filterStore.state.class as string[]).includes(c) }"
-              :checked="(filterStore.state.class as string[]).includes(c)"
+              :class="{ 'cb-green': (filterStore.state.class as string[]).includes(c) || (filterStore.state.class as string[]).includes('-' + c) }"
+              :checked="(filterStore.state.class as string[]).includes(c) || (filterStore.state.class as string[]).includes('-' + c)"
               @click.prevent="filterStore.toggleFilter('class', c)"
             />
           </label>
@@ -219,8 +219,8 @@ function filterValueText(filter: { key: keyof FilterState; value: string; exclud
             <input
               type="checkbox"
               class="flex-shrink-0"
-              :class="{ 'cb-green': (filterStore.state.traits as string[]).includes(t) }"
-              :checked="(filterStore.state.traits as string[]).includes(t)"
+              :class="{ 'cb-green': (filterStore.state.traits as string[]).includes(t) || (filterStore.state.traits as string[]).includes('-' + t) }"
+              :checked="(filterStore.state.traits as string[]).includes(t) || (filterStore.state.traits as string[]).includes('-' + t)"
               @click.prevent="filterStore.toggleFilter('traits', t)"
             />
           </label>
@@ -258,8 +258,8 @@ function filterValueText(filter: { key: keyof FilterState; value: string; exclud
             <input
               type="checkbox"
               class="flex-shrink-0"
-              :class="{ 'cb-green': (filterStore.state.components as any[]).includes(c) }"
-              :checked="(filterStore.state.components as any[]).includes(c)"
+              :class="{ 'cb-green': (filterStore.state.components as any[]).includes(c) || (filterStore.state.components as any[]).includes('-' + c) }"
+              :checked="(filterStore.state.components as any[]).includes(c) || (filterStore.state.components as any[]).includes('-' + c)"
               @click.prevent="filterStore.toggleFilter('components', c as any)"
             />
           </label>
@@ -274,8 +274,8 @@ function filterValueText(filter: { key: keyof FilterState; value: string; exclud
             <input
               type="checkbox"
               class="flex-shrink-0"
-              :class="{ 'cb-green': (filterStore.state.source as string[]).includes(s) }"
-              :checked="(filterStore.state.source as string[]).includes(s)"
+              :class="{ 'cb-green': (filterStore.state.source as string[]).includes(s) || (filterStore.state.source as string[]).includes('-' + s) }"
+              :checked="(filterStore.state.source as string[]).includes(s) || (filterStore.state.source as string[]).includes('-' + s)"
               @click.prevent="filterStore.toggleFilter('source', s)"
             />
           </label>
