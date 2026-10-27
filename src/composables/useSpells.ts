@@ -256,6 +256,28 @@ export function useSpells() {
     applyIncExc('actions')
     applyIncExc('source')
 
+    const compArr = (filters.components as string[]) || []
+    const compInc = compArr.filter(x => typeof x === 'string' && !x.startsWith('-'))
+    const compExc = compArr.filter(x => typeof x === 'string' && x.startsWith('-')).map(x => x.slice(1))
+    if (compInc.length) {
+      filteredSpells = filteredSpells.filter(r => {
+        const spell = spells.value.find(s => s.id === r.id)
+        if (!spell) return false
+        const c = spell.components || {}
+        const has = (compInc.includes('V') && c.v) || (compInc.includes('S') && c.s) || (compInc.includes('M') && c.m) || (compInc.includes('F') && c.f)
+        return has
+      })
+    }
+    if (compExc.length) {
+      filteredSpells = filteredSpells.filter(r => {
+        const spell = spells.value.find(s => s.id === r.id)
+        if (!spell) return true
+        const c = spell.components || {}
+        const hasExc = (compExc.includes('V') && c.v) || (compExc.includes('S') && c.s) || (compExc.includes('M') && c.m) || (compExc.includes('F') && c.f)
+        return !hasExc
+      })
+    }
+
     return filteredSpells
   }
 

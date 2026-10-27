@@ -19,7 +19,10 @@ const activeFilters = computed(() => {
   const result: Array<{ key: keyof FilterState; value: FilterState[keyof FilterState] }> = []
   for (const [key, value] of Object.entries(filterStore.state) as Array<[keyof FilterState, FilterState[keyof FilterState]]>) {
     if (Array.isArray(value) && value.length > 0) {
-      result.push({ key, value })
+      const included = (value as string[]).filter(v => typeof v === 'string' && !v.startsWith('-'))
+      if (included.length > 0) {
+        result.push({ key, value: included as any })
+      }
     }
   }
   return result
@@ -36,7 +39,7 @@ function componentLabel(c: string) {
 function filterValueLabel(key: keyof FilterState, value: unknown): string {
   const raw = String(value)
   if (raw && raw.charAt(0) === '-') {
-    return 'не ' + filterValueLabel(key, raw.substring(1))
+    return filterValueLabel(key, raw.substring(1))
   }
   if (key === 'actions') {
     const map: Record<string, string> = {
@@ -193,10 +196,9 @@ function filterValueText(filter: { key: keyof FilterState; value: FilterState[ke
             <input
               type="checkbox"
               class="flex-shrink-0"
-              :checked="filterStore.state.components.includes(c as any)"
-              :indeterminate="(filterStore.state.components as string[]).includes('-'+c)"
-              @click.prevent="filterStore.toggleFilter('components', c as any)"
-              :data-tooltip="componentLabel(c)"
+              :checked="(filterStore.state.class as string[]).includes(c)"
+              :indeterminate="(filterStore.state.class as string[]).includes('-' + c)"
+              @click.prevent="filterStore.toggleFilter('class', c)"
             />
           </label>
         </div>
