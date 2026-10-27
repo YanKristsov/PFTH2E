@@ -2,13 +2,11 @@
 import { computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { useSpells } from '@/composables/useSpells'
-import { useFavoritesStore, useSettingsStore } from '@/stores'
+import { useFavoritesStore } from '@/stores'
 import SpellCard from '@/components/SpellCard.vue'
 import type { SpellIndex } from '@/types/spell'
-import { traditionLabel, schoolLabel } from '@/constants/translations'
 
 const router = useRouter()
-const settingsStore = useSettingsStore()
 const favoritesStore = useFavoritesStore()
 const { getSpell } = useSpells()
 
@@ -31,8 +29,10 @@ const favoriteSpells = computed<FavoriteSpellWithNotes[]>(() => {
         classes: spell.classes,
         traits: spell.traits,
         rarity: spell.rarity,
+        components: spell.components,
+        description: spell.description,
         notes: fav.notes
-      }
+      } as FavoriteSpellWithNotes
     })
     .filter((s): s is FavoriteSpellWithNotes => s !== null)
 })
@@ -44,26 +44,12 @@ function viewSpell(spellId: string) {
 function toggleFavorite(spellId: string) {
   favoritesStore.toggle(spellId)
 }
-
-function updateNotes(spellId: string, notes: string) {
-  favoritesStore.updateNotes(spellId, notes)
-}
 </script>
 
 <template>
   <div class="favorites-view">
     <header class="content-header">
       <h1 class="content-title">Избранное</h1>
-      <div class="content-actions">
-        <button
-          class="btn btn-secondary"
-          type="button"
-          :aria-pressed="settingsStore.state.viewMode === 'cards'"
-          @click="settingsStore.setViewMode(settingsStore.state.viewMode === 'table' ? 'cards' : 'table')"
-        >
-          <span>{{ settingsStore.state.viewMode === 'table' ? 'Карточки' : 'Таблица' }}</span>
-        </button>
-      </div>
     </header>
 
     <div v-if="favoriteSpells.length === 0" class="empty-state">
@@ -73,55 +59,15 @@ function updateNotes(spellId: string, notes: string) {
       <router-link to="/" class="btn btn-primary mt-md">К заклинаниям</router-link>
     </div>
 
-    <div v-else class="spell-grid" :class="settingsStore.state.viewMode">
-      <div v-if="settingsStore.state.viewMode === 'cards'" class="flex flex-wrap gap-md">
-        <SpellCard
-          v-for="spell in favoriteSpells"
-          :key="spell.id"
-          :spell-index="spell"
-          :is-favorite="true"
-          @view="viewSpell"
-          @favorite="toggleFavorite"
-        />
-      </div>
-      <div v-else>
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col" style="width: 40px;"></th>
-              <th scope="col">Название</th>
-              <th scope="col" style="width: 60px;">Уровень</th>
-              <th scope="col" style="width: 120px;">Традиция</th>
-              <th scope="col" style="width: 120px;">Школа</th>
-              <th scope="col">Заметки</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="spell in favoriteSpells" :key="spell.id" tabindex="0" role="button" @click="viewSpell(spell.id)" @keydown.enter="viewSpell(spell.id)">
-              <td>
-                <button class="btn btn-ghost btn-sm" aria-label="Убрать из избранного" @click.stop="favoritesStore.remove(spell.id)">✕</button>
-              </td>
-              <td>
-                <div class="font-medium">{{ spell.nameRu }}</div>
-                <div v-if="spell.nameEn !== spell.nameRu" class="text-xs text-muted">{{ spell.nameEn }}</div>
-              </td>
-              <td><span class="chip chip-info">Ур. {{ spell.level }}</span></td>
-              <td><span class="text-sm">{{ spell.tradition.map((t: string) => traditionLabel(t)).join(' ') }}</span></td>
-              <td>{{ schoolLabel(spell.school) }}</td>
-              <td>
-                <textarea
-                  v-model="spell.notes"
-                  class="w-full min-h-[60px] resize-none bg-transparent border-none focus:outline-none text-sm"
-                  placeholder="Заметки..."
-                  aria-label="Заметки заклинания"
-                  @input="updateNotes(spell.id, spell.notes)"
-                  @click.stop
-                ></textarea>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+    <div v-else class="spell-grid cards">
+      <SpellCard
+        v-for="spell in favoriteSpells"
+        :key="spell.id"
+        :spell-index="spell"
+        :is-favorite="true"
+        @view="viewSpell"
+        @favorite="toggleFavorite"
+      />
     </div>
   </div>
 </template>
