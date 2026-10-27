@@ -263,6 +263,10 @@ function filterValueText(filter: { key: keyof FilterState; value: FilterState[ke
           </label>
         </div>
       </div>
+
+      <div class="sidebar-section">
+        <button class="btn btn-secondary w-full" @click="clearAllFilters">Сбросить</button>
+      </div>
     </div>
   </aside>
 </template>
