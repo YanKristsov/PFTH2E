@@ -266,7 +266,7 @@ const rows = computed(() =>
   cursor: pointer;
 }
 .th-sort:hover { color: var(--color-text); }
-.spell-name-cell { text-align: justify; hyphens: auto; -webkit-hyphens: auto; -ms-hyphens: auto; word-break: break-word; }
+.spell-name-cell { text-align: left; hyphens: auto; -webkit-hyphens: auto; -ms-hyphens: auto; word-break: break-word; }
 
 /* Звёздочка «Избранное» в ячейке названия — не увеличивает высоту/ширину столбца */
 .name-favorite-btn {
