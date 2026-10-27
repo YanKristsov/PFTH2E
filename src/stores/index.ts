@@ -21,10 +21,19 @@ export const useFilterStore = defineStore('filters', () => {
   }
 
   function toggleFilter<K extends keyof FilterState>(key: K, item: FilterState[K][0]) {
-    const arr = state.value[key] as unknown[]
-    const idx = arr.indexOf(item)
-    if (idx >= 0) arr.splice(idx, 1)
-    else arr.push(item)
+    const arr = state.value[key] as string[]
+    const idx = arr.indexOf(item as string)
+    if (idx >= 0) {
+      arr.splice(idx, 1)
+      arr.push(`-${item}`)
+      return
+    }
+    const excIdx = arr.indexOf(`-${item}`)
+    if (excIdx >= 0) {
+      arr.splice(excIdx, 1)
+      return
+    }
+    arr.push(item as string)
   }
 
   function clearFilters() {

@@ -35,6 +35,9 @@ function componentLabel(c: string) {
 
 function filterValueLabel(key: keyof FilterState, value: unknown): string {
   const raw = String(value)
+  if (raw && raw.charAt(0) === '-') {
+    return 'не ' + filterValueLabel(key, raw.substring(1))
+  }
   if (key === 'actions') {
     const map: Record<string, string> = {
       '1': '1 действие',

@@ -193,41 +193,68 @@ export function useSpells() {
       filteredSpells = spellsIndex.value.filter(spell => resultIds.has(spell.id))
     }
 
-    if (filters.level?.length) {
-      filteredSpells = filteredSpells.filter(r => filters.level!.includes(r.level))
-    }
-    if (filters.tradition?.length) {
-      filteredSpells = filteredSpells.filter(r => filters.tradition!.some(t => r.tradition.includes(t)))
-    }
-    if (filters.school?.length) {
-      filteredSpells = filteredSpells.filter(r => filters.school!.includes(r.school))
-    }
-    if (filters.class?.length) {
-      filteredSpells = filteredSpells.filter(r => filters.class!.some(c => (
-        c === GENERIC_CLASS ? r.classes.length === 0 : r.classes.includes(c)
-      )))
-    }
-    if (filters.traits?.length) {
-      filteredSpells = filteredSpells.filter(r => filters.traits!.some(t => r.traits.includes(t)))
-    }
-    if (filters.rarity?.length) {
-      filteredSpells = filteredSpells.filter(r => filters.rarity!.includes(r.rarity))
-    }
-    if (filters.actions?.length) {
-      filteredSpells = filteredSpells.filter(r => {
-        const spell = spells.value.find(s => s.id === r.id)
-        if (!spell) return false
-        return filters.actions!.includes(getActionCategory(spell.castTime) as any)
-      })
+    const levelInc = (filters.level || []).filter(x => typeof x === 'number') as number[]
+    const levelExc = ((filters.level as any[]) || []).filter(x => typeof x === 'string' && (x as string).startsWith('-')).map(x => Number((x as string).slice(1)))
+    if (levelInc.length) filteredSpells = filteredSpells.filter(r => levelInc.includes(r.level))
+    if (levelExc.length) filteredSpells = filteredSpells.filter(r => !levelExc.includes(r.level))
+
+    function applyIncExc<T>(key: 'tradition' | 'school' | 'class' | 'traits' | 'rarity' | 'source' | 'actions') {
+      const arr = (filters as any)[key] as string[] || []
+      const inc = arr.filter(x => typeof x === 'string' && !x.startsWith('-'))
+      const exc = arr.filter(x => typeof x === 'string' && x.startsWith('-')).map(x => x.slice(1))
+      if (inc.length) {
+        if (key === 'tradition') filteredSpells = filteredSpells.filter(r => (r.tradition || []).some(t => inc.includes(t)))
+        else if (key === 'school') filteredSpells = filteredSpells.filter(r => inc.includes(r.school))
+        else if (key === 'class') filteredSpells = filteredSpells.filter(r => inc.some(c => c === GENERIC_CLASS ? r.classes.length === 0 : r.classes.includes(c)))
+        else if (key === 'traits') filteredSpells = filteredSpells.filter(r => (r.traits || []).some(t => inc.includes(t)))
+        else if (key === 'rarity') filteredSpells = filteredSpells.filter(r => inc.includes(r.rarity))
+        else if (key === 'actions') {
+          filteredSpells = filteredSpells.filter(r => {
+            const spell = spells.value.find(s => s.id === r.id)
+            if (!spell) return false
+            return inc.includes(getActionCategory(spell.castTime))
+          })
+        }
+        else if (key === 'source') {
+          filteredSpells = filteredSpells.filter(r => {
+            const spell = spells.value.find(s => s.id === r.id)
+            if (!spell) return false
+            return spell.source.some(src => inc.includes(sourceLabel(src.source.name)))
+          })
+        }
+      }
+      if (exc.length) {
+        if (key === 'tradition') filteredSpells = filteredSpells.filter(r => !(r.tradition || []).some(t => exc.includes(t)))
+        else if (key === 'school') filteredSpells = filteredSpells.filter(r => !exc.includes(r.school))
+        else if (key === 'class') filteredSpells = filteredSpells.filter(r => {
+          return !exc.some(c => c === GENERIC_CLASS ? r.classes.length === 0 : r.classes.includes(c))
+        })
+        else if (key === 'traits') filteredSpells = filteredSpells.filter(r => !(r.traits || []).some(t => exc.includes(t)))
+        else if (key === 'rarity') filteredSpells = filteredSpells.filter(r => !exc.includes(r.rarity))
+        else if (key === 'actions') {
+          filteredSpells = filteredSpells.filter(r => {
+            const spell = spells.value.find(s => s.id === r.id)
+            if (!spell) return true
+            return !exc.includes(getActionCategory(spell.castTime))
+          })
+        }
+        else if (key === 'source') {
+          filteredSpells = filteredSpells.filter(r => {
+            const spell = spells.value.find(s => s.id === r.id)
+            if (!spell) return true
+            return !spell.source.some(src => exc.includes(sourceLabel(src.source.name)))
+          })
+        }
+      }
     }
 
-    if (filters.source?.length) {
-      filteredSpells = filteredSpells.filter(r => {
-        const spell = spells.value.find(s => s.id === r.id)
-        if (!spell) return false
-        return spell.source.some(src => filters.source!.includes(sourceLabel(src.source.name)))
-      })
-    }
+    applyIncExc('tradition')
+    applyIncExc('school')
+    applyIncExc('class')
+    applyIncExc('traits')
+    applyIncExc('rarity')
+    applyIncExc('actions')
+    applyIncExc('source')
 
     return filteredSpells
   }
