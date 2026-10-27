@@ -1,14 +1,17 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useSpells } from '@/composables/useSpells'
 import { useFavoritesStore } from '@/stores'
 import SpellCard from '@/components/SpellCard.vue'
+import SpellTable from '@/components/SpellTable.vue'
 import type { SpellIndex } from '@/types/spell'
 
 const router = useRouter()
 const favoritesStore = useFavoritesStore()
 const { getSpell } = useSpells()
+
+const viewMode = ref<'table' | 'cards'>('cards')
 
 interface FavoriteSpellWithNotes extends SpellIndex {
   notes: string
@@ -50,6 +53,24 @@ function toggleFavorite(spellId: string) {
   <div class="favorites-view">
     <header class="content-header">
       <h1 class="content-title">Избранное</h1>
+      <div class="content-actions">
+        <div class="flex gap-sm">
+          <button
+            class="btn btn-sm"
+            :class="viewMode === 'table' ? 'btn-primary' : 'btn-secondary'"
+            @click="viewMode = 'table'"
+          >
+            Таблица
+          </button>
+          <button
+            class="btn btn-sm"
+            :class="viewMode === 'cards' ? 'btn-primary' : 'btn-secondary'"
+            @click="viewMode = 'cards'"
+          >
+            Карточки
+          </button>
+        </div>
+      </div>
     </header>
 
     <div v-if="favoriteSpells.length === 0" class="empty-state">
@@ -59,15 +80,23 @@ function toggleFavorite(spellId: string) {
       <router-link to="/" class="btn btn-primary mt-md">К заклинаниям</router-link>
     </div>
 
-    <div v-else class="spell-grid cards">
-      <SpellCard
-        v-for="spell in favoriteSpells"
-        :key="spell.id"
-        :spell-index="spell"
-        :is-favorite="true"
+    <template v-else>
+      <SpellTable
+        v-if="viewMode === 'table'"
+        :spells="favoriteSpells"
         @view="viewSpell"
-        @favorite="toggleFavorite"
+        @toggle-favorite="toggleFavorite"
       />
-    </div>
+      <div v-else class="spell-grid cards">
+        <SpellCard
+          v-for="spell in favoriteSpells"
+          :key="spell.id"
+          :spell-index="spell"
+          :is-favorite="true"
+          @view="viewSpell"
+          @favorite="toggleFavorite"
+        />
+      </div>
+    </template>
   </div>
 </template>

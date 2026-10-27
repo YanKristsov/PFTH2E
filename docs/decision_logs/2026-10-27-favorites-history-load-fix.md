@@ -38,3 +38,19 @@
 ## Файлы
 - `src/App.vue` — добавлены `useFavoritesStore`, `useHistoryStore`, вызовы `.load()`
 - `src/components/SpellCard.vue` — `padding-bottom: 0` у `.card-body`
+
+## Третий проход: переключатель вида в «Избранном»
+Пользователь просил вернуть переключатель «Карточки»/«Таблица» в раздел «Избранное».
+
+### Решение
+- В `FavoritesView.vue` добавлено локальное состояние `viewMode` (`'table' | 'cards'`, по умолчанию `'cards'`).
+- В шаблоне заголовка добавлены кнопки переключателя в `.content-actions`.
+- При `viewMode === 'table'` рендерится `SpellTable`, при `'cards'` — сетка `SpellCard`.
+- Импорт `SpellTable` добавлен в `FavoritesView.vue`.
+- История (`HistoryView.vue`) осталась только с таблицей — без переключателя, как было решено.
+- Главная (`HomeView.vue`) осталась только с таблицей — без переключателя, как было решено.
+
+### Проверка
+- `npm run typecheck` — 0 ошибок
+- `npm run build` — успешная сборка, в `dist/index.html` есть скрипт
+- `npx tsx scripts/check-runtime.ts` — 0 console errors, 0 failed requests
