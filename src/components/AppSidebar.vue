@@ -161,6 +161,7 @@ function filterValueText(filter: { key: keyof FilterState; value: string; exclud
             <input
               type="checkbox"
               class="flex-shrink-0"
+              :style="(filterStore.state.tradition as string[]).includes(t) ? { accentColor: '#22c55e' } : {}"
               :checked="(filterStore.state.tradition as string[]).includes(t)"
               @click.prevent="filterStore.toggleFilter('tradition', t)"
             />
@@ -176,6 +177,7 @@ function filterValueText(filter: { key: keyof FilterState; value: string; exclud
             <input
               type="checkbox"
               class="flex-shrink-0"
+              :style="(filterStore.state.school as string[]).includes(s) ? { accentColor: '#22c55e' } : {}"
               :checked="(filterStore.state.school as string[]).includes(s)"
               @click.prevent="filterStore.toggleFilter('school', s)"
             />
@@ -191,6 +193,7 @@ function filterValueText(filter: { key: keyof FilterState; value: string; exclud
             <input
               type="checkbox"
               class="flex-shrink-0"
+              :style="(filterStore.state.class as string[]).includes(GENERIC_CLASS) ? { accentColor: '#22c55e' } : {}"
               :checked="(filterStore.state.class as string[]).includes(GENERIC_CLASS)"
               @click.prevent="filterStore.toggleFilter('class', GENERIC_CLASS)"
             />
@@ -200,6 +203,7 @@ function filterValueText(filter: { key: keyof FilterState; value: string; exclud
             <input
               type="checkbox"
               class="flex-shrink-0"
+              :style="(filterStore.state.class as string[]).includes(c) ? { accentColor: '#22c55e' } : {}"
               :checked="(filterStore.state.class as string[]).includes(c)"
               @click.prevent="filterStore.toggleFilter('class', c)"
             />
@@ -215,6 +219,7 @@ function filterValueText(filter: { key: keyof FilterState; value: string; exclud
             <input
               type="checkbox"
               class="flex-shrink-0"
+              :style="(filterStore.state.traits as string[]).includes(t) ? { accentColor: '#22c55e' } : {}"
               :checked="(filterStore.state.traits as string[]).includes(t)"
               @click.prevent="filterStore.toggleFilter('traits', t)"
             />
@@ -253,6 +258,7 @@ function filterValueText(filter: { key: keyof FilterState; value: string; exclud
             <input
               type="checkbox"
               class="flex-shrink-0"
+              :style="(filterStore.state.components as any[]).includes(c) ? { accentColor: '#22c55e' } : {}"
               :checked="(filterStore.state.components as any[]).includes(c)"
               @click.prevent="filterStore.toggleFilter('components', c as any)"
             />
@@ -268,6 +274,7 @@ function filterValueText(filter: { key: keyof FilterState; value: string; exclud
             <input
               type="checkbox"
               class="flex-shrink-0"
+              :style="(filterStore.state.source as string[]).includes(s) ? { accentColor: '#22c55e' } : {}"
               :checked="(filterStore.state.source as string[]).includes(s)"
               @click.prevent="filterStore.toggleFilter('source', s)"
             />
