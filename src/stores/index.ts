@@ -36,6 +36,19 @@ export const useFilterStore = defineStore('filters', () => {
     arr.push(item as string)
   }
 
+  function removeFilter<K extends keyof FilterState>(key: K, item: string) {
+    const arr = state.value[key] as string[]
+    const idx = arr.indexOf(item)
+    if (idx >= 0) {
+      arr.splice(idx, 1)
+      return
+    }
+    const excIdx = arr.indexOf(`-${item}`)
+    if (excIdx >= 0) {
+      arr.splice(excIdx, 1)
+    }
+  }
+
   function clearFilters() {
     state.value = {
       level: [],
@@ -58,7 +71,7 @@ export const useFilterStore = defineStore('filters', () => {
     })
   }
 
-  return { state, setFilter, toggleFilter, clearFilters, hasActiveFilters }
+  return { state, setFilter, toggleFilter, removeFilter, clearFilters, hasActiveFilters }
 })
 
 export const useSettingsStore = defineStore('settings', () => {

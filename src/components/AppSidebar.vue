@@ -120,7 +120,7 @@ function filterValueText(filter: { key: keyof FilterState; value: string; exclud
             :class="{ 'active-filter-chip-exclude': filter.exclude }"
           >
             {{ filterLabel(filter.key) }}: {{ filterValueText(filter) }}
-            <button type="button" aria-label="Убрать фильтр" @click.stop="filterStore.toggleFilter(filter.key, ((filter.exclude ? '-' : '') + filter.value) as never)">×</button>
+            <button type="button" aria-label="Убрать фильтр" @click.stop="filterStore.removeFilter(filter.key, filter.exclude ? '-' + filter.value : filter.value)">×</button>
           </span>
           <span v-if="filterStore.state.searchQuery" class="active-filter-chip">
             Поиск: "{{ filterStore.state.searchQuery }}"
