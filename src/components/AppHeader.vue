@@ -73,7 +73,7 @@ function getThemeIcon() {
           v-model="searchQuery"
           type="search"
           class="search-input"
-          placeholder="Поиск заклинаний... (⌘K)"
+          placeholder="Поиск"
           autocomplete="off"
           aria-describedby="search-hint"
         />
