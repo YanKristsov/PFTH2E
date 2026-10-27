@@ -165,7 +165,17 @@ const rows = computed(() =>
           @keydown="handleKeyDown(spell, $event)"
         >
           <td v-if="columns.includes('name')">
-            <div class="spell-name-cell font-medium">{{ spell.nameRu }}</div>
+            <div class="spell-name-cell font-medium">
+              {{ spell.nameRu }}
+              <button
+                class="name-favorite-btn"
+                type="button"
+                :aria-label="favoritesStore.favoriteIds.has(spell.id) ? 'Убрать из избранного' : 'Добавить в избранное'"
+                @click.stop="emit('toggleFavorite', spell.id)"
+              >
+                <span aria-hidden="true">{{ favoritesStore.favoriteIds.has(spell.id) ? '★' : '☆' }}</span>
+              </button>
+            </div>
             <div v-if="spell.nameEn && spell.nameEn !== spell.nameRu" class="spell-name-cell text-xs text-muted">{{ spell.nameEn }}</div>
             <div v-if="getShortDescription(spell.id)" class="spell-summary text-xs text-muted">{{ getShortDescription(spell.id) }}</div>
           </td>
@@ -267,6 +277,27 @@ const rows = computed(() =>
 }
 .th-sort:hover { color: var(--color-text); }
 .spell-name-cell { text-align: justify; hyphens: auto; -webkit-hyphens: auto; -ms-hyphens: auto; word-break: break-word; }
+
+/* Звёздочка «Избранное» в ячейке названия — не увеличивает высоту/ширину столбца */
+.name-favorite-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  margin-left: 6px;
+  font-size: 1rem;
+  line-height: 1;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+  vertical-align: middle;
+}
+.name-favorite-btn:hover { color: var(--color-warning); }
+.name-favorite-btn:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 1px; border-radius: 2px; }
 
 /* Звёздочка «Избранное» в таблице — по высоте иконок действий (24px) */
 .favorite-toggle-btn {
