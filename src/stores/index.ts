@@ -57,6 +57,7 @@ export const useSettingsStore = defineStore('settings', () => {
     theme: 'system',
     language: 'ru',
     viewMode: 'table',
+    sidebarCollapsed: false,
     // колонка «classes» заполняется из данных, по умолчанию включена вместе с «traits» и «actions»
     tableColumns: ['name', 'level', 'tradition', 'school', 'classes', 'traits', 'actions']
   })
@@ -127,12 +128,17 @@ export const useSettingsStore = defineStore('settings', () => {
     save()
   }
 
+  function toggleSidebar() {
+    state.value.sidebarCollapsed = !state.value.sidebarCollapsed
+    save()
+  }
+
   // смена системной темы применяется сразу, если выбран режим «Системная»
   darkMedia?.addEventListener('change', () => {
     if (state.value.theme === 'system') applyTheme()
   })
 
-  return { state, load, save, setTheme, setLanguage, setViewMode, setTableColumns }
+  return { state, load, save, setTheme, setLanguage, setViewMode, setTableColumns, toggleSidebar }
 })
 
 export const useFavoritesStore = defineStore('favorites', () => {

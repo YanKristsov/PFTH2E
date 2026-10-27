@@ -4,13 +4,14 @@ const props = defineProps<{ mobile?: boolean }>()
 const emit = defineEmits<{ close: [] }>()
 import { useRoute } from 'vue-router'
 import { useSpells } from '@/composables/useSpells'
-import { useFilterStore } from '@/stores'
+import { useFilterStore, useSettingsStore } from '@/stores'
 import type { FilterState } from '@/types/spell'
 import { COMPONENT_LABELS, filterLabel, traitLabel, traditionLabel, schoolLabel, classLabel, GENERIC_CLASS, GENERIC_CLASS_LABEL } from '@/constants/translations'
 
 const route = useRoute()
 const { schools, allTraits, allSources, traditions, allClasses } = useSpells()
 const filterStore = useFilterStore()
+const settingsStore = useSettingsStore()
 
 const activeNav = computed(() => route.name)
 
@@ -67,7 +68,7 @@ function filterValueText(filter: { key: keyof FilterState; value: FilterState[ke
 </script>
 
 <template>
-  <aside class="sidebar" role="navigation" aria-label="Фильтры и навигация">
+  <aside class="sidebar" :class="{ collapsed: settingsStore.state.sidebarCollapsed }" role="navigation" aria-label="Фильтры и навигация">
     <div v-if="props.mobile" class="flex items-center justify-between p-md border-b border-[var(--color-border)]">
       <h2 class="text-lg font-semibold">Меню и фильтры</h2>
       <button class="btn btn-ghost" aria-label="Закрыть меню" @click="emit('close')">✕</button>

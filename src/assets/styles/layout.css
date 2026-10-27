@@ -40,6 +40,20 @@
   display: flex; flex-direction: column;
   overflow-y: auto;
   flex-shrink: 0;
+  transition: width var(--transition-normal), border-right-color var(--transition-fast), opacity var(--transition-fast);
+}
+.sidebar.collapsed {
+  width: 0;
+  overflow: hidden;
+  border-right: none;
+  opacity: 0;
+}
+.app.sidebar-collapsed .sidebar { width: 0; overflow: hidden; border-right: none; }
+
+/* Кнопка сворачивания сайдбара — только на десктопе */
+.desktop-only { display: none; }
+@media (min-width: 769px) {
+  .desktop-only { display: inline-flex; }
 }
 .sidebar-section { padding: var(--spacing-md); border-bottom: 1px solid var(--color-border); }
 .sidebar-title { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text-muted); margin-bottom: var(--spacing-sm); }

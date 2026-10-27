@@ -10,6 +10,10 @@ const router = useRouter()
 const searchQuery = ref('')
 const showMobileMenu = ref(false)
 
+function toggleSidebar() {
+  settingsStore.toggleSidebar()
+}
+
 function onSidebarClick(e: Event) {
   const target = e.target as HTMLElement
   if (target.closest('a, button')) {
@@ -45,6 +49,18 @@ function getThemeIcon() {
   <header class="header" role="banner">
     <div class="header-left flex items-center gap-md flex-1">
       <MobileMenuButton aria-label="Открыть меню" @click="showMobileMenu = true" />
+      <button
+        class="btn btn-ghost desktop-only"
+        aria-label="Свернуть/развернуть боковое меню"
+        :aria-pressed="settingsStore.state.sidebarCollapsed"
+        @click="toggleSidebar"
+        :data-tooltip="settingsStore.state.sidebarCollapsed ? 'Развернуть меню' : 'Свернуть меню'"
+      >
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <rect x="3" y="4" width="18" height="16" rx="2"></rect>
+          <line x1="9" y1="4" x2="9" y2="20"></line>
+        </svg>
+      </button>
       <router-link to="/" class="logo" aria-label="Главная">
         <span class="logo-icon" aria-hidden="true">📜</span>
         <span>PF2E Заклинания</span>
