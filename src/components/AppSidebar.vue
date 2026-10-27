@@ -155,7 +155,7 @@ function filterValueText(filter: { key: keyof FilterState; value: FilterState[ke
               type="checkbox"
               class="flex-shrink-0"
               :checked="(filterStore.state.tradition as string[]).includes(t)"
-              :indeterminate="(filterStore.state.tradition as string[]).includes('-' + t)"
+              :indeterminate.prop="(filterStore.state.tradition as string[]).includes('-' + t)"
               @click.prevent="filterStore.toggleFilter('tradition', t)"
             />
           </label>
@@ -171,7 +171,7 @@ function filterValueText(filter: { key: keyof FilterState; value: FilterState[ke
               type="checkbox"
               class="flex-shrink-0"
               :checked="(filterStore.state.school as string[]).includes(s)"
-              :indeterminate="(filterStore.state.school as string[]).includes('-' + s)"
+              :indeterminate.prop="(filterStore.state.school as string[]).includes('-' + s)"
               @click.prevent="filterStore.toggleFilter('school', s)"
             />
           </label>
@@ -187,7 +187,7 @@ function filterValueText(filter: { key: keyof FilterState; value: FilterState[ke
               type="checkbox"
               class="flex-shrink-0"
               :checked="(filterStore.state.class as string[]).includes(GENERIC_CLASS)"
-              :indeterminate="(filterStore.state.class as string[]).includes('-' + GENERIC_CLASS)"
+              :indeterminate.prop="(filterStore.state.class as string[]).includes('-' + GENERIC_CLASS)"
               @click.prevent="filterStore.toggleFilter('class', GENERIC_CLASS)"
             />
           </label>
@@ -197,7 +197,7 @@ function filterValueText(filter: { key: keyof FilterState; value: FilterState[ke
               type="checkbox"
               class="flex-shrink-0"
               :checked="(filterStore.state.class as string[]).includes(c)"
-              :indeterminate="(filterStore.state.class as string[]).includes('-' + c)"
+              :indeterminate.prop="(filterStore.state.class as string[]).includes('-' + c)"
               @click.prevent="filterStore.toggleFilter('class', c)"
             />
           </label>
@@ -213,7 +213,7 @@ function filterValueText(filter: { key: keyof FilterState; value: FilterState[ke
               type="checkbox"
               class="flex-shrink-0"
               :checked="(filterStore.state.traits as string[]).includes(t)"
-              :indeterminate="(filterStore.state.traits as string[]).includes('-' + t)"
+              :indeterminate.prop="(filterStore.state.traits as string[]).includes('-' + t)"
               @click.prevent="filterStore.toggleFilter('traits', t)"
             />
           </label>
@@ -252,7 +252,7 @@ function filterValueText(filter: { key: keyof FilterState; value: FilterState[ke
               type="checkbox"
               class="flex-shrink-0"
               :checked="(filterStore.state.components as any[]).includes(c)"
-              :indeterminate="(filterStore.state.components as any[]).includes('-'+c)"
+              :indeterminate.prop="(filterStore.state.components as any[]).includes('-'+c)"
               @click.prevent="filterStore.toggleFilter('components', c as any)"
             />
           </label>
@@ -268,7 +268,7 @@ function filterValueText(filter: { key: keyof FilterState; value: FilterState[ke
               type="checkbox"
               class="flex-shrink-0"
               :checked="(filterStore.state.source as string[]).includes(s)"
-              :indeterminate="(filterStore.state.source as string[]).includes('-' + s)"
+              :indeterminate.prop="(filterStore.state.source as string[]).includes('-' + s)"
               @click.prevent="filterStore.toggleFilter('source', s)"
             />
           </label>
