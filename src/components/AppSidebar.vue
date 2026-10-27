@@ -16,12 +16,17 @@ const settingsStore = useSettingsStore()
 const activeNav = computed(() => route.name)
 
 const activeFilters = computed(() => {
-  const result: Array<{ key: keyof FilterState; value: FilterState[keyof FilterState] }> = []
+  const result: Array<{ key: keyof FilterState; value: string; exclude: boolean }> = []
   for (const [key, value] of Object.entries(filterStore.state) as Array<[keyof FilterState, FilterState[keyof FilterState]]>) {
     if (Array.isArray(value) && value.length > 0) {
-      const included = (value as string[]).filter(v => typeof v === 'string' && !v.startsWith('-'))
-      if (included.length > 0) {
-        result.push({ key, value: included as any })
+      for (const v of value as string[]) {
+        if (typeof v === 'string') {
+          if (v.startsWith('-')) {
+            result.push({ key, value: v.substring(1), exclude: true })
+          } else {
+            result.push({ key, value: v, exclude: false })
+          }
+        }
       }
     }
   }
@@ -68,8 +73,9 @@ function filterValueLabel(key: keyof FilterState, value: unknown): string {
   }
 }
 
-function filterValueText(filter: { key: keyof FilterState; value: FilterState[keyof FilterState] }): string {
-  return (filter.value as unknown[]).map(v => filterValueLabel(filter.key, v)).join(', ')
+function filterValueText(filter: { key: keyof FilterState; value: string; exclude?: boolean }): string {
+  const label = filterValueLabel(filter.key, filter.value)
+  return filter.exclude ? 'не ' + label : label
 }
 </script>
 
@@ -108,12 +114,13 @@ function filterValueText(filter: { key: keyof FilterState; value: FilterState[ke
         </div>
         <div class="active-filters">
           <span
-            v-for="filter in activeFilters"
-            :key="filter.key"
+            v-for="(filter, idx) in activeFilters"
+            :key="filter.key + filter.value"
             class="active-filter-chip"
+            :class="{ 'active-filter-chip-exclude': filter.exclude }"
           >
             {{ filterLabel(filter.key) }}: {{ filterValueText(filter) }}
-            <button aria-label="Убрать фильтр" @click="filterStore.toggleFilter(filter.key, (filter.value as unknown[])[0] as never)">×</button>
+            <button aria-label="Убрать фильтр" @click="filterStore.toggleFilter(filter.key, (filter.exclude ? '-' + filter.value : filter.value) as never)">×</button>
           </span>
           <span v-if="filterStore.state.searchQuery" class="active-filter-chip">
             Поиск: "{{ filterStore.state.searchQuery }}"
