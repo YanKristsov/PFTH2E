@@ -124,8 +124,8 @@ function filterValueText(filter: { key: keyof FilterState; value: FilterState[ke
         <div class="level-grid">
           <button
             class="chip level-chip"
-            :class="{ 'chip-primary': filterStore.state.level.includes(0) }"
-            :aria-pressed="filterStore.state.level.includes(0)"
+            :class="{ 'chip-primary': filterStore.state.level.includes(0), 'chip-secondary': (filterStore.state.level as any[]).includes('-0') }"
+            :aria-pressed="filterStore.state.level.includes(0) || (filterStore.state.level as any[]).includes('-0')"
             @click="filterStore.toggleFilter('level', 0)"
           >
             0
@@ -134,8 +134,8 @@ function filterValueText(filter: { key: keyof FilterState; value: FilterState[ke
             v-for="l in 10"
             :key="l"
             class="chip level-chip"
-            :class="{ 'chip-primary': filterStore.state.level.includes(l) }"
-            :aria-pressed="filterStore.state.level.includes(l)"
+            :class="{ 'chip-primary': filterStore.state.level.includes(l), 'chip-secondary': (filterStore.state.level as any[]).includes('-'+l) }"
+            :aria-pressed="filterStore.state.level.includes(l) || (filterStore.state.level as any[]).includes('-'+l)"
             @click="filterStore.toggleFilter('level', l)"
           >
             {{ l }}
@@ -151,8 +151,9 @@ function filterValueText(filter: { key: keyof FilterState; value: FilterState[ke
             <input
               type="checkbox"
               class="flex-shrink-0"
-              :checked="filterStore.state.tradition.includes(t)"
-              @change="filterStore.toggleFilter('tradition', t)"
+              :checked="(filterStore.state.tradition as string[]).includes(t)"
+              :indeterminate="(filterStore.state.tradition as string[]).includes('-' + t)"
+              @click.prevent="filterStore.toggleFilter('tradition', t)"
             />
           </label>
         </div>
@@ -166,8 +167,9 @@ function filterValueText(filter: { key: keyof FilterState; value: FilterState[ke
             <input
               type="checkbox"
               class="flex-shrink-0"
-              :checked="filterStore.state.school.includes(s)"
-              @change="filterStore.toggleFilter('school', s)"
+              :checked="(filterStore.state.school as string[]).includes(s)"
+              :indeterminate="(filterStore.state.school as string[]).includes('-' + s)"
+              @click.prevent="filterStore.toggleFilter('school', s)"
             />
           </label>
         </div>
@@ -181,8 +183,9 @@ function filterValueText(filter: { key: keyof FilterState; value: FilterState[ke
             <input
               type="checkbox"
               class="flex-shrink-0"
-              :checked="filterStore.state.class.includes(GENERIC_CLASS)"
-              @change="filterStore.toggleFilter('class', GENERIC_CLASS)"
+              :checked="(filterStore.state.class as string[]).includes(GENERIC_CLASS)"
+              :indeterminate="(filterStore.state.class as string[]).includes('-' + GENERIC_CLASS)"
+              @click.prevent="filterStore.toggleFilter('class', GENERIC_CLASS)"
             />
           </label>
           <label v-for="c in allClasses" :key="c" class="flex items-center justify-between gap-sm cursor-pointer py-2xs">
@@ -190,8 +193,10 @@ function filterValueText(filter: { key: keyof FilterState; value: FilterState[ke
             <input
               type="checkbox"
               class="flex-shrink-0"
-              :checked="filterStore.state.class.includes(c)"
-              @change="filterStore.toggleFilter('class', c)"
+              :checked="filterStore.state.components.includes(c as any)"
+              :indeterminate="(filterStore.state.components as string[]).includes('-'+c)"
+              @click.prevent="filterStore.toggleFilter('components', c as any)"
+              :data-tooltip="componentLabel(c)"
             />
           </label>
         </div>
@@ -205,8 +210,9 @@ function filterValueText(filter: { key: keyof FilterState; value: FilterState[ke
             <input
               type="checkbox"
               class="flex-shrink-0"
-              :checked="filterStore.state.traits.includes(t)"
-              @change="filterStore.toggleFilter('traits', t)"
+              :checked="(filterStore.state.traits as string[]).includes(t)"
+              :indeterminate="(filterStore.state.traits as string[]).includes('-' + t)"
+              @click.prevent="filterStore.toggleFilter('traits', t)"
             />
           </label>
         </div>
@@ -226,9 +232,9 @@ function filterValueText(filter: { key: keyof FilterState; value: FilterState[ke
             ]"
             :key="a.id"
             class="chip"
-            :class="{ 'chip-primary': filterStore.state.actions.includes(a.id) }"
-            :aria-pressed="filterStore.state.actions.includes(a.id)"
-            @click="filterStore.toggleFilter('actions', a.id)"
+            :class="{ 'chip-primary': filterStore.state.actions.includes(a.id as any), 'chip-secondary': (filterStore.state.actions as string[]).includes('-'+a.id) }"
+            :aria-pressed="filterStore.state.actions.includes(a.id as any) || (filterStore.state.actions as string[]).includes('-'+a.id)"
+            @click="filterStore.toggleFilter('actions', a.id as any)"
           >
             {{ a.label }}
           </button>
@@ -238,17 +244,16 @@ function filterValueText(filter: { key: keyof FilterState; value: FilterState[ke
       <div class="sidebar-section">
         <h3 class="sidebar-title">Компоненты</h3>
         <div class="flex flex-wrap gap-xs justify-end">
-          <button
-            v-for="c in ['V', 'S', 'M', 'F']"
-            :key="c"
-            class="chip"
-            :class="{ 'chip-primary': filterStore.state.components.includes(c) }"
-            :aria-pressed="filterStore.state.components.includes(c)"
-            :data-tooltip="componentLabel(c)"
-            @click="filterStore.toggleFilter('components', c)"
-          >
-            {{ c === 'V' ? 'С' : c === 'S' ? 'Ж' : c === 'M' ? 'М' : c === 'F' ? 'Ф' : c }}
-          </button>
+          <label v-for="c in ['V', 'S', 'M', 'F']" :key="c" class="flex items-center justify-between gap-sm cursor-pointer py-2xs">
+            <span class="truncate">{{ c === 'V' ? 'С' : c === 'S' ? 'Ж' : c === 'M' ? 'М' : c === 'F' ? 'Ф' : c }}</span>
+            <input
+              type="checkbox"
+              class="flex-shrink-0"
+              :checked="(filterStore.state.components as any[]).includes(c)"
+              :indeterminate="(filterStore.state.components as any[]).includes('-'+c)"
+              @click.prevent="filterStore.toggleFilter('components', c as any)"
+            />
+          </label>
         </div>
       </div>
 
@@ -260,8 +265,9 @@ function filterValueText(filter: { key: keyof FilterState; value: FilterState[ke
             <input
               type="checkbox"
               class="flex-shrink-0"
-              :checked="filterStore.state.source.includes(s)"
-              @change="filterStore.toggleFilter('source', s)"
+              :checked="(filterStore.state.source as string[]).includes(s)"
+              :indeterminate="(filterStore.state.source as string[]).includes('-' + s)"
+              @click.prevent="filterStore.toggleFilter('source', s)"
             />
           </label>
         </div>
