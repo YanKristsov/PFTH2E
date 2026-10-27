@@ -1,16 +1,20 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted, watch } from 'vue'
-import { useSettingsStore } from '@/stores'
+import { useSettingsStore, useFavoritesStore, useHistoryStore } from '@/stores'
 import { useSpells } from '@/composables/useSpells'
 import AppHeader from '@/components/AppHeader.vue'
 import AppSidebar from '@/components/AppSidebar.vue'
 import '@/assets/styles/main.css'
 
 const settingsStore = useSettingsStore()
+const favoritesStore = useFavoritesStore()
+const historyStore = useHistoryStore()
 const { load } = useSpells()
 
 onMounted(async () => {
   settingsStore.load()
+  favoritesStore.load()
+  historyStore.load()
   await load()
 })
 
