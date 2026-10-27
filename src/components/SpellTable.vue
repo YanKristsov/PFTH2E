@@ -243,7 +243,7 @@ const rows = computed(() =>
   overflow-wrap: anywhere;
 }
 .level-cell { vertical-align: middle; }
-.action-cell { display: flex; align-items: center; gap: 6px; }
+.action-cell { display: flex; align-items: center; justify-content: center; gap: 6px; }
 .action-sep { color: var(--color-text-secondary); font-size: 0.85rem; }
 .action-icon {
   height: 24px;
