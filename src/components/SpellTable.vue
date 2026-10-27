@@ -151,7 +151,6 @@ const rows = computed(() =>
                Время сотворения<span class="sort-arrow" aria-hidden="true">{{ sortIndicator('actions') }}</span>
             </button>
           </th>
-          <th scope="col" style="width: 40px;"></th>
         </tr>
       </thead>
       <tbody>
@@ -219,16 +218,6 @@ const rows = computed(() =>
                 <span v-else class="text-sm">{{ seg.text }}</span>
               </template>
             </div>
-          </td>
-          <td style="text-align: center; vertical-align: middle;">
-            <button
-              class="btn btn-ghost btn-sm favorite-toggle-btn"
-              type="button"
-              :aria-label="favoritesStore.favoriteIds.has(spell.id) ? 'Убрать из избранного' : 'Добавить в избранное'"
-              @click.stop="emit('toggleFavorite', spell.id)"
-            >
-              <span aria-hidden="true">{{ favoritesStore.favoriteIds.has(spell.id) ? '★' : '☆' }}</span>
-            </button>
           </td>
         </tr>
       </tbody>
