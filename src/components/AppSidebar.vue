@@ -107,12 +107,12 @@ function filterValueText(filter: { key: keyof FilterState; value: string; exclud
     </nav>
 
     <div class="flex-1 overflow-y-auto p-md">
-      <div v-if="filterStore.hasActiveFilters()" class="mb-md">
+      <div class="mb-md">
         <div class="flex items-center justify-between mb-sm">
           <span class="sidebar-title">Активные фильтры</span>
-          <button class="btn btn-ghost btn-sm" @click="clearAllFilters">Сбросить</button>
+          <button v-if="filterStore.hasActiveFilters()" class="btn btn-ghost btn-sm" @click="clearAllFilters">Сбросить</button>
         </div>
-        <div class="active-filters">
+        <div v-if="filterStore.hasActiveFilters()" class="active-filters">
           <span
             v-for="(filter, idx) in activeFilters"
             :key="filter.key + filter.value"
@@ -124,7 +124,7 @@ function filterValueText(filter: { key: keyof FilterState; value: string; exclud
           </span>
           <span v-if="filterStore.state.searchQuery" class="active-filter-chip">
             Поиск: "{{ filterStore.state.searchQuery }}"
-            <button aria-label="Убрать поиск" @click="filterStore.setFilter('searchQuery', '')">×</button>
+            <button type="button" aria-label="Убрать поиск" @click.stop="filterStore.setFilter('searchQuery', '')">×</button>
           </span>
         </div>
       </div>
