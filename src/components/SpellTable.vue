@@ -213,9 +213,8 @@ const rows = computed(() =>
           </td>
           <td style="text-align: center; vertical-align: middle;">
             <button
-              class="btn btn-ghost btn-sm"
+              class="btn btn-ghost btn-sm favorite-toggle-btn"
               type="button"
-              style="font-size: 1.25rem; line-height: 1; padding: 0.25rem 0.375rem;"
               :aria-label="favoritesStore.favoriteIds.has(spell.id) ? 'Убрать из избранного' : 'Добавить в избранное'"
               @click.stop="emit('toggleFavorite', spell.id)"
             >
@@ -270,4 +269,16 @@ const rows = computed(() =>
 }
 .th-sort:hover { color: var(--color-text); }
 .spell-name-cell { text-align: justify; hyphens: auto; -webkit-hyphens: auto; -ms-hyphens: auto; word-break: break-word; }
+
+/* Звёздочка «Избранное» в таблице — по высоте иконок действий (24px) */
+.favorite-toggle-btn {
+  font-size: 1.5rem;
+  line-height: 1;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
 </style>
