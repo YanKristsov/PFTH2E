@@ -77,21 +77,6 @@ function clearAll() {
         </div>
 
         <div>
-          <label class="input-label">Режим просмотра</label>
-          <div class="flex gap-sm">
-            <button
-              v-for="m in ['table', 'cards']"
-              :key="m"
-              class="btn flex-1"
-              :class="{ 'btn-primary': settingsStore.state.viewMode === m, 'btn-secondary': settingsStore.state.viewMode !== m }"
-              @click="settingsStore.setViewMode(m)"
-            >
-              {{ m === 'table' ? '📊 Таблица' : '📋 Карточки' }}
-            </button>
-          </div>
-        </div>
-
-        <div>
           <label class="input-label">Колонки таблицы</label>
           <div class="flex flex-wrap gap-sm">
             <label v-for="col in availableColumns" :key="col" class="chip cursor-pointer" :class="{ 'chip-primary': settingsStore.state.tableColumns.includes(col) }" @click="toggleColumn(col)">
