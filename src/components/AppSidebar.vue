@@ -13,6 +13,20 @@ const { schools, allTraits, allSources, traditions, allClasses } = useSpells()
 const filterStore = useFilterStore()
 const settingsStore = useSettingsStore()
 
+const traditionsSorted = computed(() => [...traditions.value].sort((a, b) => traditionLabel(a).localeCompare(traditionLabel(b), 'ru')))
+const schoolsSorted = computed(() => {
+  const list = [...schools.value]
+  return list.sort((a, b) => {
+    const la = schoolLabel(a)
+    const lb = schoolLabel(b)
+    if (la === '—') return -1
+    if (lb === '—') return 1
+    return la.localeCompare(lb, 'ru')
+  })
+})
+const allClassesSorted = computed(() => [...allClasses.value].sort((a, b) => classLabel(a).localeCompare(classLabel(b), 'ru')))
+const allTraitsSorted = computed(() => [...allTraits.value].sort((a, b) => traitLabel(a).localeCompare(traitLabel(b), 'ru')))
+
 const activeNav = computed(() => route.name)
 
 const activeFilters = computed(() => {
