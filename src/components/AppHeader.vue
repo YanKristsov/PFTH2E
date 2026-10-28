@@ -62,10 +62,6 @@ function getThemeIcon() {
           <line x1="3" y1="18" x2="21" y2="18"></line>
         </svg>
       </button>
-      <router-link to="/" class="logo" aria-label="Главная">
-        <span class="logo-icon" aria-hidden="true">📜</span>
-        <span>PF2E Заклинания</span>
-      </router-link>
       <form class="search-form flex-1" role="search" @submit="handleSearch">
         <label for="search" class="sr-only">Поиск заклинаний</label>
         <span class="search-icon" aria-hidden="true">🔍</span>
