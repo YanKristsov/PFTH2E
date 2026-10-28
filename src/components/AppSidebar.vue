@@ -102,7 +102,7 @@ function filterValueText(filter: { key: keyof FilterState; value: string; exclud
     <nav class="sidebar-nav p-md border-b border-[var(--color-border)]" aria-label="Основная навигация">
       <router-link
         v-for="item in [
-          { name: 'home', label: 'Все заклинания', icon: '📜' },
+          { name: 'home', label: 'Заклинания', icon: '📜' },
           { name: 'favorites', label: 'Избранное', icon: '⭐' },
           { name: 'history', label: 'История', icon: '🕐' }
         ]"
