@@ -266,17 +266,22 @@ function filterValueText(filter: { key: keyof FilterState; value: string; exclud
 
       <div class="sidebar-section">
         <h3 class="sidebar-title">Компоненты</h3>
-        <div class="flex flex-wrap gap-xs justify-end">
-          <label v-for="c in ['V', 'S', 'M', 'F']" :key="c" class="flex items-center justify-between gap-sm cursor-pointer py-2xs">
-            <span class="truncate">{{ c === 'V' ? 'С' : c === 'S' ? 'Ж' : c === 'M' ? 'М' : c === 'F' ? 'Ф' : c }}</span>
-            <input
-              type="checkbox"
-              class="flex-shrink-0"
-              :class="{ 'cb-green': (filterStore.state.components as any[]).includes(c) || (filterStore.state.components as any[]).includes('-' + c) }"
-              :checked="(filterStore.state.components as any[]).includes(c) || (filterStore.state.components as any[]).includes('-' + c)"
-              @click.prevent="filterStore.toggleFilter('components', c as any)"
-            />
-          </label>
+        <div class="flex flex-wrap gap-xs">
+          <button
+            v-for="c in [
+              { id: 'V', label: 'С' },
+              { id: 'S', label: 'Ж' },
+              { id: 'M', label: 'М' },
+              { id: 'F', label: 'Ф' }
+            ]"
+            :key="c.id"
+            class="chip"
+            :class="{ 'chip-primary': (filterStore.state.components as any[]).includes(c.id), 'chip-secondary': (filterStore.state.components as any[]).includes('-' + c.id) }"
+            :aria-pressed="(filterStore.state.components as any[]).includes(c.id) || (filterStore.state.components as any[]).includes('-' + c.id)"
+            @click="filterStore.toggleFilter('components', c.id as any)"
+          >
+            {{ c.label }}
+          </button>
         </div>
       </div>
 
