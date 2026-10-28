@@ -170,7 +170,7 @@ function filterValueText(filter: { key: keyof FilterState; value: string; exclud
       <div class="sidebar-section">
         <h3 class="sidebar-title">Традиция</h3>
         <div class="flex flex-col gap-2xs">
-          <label v-for="t in traditions" :key="t" class="flex items-center justify-between gap-sm cursor-pointer py-2xs">
+          <label v-for="t in traditionsSorted" :key="t" class="flex items-center justify-between gap-sm cursor-pointer py-2xs">
             <span class="capitalize">{{ traditionLabel(t) }}</span>
             <input
               type="checkbox"
@@ -186,7 +186,7 @@ function filterValueText(filter: { key: keyof FilterState; value: string; exclud
       <div class="sidebar-section">
         <h3 class="sidebar-title">Школа</h3>
         <div class="flex flex-col gap-2xs max-h-48 overflow-y-auto">
-          <label v-for="s in schools" :key="s" class="flex items-center justify-between gap-sm cursor-pointer py-2xs">
+          <label v-for="s in schoolsSorted" :key="s" class="flex items-center justify-between gap-sm cursor-pointer py-2xs">
             <span class="truncate">{{ schoolLabel(s) }}</span>
             <input
               type="checkbox"
@@ -212,7 +212,7 @@ function filterValueText(filter: { key: keyof FilterState; value: string; exclud
               @click.prevent="filterStore.toggleFilter('class', GENERIC_CLASS)"
             />
           </label>
-          <label v-for="c in allClasses" :key="c" class="flex items-center justify-between gap-sm cursor-pointer py-2xs">
+          <label v-for="c in allClassesSorted" :key="c" class="flex items-center justify-between gap-sm cursor-pointer py-2xs">
             <span class="truncate">{{ classLabel(c) }}</span>
             <input
               type="checkbox"
@@ -228,7 +228,7 @@ function filterValueText(filter: { key: keyof FilterState; value: string; exclud
       <div class="sidebar-section">
         <h3 class="sidebar-title">Дескрипторы</h3>
         <div class="flex flex-col gap-2xs max-h-48 overflow-y-auto">
-          <label v-for="t in allTraits" :key="t" class="flex items-center justify-between gap-sm cursor-pointer py-2xs">
+          <label v-for="t in allTraitsSorted" :key="t" class="flex items-center justify-between gap-sm cursor-pointer py-2xs">
             <span class="truncate">{{ traitLabel(t) }}</span>
             <input
               type="checkbox"
