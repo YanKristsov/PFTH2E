@@ -107,7 +107,7 @@ function filterValueText(filter: { key: keyof FilterState; value: string; exclud
     </nav>
 
     <div class="flex-1 overflow-y-auto p-md">
-      <div class="sidebar-section">
+      <div class="sidebar-section" style="padding-top: 0;">
         <div class="flex items-center justify-between mb-sm">
           <h3 class="sidebar-title" style="margin-bottom: 0;">Активные фильтры</h3>
           <button v-if="filterStore.hasActiveFilters()" class="btn btn-ghost btn-sm" @click="clearAllFilters">Сбросить</button>
