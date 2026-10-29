@@ -96,10 +96,10 @@ function toggleOpen(id: string) {
                   <div class="tabs" style="display:flex;gap:4px;margin-bottom:8px;">
                     <button class="btn btn-sm btn-primary">pf2e-ru-translation</button>
                   </div>
-                  <div v-if="item.descriptionHtml" class="alchemical-detail" v-html="item.descriptionHtml"></div>
-                  <div v-if="item.traits.length" class="flex flex-wrap gap-xs mt-sm">
-                    <span v-for="t in item.traits" :key="t" class="chip chip-primary" style="cursor:default">{{ t }}</span>
+                  <div v-if="item.traits.length" class="flex flex-wrap items-center gap-sm mt-sm mb-sm">
+                    <span v-for="t in item.traits" :key="t" class="chip">{{ t }}</span>
                   </div>
+                  <div v-if="item.descriptionHtml" class="alchemical-detail" v-html="item.descriptionHtml"></div>
                   <div v-if="item.variants.length" class="mt-sm">
                     <div v-for="v in item.variants" :key="v.level + v.name" class="mb-sm">
                       <div class="font-semibold">{{ v.name }}</div>
