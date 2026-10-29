@@ -63,7 +63,10 @@ async function main() {
     inner = inner.replace(/\.\.\/_images\/PF_action_2\.png/g, '/PFTH2E/art/PF_action_2.webp')
     inner = inner.replace(/\.\.\/_images\/PF_action_3\.png/g, '/PFTH2E/art/PF_action_3.webp')
     inner = inner.replace(/\.\.\/_images\/PF_action_free\.png/g, '/PFTH2E/art/PF_action_free.webp')
-    inner = inner.replace(/\.\.\/_images\/PF_action_reaction\.png/g, '/PFTH2E/art/PF_action_reaction.png')
+  inner = inner.replace(/\.\.\/_images\/PF_action_reaction\.png/g, '/PFTH2E/art/PF_action_reaction.png')
+    // fix relative links
+    inner = inner.replace(/href="\.\.\/playing_the_game\.html#/g, 'href="#')
+    inner = inner.replace(/href="\.\.\/([^"]+)"/g, 'href="https://pf2e-ru-translation.readthedocs.io/ru/latest/$1"')
     return { html: inner, traits }
   }
 

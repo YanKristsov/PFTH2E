@@ -34,6 +34,11 @@ const routes: RouteRecordRaw[] = [
     component: () => import('@/views/AlchemicalFormulasView.vue')
   },
   {
+    path: '/story',
+    name: 'story',
+    component: () => import('@/views/StoryView.vue')
+  },
+  {
     path: '/:pathMatch(.*)*',
     redirect: '/'
   }

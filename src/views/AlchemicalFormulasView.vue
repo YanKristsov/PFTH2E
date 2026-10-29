@@ -1,14 +1,16 @@
 <script setup lang="ts">
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, onMounted, watch } from 'vue'
 import { AlchemicalItemSchema } from '@/types/alchemical'
 import type { AlchemicalItem } from '@/types/alchemical'
 import { useAlchemicalFilterStore } from '@/stores'
+import { sourceLabel } from '@/constants/translations'
 
 const items = ref<AlchemicalItem[]>([])
 const isLoading = ref(true)
 const loadError = ref('')
 const filterStore = useAlchemicalFilterStore()
 const openIds = ref<Set<string>>(new Set())
+const activeSourceByItem = ref<Record<string, number>>({})
 
 const categories = ['bomb', 'elixir', 'poison', 'tool', 'consumable', 'other'] as const
 const categoryLabel: Record<string, string> = {
@@ -19,6 +21,8 @@ const categoryLabel: Record<string, string> = {
   consumable: 'Расходник',
   other: 'Другое'
 }
+
+const SOURCE_ORDER: Record<string, number> = { pf2ru: 0, 'pf2e-ru-translation': 1, aonprd: 2 }
 
 onMounted(async () => {
   try {
@@ -31,6 +35,19 @@ onMounted(async () => {
     isLoading.value = false
   }
 })
+
+function getOrderedSources(item: AlchemicalItem) {
+  const sources = [...new Set(item.variants.map(v => v.source))]
+  return sources.sort((a, b) => (SOURCE_ORDER[a.type] ?? 9) - (SOURCE_ORDER[b.type] ?? 9))
+}
+
+function getActiveSourceIndex(item: AlchemicalItem) {
+  return activeSourceByItem.value[item.id] ?? 0
+}
+
+function setActiveSource(item: AlchemicalItem, idx: number) {
+  activeSourceByItem.value[item.id] = idx
+}
 
 const filtered = computed(() => {
   let list = [...items.value]
@@ -46,6 +63,9 @@ const filtered = computed(() => {
   if (filterStore.traits.length) {
     list = list.filter((it) => it.traits.some((t) => filterStore.traits.includes(t)))
   }
+  if (filterStore.levels.length) {
+    list = list.filter((it) => it.variants.some((v) => filterStore.levels.includes(v.level)))
+  }
   list.sort((a, b) => a.name.ru.localeCompare(b.name.ru, 'ru'))
   return list
 })
@@ -54,6 +74,25 @@ function toggleOpen(id: string) {
   if (openIds.value.has(id)) openIds.value.delete(id)
   else openIds.value.add(id)
   openIds.value = new Set(openIds.value)
+}
+
+function fixRelativeLinks(html: string): string {
+  if (!html) return html
+  return html
+    .replace(/href="\.\.\/playing_the_game\.html#/g, 'href="#')
+    .replace(/href="\.\.\/([^"]+)"/g, (m, p1) => {
+      if (p1.startsWith('http') || p1.startsWith('#') || p1.startsWith('/')) return m
+      return `href="https://pf2e-ru-translation.readthedocs.io/ru/latest/${p1}"`
+    })
+}
+
+function stripSource(html: string): string {
+  if (!html) return html
+  let s = html
+  // remove any paragraph/div containing strong "Источник"
+  s = s.replace(/<(p|div)[^>]*>[\s\S]*?<strong[^>]*>\s*Источник[\s\S]*?<\/strong>[\s\S]*?<\/\1>/gi, '')
+  s = s.replace(/<(p|div)[^>]*>\s*Источник[\s\S]*?<\/\1>/gi, '')
+  return s
 }
 </script>
 
@@ -93,18 +132,28 @@ function toggleOpen(id: string) {
             <tr v-if="openIds.has(item.id)">
               <td colspan="2">
                 <div class="p-md">
-                  <div class="tabs" style="display:flex;gap:4px;margin-bottom:8px;">
-                    <button class="btn btn-sm btn-primary">pf2e-ru-translation</button>
+                  <div class="tabs" role="tablist" aria-label="Варианты источника">
+                    <button
+                      v-for="(src, i) in getOrderedSources(item)"
+                      :key="`${src.type}-${src.name}-${i}`"
+                      role="tab"
+                      class="tab"
+                      :class="{ active: getActiveSourceIndex(item) === i }"
+                      :aria-selected="getActiveSourceIndex(item) === i"
+                      @click.stop="setActiveSource(item, i)"
+                    >
+                      {{ sourceLabel(src.name) }}
+                    </button>
                   </div>
                   <div v-if="item.traits.length" class="flex flex-wrap items-center gap-sm mt-sm mb-sm">
                     <span v-for="t in item.traits" :key="t" class="chip">{{ t }}</span>
                   </div>
-                  <div v-if="item.descriptionHtml" class="alchemical-detail" v-html="item.descriptionHtml"></div>
-                  <div v-if="item.variants.length" class="mt-sm">
+                  <div v-if="item.descriptionHtml" class="alchemical-detail mt-sm" v-html="stripSource(fixRelativeLinks(item.descriptionHtml))"></div>
+                  <div class="mt-sm">
                     <div v-for="v in item.variants" :key="v.level + v.name" class="mb-sm">
                       <div class="font-semibold">{{ v.name }}</div>
                       <div>Уровень: {{ v.level }}</div>
-                      <div>{{ v.price }}</div>
+                      <div v-if="v.price">{{ v.price }}</div>
                     </div>
                   </div>
                 </div>
@@ -121,4 +170,5 @@ function toggleOpen(id: string) {
 .cursor-pointer { cursor: pointer; }
 .alchemical-detail :deep(img.action) { display: inline; vertical-align: middle; height: 1em; }
 .alchemical-detail :deep(p) { margin: 0.4em 0; }
+.alchemical-detail :deep(a) { color: var(--color-primary); text-decoration: underline; }
 </style>

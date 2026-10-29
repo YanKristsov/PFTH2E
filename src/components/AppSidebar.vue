@@ -123,10 +123,14 @@ function filterValueText(filter: { key: keyof FilterState; value: string; exclud
         <span class="sidebar-link-icon" aria-hidden="true">⭐</span>
         <span>Избранное</span>
       </router-link>
-      <div class="sidebar-link" style="opacity: 0.5; cursor: default;">
+      <router-link
+        to="/story"
+        class="sidebar-link"
+        :class="{ active: activeNav === 'story' }"
+      >
         <span class="sidebar-link-icon" aria-hidden="true">📖</span>
         <span>Сюжет</span>
-      </div>
+      </router-link>
       <router-link
         to="/"
         class="sidebar-link"
