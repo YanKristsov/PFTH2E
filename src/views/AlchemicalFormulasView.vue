@@ -143,6 +143,9 @@ function clearFilters() {
             <tr v-if="openIds.has(item.id)">
               <td colspan="2">
                 <div class="p-md">
+                  <div class="tabs" style="display:flex;gap:4px;margin-bottom:8px;">
+                    <button class="btn btn-sm btn-primary">pf2e-ru-translation</button>
+                  </div>
                   <div v-for="v in item.variants" :key="v.level + v.name" class="mb-md">
                     <div class="font-semibold">{{ v.name }} (ур. {{ v.level }}) — {{ v.price }}</div>
                     <div v-if="v.description" class="text-sm text-secondary mt-xs">{{ v.description }}</div>
