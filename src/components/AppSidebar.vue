@@ -27,7 +27,10 @@ const schoolsSorted = computed(() => {
 const allClassesSorted = computed(() => [...allClasses.value].sort((a, b) => classLabel(a).localeCompare(classLabel(b), 'ru')))
 const allTraitsSorted = computed(() => [...allTraits.value].sort((a, b) => traitLabel(a).localeCompare(traitLabel(b), 'ru')))
 
+import { useAlchemicalFilterStore } from '@/stores'
+const alchemicalFilterStore = useAlchemicalFilterStore()
 const activeNav = computed(() => route.name)
+const isAlchemical = computed(() => route.name === 'alchemical-formulas')
 
 const activeFilters = computed(() => {
   const result: Array<{ key: keyof FilterState; value: string; exclude: boolean }> = []
@@ -165,6 +168,7 @@ function filterValueText(filter: { key: keyof FilterState; value: string; exclud
         </div>
       </div>
 
+      <template v-if="!isAlchemical">
       <div class="sidebar-section">
         <h3 class="sidebar-title">Уровень</h3>
         <div class="level-grid">
@@ -323,7 +327,52 @@ function filterValueText(filter: { key: keyof FilterState; value: string; exclud
         </div>
       </div>
 
-      <div class="sidebar-section">
+      </template>
+      <template v-else>
+        <div class="sidebar-section">
+          <h3 class="sidebar-title">Поиск</h3>
+          <input v-model="alchemicalFilterStore.searchQuery" type="search" class="search-input" placeholder="Поиск предметов..." />
+        </div>
+        <div class="sidebar-section">
+          <h3 class="sidebar-title">Категория</h3>
+          <div class="flex flex-wrap gap-xs">
+            <button
+              v-for="c in [
+                { id: 'bomb', label: 'Бомба' },
+                { id: 'elixir', label: 'Эликсир' },
+                { id: 'poison', label: 'Яд' },
+                { id: 'tool', label: 'Инструмент' },
+                { id: 'consumable', label: 'Расходник' },
+                { id: 'other', label: 'Другое' }
+              ]"
+              :key="c.id"
+              class="chip"
+              :class="{ 'chip-primary': alchemicalFilterStore.categories.includes(c.id) }"
+              @click="alchemicalFilterStore.toggleCategory(c.id)"
+            >
+              {{ c.label }}
+            </button>
+          </div>
+        </div>
+        <div class="sidebar-section">
+          <h3 class="sidebar-title">Уровень</h3>
+          <div class="level-grid">
+            <button
+              v-for="l in 20"
+              :key="l"
+              class="chip level-chip"
+              :class="{ 'chip-primary': alchemicalFilterStore.levels.includes(l) }"
+              @click="alchemicalFilterStore.toggleLevel(l)"
+            >
+              {{ l }}
+            </button>
+          </div>
+        </div>
+        <div class="sidebar-section">
+          <button class="btn btn-secondary w-full" @click="alchemicalFilterStore.clear()">Сбросить</button>
+        </div>
+      </template>
+      <div class="sidebar-section" v-if="!isAlchemical">
         <button class="btn btn-secondary w-full" @click="clearAllFilters">Сбросить</button>
       </div>
     </div>
