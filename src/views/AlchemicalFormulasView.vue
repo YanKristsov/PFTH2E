@@ -43,8 +43,8 @@ const filtered = computed(() => {
   if (filterStore.categories.length) {
     list = list.filter((it) => filterStore.categories.includes(it.category))
   }
-  if (filterStore.levels.length) {
-    list = list.filter((it) => it.variants.some((v) => filterStore.levels.includes(v.level)))
+  if (filterStore.traits.length) {
+    list = list.filter((it) => it.traits.some((t) => filterStore.traits.includes(t)))
   }
   list.sort((a, b) => a.name.ru.localeCompare(b.name.ru, 'ru'))
   return list
@@ -97,6 +97,9 @@ function toggleOpen(id: string) {
                     <button class="btn btn-sm btn-primary">pf2e-ru-translation</button>
                   </div>
                   <div v-if="item.descriptionHtml" class="alchemical-detail" v-html="item.descriptionHtml"></div>
+                  <div v-if="item.traits.length" class="flex flex-wrap gap-xs mt-sm">
+                    <span v-for="t in item.traits" :key="t" class="chip chip-primary" style="cursor:default">{{ t }}</span>
+                  </div>
                   <div v-if="item.variants.length" class="mt-sm">
                     <div v-for="v in item.variants" :key="v.level + v.name" class="mb-sm">
                       <div class="font-semibold">{{ v.name }}</div>

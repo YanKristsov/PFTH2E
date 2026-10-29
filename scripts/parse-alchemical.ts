@@ -40,34 +40,39 @@ async function main() {
   }
 
   // Extract description text per item from its section
-  function sectionHtml(anchor: string): string {
+  function extractTraits(inner: string): string[] {
+    const ulMatch = inner.match(/<ul class="simple">([\s\S]*?)<\/ul>/i)
+    if (!ulMatch) return []
+    const lis = ulMatch[1].match(/<li[^>]*>\s*<p[^>]*>([\s\S]*?)<\/p>\s*<\/li>/gi) || []
+    return lis.map((li) => li.replace(/<[^>]+>/g, '').trim()).filter(Boolean)
+  }
+
+  function sectionHtml(anchor: string): { html: string; traits: string[] } {
     const marker = 'id="' + anchor + '"'
     const pos = html.indexOf(marker)
-    if (pos === -1) return ''
+    if (pos === -1) return { html: '', traits: [] }
     const secStart = html.lastIndexOf('<section', pos)
     const secEnd = html.indexOf('</section>', pos)
-    if (secStart === -1 || secEnd === -1) return ''
-    // inner content between section tags
+    if (secStart === -1 || secEnd === -1) return { html: '', traits: [] }
     const openEnd = html.indexOf('>', secStart) + 1
     let inner = html.slice(openEnd, secEnd).trim()
-    // Remove h4 heading (item title + level + headerlink)
+    const traits = extractTraits(inner)
+    inner = inner.replace(/<ul class="simple">[\s\S]*?<\/ul>/i, '')
     inner = inner.replace(/<h4[\s\S]*?<\/h4>/gi, '')
-    // Remove "Взаимодействовать (Interact)" mentions
-    inner = inner.replace(/Взаимодействовать\s*\(Interact\)/gi, '')
-    // Rewrite action icon paths to our own assets
     inner = inner.replace(/\.\.\/_images\/PF_action_1\.png/g, '/PFTH2E/art/PF_action_1.webp')
     inner = inner.replace(/\.\.\/_images\/PF_action_2\.png/g, '/PFTH2E/art/PF_action_2.webp')
     inner = inner.replace(/\.\.\/_images\/PF_action_3\.png/g, '/PFTH2E/art/PF_action_3.webp')
     inner = inner.replace(/\.\.\/_images\/PF_action_free\.png/g, '/PFTH2E/art/PF_action_free.webp')
     inner = inner.replace(/\.\.\/_images\/PF_action_reaction\.png/g, '/PFTH2E/art/PF_action_reaction.png')
-    return inner
+    return { html: inner, traits }
   }
 
   const result = Array.from(items.entries()).map(([anchor, data]) => ({
     id: anchor,
     name: { ru: data.ru, en: data.en },
     category: normalizeCategory(data.category),
-    descriptionHtml: sectionHtml(anchor),
+    traits: sectionHtml(anchor).traits,
+    descriptionHtml: sectionHtml(anchor).html,
     variants: data.variants.map((v) => ({
       level: v.level,
       name: v.ruName,

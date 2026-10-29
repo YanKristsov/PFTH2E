@@ -21,6 +21,7 @@ export const AlchemicalItemSchema = z.object({
     en: z.string()
   }),
   category: z.enum(['bomb', 'elixir', 'poison', 'tool', 'consumable', 'other']),
+  traits: z.array(z.string()).default([]),
   descriptionHtml: z.string().optional(),
   variants: z.array(AlchemicalVariantSchema),
   rarity: z.enum(['common', 'uncommon', 'rare', 'unique']).default('common')

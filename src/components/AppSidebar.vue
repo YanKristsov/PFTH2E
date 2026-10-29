@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, defineEmits, defineProps } from 'vue'
+import { computed, defineEmits, defineProps, ref, onMounted } from 'vue'
 const props = defineProps<{ mobile?: boolean }>()
 const emit = defineEmits<{ close: [] }>()
 import { useRoute } from 'vue-router'
@@ -29,6 +29,18 @@ const allTraitsSorted = computed(() => [...allTraits.value].sort((a, b) => trait
 
 import { useAlchemicalFilterStore } from '@/stores'
 const alchemicalFilterStore = useAlchemicalFilterStore()
+// ... (existing imports)
+
+const alchemicalTraits = ref<string[]>([])
+onMounted(async () => {
+  try {
+    const res = await fetch(import.meta.env.BASE_URL + 'alchemical.json')
+    const data = await res.json()
+    const set = new Set<string>()
+    for (const it of data) for (const t of it.traits || []) set.add(t)
+    alchemicalTraits.value = [...set].sort((a, b) => a.localeCompare(b, 'ru'))
+  } catch { /* ignore */ }
+})
 const activeNav = computed(() => route.name)
 const isAlchemical = computed(() => route.name === 'alchemical-formulas')
 
@@ -354,6 +366,20 @@ function filterValueText(filter: { key: keyof FilterState; value: string; exclud
             </button>
           </div>
         </div>
+        <div class="sidebar-section">
+          <h3 class="sidebar-title">Дескрипторы</h3>
+          <div class="flex flex-col gap-2xs max-h-48 overflow-y-auto">
+            <button
+              v-for="t in alchemicalTraits"
+              :key="t"
+              class="chip"
+              :class="{ 'chip-primary': alchemicalFilterStore.traits.includes(t) }"
+              @click="alchemicalFilterStore.toggleTrait(t)"
+            >
+              {{ t }}
+            </button>
+          </div>
+         </div>
         <div class="sidebar-section">
           <h3 class="sidebar-title">Уровень</h3>
           <div class="level-grid">
