@@ -143,7 +143,10 @@ function stripSource(html: string): string {
         <tbody>
           <template v-for="item in filtered" :key="item.id">
             <tr class="cursor-pointer" @click="toggleOpen(item.id)">
-              <td>{{ item.name.ru }}</td>
+              <td>
+                <div class="spell-name-cell font-medium">{{ item.name.ru }}</div>
+                <div v-if="item.name.en && item.name.en !== item.name.ru" class="spell-name-cell text-xs text-muted">{{ item.name.en }}</div>
+              </td>
               <td>{{ categoryLabel[item.category] }}</td>
             </tr>
             <tr v-if="openIds.has(item.id)">
