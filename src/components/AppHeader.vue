@@ -78,14 +78,6 @@ function getThemeIcon() {
       </form>
     </div>
     <div class="header-right flex items-center gap-sm">
-      <button
-        class="btn btn-ghost"
-        :aria-label="`Тема: ${settingsStore.state.theme}. Нажмите, чтобы сменить.`"
-        :data-tooltip="`Тема: ${settingsStore.state.theme}`"
-        @click="toggleTheme"
-      >
-        {{ getThemeIcon() }}
-      </button>
       <router-link to="/favorites" class="btn btn-ghost" aria-label="Избранное">
         ⭐
         <span class="hidden mobile:hidden">Избранное</span>
