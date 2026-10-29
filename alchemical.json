@@ -1,0 +1,5205 @@
+[
+  {
+    "id": "item-acid-flask",
+    "name": {
+      "ru": "Кислотная склянка",
+      "en": "Acid flask"
+    },
+    "category": "bomb",
+    "variants": [
+      {
+        "level": 1,
+        "name": "Кислотная склянка, малая",
+        "price": "3 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-acid-flask",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 3,
+        "name": "Кислотная склянка, средняя",
+        "price": "10 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-acid-flask",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 11,
+        "name": "Кислотная склянка, большая",
+        "price": "250 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-acid-flask",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 17,
+        "name": "Кислотная склянка, сильная",
+        "price": "2.500 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-acid-flask",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-alchemists-fire",
+    "name": {
+      "ru": "Алхимический огонь",
+      "en": "Alchemist's fire"
+    },
+    "category": "bomb",
+    "variants": [
+      {
+        "level": 1,
+        "name": "Алхимический огонь, малый",
+        "price": "3 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-alchemists-fire",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 3,
+        "name": "Алхимический огонь, средний",
+        "price": "10 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-alchemists-fire",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 11,
+        "name": "Алхимический огонь, большой",
+        "price": "250 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-alchemists-fire",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 17,
+        "name": "Алхимический огонь, сильный",
+        "price": "2.500 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-alchemists-fire",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-bottled-lightning",
+    "name": {
+      "ru": "Молния в бутылке",
+      "en": "Bottled lightning"
+    },
+    "category": "bomb",
+    "variants": [
+      {
+        "level": 1,
+        "name": "Молния в бутылке, малая",
+        "price": "3 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-bottled-lightning",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 3,
+        "name": "Молния в бутылке, средняя",
+        "price": "10 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-bottled-lightning",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 11,
+        "name": "Молния в бутылке, большая",
+        "price": "250 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-bottled-lightning",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 17,
+        "name": "Молния в бутылке, сильная",
+        "price": "2.500 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-bottled-lightning",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-frost-vial",
+    "name": {
+      "ru": "Морозная склянка",
+      "en": "Frost vial"
+    },
+    "category": "bomb",
+    "variants": [
+      {
+        "level": 1,
+        "name": "Морозная склянка, малая",
+        "price": "3 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-frost-vial",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 3,
+        "name": "Морозная склянка, средняя",
+        "price": "10 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-frost-vial",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 11,
+        "name": "Морозная склянка, большая",
+        "price": "250 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-frost-vial",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 17,
+        "name": "Морозная склянка, сильная",
+        "price": "2.500 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-frost-vial",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-tanglefoot-bag",
+    "name": {
+      "ru": "Бомба-липучка",
+      "en": "Tanglefoot bag"
+    },
+    "category": "bomb",
+    "variants": [
+      {
+        "level": 1,
+        "name": "Бомба-липучка, малая",
+        "price": "3 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-tanglefoot-bag",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 3,
+        "name": "Бомба-липучка, средняя",
+        "price": "10 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-tanglefoot-bag",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 11,
+        "name": "Бомба-липучка, большая",
+        "price": "250 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-tanglefoot-bag",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 17,
+        "name": "Бомба-липучка, сильная",
+        "price": "2.500 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-tanglefoot-bag",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-thunderstone",
+    "name": {
+      "ru": "Камень грома",
+      "en": "Thunderstone"
+    },
+    "category": "bomb",
+    "variants": [
+      {
+        "level": 1,
+        "name": "Камень грома, малый",
+        "price": "3 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-thunderstone",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 3,
+        "name": "Камень грома, средний",
+        "price": "10 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-thunderstone",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 11,
+        "name": "Камень грома, большой",
+        "price": "250 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-thunderstone",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 17,
+        "name": "Камень грома, сильный",
+        "price": "2.500 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-thunderstone",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-blight-bomb",
+    "name": {
+      "ru": "Гнилостная бомба",
+      "en": "Blight bomb"
+    },
+    "category": "bomb",
+    "variants": [
+      {
+        "level": 1,
+        "name": "Гнилостная бомба, малая",
+        "price": "3 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-blight-bomb",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 3,
+        "name": "Гнилостная бомба, средняя",
+        "price": "10 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-blight-bomb",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 11,
+        "name": "Гнилостная бомба, большая",
+        "price": "250 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-blight-bomb",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 17,
+        "name": "Гнилостная бомба, сильная",
+        "price": "2.500 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-blight-bomb",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-dread-ampoule",
+    "name": {
+      "ru": "Ампула боязни",
+      "en": "Dread ampoule"
+    },
+    "category": "bomb",
+    "variants": [
+      {
+        "level": 1,
+        "name": "Ампула боязни, малая",
+        "price": "3 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-dread-ampoule",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 3,
+        "name": "Ампула боязни, средняя",
+        "price": "10 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-dread-ampoule",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 11,
+        "name": "Ампула боязни, большая",
+        "price": "300 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-dread-ampoule",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 17,
+        "name": "Ампула боязни, сильная",
+        "price": "3.000 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-dread-ampoule",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-ghost-charge",
+    "name": {
+      "ru": "Призрачный заряд",
+      "en": "Ghost charge"
+    },
+    "category": "bomb",
+    "variants": [
+      {
+        "level": 1,
+        "name": "Призрачный заряд, малый",
+        "price": "3 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-ghost-charge",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 3,
+        "name": "Призрачный заряд, средний",
+        "price": "10 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-ghost-charge",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 11,
+        "name": "Призрачный заряд, большой",
+        "price": "250 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-ghost-charge",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 17,
+        "name": "Призрачный заряд, сильный",
+        "price": "2.500 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-ghost-charge",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-sulfur-bomb",
+    "name": {
+      "ru": "Серная бомба",
+      "en": "Sulfur bomb"
+    },
+    "category": "bomb",
+    "variants": [
+      {
+        "level": 1,
+        "name": "Серная бомба, малая",
+        "price": "4 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-sulfur-bomb",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 3,
+        "name": "Серная бомба, средняя",
+        "price": "12 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-sulfur-bomb",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 11,
+        "name": "Серная бомба, большая",
+        "price": "275 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-sulfur-bomb",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 17,
+        "name": "Серная бомба, сильная",
+        "price": "2.750 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-sulfur-bomb",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-vexing-vapor",
+    "name": {
+      "ru": "Раздражающий пар",
+      "en": "Vexing vapor"
+    },
+    "category": "bomb",
+    "variants": [
+      {
+        "level": 1,
+        "name": "Раздражающий пар, малая",
+        "price": "4 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-vexing-vapor",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 3,
+        "name": "Раздражающий пар, средняя",
+        "price": "12 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-vexing-vapor",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 11,
+        "name": "Раздражающий пар, большая",
+        "price": "300 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-vexing-vapor",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 17,
+        "name": "Раздражающий пар, сильная",
+        "price": "3.000 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-vexing-vapor",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-goo-grenade",
+    "name": {
+      "ru": "Слизевая граната",
+      "en": "Goo grenade"
+    },
+    "category": "bomb",
+    "variants": [
+      {
+        "level": 1,
+        "name": "Слизевая граната, малая",
+        "price": "3 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-goo-grenade",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 3,
+        "name": "Слизевая граната, средняя",
+        "price": "10 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-goo-grenade",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 11,
+        "name": "Слизевая граната, большая",
+        "price": "250 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-goo-grenade",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 17,
+        "name": "Слизевая граната, сильная",
+        "price": "2.500 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-goo-grenade",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-peshspine-grenade",
+    "name": {
+      "ru": "Граната пешевых игл",
+      "en": "Peshspine grenade"
+    },
+    "category": "bomb",
+    "variants": [
+      {
+        "level": 1,
+        "name": "Граната пешевых игл, малая",
+        "price": "3 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-peshspine-grenade",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 3,
+        "name": "Граната пешевых игл, средняя",
+        "price": "10 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-peshspine-grenade",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 11,
+        "name": "Граната пешевых игл, большая",
+        "price": "250 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-peshspine-grenade",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 17,
+        "name": "Граната пешевых игл, сильная",
+        "price": "2.500 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-peshspine-grenade",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-necrotic-bomb",
+    "name": {
+      "ru": "Некротическая бомба",
+      "en": "Necrotic bomb"
+    },
+    "category": "bomb",
+    "variants": [
+      {
+        "level": 1,
+        "name": "Некротическая бомба, малая",
+        "price": "3 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-necrotic-bomb",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 3,
+        "name": "Некротическая бомба, средняя",
+        "price": "10 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-necrotic-bomb",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 11,
+        "name": "Некротическая бомба, большая",
+        "price": "250 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-necrotic-bomb",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 17,
+        "name": "Некротическая бомба, сильная",
+        "price": "2.500 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-necrotic-bomb",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-tallow-bomb",
+    "name": {
+      "ru": "Сальная бомба",
+      "en": "Tallow bomb"
+    },
+    "category": "bomb",
+    "variants": [
+      {
+        "level": 1,
+        "name": "Сальная бомба, малая",
+        "price": "3 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-tallow-bomb",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 3,
+        "name": "Сальная бомба, средняя",
+        "price": "10 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-tallow-bomb",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 11,
+        "name": "Сальная бомба, большая",
+        "price": "250 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-tallow-bomb",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 17,
+        "name": "Сальная бомба, сильная",
+        "price": "2.500 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-tallow-bomb",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-twigjack-sack",
+    "name": {
+      "ru": "Мешочек веточника",
+      "en": "Twigjack sack"
+    },
+    "category": "bomb",
+    "variants": [
+      {
+        "level": 1,
+        "name": "Мешочек веточника, малая",
+        "price": "3 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-twigjack-sack",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 3,
+        "name": "Мешочек веточника, средний",
+        "price": "10 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-twigjack-sack",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 11,
+        "name": "Мешочек веточника, большой",
+        "price": "250 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-twigjack-sack",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 17,
+        "name": "Мешочек веточника, сильный",
+        "price": "2.500 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-twigjack-sack",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-mud-bomb",
+    "name": {
+      "ru": "Грязевая бомба",
+      "en": "Mud bomb"
+    },
+    "category": "bomb",
+    "variants": [
+      {
+        "level": 1,
+        "name": "Грязевая бомба, малая",
+        "price": "3 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-mud-bomb",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 3,
+        "name": "Грязевая бомба, средняя",
+        "price": "10 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-mud-bomb",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 11,
+        "name": "Грязевая бомба, большая",
+        "price": "250 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-mud-bomb",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 17,
+        "name": "Грязевая бомба, сильная",
+        "price": "2.500 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-mud-bomb",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-pernicious-spore-bomb",
+    "name": {
+      "ru": "Пагубная споровая бомба",
+      "en": "Pernicious spore bomb"
+    },
+    "category": "bomb",
+    "variants": [
+      {
+        "level": 1,
+        "name": "Пагубная споровая бомба, малая",
+        "price": "3 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-pernicious-spore-bomb",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 3,
+        "name": "Пагубная споровая бомба, средняя",
+        "price": "10 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-pernicious-spore-bomb",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 11,
+        "name": "Пагубная споровая бомба, большая",
+        "price": "250 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-pernicious-spore-bomb",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 17,
+        "name": "Пагубная споровая бомба, сильная",
+        "price": "2.500 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-pernicious-spore-bomb",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-water-bomb",
+    "name": {
+      "ru": "Водная бомба",
+      "en": "Water bomb"
+    },
+    "category": "bomb",
+    "variants": [
+      {
+        "level": 1,
+        "name": "Водная бомба, малая",
+        "price": "3 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-water-bomb",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 3,
+        "name": "Водная бомба, средняя",
+        "price": "10 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-water-bomb",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 11,
+        "name": "Водная бомба, большая",
+        "price": "250 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-water-bomb",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 17,
+        "name": "Водная бомба, сильная",
+        "price": "2.500 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-water-bomb",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-bioluminescence-bomb",
+    "name": {
+      "ru": "Биолюминесцентная бомба",
+      "en": "Bioluminescence bomb"
+    },
+    "category": "bomb",
+    "variants": [
+      {
+        "level": 1,
+        "name": "Биолюминесцентная бомба",
+        "price": "3 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-bioluminescence-bomb",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-elixir-of-life",
+    "name": {
+      "ru": "Эликсир жизни",
+      "en": "Elixir of life"
+    },
+    "category": "elixir",
+    "variants": [
+      {
+        "level": 1,
+        "name": "Эликсир жизни, слабый",
+        "price": "3 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-elixir-of-life",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 5,
+        "name": "Эликсир жизни, малый",
+        "price": "30 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-elixir-of-life",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 9,
+        "name": "Эликсир жизни, средний",
+        "price": "150 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-elixir-of-life",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 13,
+        "name": "Эликсир жизни, большой",
+        "price": "600 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-elixir-of-life",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 15,
+        "name": "Эликсир жизни, сильный",
+        "price": "1.300 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-elixir-of-life",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 19,
+        "name": "Эликсир жизни, истинный",
+        "price": "8.000 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-elixir-of-life",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-antidote",
+    "name": {
+      "ru": "Противоядие, малое",
+      "en": "Antidote"
+    },
+    "category": "elixir",
+    "variants": [
+      {
+        "level": 1,
+        "name": "Противоядие, малое",
+        "price": "3 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-antidote",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 6,
+        "name": "Противоядие, среднее",
+        "price": "35 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-antidote",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 10,
+        "name": "Противоядие, большое",
+        "price": "160 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-antidote",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 14,
+        "name": "Противоядие, сильное",
+        "price": "675 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-antidote",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-antiplague",
+    "name": {
+      "ru": "Лекарство, малое",
+      "en": "Antiplague"
+    },
+    "category": "elixir",
+    "variants": [
+      {
+        "level": 1,
+        "name": "Лекарство, малое",
+        "price": "3 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-antiplague",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 6,
+        "name": "Лекарство, среднее",
+        "price": "35 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-antiplague",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 10,
+        "name": "Лекарство, большое",
+        "price": "160 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-antiplague",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 14,
+        "name": "Лекарство, сильное",
+        "price": "675 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-antiplague",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-bestial-mutagen",
+    "name": {
+      "ru": "Животный мутаген",
+      "en": "Bestial mutagen"
+    },
+    "category": "elixir",
+    "variants": [
+      {
+        "level": 1,
+        "name": "Животный мутаген, малый",
+        "price": "4 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-bestial-mutagen",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 3,
+        "name": "Животный мутаген, средний",
+        "price": "12 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-bestial-mutagen",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 11,
+        "name": "Животный мутаген, большой",
+        "price": "300 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-bestial-mutagen",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 17,
+        "name": "Животный мутаген, сильный",
+        "price": "3.000 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-bestial-mutagen",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-cheetahs-elixir",
+    "name": {
+      "ru": "Эликсир гепарда",
+      "en": "Cheetah's elixir"
+    },
+    "category": "elixir",
+    "variants": [
+      {
+        "level": 1,
+        "name": "Эликсир гепарда, малый",
+        "price": "3 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-cheetahs-elixir",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 5,
+        "name": "Эликсир гепарда, средний",
+        "price": "25 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-cheetahs-elixir",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 9,
+        "name": "Эликсир гепарда, большой",
+        "price": "110 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-cheetahs-elixir",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-cognitive-mutagen",
+    "name": {
+      "ru": "Умственный мутаген",
+      "en": "Cognitive mutagen"
+    },
+    "category": "elixir",
+    "variants": [
+      {
+        "level": 1,
+        "name": "Умственный мутаген, малый",
+        "price": "4 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-cognitive-mutagen",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 3,
+        "name": "Умственный мутаген, средний",
+        "price": "12 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-cognitive-mutagen",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 11,
+        "name": "Умственный мутаген, большой",
+        "price": "300 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-cognitive-mutagen",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 17,
+        "name": "Умственный мутаген, сильный",
+        "price": "3.000 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-cognitive-mutagen",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-eagle-eye-elixir",
+    "name": {
+      "ru": "Эликсир орлиного глаза",
+      "en": "Eagle-eye elixir"
+    },
+    "category": "elixir",
+    "variants": [
+      {
+        "level": 1,
+        "name": "Эликсир орлиного глаза, малый",
+        "price": "4 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-eagle-eye-elixir",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 5,
+        "name": "Эликсир орлиного глаза, средний",
+        "price": "27 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-eagle-eye-elixir",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 10,
+        "name": "Эликсир орлиного глаза, большой",
+        "price": "200 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-eagle-eye-elixir",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 16,
+        "name": "Эликсир орлиного глаза, сильный",
+        "price": "2.000 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-eagle-eye-elixir",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-juggernaut-mutagen",
+    "name": {
+      "ru": "Мутаген джагернаут",
+      "en": "Juggernaut mutagen"
+    },
+    "category": "elixir",
+    "variants": [
+      {
+        "level": 1,
+        "name": "Мутаген джагернаут, малый",
+        "price": "4 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-juggernaut-mutagen",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 3,
+        "name": "Мутаген джагернаут, средний",
+        "price": "12 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-juggernaut-mutagen",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 11,
+        "name": "Мутаген джагернаут, большой",
+        "price": "300 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-juggernaut-mutagen",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 17,
+        "name": "Мутаген джагернаут, сильный",
+        "price": "3.000 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-juggernaut-mutagen",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-leapers-elixir",
+    "name": {
+      "ru": "Эликсир прыгуна",
+      "en": "Leaper's elixir"
+    },
+    "category": "elixir",
+    "variants": [
+      {
+        "level": 1,
+        "name": "Эликсир прыгуна, малый",
+        "price": "3 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-leapers-elixir",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 7,
+        "name": "Эликсир прыгуна, большой",
+        "price": "55 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-leapers-elixir",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-quicksilver-mutagen",
+    "name": {
+      "ru": "Ртутный мутаген",
+      "en": "Quicksilver mutagen"
+    },
+    "category": "elixir",
+    "variants": [
+      {
+        "level": 1,
+        "name": "Ртутный мутаген, малый",
+        "price": "4 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-quicksilver-mutagen",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 3,
+        "name": "Ртутный мутаген, средний",
+        "price": "12 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-quicksilver-mutagen",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 11,
+        "name": "Ртутный мутаген, большой",
+        "price": "300 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-quicksilver-mutagen",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 17,
+        "name": "Ртутный мутаген, сильный",
+        "price": "3.000 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-quicksilver-mutagen",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-serene-mutagen",
+    "name": {
+      "ru": "Мутаген безмятежности",
+      "en": "Serene mutagen"
+    },
+    "category": "elixir",
+    "variants": [
+      {
+        "level": 1,
+        "name": "Мутаген безмятежности, малый",
+        "price": "4 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-serene-mutagen",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 3,
+        "name": "Мутаген безмятежности, средний",
+        "price": "12 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-serene-mutagen",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 11,
+        "name": "Мутаген безмятежности, большой",
+        "price": "300 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-serene-mutagen",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 17,
+        "name": "Мутаген безмятежности, сильный",
+        "price": "3.000 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-serene-mutagen",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-silvertongue-mutagen",
+    "name": {
+      "ru": "Мутаген красноречия",
+      "en": "Silvertongue mutagen"
+    },
+    "category": "elixir",
+    "variants": [
+      {
+        "level": 1,
+        "name": "Мутаген красноречия, малый",
+        "price": "4 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-silvertongue-mutagen",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 3,
+        "name": "Мутаген красноречия, средний",
+        "price": "12 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-silvertongue-mutagen",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 11,
+        "name": "Мутаген красноречия, большой",
+        "price": "300 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-silvertongue-mutagen",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 17,
+        "name": "Мутаген красноречия, сильный",
+        "price": "3.000 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-silvertongue-mutagen",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-skeptics-elixir",
+    "name": {
+      "ru": "Эликсир скептика",
+      "en": "Skeptic's elixir"
+    },
+    "category": "elixir",
+    "variants": [
+      {
+        "level": 1,
+        "name": "Эликсир скептика, малый",
+        "price": "4 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-skeptics-elixir",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 6,
+        "name": "Эликсир скептика, средний",
+        "price": "50 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-skeptics-elixir",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 11,
+        "name": "Эликсир скептика, большой",
+        "price": "300 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-skeptics-elixir",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-drakeheart-mutagen",
+    "name": {
+      "ru": "Мутаген сердца дрейка",
+      "en": "Drakeheart mutagen"
+    },
+    "category": "elixir",
+    "variants": [
+      {
+        "level": 1,
+        "name": "Мутаген сердца дрейка, малый",
+        "price": "4 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-drakeheart-mutagen",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 3,
+        "name": "Мутаген сердца дрейка, средний",
+        "price": "12 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-drakeheart-mutagen",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 11,
+        "name": "Мутаген сердца дрейка, большой",
+        "price": "300 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-drakeheart-mutagen",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 17,
+        "name": "Мутаген сердца дрейка, сильный",
+        "price": "3.000 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-drakeheart-mutagen",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-lastwall-soup",
+    "name": {
+      "ru": "Ластвольский суп",
+      "en": "Lastwall Soup"
+    },
+    "category": "elixir",
+    "variants": [
+      {
+        "level": 1,
+        "name": "Ластвольский суп",
+        "price": "3 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-lastwall-soup",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-vaccine",
+    "name": {
+      "ru": "Вакцина",
+      "en": "Vaccine"
+    },
+    "category": "elixir",
+    "variants": [
+      {
+        "level": 1,
+        "name": "Вакцина, слабая",
+        "price": "4 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-vaccine",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 3,
+        "name": "Вакцина, малая",
+        "price": "12 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-vaccine",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 6,
+        "name": "Вакцина, средняя",
+        "price": "50 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-vaccine",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 12,
+        "name": "Вакцина, большая",
+        "price": "400 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-vaccine",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 18,
+        "name": "Вакцина, сильная",
+        "price": "5.000 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-vaccine",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-addiction-suppressant",
+    "name": {
+      "ru": "Подавитель зависимости",
+      "en": "Addiction Suppressant"
+    },
+    "category": "elixir",
+    "variants": [
+      {
+        "level": 1,
+        "name": "Подавитель зависимости, малый",
+        "price": "2 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-addiction-suppressant",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 6,
+        "name": "Подавитель зависимости, средний",
+        "price": "30 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-addiction-suppressant",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 10,
+        "name": "Подавитель зависимости, большой",
+        "price": "140 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-addiction-suppressant",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 14,
+        "name": "Подавитель зависимости, сильный",
+        "price": "500 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-addiction-suppressant",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-energy-mutagen",
+    "name": {
+      "ru": "Энергетический мутаген",
+      "en": "Energy mutagen"
+    },
+    "category": "elixir",
+    "variants": [
+      {
+        "level": 1,
+        "name": "Энергетический мутаген, малый",
+        "price": "4 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-energy-mutagen",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 3,
+        "name": "Энергетический мутаген, средний",
+        "price": "12 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-energy-mutagen",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 11,
+        "name": "Энергетический мутаген, большой",
+        "price": "300 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-energy-mutagen",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 17,
+        "name": "Энергетический мутаген, сильный",
+        "price": "3.000 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-energy-mutagen",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-arsenic",
+    "name": {
+      "ru": "Мышьяк",
+      "en": "Arsenic"
+    },
+    "category": "poison",
+    "variants": [
+      {
+        "level": 1,
+        "name": "Мышьяк",
+        "price": "3 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-arsenic",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-giant-centipede-venom",
+    "name": {
+      "ru": "Яд гигантской сороконожки",
+      "en": "Giant centipede venom"
+    },
+    "category": "poison",
+    "variants": [
+      {
+        "level": 1,
+        "name": "Яд гигантской сороконожки",
+        "price": "4 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-giant-centipede-venom",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-smokestick",
+    "name": {
+      "ru": "Дымовая шашка",
+      "en": "Smokestick"
+    },
+    "category": "tool",
+    "variants": [
+      {
+        "level": 1,
+        "name": "Дымовая шашка, малая",
+        "price": "3 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-smokestick",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 7,
+        "name": "Дымовая шашка, большая",
+        "price": "53 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-smokestick",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-snake-oil",
+    "name": {
+      "ru": "Змеиное масло",
+      "en": "Snake oil"
+    },
+    "category": "tool",
+    "variants": [
+      {
+        "level": 1,
+        "name": "Змеиное масло",
+        "price": "2 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-snake-oil",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-sunrod",
+    "name": {
+      "ru": "Солнечный жезл",
+      "en": "Sunrod"
+    },
+    "category": "tool",
+    "variants": [
+      {
+        "level": 1,
+        "name": "Солнечный жезл",
+        "price": "3 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-sunrod",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-tindertwig",
+    "name": {
+      "ru": "Спичка",
+      "en": "Tindertwig"
+    },
+    "category": "tool",
+    "variants": [
+      {
+        "level": 1,
+        "name": "Спичка",
+        "price": "2 см",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-tindertwig",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-forensic-dye",
+    "name": {
+      "ru": "Криминалистический краситель",
+      "en": "Forensic Dye"
+    },
+    "category": "tool",
+    "variants": [
+      {
+        "level": 1,
+        "name": "Криминалистический краситель",
+        "price": "3 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-forensic-dye",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-ghost-ink",
+    "name": {
+      "ru": "Призрачные чернила",
+      "en": "Ghost Ink"
+    },
+    "category": "tool",
+    "variants": [
+      {
+        "level": 1,
+        "name": "Призрачные чернила",
+        "price": "3 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-ghost-ink",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-self-immolating-note",
+    "name": {
+      "ru": "Самосжигаемая записка",
+      "en": "Self-Immolating Note"
+    },
+    "category": "tool",
+    "variants": [
+      {
+        "level": 1,
+        "name": "Самосжигаемая записка",
+        "price": "3 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-self-immolating-note",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-popdust",
+    "name": {
+      "ru": "Хлопающая пыль",
+      "en": "Popdust"
+    },
+    "category": "tool",
+    "variants": [
+      {
+        "level": 1,
+        "name": "Хлопающая пыль",
+        "price": "1 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-popdust",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-blindpepper-tube",
+    "name": {
+      "ru": "Туба слепящего перца",
+      "en": "Blindpepper Tube"
+    },
+    "category": "tool",
+    "variants": [
+      {
+        "level": 1,
+        "name": "Туба слепящего перца",
+        "price": "3 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-blindpepper-tube",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-bottled-sunlight",
+    "name": {
+      "ru": "Бутылка с солнечным светом",
+      "en": "Bottled sunlight"
+    },
+    "category": "bomb",
+    "variants": [
+      {
+        "level": 2,
+        "name": "Бутылка с солнечным светом, малая",
+        "price": "7 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-bottled-sunlight",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 4,
+        "name": "Бутылка с солнечным светом, средняя",
+        "price": "20 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-bottled-sunlight",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 12,
+        "name": "Бутылка с солнечным светом, большая",
+        "price": "360 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-bottled-sunlight",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 18,
+        "name": "Бутылка с солнечным светом, сильная",
+        "price": "4.500 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-bottled-sunlight",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-bravos-brew",
+    "name": {
+      "ru": "Варево смельчака, малое",
+      "en": "Bravo's brew"
+    },
+    "category": "elixir",
+    "variants": [
+      {
+        "level": 2,
+        "name": "Варево смельчака, малое",
+        "price": "7 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-bravos-brew",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 10,
+        "name": "Варево смельчака, среднее",
+        "price": "150 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-bravos-brew",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 15,
+        "name": "Варево смельчака, большое",
+        "price": "700 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-bravos-brew",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-cats-eye-elixir",
+    "name": {
+      "ru": "Эликсир кошачьего глаза",
+      "en": "Cat's eye elixir"
+    },
+    "category": "elixir",
+    "variants": [
+      {
+        "level": 2,
+        "name": "Эликсир кошачьего глаза",
+        "price": "7 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-cats-eye-elixir",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-comprehension-elixir",
+    "name": {
+      "ru": "Эликсир понимания",
+      "en": "Comprehension elixir"
+    },
+    "category": "elixir",
+    "variants": [
+      {
+        "level": 2,
+        "name": "Эликсир понимания, малый",
+        "price": "7 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-comprehension-elixir",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 7,
+        "name": "Эликсир понимания, большой",
+        "price": "54 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-comprehension-elixir",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-darkvision-elixir",
+    "name": {
+      "ru": "Эликсир ночного зрения",
+      "en": "Darkvision elixir"
+    },
+    "category": "elixir",
+    "variants": [
+      {
+        "level": 2,
+        "name": "Эликсир ночного зрения, малый",
+        "price": "6 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-darkvision-elixir",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 4,
+        "name": "Эликсир ночного зрения, большой",
+        "price": "11 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-darkvision-elixir",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 8,
+        "name": "Эликсир ночного зрения, большой",
+        "price": "90 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-darkvision-elixir",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-infiltrators-elixir",
+    "name": {
+      "ru": "Эликсир лазутчика",
+      "en": "Infiltrator's elixir"
+    },
+    "category": "elixir",
+    "variants": [
+      {
+        "level": 2,
+        "name": "Эликсир лазутчика",
+        "price": "6 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-infiltrators-elixir",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-focus-cathartic",
+    "name": {
+      "ru": "Сосредотачивающая сыворотка",
+      "en": "Focus Cathartic"
+    },
+    "category": "elixir",
+    "variants": [
+      {
+        "level": 2,
+        "name": "Сосредотачивающая сыворотка, малая",
+        "price": "5 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-focus-cathartic",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 4,
+        "name": "Сосредотачивающая сыворотка, средняя",
+        "price": "15 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-focus-cathartic",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 12,
+        "name": "Сосредотачивающая сыворотка, большая",
+        "price": "325 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-focus-cathartic",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 18,
+        "name": "Сосредотачивающая сыворотка, сильная",
+        "price": "3.250 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-focus-cathartic",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-sinew-shock-serum",
+    "name": {
+      "ru": "Мускульная сыворотка",
+      "en": "Sinew-Shock Serum"
+    },
+    "category": "elixir",
+    "variants": [
+      {
+        "level": 2,
+        "name": "Мускульная сыворотка, малая",
+        "price": "5 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-sinew-shock-serum",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 4,
+        "name": "Мускульная сыворотка, средняя",
+        "price": "15 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-sinew-shock-serum",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 12,
+        "name": "Мускульная сыворотка, большая",
+        "price": "325 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-sinew-shock-serum",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 18,
+        "name": "Мускульная сыворотка, сильная",
+        "price": "3.250 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-sinew-shock-serum",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-winterstep-elixir",
+    "name": {
+      "ru": "Эликсир зимнего шага",
+      "en": "Winterstep Elixir"
+    },
+    "category": "elixir",
+    "variants": [
+      {
+        "level": 2,
+        "name": "Эликсир зимнего шага, слабый",
+        "price": "6 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-winterstep-elixir",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 6,
+        "name": "Эликсир зимнего шага, малый",
+        "price": "36 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-winterstep-elixir",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 10,
+        "name": "Эликсир зимнего шага, средний",
+        "price": "160 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-winterstep-elixir",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 14,
+        "name": "Эликсир зимнего шага, большой",
+        "price": "640 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-winterstep-elixir",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-belladonna",
+    "name": {
+      "ru": "Белладонна",
+      "en": "Belladonna"
+    },
+    "category": "poison",
+    "variants": [
+      {
+        "level": 2,
+        "name": "Белладонна",
+        "price": "5 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-belladonna",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-black-adder-venom",
+    "name": {
+      "ru": "Яд черной гадюки",
+      "en": "Black adder venom"
+    },
+    "category": "poison",
+    "variants": [
+      {
+        "level": 2,
+        "name": "Яд черной гадюки",
+        "price": "6 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-black-adder-venom",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-lethargy-poison",
+    "name": {
+      "ru": "Летаргический яд",
+      "en": "Lethargy poison"
+    },
+    "category": "poison",
+    "variants": [
+      {
+        "level": 2,
+        "name": "Летаргический яд",
+        "price": "7 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-lethargy-poison",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-black-smear-poison",
+    "name": {
+      "ru": "Черновязкий яд",
+      "en": "Black smear poison"
+    },
+    "category": "poison",
+    "variants": [
+      {
+        "level": 2,
+        "name": "Черновязкий яд",
+        "price": "5 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-black-smear-poison",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-silversheen",
+    "name": {
+      "ru": "Серебрин",
+      "en": "Silversheen"
+    },
+    "category": "tool",
+    "variants": [
+      {
+        "level": 2,
+        "name": "Серебрин",
+        "price": "6 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-silversheen",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-bloodhound-mask",
+    "name": {
+      "ru": "Маска ищейки",
+      "en": "Bloodhound Mask"
+    },
+    "category": "tool",
+    "variants": [
+      {
+        "level": 2,
+        "name": "Маска ищейки, малая",
+        "price": "6 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-bloodhound-mask",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 6,
+        "name": "Маска ищейки, средняя",
+        "price": "40 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-bloodhound-mask",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 11,
+        "name": "Маска ищейки, отличная",
+        "price": "250 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-bloodhound-mask",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-sneezing-powder",
+    "name": {
+      "ru": "Чихательный порошок",
+      "en": "Sneezing powder"
+    },
+    "category": "tool",
+    "variants": [
+      {
+        "level": 2,
+        "name": "Чихательный порошок",
+        "price": "7 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-sneezing-powder",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-origin-unguent",
+    "name": {
+      "ru": "Мазь первоисточника",
+      "en": "Origin Unguent"
+    },
+    "category": "tool",
+    "variants": [
+      {
+        "level": 2,
+        "name": "Мазь первоисточника",
+        "price": "6 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-origin-unguent",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-lovers-ink",
+    "name": {
+      "ru": "Чернила влюбленных",
+      "en": "Lovers' Ink"
+    },
+    "category": "tool",
+    "variants": [
+      {
+        "level": 2,
+        "name": "Чернила влюбленных",
+        "price": "5 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-lovers-ink",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-quickmelt-slick",
+    "name": {
+      "ru": "Пятно быстрого таяния, малое",
+      "en": "Quickmelt Slick"
+    },
+    "category": "tool",
+    "variants": [
+      {
+        "level": 2,
+        "name": "Пятно быстрого таяния, малое",
+        "price": "5 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-quickmelt-slick",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 4,
+        "name": "Пятно быстрого таяния, среднее",
+        "price": "13 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-quickmelt-slick",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 12,
+        "name": "Пятно быстрого таяния, большое",
+        "price": "310 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-quickmelt-slick",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-moonlit-ink",
+    "name": {
+      "ru": "Лунные чернила",
+      "en": "Moonlit Ink"
+    },
+    "category": "tool",
+    "variants": [
+      {
+        "level": 2,
+        "name": "Лунные чернила",
+        "price": "5 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-moonlit-ink",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-dragons-blood-pudding",
+    "name": {
+      "ru": "Пуддинг из драконьей крови",
+      "en": "Dragon's blood pudding"
+    },
+    "category": "consumable",
+    "variants": [
+      {
+        "level": 2,
+        "name": "Пуддинг из драконьей крови, малый",
+        "price": "5 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-dragons-blood-pudding",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 5,
+        "name": "Пуддинг из драконьей крови, средний",
+        "price": "25 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-dragons-blood-pudding",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 13,
+        "name": "Пуддинг из драконьей крови, отличный",
+        "price": "425 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-dragons-blood-pudding",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 19,
+        "name": "Пуддинг из драконьей крови, превосходный",
+        "price": "5.500 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-dragons-blood-pudding",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-olfactory-obfuscator",
+    "name": {
+      "ru": "Поглотитель запахов",
+      "en": "Olfactory Obfuscator"
+    },
+    "category": "elixir",
+    "variants": [
+      {
+        "level": 3,
+        "name": "Поглотитель запахов",
+        "price": "9 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-olfactory-obfuscator",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 10,
+        "name": "Поглотитель запахов, большой",
+        "price": "225 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-olfactory-obfuscator",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-impossible-cake",
+    "name": {
+      "ru": "Невозможный торт",
+      "en": "Impossible cake"
+    },
+    "category": "consumable",
+    "variants": [
+      {
+        "level": 3,
+        "name": "Невозможный торт",
+        "price": "5 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-impossible-cake",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 9,
+        "name": "Невозможный торт, отличный",
+        "price": "25 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-impossible-cake",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 17,
+        "name": "Невозможный торт, превосходный",
+        "price": "2.500 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-impossible-cake",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-cytillesh-oil",
+    "name": {
+      "ru": "Цителешское масло",
+      "en": "Cytillesh oil"
+    },
+    "category": "poison",
+    "variants": [
+      {
+        "level": 3,
+        "name": "Цителешское масло",
+        "price": "10 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-cytillesh-oil",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-graveroot",
+    "name": {
+      "ru": "Могильный корень",
+      "en": "Graveroot"
+    },
+    "category": "poison",
+    "variants": [
+      {
+        "level": 3,
+        "name": "Могильный корень",
+        "price": "10 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-graveroot",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-toadskin-salve",
+    "name": {
+      "ru": "Мазь из жабьей кожи",
+      "en": "Toadskin salve"
+    },
+    "category": "poison",
+    "variants": [
+      {
+        "level": 3,
+        "name": "Мазь из жабьей кожи",
+        "price": "10 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-toadskin-salve",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 7,
+        "name": "Мазь из жабьей кожи, отличная",
+        "price": "55 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-toadskin-salve",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 11,
+        "name": "Мазь из жабьей кожи, превосходная",
+        "price": "225 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-toadskin-salve",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-blue-dragonfly-poison",
+    "name": {
+      "ru": "Яд синей стрекозы",
+      "en": "Blue dragonfly poison"
+    },
+    "category": "poison",
+    "variants": [
+      {
+        "level": 3,
+        "name": "Яд синей стрекозы",
+        "price": "7 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-blue-dragonfly-poison",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-forgetful-drops",
+    "name": {
+      "ru": "Капли забывчивости",
+      "en": "Forgetful Drops"
+    },
+    "category": "poison",
+    "variants": [
+      {
+        "level": 3,
+        "name": "Капли забывчивости",
+        "price": "10 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-forgetful-drops",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-ectoplasmic-tracer",
+    "name": {
+      "ru": "Эктоплазменный след",
+      "en": "Ectoplasmic Tracer"
+    },
+    "category": "tool",
+    "variants": [
+      {
+        "level": 3,
+        "name": "Эктоплазменный след",
+        "price": "12 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-ectoplasmic-tracer",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-swamp-lily-quilt",
+    "name": {
+      "ru": "Покрывало болотной лилии",
+      "en": "Swamp lily quilt"
+    },
+    "category": "tool",
+    "variants": [
+      {
+        "level": 3,
+        "name": "Покрывало болотной лилии",
+        "price": "12 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-swamp-lily-quilt",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-crystal-shards",
+    "name": {
+      "ru": "Кристаллические осколки, средние",
+      "en": "Crystal Shards"
+    },
+    "category": "bomb",
+    "variants": [
+      {
+        "level": 4,
+        "name": "Кристаллические осколки, средние",
+        "price": "16 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-crystal-shards",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 12,
+        "name": "Кристаллические осколки, большие",
+        "price": "350 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-crystal-shards",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 18,
+        "name": "Кристаллические осколки, сильные",
+        "price": "4.000 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-crystal-shards",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-bombers-eye-elixir",
+    "name": {
+      "ru": "Эликсир бомбометателя",
+      "en": "Bomber's eye elixir"
+    },
+    "category": "elixir",
+    "variants": [
+      {
+        "level": 4,
+        "name": "Эликсир бомбометателя, малый",
+        "price": "14 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-bombers-eye-elixir",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 13,
+        "name": "Эликсир бомбометателя, большой",
+        "price": "700 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-bombers-eye-elixir",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 14,
+        "name": "Эликсир бомбометателя, большой",
+        "price": "700 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-bombers-eye-elixir",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-mistform-elixir",
+    "name": {
+      "ru": "Эликсир туманной формы",
+      "en": "Mistform elixir"
+    },
+    "category": "elixir",
+    "variants": [
+      {
+        "level": 4,
+        "name": "Эликсир туманной формы, малый",
+        "price": "18 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-mistform-elixir",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 6,
+        "name": "Эликсир туманной формы, средний",
+        "price": "56 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-mistform-elixir",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 10,
+        "name": "Эликсир туманной формы, большой",
+        "price": "180 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-mistform-elixir",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-salamander-elixir",
+    "name": {
+      "ru": "Эликсир саламандры",
+      "en": "Salamander elixir"
+    },
+    "category": "elixir",
+    "variants": [
+      {
+        "level": 4,
+        "name": "Эликсир саламандры, малый",
+        "price": "15 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-salamander-elixir",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 12,
+        "name": "Эликсир саламандры, средний",
+        "price": "320 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-salamander-elixir",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 16,
+        "name": "Эликсир саламандры, большой",
+        "price": "1.400 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-salamander-elixir",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-winter-wolf-elixir",
+    "name": {
+      "ru": "Эликсир зимнего волка",
+      "en": "Winter wolf elixir"
+    },
+    "category": "elixir",
+    "variants": [
+      {
+        "level": 4,
+        "name": "Эликсир зимнего волка, малый",
+        "price": "15 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-winter-wolf-elixir",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 12,
+        "name": "Эликсир зимнего волка, средний",
+        "price": "320 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-winter-wolf-elixir",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 16,
+        "name": "Эликсир зимнего волка, большой",
+        "price": "1.400 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-winter-wolf-elixir",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-stone-fist-elixir",
+    "name": {
+      "ru": "Эликсир каменных кулаков",
+      "en": "Stone fist elixir"
+    },
+    "category": "elixir",
+    "variants": [
+      {
+        "level": 4,
+        "name": "Эликсир каменных кулаков",
+        "price": "13 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-stone-fist-elixir",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-applereed-mutagen",
+    "name": {
+      "ru": "Яблочный мутаген",
+      "en": "Applereed mutagen"
+    },
+    "category": "elixir",
+    "variants": [
+      {
+        "level": 4,
+        "name": "Яблочный мутаген, малый",
+        "price": "20 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-applereed-mutagen",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 12,
+        "name": "Яблочный мутаген, средний",
+        "price": "400 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-applereed-mutagen",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 18,
+        "name": "Яблочный мутаген, большой",
+        "price": "5.000 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-applereed-mutagen",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-capsaicin-tonic",
+    "name": {
+      "ru": "Капсаициновый тоник",
+      "en": "Capsaicin Tonic"
+    },
+    "category": "elixir",
+    "variants": [
+      {
+        "level": 4,
+        "name": "Капсаициновый тоник",
+        "price": "17 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-capsaicin-tonic",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-leadenleg",
+    "name": {
+      "ru": "Утяжеляющий ноги",
+      "en": "Leadenleg"
+    },
+    "category": "poison",
+    "variants": [
+      {
+        "level": 4,
+        "name": "Утяжеляющий ноги",
+        "price": "15 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-leadenleg",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-stupor-poison",
+    "name": {
+      "ru": "Яд ступора",
+      "en": "Stupor poison"
+    },
+    "category": "poison",
+    "variants": [
+      {
+        "level": 4,
+        "name": "Яд ступора",
+        "price": "16 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-stupor-poison",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-timeless-salts",
+    "name": {
+      "ru": "Вечные соли",
+      "en": "Timeless Salts"
+    },
+    "category": "tool",
+    "variants": [
+      {
+        "level": 4,
+        "name": "Вечные соли",
+        "price": "14 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-timeless-salts",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-undead-detection-dye",
+    "name": {
+      "ru": "Краска обнаружения нежити",
+      "en": "Undead detection dye"
+    },
+    "category": "tool",
+    "variants": [
+      {
+        "level": 4,
+        "name": "Краска обнаружения нежити",
+        "price": "20 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-undead-detection-dye",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-oozepick",
+    "name": {
+      "ru": "Слизеотмычка",
+      "en": "Oozepick"
+    },
+    "category": "tool",
+    "variants": [
+      {
+        "level": 4,
+        "name": "Слизеотмычка",
+        "price": "20 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-oozepick",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 10,
+        "name": "Слизеотмычка, отличная",
+        "price": "200 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-oozepick",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-oxygen-ooze",
+    "name": {
+      "ru": "Кислородная слизь",
+      "en": "Oxygen ooze"
+    },
+    "category": "tool",
+    "variants": [
+      {
+        "level": 4,
+        "name": "Кислородная слизь",
+        "price": "15 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-oxygen-ooze",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-blindpepper-bomb",
+    "name": {
+      "ru": "Бомба слепящего перца",
+      "en": "Blindpepper Bomb"
+    },
+    "category": "bomb",
+    "variants": [
+      {
+        "level": 5,
+        "name": "Бомба слепящего перца",
+        "price": "40 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-blindpepper-bomb",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-sea-touch-elixir",
+    "name": {
+      "ru": "Эликсир касания моря",
+      "en": "Sea touch elixir"
+    },
+    "category": "elixir",
+    "variants": [
+      {
+        "level": 5,
+        "name": "Эликсир касания моря, малый",
+        "price": "22 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-sea-touch-elixir",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 12,
+        "name": "Эликсир касания моря, средний",
+        "price": "300 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-sea-touch-elixir",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 15,
+        "name": "Эликсир касания моря, большой",
+        "price": "920 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-sea-touch-elixir",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-ichthyosis-mutagen",
+    "name": {
+      "ru": "Мутаген ихтиоза",
+      "en": "Ichthyosis mutagen"
+    },
+    "category": "elixir",
+    "variants": [
+      {
+        "level": 5,
+        "name": "Мутаген ихтиоза",
+        "price": "24 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-ichthyosis-mutagen",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-stone-body-mutagen",
+    "name": {
+      "ru": "Мутаген каменного тела",
+      "en": "Stone body mutagen"
+    },
+    "category": "elixir",
+    "variants": [
+      {
+        "level": 5,
+        "name": "Мутаген каменного тела, малый",
+        "price": "22 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-stone-body-mutagen",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 12,
+        "name": "Мутаген каменного тела, средний",
+        "price": "300 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-stone-body-mutagen",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 15,
+        "name": "Мутаген каменного тела, большой",
+        "price": "920 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-stone-body-mutagen",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-sixfingers-elixir",
+    "name": {
+      "ru": "Эликсир шести пальцев",
+      "en": "Sixfingers elixir"
+    },
+    "category": "elixir",
+    "variants": [
+      {
+        "level": 5,
+        "name": "Эликсир шести пальцев, малый",
+        "price": "25 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-sixfingers-elixir",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 11,
+        "name": "Эликсир шести пальцев, средний",
+        "price": "250 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-sixfingers-elixir",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 17,
+        "name": "Эликсир шести пальцев, большой",
+        "price": "2.500 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-sixfingers-elixir",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-hunting-spider-venom",
+    "name": {
+      "ru": "Яд паука-охотника",
+      "en": "Hunting spider venom"
+    },
+    "category": "poison",
+    "variants": [
+      {
+        "level": 5,
+        "name": "Яд паука-охотника",
+        "price": "25 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-hunting-spider-venom",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-false-death",
+    "name": {
+      "ru": "Ложная смерть",
+      "en": "False death"
+    },
+    "category": "poison",
+    "variants": [
+      {
+        "level": 5,
+        "name": "Ложная смерть",
+        "price": "25 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-false-death",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-universal-solvent",
+    "name": {
+      "ru": "Универсальный растворитель",
+      "en": "Universal Solvent"
+    },
+    "category": "tool",
+    "variants": [
+      {
+        "level": 5,
+        "name": "Универсальный растворитель",
+        "price": "21 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-universal-solvent",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 12,
+        "name": "Универсальный растворитель, отличный",
+        "price": "325 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-universal-solvent",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 18,
+        "name": "Универсальный растворитель, сильный",
+        "price": "3.250 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-universal-solvent",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-fungal-walk-musk",
+    "name": {
+      "ru": "Грибковый мускус",
+      "en": "Fungal Walk Musk"
+    },
+    "category": "tool",
+    "variants": [
+      {
+        "level": 5,
+        "name": "Грибковый мускус",
+        "price": "21 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-fungal-walk-musk",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-giant-scorpion-venom",
+    "name": {
+      "ru": "Яд гигантского скорпиона",
+      "en": "Giant Scorpion Venom"
+    },
+    "category": "poison",
+    "variants": [
+      {
+        "level": 6,
+        "name": "Яд гигантского скорпиона",
+        "price": "40 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-giant-scorpion-venom",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-forgetful-ink",
+    "name": {
+      "ru": "Чернила забывчивости",
+      "en": "Forgetful Ink"
+    },
+    "category": "poison",
+    "variants": [
+      {
+        "level": 6,
+        "name": "Чернила забывчивости",
+        "price": "32 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-forgetful-ink",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-fire-and-iceberg",
+    "name": {
+      "ru": "Огонь и айсберг",
+      "en": "Fire and iceberg"
+    },
+    "category": "consumable",
+    "variants": [
+      {
+        "level": 7,
+        "name": "Огонь и айсберг",
+        "price": "60 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-fire-and-iceberg",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 12,
+        "name": "Огонь и айсберг, отличный",
+        "price": "350 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-fire-and-iceberg",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 17,
+        "name": "Огонь и айсберг, превосходный",
+        "price": "2.500 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-fire-and-iceberg",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-giant-wasp-venom",
+    "name": {
+      "ru": "Яд гигантской осы",
+      "en": "Giant Wasp Venom"
+    },
+    "category": "poison",
+    "variants": [
+      {
+        "level": 7,
+        "name": "Яд гигантской осы",
+        "price": "55 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-giant-wasp-venom",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-malyass-root-paste",
+    "name": {
+      "ru": "Паста из корня маляса",
+      "en": "Malyass Root Paste"
+    },
+    "category": "poison",
+    "variants": [
+      {
+        "level": 7,
+        "name": "Паста из корня маляса",
+        "price": "55 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-malyass-root-paste",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-isolation-draught",
+    "name": {
+      "ru": "Изолирующая доза",
+      "en": "Isolation draught"
+    },
+    "category": "poison",
+    "variants": [
+      {
+        "level": 7,
+        "name": "Изолирующая доза",
+        "price": "55 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-isolation-draught",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-sloughing-toxin",
+    "name": {
+      "ru": "Отшелушивающий токсин",
+      "en": "Sloughing Toxin"
+    },
+    "category": "poison",
+    "variants": [
+      {
+        "level": 7,
+        "name": "Отшелушивающий токсин",
+        "price": "60 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-sloughing-toxin",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-addlebrain",
+    "name": {
+      "ru": "Пустоголов",
+      "en": "Addlebrain"
+    },
+    "category": "poison",
+    "variants": [
+      {
+        "level": 7,
+        "name": "Пустоголов",
+        "price": "58 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-addlebrain",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-skinstitch-salve",
+    "name": {
+      "ru": "Мазь кожных швов",
+      "en": "Skinstitch Salve"
+    },
+    "category": "tool",
+    "variants": [
+      {
+        "level": 7,
+        "name": "Мазь кожных швов",
+        "price": "55 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-skinstitch-salve",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-sovereign-glue",
+    "name": {
+      "ru": "Суверенный клей",
+      "en": "Sovereign Glue"
+    },
+    "category": "tool",
+    "variants": [
+      {
+        "level": 7,
+        "name": "Суверенный клей",
+        "price": "55 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-sovereign-glue",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-cold-comfort",
+    "name": {
+      "ru": "Комфорт холода",
+      "en": "Cold comfort"
+    },
+    "category": "tool",
+    "variants": [
+      {
+        "level": 7,
+        "name": "Комфорт холода, малый",
+        "price": "70 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-cold-comfort",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 15,
+        "name": "Комфорт холода, большой",
+        "price": "1.300 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-cold-comfort",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-condensed-mana",
+    "name": {
+      "ru": "Сгущенная мана",
+      "en": "Condensed mana"
+    },
+    "category": "tool",
+    "variants": [
+      {
+        "level": 7,
+        "name": "Сгущенная мана",
+        "price": "69 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-condensed-mana",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-malleable-mixture",
+    "name": {
+      "ru": "Микстура податливости",
+      "en": "Malleable mixture"
+    },
+    "category": "elixir",
+    "variants": [
+      {
+        "level": 8,
+        "name": "Микстура податливости, малая",
+        "price": "75 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-malleable-mixture",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 14,
+        "name": "Микстура податливости, большая",
+        "price": "750 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-malleable-mixture",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-mnemonic-acid",
+    "name": {
+      "ru": "Мнемоническая кислота",
+      "en": "Mnemonic Acid"
+    },
+    "category": "elixir",
+    "variants": [
+      {
+        "level": 8,
+        "name": "Мнемоническая кислота",
+        "price": "75 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-mnemonic-acid",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-nettleweed-residue",
+    "name": {
+      "ru": "Крапивный осадок",
+      "en": "Nettleweed Residue"
+    },
+    "category": "poison",
+    "variants": [
+      {
+        "level": 8,
+        "name": "Крапивный осадок",
+        "price": "75 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-nettleweed-residue",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-wyvern-poison",
+    "name": {
+      "ru": "Яд виверны",
+      "en": "Wyvern Poison"
+    },
+    "category": "poison",
+    "variants": [
+      {
+        "level": 8,
+        "name": "Яд виверны",
+        "price": "80 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-wyvern-poison",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-lich-dust",
+    "name": {
+      "ru": "Пыль лича",
+      "en": "Lich dust"
+    },
+    "category": "poison",
+    "variants": [
+      {
+        "level": 9,
+        "name": "Пыль лича",
+        "price": "110 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-lich-dust",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-spider-root",
+    "name": {
+      "ru": "Паучий корень",
+      "en": "Spider root"
+    },
+    "category": "poison",
+    "variants": [
+      {
+        "level": 9,
+        "name": "Паучий корень",
+        "price": "110 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-spider-root",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-abysium-powder",
+    "name": {
+      "ru": "Абисиумовый порошок",
+      "en": "Abysium powder"
+    },
+    "category": "poison",
+    "variants": [
+      {
+        "level": 9,
+        "name": "Абисиумовый порошок",
+        "price": "150 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-abysium-powder",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-brewers-regret",
+    "name": {
+      "ru": "Сожаление пивовара",
+      "en": "Brewer's regret"
+    },
+    "category": "consumable",
+    "variants": [
+      {
+        "level": 9,
+        "name": "Сожаление пивовара",
+        "price": "120 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-brewers-regret",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 14,
+        "name": "Сожаление пивовара, отличное",
+        "price": "625 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-brewers-regret",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-baleblood-draft",
+    "name": {
+      "ru": "Настой вязкой крови",
+      "en": "Baleblood draft"
+    },
+    "category": "elixir",
+    "variants": [
+      {
+        "level": 10,
+        "name": "Настой вязкой крови",
+        "price": "155 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-baleblood-draft",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-shadow-essence",
+    "name": {
+      "ru": "Теневой экстракт",
+      "en": "Shadow Essence"
+    },
+    "category": "poison",
+    "variants": [
+      {
+        "level": 10,
+        "name": "Теневой экстракт",
+        "price": "160 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-shadow-essence",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-wolfsbane",
+    "name": {
+      "ru": "Волкобой",
+      "en": "Wolfsbane"
+    },
+    "category": "poison",
+    "variants": [
+      {
+        "level": 10,
+        "name": "Волкобой",
+        "price": "155 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-wolfsbane",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-honeyscent",
+    "name": {
+      "ru": "Медовый аромат",
+      "en": "Honeyscent"
+    },
+    "category": "poison",
+    "variants": [
+      {
+        "level": 10,
+        "name": "Медовый аромат",
+        "price": "180 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-honeyscent",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-blightburn-resin",
+    "name": {
+      "ru": "Смола жгучей порчи",
+      "en": "Blightburn resin"
+    },
+    "category": "poison",
+    "variants": [
+      {
+        "level": 11,
+        "name": "Смола жгучей порчи",
+        "price": "225 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-blightburn-resin",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-slumber-wine",
+    "name": {
+      "ru": "Вино дремоты",
+      "en": "Slumber wine"
+    },
+    "category": "poison",
+    "variants": [
+      {
+        "level": 12,
+        "name": "Вино дремоты",
+        "price": "325 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-slumber-wine",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-mage-bane",
+    "name": {
+      "ru": "Погибель мага",
+      "en": "Mage bane"
+    },
+    "category": "poison",
+    "variants": [
+      {
+        "level": 12,
+        "name": "Погибель мага",
+        "price": "325 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-mage-bane",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-blackfinger-blight",
+    "name": {
+      "ru": "Чернопалая отрава",
+      "en": "Blackfinger Blight"
+    },
+    "category": "poison",
+    "variants": [
+      {
+        "level": 12,
+        "name": "Чернопалая отрава",
+        "price": "350 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-blackfinger-blight",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-deathcap-powder",
+    "name": {
+      "ru": "Порошок из бледной поганки",
+      "en": "Deathcap powder"
+    },
+    "category": "poison",
+    "variants": [
+      {
+        "level": 13,
+        "name": "Порошок из бледной поганки",
+        "price": "450 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-deathcap-powder",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-purple-worm-venom",
+    "name": {
+      "ru": "Яд фиолетового червя",
+      "en": "Purple worm venom"
+    },
+    "category": "poison",
+    "variants": [
+      {
+        "level": 13,
+        "name": "Яд фиолетового червя",
+        "price": "500 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-purple-worm-venom",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-gorgons-breath",
+    "name": {
+      "ru": "Дыхание горгоны",
+      "en": "Gorgon's Breath"
+    },
+    "category": "poison",
+    "variants": [
+      {
+        "level": 13,
+        "name": "Дыхание горгоны",
+        "price": "475 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-gorgons-breath",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-cave-worm-repellent",
+    "name": {
+      "ru": "Репеллент от фиолетовых червей",
+      "en": "Purple worm repellent"
+    },
+    "category": "tool",
+    "variants": [
+      {
+        "level": 13,
+        "name": "Репеллент от фиолетовых червей",
+        "price": "550 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-cave-worm-repellent",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 15,
+        "name": "Репеллент от лазурных червей",
+        "price": "1.100 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-cave-worm-repellent",
+          "type": "pf2e-ru-translation"
+        }
+      },
+      {
+        "level": 18,
+        "name": "Репеллент от багровых червей",
+        "price": "4.500 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-cave-worm-repellent",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-dragon-bile",
+    "name": {
+      "ru": "Драконья желчь",
+      "en": "Dragon bile"
+    },
+    "category": "poison",
+    "variants": [
+      {
+        "level": 15,
+        "name": "Драконья желчь",
+        "price": "925 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-dragon-bile",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-mindfog-mist",
+    "name": {
+      "ru": "Туман разума",
+      "en": "Mindfog mist"
+    },
+    "category": "poison",
+    "variants": [
+      {
+        "level": 15,
+        "name": "Туман разума",
+        "price": "1.000 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-mindfog-mist",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-apricot-of-bestial-might",
+    "name": {
+      "ru": "Абрикос звериной мощи",
+      "en": "Apricot of Bestial Might"
+    },
+    "category": "elixir",
+    "variants": [
+      {
+        "level": 16,
+        "name": "Абрикос звериной мощи",
+        "price": "2.000 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-apricot-of-bestial-might",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-brimstone-fumes",
+    "name": {
+      "ru": "Пары серы",
+      "en": "Brimstone fumes"
+    },
+    "category": "poison",
+    "variants": [
+      {
+        "level": 16,
+        "name": "Пары серы",
+        "price": "1.500 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-brimstone-fumes",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-nightmare-vapor",
+    "name": {
+      "ru": "Кошмарный пар",
+      "en": "Nightmare vapor"
+    },
+    "category": "poison",
+    "variants": [
+      {
+        "level": 16,
+        "name": "Кошмарный пар",
+        "price": "1.400 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-nightmare-vapor",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-cerulean-scourge",
+    "name": {
+      "ru": "Лазурная плеть",
+      "en": "Cerulean scourge"
+    },
+    "category": "poison",
+    "variants": [
+      {
+        "level": 16,
+        "name": "Лазурная плеть",
+        "price": "1.450 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-cerulean-scourge",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-frenzy-oil",
+    "name": {
+      "ru": "Масло безумия",
+      "en": "Frenzy Oil"
+    },
+    "category": "poison",
+    "variants": [
+      {
+        "level": 16,
+        "name": "Масло безумия",
+        "price": "1.500 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-frenzy-oil",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-weeping-midnight",
+    "name": {
+      "ru": "Плачущая полночь",
+      "en": "Weeping Midnight"
+    },
+    "category": "poison",
+    "variants": [
+      {
+        "level": 16,
+        "name": "Плачущая полночь",
+        "price": "1.400 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-weeping-midnight",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-hemlock",
+    "name": {
+      "ru": "Болиголов",
+      "en": "Hemlock"
+    },
+    "category": "poison",
+    "variants": [
+      {
+        "level": 17,
+        "name": "Болиголов",
+        "price": "2.250 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-hemlock",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-greengut",
+    "name": {
+      "ru": "Кишковерт",
+      "en": "Greengut"
+    },
+    "category": "poison",
+    "variants": [
+      {
+        "level": 17,
+        "name": "Кишковерт",
+        "price": "2.500 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-greengut",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-kings-sleep",
+    "name": {
+      "ru": "Сон короля",
+      "en": "King's sleep"
+    },
+    "category": "poison",
+    "variants": [
+      {
+        "level": 18,
+        "name": "Сон короля",
+        "price": "4.000 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-kings-sleep",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-sun-orchid-poultice",
+    "name": {
+      "ru": "Припарка солнечной орхидеи",
+      "en": "Sun Orchid Poultice"
+    },
+    "category": "tool",
+    "variants": [
+      {
+        "level": 18,
+        "name": "Припарка солнечной орхидеи",
+        "price": "5.000 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-sun-orchid-poultice",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-ambrosia-of-undying-hope",
+    "name": {
+      "ru": "Амброзия неугасающей надежды",
+      "en": "Ambrosia of Undying Hope"
+    },
+    "category": "elixir",
+    "variants": [
+      {
+        "level": 19,
+        "name": "Амброзия неугасающей надежды",
+        "price": "6.200 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-ambrosia-of-undying-hope",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-black-lotus-extract",
+    "name": {
+      "ru": "Экстракт черного лотоса",
+      "en": "Black lotus extract"
+    },
+    "category": "poison",
+    "variants": [
+      {
+        "level": 19,
+        "name": "Экстракт черного лотоса",
+        "price": "6.500 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-black-lotus-extract",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-oblivion-essence",
+    "name": {
+      "ru": "Эссенция забвения",
+      "en": "Oblivion Essence"
+    },
+    "category": "poison",
+    "variants": [
+      {
+        "level": 19,
+        "name": "Эссенция забвения",
+        "price": "6.500 зм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-oblivion-essence",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-elixir-of-rejuvenation",
+    "name": {
+      "ru": "Эликсир восстановления",
+      "en": "Elixir of rejuvenation"
+    },
+    "category": "elixir",
+    "variants": [
+      {
+        "level": 20,
+        "name": "Эликсир восстановления",
+        "price": "—",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-elixir-of-rejuvenation",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-sun-orchid-elixir",
+    "name": {
+      "ru": "Эликсир солнечной орхидеи",
+      "en": "Sun Orchid Elixir"
+    },
+    "category": "elixir",
+    "variants": [
+      {
+        "level": 20,
+        "name": "Эликсир солнечной орхидеи",
+        "price": "—",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-sun-orchid-elixir",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-tears-of-death",
+    "name": {
+      "ru": "Слезы смерти",
+      "en": "Tears of death"
+    },
+    "category": "poison",
+    "variants": [
+      {
+        "level": 20,
+        "name": "Слезы смерти",
+        "price": "12.000\nзм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-tears-of-death",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-nightmare-salt",
+    "name": {
+      "ru": "Кошмарная соль",
+      "en": "Nightmare Salt"
+    },
+    "category": "poison",
+    "variants": [
+      {
+        "level": 20,
+        "name": "Кошмарная соль",
+        "price": "14.000\nзм",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-nightmare-salt",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  },
+  {
+    "id": "item-philosophers-stone",
+    "name": {
+      "ru": "Философский камень",
+      "en": "Philosopher's stone"
+    },
+    "category": "tool",
+    "variants": [
+      {
+        "level": 20,
+        "name": "Философский камень",
+        "price": "—",
+        "description": "",
+        "source": {
+          "name": "pf2e-ru-translation",
+          "url": "https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html#item-philosophers-stone",
+          "type": "pf2e-ru-translation"
+        }
+      }
+    ],
+    "rarity": "common"
+  }
+]
