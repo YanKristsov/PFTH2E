@@ -49,7 +49,10 @@ async function main() {
     if (secStart === -1 || secEnd === -1) return ''
     // inner content between section tags
     const openEnd = html.indexOf('>', secStart) + 1
-    return html.slice(openEnd, secEnd).trim()
+    let inner = html.slice(openEnd, secEnd).trim()
+    // Remove "Взаимодействовать (Interact)" mentions
+    inner = inner.replace(/Взаимодействовать\s*\(Interact\)/gi, '')
+    return inner
   }
 
   const result = Array.from(items.entries()).map(([anchor, data]) => ({
