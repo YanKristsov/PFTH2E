@@ -50,6 +50,8 @@ async function main() {
     // inner content between section tags
     const openEnd = html.indexOf('>', secStart) + 1
     let inner = html.slice(openEnd, secEnd).trim()
+    // Remove h4 heading (item title + level + headerlink)
+    inner = inner.replace(/<h4[\s\S]*?<\/h4>/gi, '')
     // Remove "Взаимодействовать (Interact)" mentions
     inner = inner.replace(/Взаимодействовать\s*\(Interact\)/gi, '')
     // Rewrite action icon paths to our own assets
