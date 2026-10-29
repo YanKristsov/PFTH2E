@@ -98,8 +98,10 @@ function toggleOpen(id: string) {
                   </div>
                   <div v-if="item.descriptionHtml" class="alchemical-detail" v-html="item.descriptionHtml"></div>
                   <div v-if="item.variants.length" class="mt-sm">
-                    <div v-for="v in item.variants" :key="v.level + v.name" class="mb-xs">
-                      <span class="font-semibold">{{ v.name }} (ур. {{ v.level }})</span> — {{ v.price }}
+                    <div v-for="v in item.variants" :key="v.level + v.name" class="mb-sm">
+                      <div class="font-semibold">{{ v.name }}</div>
+                      <div>Уровень: {{ v.level }}</div>
+                      <div>{{ v.price }}</div>
                     </div>
                   </div>
                 </div>
