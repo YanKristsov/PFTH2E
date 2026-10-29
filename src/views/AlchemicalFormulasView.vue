@@ -114,4 +114,6 @@ function toggleOpen(id: string) {
 
 <style scoped>
 .cursor-pointer { cursor: pointer; }
+.alchemical-detail :deep(img.action) { display: inline; vertical-align: middle; height: 1em; }
+.alchemical-detail :deep(p) { margin: 0.4em 0; }
 </style>
