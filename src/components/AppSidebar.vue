@@ -99,20 +99,38 @@ function filterValueText(filter: { key: keyof FilterState; value: string; exclud
       <h2 class="text-lg font-semibold">Меню и фильтры</h2>
       <button class="btn btn-ghost" aria-label="Закрыть меню" @click="emit('close')">✕</button>
     </div>
-    <nav class="sidebar-nav p-md border-b border-[var(--color-border)]" aria-label="Основная навигация">
+     <nav class="sidebar-nav p-md border-b border-[var(--color-border)]" aria-label="Основная навигация">
       <router-link
-        v-for="item in [
-          { name: 'home', label: 'Заклинания', icon: '📜' },
-          { name: 'favorites', label: 'Избранное', icon: '⭐' },
-          { name: 'history', label: 'История', icon: '🕐' }
-        ]"
-        :key="item.name"
-        :to="{ name: item.name }"
+        to="/favorites"
         class="sidebar-link"
-        :class="{ active: activeNav === item.name }"
+        :class="{ active: activeNav === 'favorites' }"
       >
-        <span class="sidebar-link-icon" aria-hidden="true">{{ item.icon }}</span>
-        <span>{{ item.label }}</span>
+        <span class="sidebar-link-icon" aria-hidden="true">⭐</span>
+        <span>Избранное</span>
+      </router-link>
+      <div class="sidebar-link" style="opacity: 0.5; cursor: default;">
+        <span class="sidebar-link-icon" aria-hidden="true">📖</span>
+        <span>Сюжет</span>
+      </div>
+      <router-link
+        to="/"
+        class="sidebar-link"
+        :class="{ active: activeNav === 'home' }"
+      >
+        <span class="sidebar-link-icon" aria-hidden="true">📜</span>
+        <span>Заклинания</span>
+      </router-link>
+      <div class="sidebar-link" style="opacity: 0.5; cursor: default;">
+        <span class="sidebar-link-icon" aria-hidden="true">⚗️</span>
+        <span>Алхимические формулы</span>
+      </div>
+      <router-link
+        to="/history"
+        class="sidebar-link"
+        :class="{ active: activeNav === 'history' }"
+      >
+        <span class="sidebar-link-icon" aria-hidden="true">🕐</span>
+        <span>История</span>
       </router-link>
       <router-link to="/settings" class="sidebar-link" :class="{ active: activeNav === 'settings' }">
         <span class="sidebar-link-icon" aria-hidden="true">⚙️</span>
