@@ -99,7 +99,7 @@ function stripSource(html: string): string {
 <template>
   <div class="home-view">
     <header class="content-header">
-      <h1 class="content-title">Алхимические формулы</h1>
+      <h1 class="content-title">Алхимические предметы</h1>
     </header>
 
     <div v-if="loadError" class="card p-md mb-md" style="border-color: var(--color-error);">

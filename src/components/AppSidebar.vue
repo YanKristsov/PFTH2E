@@ -145,7 +145,7 @@ function filterValueText(filter: { key: keyof FilterState; value: string; exclud
         :class="{ active: activeNav === 'alchemical-formulas' }"
       >
         <span class="sidebar-link-icon" aria-hidden="true">⚗️</span>
-        <span>Алхимические формулы</span>
+        <span>Алхимические предметы</span>
       </router-link>
       <router-link
         to="/history"
