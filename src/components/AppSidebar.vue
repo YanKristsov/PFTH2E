@@ -120,10 +120,14 @@ function filterValueText(filter: { key: keyof FilterState; value: string; exclud
         <span class="sidebar-link-icon" aria-hidden="true">📜</span>
         <span>Заклинания</span>
       </router-link>
-      <div class="sidebar-link" style="opacity: 0.5; cursor: default;">
+      <router-link
+        to="/alchemical-formulas"
+        class="sidebar-link"
+        :class="{ active: activeNav === 'alchemical-formulas' }"
+      >
         <span class="sidebar-link-icon" aria-hidden="true">⚗️</span>
         <span>Алхимические формулы</span>
-      </div>
+      </router-link>
       <router-link
         to="/history"
         class="sidebar-link"

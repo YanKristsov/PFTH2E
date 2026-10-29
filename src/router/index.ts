@@ -29,6 +29,11 @@ const routes: RouteRecordRaw[] = [
     component: () => import('@/views/SettingsView.vue')
   },
   {
+    path: '/alchemical-formulas',
+    name: 'alchemical-formulas',
+    component: () => import('@/views/AlchemicalFormulasView.vue')
+  },
+  {
     path: '/:pathMatch(.*)*',
     redirect: '/'
   }
