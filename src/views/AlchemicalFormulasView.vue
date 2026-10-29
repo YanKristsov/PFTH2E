@@ -11,8 +11,8 @@ const loadError = ref('')
 const filterStore = useAlchemicalFilterStore()
 const openIds = ref<Set<string>>(new Set())
 const activeSourceByItem = ref<Record<string, number>>({})
+const expandAll = ref(false)
 
-const categories = ['bomb', 'elixir', 'poison', 'tool', 'consumable', 'other'] as const
 const categoryLabel: Record<string, string> = {
   bomb: 'Бомба',
   elixir: 'Эликсир',
@@ -53,9 +53,7 @@ const filtered = computed(() => {
   let list = [...items.value]
   if (filterStore.searchQuery.trim()) {
     const q = filterStore.searchQuery.toLowerCase()
-    list = list.filter((it) =>
-      it.name.ru.toLowerCase().includes(q) || it.name.en.toLowerCase().includes(q)
-    )
+    list = list.filter((it) => it.name.ru.toLowerCase().includes(q) || it.name.en.toLowerCase().includes(q))
   }
   if (filterStore.categories.length) {
     list = list.filter((it) => filterStore.categories.includes(it.category))
@@ -70,7 +68,24 @@ const filtered = computed(() => {
   return list
 })
 
+watch(expandAll, (v) => {
+  if (v) {
+    openIds.value = new Set(filtered.value.map(it => it.id))
+  } else {
+    openIds.value = new Set()
+  }
+})
+
+watch(filtered, () => {
+  if (expandAll.value) {
+    openIds.value = new Set(filtered.value.map(it => it.id))
+  }
+})
+
 function toggleOpen(id: string) {
+  if (expandAll.value) {
+    expandAll.value = false
+  }
   if (openIds.value.has(id)) openIds.value.delete(id)
   else openIds.value.add(id)
   openIds.value = new Set(openIds.value)
@@ -89,7 +104,6 @@ function fixRelativeLinks(html: string): string {
 function stripSource(html: string): string {
   if (!html) return html
   let s = html
-  // remove any paragraph/div containing strong "Источник"
   s = s.replace(/<(p|div)[^>]*>[\s\S]*?<strong[^>]*>\s*Источник[\s\S]*?<\/strong>[\s\S]*?<\/\1>/gi, '')
   s = s.replace(/<(p|div)[^>]*>\s*Источник[\s\S]*?<\/\1>/gi, '')
   return s
@@ -100,6 +114,9 @@ function stripSource(html: string): string {
   <div class="home-view">
     <header class="content-header">
       <h1 class="content-title">Алхимические предметы</h1>
+      <div class="header-actions">
+        <button class="btn btn-secondary btn-sm" @click="expandAll = !expandAll">{{ expandAll ? 'Свернуть все' : 'Раскрыть все' }}</button>
+      </div>
     </header>
 
     <div v-if="loadError" class="card p-md mb-md" style="border-color: var(--color-error);">

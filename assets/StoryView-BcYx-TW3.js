@@ -1,1 +1,0 @@
-import{D as t,N as r,t as s,w as e}from"./index-W3cpGZKQ.js";var l={},n={class:"home-view"};function o(c,a){return r(),t("div",n,[...a[0]||(a[0]=[e("header",{class:"content-header"},[e("h1",{class:"content-title"},"Сюжет")],-1),e("div",{class:"card p-md"},[e("p",null,"Раздел в разработке.")],-1)])])}var _=s(l,[["render",o]]);export{_ as default};
