@@ -52,6 +52,12 @@ async function main() {
     let inner = html.slice(openEnd, secEnd).trim()
     // Remove "Взаимодействовать (Interact)" mentions
     inner = inner.replace(/Взаимодействовать\s*\(Interact\)/gi, '')
+    // Rewrite action icon paths to our own assets
+    inner = inner.replace(/\.\.\/_images\/PF_action_1\.png/g, '/PFTH2E/art/PF_action_1.webp')
+    inner = inner.replace(/\.\.\/_images\/PF_action_2\.png/g, '/PFTH2E/art/PF_action_2.webp')
+    inner = inner.replace(/\.\.\/_images\/PF_action_3\.png/g, '/PFTH2E/art/PF_action_3.webp')
+    inner = inner.replace(/\.\.\/_images\/PF_action_free\.png/g, '/PFTH2E/art/PF_action_free.webp')
+    inner = inner.replace(/\.\.\/_images\/PF_action_reaction\.png/g, '/PFTH2E/art/PF_action_reaction.png')
     return inner
   }
 
