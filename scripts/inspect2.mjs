@@ -1,0 +1,10 @@
+const res = await fetch('https://pf2e-ru-translation.readthedocs.io/ru/latest/crafting_and_treasure/alchemical_items.html')
+const html = await res.text()
+const m = html.match(/<section id="[^"]*"><span id="item-[^"]*"><\/span>/g)
+console.log('count:', m ? m.length : 0)
+console.log(m ? m.slice(0,5) : 'none')
+// check closing
+const idx = html.indexOf('<section id="acid-flask-1">')
+const end = html.indexOf('</section>', idx)
+console.log('section len:', end - idx)
+console.log(html.slice(idx, idx+200))

@@ -39,10 +39,25 @@ async function main() {
     items.get(anchor)!.variants.push({ level, price, ruName, enName })
   }
 
-  const result = Array.from(items.entries()).map(([anchor, data], idx) => ({
+  // Extract description text per item from its section
+  function sectionText(anchor: string): string {
+    const marker = 'id="' + anchor + '"'
+    const pos = html.indexOf(marker)
+    if (pos === -1) return ''
+    const secStart = html.lastIndexOf('<section', pos)
+    const secEnd = html.indexOf('</section>', pos)
+    if (secStart === -1 || secEnd === -1) return ''
+    const inner = html.slice(secStart, secEnd + '</section>'.length)
+    // strip tags
+    const text = inner.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim()
+    return text
+  }
+
+  const result = Array.from(items.entries()).map(([anchor, data]) => ({
     id: anchor,
     name: { ru: data.ru, en: data.en },
     category: normalizeCategory(data.category),
+    description: sectionText(anchor),
     variants: data.variants.map((v) => ({
       level: v.level,
       name: v.ruName,
