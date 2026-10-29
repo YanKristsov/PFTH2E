@@ -96,7 +96,7 @@ function toggleOpen(id: string) {
                   <div class="tabs" style="display:flex;gap:4px;margin-bottom:8px;">
                     <button class="btn btn-sm btn-primary">pf2e-ru-translation</button>
                   </div>
-                  <div v-if="item.description" class="text-sm text-secondary mt-xs" style="white-space:pre-wrap">{{ item.description }}</div>
+                  <div v-if="item.descriptionHtml" class="alchemical-detail" v-html="item.descriptionHtml"></div>
                   <div v-if="item.variants.length" class="mt-sm">
                     <div v-for="v in item.variants" :key="v.level + v.name" class="mb-xs">
                       <span class="font-semibold">{{ v.name }} (ур. {{ v.level }})</span> — {{ v.price }}
