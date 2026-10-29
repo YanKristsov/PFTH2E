@@ -186,6 +186,9 @@ function stripSource(html: string): string {
 <style scoped>
 .cursor-pointer { cursor: pointer; }
 .alchemical-detail :deep(img.action) { display: inline; vertical-align: middle; height: 1em; }
-.alchemical-detail :deep(p) { margin: 0.4em 0; }
-.alchemical-detail :deep(a) { color: var(--color-primary); text-decoration: underline; }
+.alchemical-detail :deep(hr.docutils) {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: 0.6em 0;
+}
 </style>
