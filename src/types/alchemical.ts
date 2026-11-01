@@ -7,10 +7,12 @@ export const AlchemicalSourceSchema = z.object({
 })
 
 export const AlchemicalVariantSchema = z.object({
+  id: z.string(),
   level: z.number().int().min(0).max(20),
   name: z.string(),
   price: z.string().optional(),
   description: z.string().optional(),
+  traits: z.array(z.string()).optional(),
   source: AlchemicalSourceSchema
 })
 

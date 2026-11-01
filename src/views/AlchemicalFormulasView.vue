@@ -10,7 +10,7 @@ const isLoading = ref(true)
 const loadError = ref('')
 const filterStore = useAlchemicalFilterStore()
 const openIds = ref<Set<string>>(new Set())
-const activeSourceByItem = ref<Record<string, number>>({})
+const activeVariantIdxByItem = ref<Record<string, number>>({})
 const expandAll = ref(false)
 
 const categoryLabel: Record<string, string> = {
@@ -41,12 +41,12 @@ function getOrderedSources(item: AlchemicalItem) {
   return sources.sort((a, b) => (SOURCE_ORDER[a.type] ?? 9) - (SOURCE_ORDER[b.type] ?? 9))
 }
 
-function getActiveSourceIndex(item: AlchemicalItem) {
-  return activeSourceByItem.value[item.id] ?? 0
+function getActiveVariantIndex(item: AlchemicalItem) {
+  return activeVariantIdxByItem.value[item.id] ?? 0
 }
 
-function setActiveSource(item: AlchemicalItem, idx: number) {
-  activeSourceByItem.value[item.id] = idx
+function setActiveVariantIndex(item: AlchemicalItem, idx: number) {
+  activeVariantIdxByItem.value[item.id] = idx
 }
 
 const filtered = computed(() => {
@@ -158,9 +158,9 @@ function stripSource(html: string): string {
                       :key="`${src.type}-${src.name}-${i}`"
                       role="tab"
                       class="tab"
-                      :class="{ active: getActiveSourceIndex(item) === i }"
-                      :aria-selected="getActiveSourceIndex(item) === i"
-                      @click.stop="setActiveSource(item, i)"
+                      :class="{ active: getActiveVariantIndex(item) === i }"
+                      :aria-selected="getActiveVariantIndex(item) === i"
+                      @click.stop="setActiveVariantIndex(item, i)"
                     >
                       {{ sourceLabel(src.name) }}
                     </button>

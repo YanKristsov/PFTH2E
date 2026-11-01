@@ -12,6 +12,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "parse:spells": "tsx scripts/parse-spells.ts",
+    "parse:alchemical": "tsx scripts/parse-alchemical.ts",
     "deploy": "powershell -ExecutionPolicy Bypass -File ./scripts/deploy.ps1"
   },
   "dependencies": {

@@ -1,6 +1,6 @@
 # PF2E Spells Reference — Статус проекта
 
-> **Обновлено:** 2026-10-27. Исправлена загрузка избранной и истории; проверен скролл на десктопе и мобильных.
+> **Обновлено:** 2026-10-30. Добавлен раздел «Алхимические предметы» (/alchemical-formulas); исследованы источники AoN и pf2.ru.
 
 ## Общее описание
 Справочник заклинаний Pathfinder 2e на русском языке.
@@ -202,6 +202,36 @@ npm run deploy
 - Функция `manualChunks` в rolldown не поддерживается — её убрали
 - Vite 8 **не авто-инжектит** `<script type="module">` в HTML — тег должен быть в шаблоне явно
 
+### Раздел «Алхимические предметы» (/alchemical-formulas) — 2026-10-29/30
+- Создан раздел с таблицей раскрывающихся строк, фильтрами в сайдбаре, вкладками источников, «Раскрыть все/Свернуть все»
+- Данные: `public/alchemical.json` (154 предмета из readthedocs)
+- `src/types/alchemical.ts` — Zod-схема (AlchemicalItem, variants, traits, descriptionHtml, category, rarity)
+- `scripts/parse-alchemical.ts` — парсер readthedocs (сейчас единственный источник)
+- `src/views/AlchemicalFormulasView.vue` — таблица, фильтрация, раскрывающиеся строки, вкладки источников
+- `src/stores/alchemicalFilter.ts` — store фильтров (поиск, категории, уровни, дескрипторы)
+- `src/components/AppSidebar.vue` — переключение фильтров по маршруту (isAlchemical)
+- `src/router/index.ts` — маршрут `/alchemical-formulas`
+- Названия: «Алхимические предметы» (переименовано из «Алхимические формулы»)
+- Убраны блоки «Источник», тонкие hr
+- Добавлена заглушка «Сюжет» (/story), «Сюжет» кликабелен
+
+### Исследование источников для алхимических предметов (2026-10-30)
+- **AoN**: Elasticsearch API `https://elasticsearch.aonprd.com/aon/_search?stats=searchbar` — работает для алхимических предметов
+  - Запрос: `category=equipment`, `item_category:"Alchemical Items"`, `must_not: exclude_from_search, remaster_id, item_child_id`
+  - Поля: `id, name, level, rarity, trait, source, price, price_raw, bulk, usage, actions, markdown, url, item_category, item_subcategory`
+  - `markdown` содержит полное описание с вариантами по уровням (Lesser/Moderate/Greater/Major)
+- **pf2.ru**: `https://pf2.ru/alchemical-items` (табы: bombs, elixirs, poisons, tools, ammunition, food, plants, other, bottled-monstrosities, drugs)
+  - Данные в `<pf2-table items>` (JSON-атрибут)
+  - Поля: `id, name, rus_name, traits (HTML), level, price, bulk, item_category, item_subcategory, usage, base_item`
+  - API деталей: `POST https://pf2.ru/api/equipment/details` с `{ids, lang}` → `{id: {text_output, traits_output}}`
+  - Варианты: `is_variant` boolean, `base_item` связывает варианты с базовым предметом
+
+### Оставшиеся задачи (приоритет)
+1. Расширить `scripts/parse-alchemical.ts` для сбора данных из AoN и pf2.ru
+2. Реализовать раздел «Сюжет» (/story) — пока заглушка
+3. Доделать парсинг описаний (относительные ссылки, форматирование)
+4. Перегенерировать `public/alchemical.json` с данными из всех источников
+
 ## Известные ограничения
 - Поле `classes` заполнено у 485 заклинаний из 2009 (24%): класс задан только для фокусных
   заклинаний классов. Остальные помечены «Общее заклинание» (2026-10-21)
@@ -220,7 +250,7 @@ npm run deploy
 
 ## Ключевые файлы
 - `src/App.vue` — главный компонент (router-view, AppHeader, AppSidebar)
-- `src/constants/translations.ts` — **словарь переводов** (традиции, школы, редкость, черты, компоненты)
+- `src/constants/translations.ts` — **словарь переводов** (традицион, школы, редкость, черты, компоненты)
 - `src/constants/translations.test.ts` — тест полноты словарей переводов
 - `src/components/AppSidebar.vue` — фильтры (все на русском)
 - `src/components/AppHeader.vue` — хедер, поиск, переключатель темы
@@ -231,11 +261,16 @@ npm run deploy
 - `src/views/FavoritesView.vue` — избранное + заметки
 - `src/views/HistoryView.vue` — история просмотров
 - `src/views/SettingsView.vue` — настройки (тема, колонки, экспорт/импорт)
+- `src/views/AlchemicalFormulasView.vue` — алхимические предметы (таблица, раскрывающиеся строки, вкладки источников)
+- `src/views/StoryView.vue` — заглушка «Сюжет»
 - `src/stores/index.ts` — Pinia store (фильтры, настройки, избранное, история)
+- `src/stores/alchemicalFilter.ts` — store фильтров алхимических предметов
 - `src/composables/useSpells.ts` — загрузка данных, MiniSearch, фильтрация
 - `src/router/index.ts` — маршрутизация
-- `src/types/spell.ts` — Zod-схемы и типы
+- `src/types/spell.ts` — Zod-схемы и типы заклинаний
+- `src/types/alchemical.ts` — Zod-схемы алхимических предметов
 - `scripts/parse-spells.ts` — парсинг данных из pf2.ru и AoN
+- `scripts/parse-alchemical.ts` — парсинг алхимических предметов (сейчас только readthedocs)
 - `scripts/check-runtime.ts` — Playwright-проверка локальной сборки
 - `scripts/check-dev.ts` — Playwright-проверка dev-сервера (dev-шаблон на всех маршрутах, включая SPA)
 - `scripts/check-live.ts` — Playwright-проверка живого сайта
