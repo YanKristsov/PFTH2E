@@ -31,6 +31,24 @@ onMounted(async () => {
   }
 })
 
+type AlchSortKey = 'name' | 'category'
+const sortKey = ref<AlchSortKey | null>(null)
+const sortAsc = ref(true)
+
+function toggleSort(key: AlchSortKey) {
+  if (sortKey.value === key) {
+    sortAsc.value = !sortAsc.value
+  } else {
+    sortKey.value = key
+    sortAsc.value = true
+  }
+}
+
+function sortIndicator(key: AlchSortKey): string {
+  if (sortKey.value !== key) return ''
+  return sortAsc.value ? ' ↓' : ' ↑'
+}
+
 const filtered = computed(() => {
   let list = [...items.value]
   if (filterStore.searchQuery.trim()) {
@@ -46,12 +64,30 @@ const filtered = computed(() => {
   if (filterStore.levels.length) {
     list = list.filter((it) => it.variants.some((v) => filterStore.levels.includes(v.level)))
   }
+  return list
+})
+
+const sorted = computed(() => {
+  if (!sortKey.value) return filtered.value
+  const list = [...filtered.value]
   list.sort((a, b) => {
-    const ca = categoryLabel[a.category]
-    const cb = categoryLabel[b.category]
-    const c = ca.localeCompare(cb, 'ru')
-    if (c !== 0) return c
-    return a.name.ru.localeCompare(b.name.ru, 'ru')
+    let av: string | number
+    let bv: string | number
+    switch (sortKey.value) {
+      case 'name':
+        av = a.name.ru.toLowerCase()
+        bv = b.name.ru.toLowerCase()
+        break
+      case 'category':
+        av = categoryLabel[a.category]
+        bv = categoryLabel[b.category]
+        break
+      default:
+        return 0
+    }
+    if (av < bv) return sortAsc.value ? -1 : 1
+    if (av > bv) return sortAsc.value ? 1 : -1
+    return 0
   })
   return list
 })
@@ -125,12 +161,20 @@ function stripSource(html: string): string {
       <table v-else class="table w-full">
         <thead>
           <tr>
-            <th>Название</th>
-            <th>Категория</th>
+            <th scope="col">
+              <button type="button" class="th-sort" :aria-label="`Сортировать по названию`" @click="toggleSort('name')">
+                Название<span class="sort-arrow" aria-hidden="true">{{ sortIndicator('name') }}</span>
+              </button>
+            </th>
+            <th scope="col">
+              <button type="button" class="th-sort" :aria-label="`Сортировать по категории`" @click="toggleSort('category')">
+                Категория<span class="sort-arrow" aria-hidden="true">{{ sortIndicator('category') }}</span>
+              </button>
+            </th>
           </tr>
         </thead>
         <tbody>
-          <template v-for="item in filtered" :key="item.id">
+          <template v-for="item in sorted" :key="item.id">
             <tr class="cursor-pointer" @click="toggleOpen(item.id)">
               <td>
                 <div class="spell-name-cell font-medium">{{ item.name.ru }}</div>
@@ -173,4 +217,21 @@ function stripSource(html: string): string {
 }
 .variant-meta { font-size: 0.875rem; color: var(--color-text-muted); }
 .variant-meta .label { font-weight: 500; }
+.th-sort {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  text-transform: inherit;
+  letter-spacing: inherit;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+}
+.th-sort:hover { color: var(--color-text); }
+.sort-arrow { font-size: 0.75rem; opacity: 0.6; }
 </style>
