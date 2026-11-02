@@ -106,7 +106,11 @@ async function fetchAonprdEquipment(): Promise<AoNFetchResult> {
     if (!record.id || !record.name || !Number.isInteger(record.level) || record.level < 0 || record.level > 20) continue
 
     const sections = record.markdown.split(/\n---\n/)
-    const description = sections.length > 1 ? aonMarkdown.render(sections[1]?.trim() || '') : aonMarkdown.render(record.markdown.trim())
+    let description = sections.length > 1 ? aonMarkdown.render(sections[1]?.trim() || '') : aonMarkdown.render(record.markdown.trim())
+    description = description
+      .replace(/Источник:[^<\n]*\(https:\/\/yankristsov\.github\.io\/sources\/[^)]*\)[.\s]*/gi, '')
+      .replace(/Источник:[^<\n]*/gi, '')
+      .replace(/:\s*(Lost Omens|Pathfinder #\d+|Advanced Player's Guide)[^<\n]*/gi, '')
 
     const traits: string[] = (record.trait ?? []).filter(Boolean)
     const numericId = record.id.replace(/^item-/, '')
@@ -244,7 +248,10 @@ async function fetchPf2ruEquipment(): Promise<AlchemicalItem[]> {
         name: item.rus_name || item.name,
         level: Number(item.level) || 0,
         price: item.price,
-        description: detail.text_output,
+        description: detail.text_output
+          .replace(/Источник:[^<\n]*\(https:\/\/yankristsov\.github\.io\/sources\/[^)]*\)[.\s]*/gi, '')
+          .replace(/Источник:[^<\n]*/gi, '')
+          .replace(/:\s*(Lost Omens|Pathfinder #\d+|Advanced Player's Guide)[^<\n]*/gi, ''),
         traits: extractTraitsFromHtml(item.traits),
         source: {
           name: `pf2.ru:${item.name}`,
@@ -352,6 +359,10 @@ function parseReadthedocsEquipment(html: string): AlchemicalItem[] {
     inner = inner.replace(/<img[^>]*\.\.\/_images\/PF_action_reaction\.png[^>]*>/g, '<img class="action action-reaction" src="/PFTH2E/art/PF_action_reaction.png" style="height:1em" alt="PF_action_reaction">')
     inner = inner.replace(/href="\.\.\/playing_the_game\.html#/g, 'href="#')
     inner = inner.replace(/href="\.\.\/([^"]+)"/g, 'href="https://pf2e-ru-translation.readthedocs.io/ru/latest/$1"')
+    inner = inner
+      .replace(/Источник:[^<\n]*\(https:\/\/yankristsov\.github\.io\/sources\/[^)]*\)[.\s]*/gi, '')
+      .replace(/Источник:[^<\n]*/gi, '')
+      .replace(/:\s*(Lost Omens|Pathfinder #\d+|Advanced Player's Guide)[^<\n]*/gi, '')
     return { html: inner, traits }
   }
 
