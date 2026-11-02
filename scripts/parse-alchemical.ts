@@ -24,15 +24,51 @@ aonMarkdown.renderer.rules.link_open = (tokens: any, index: number, options: any
 }
 
 async function fetchJson(url: string, init?: RequestInit): Promise<any> {
-  const response = await fetch(url, { headers: { 'User-Agent': 'PF2E-Alchemical-Parser/1.0', ...(init?.headers || {}) }, ...init })
-  if (!response.ok) throw new Error(`Failed to fetch ${url}: ${response.status}`)
-  return response.json()
+  let lastError: string | undefined
+  for (let attempt = 1; attempt <= 3; attempt++) {
+    try {
+      const response = await fetch(url, { headers: { 'User-Agent': 'PF2E-Alchemical-Parser/1.0', ...(init?.headers || {}) }, ...init })
+      if (!response.ok) {
+        lastError = `Failed to fetch ${url}: ${response.status}`
+        if (attempt < 3 && (response.status === 502 || response.status === 503)) {
+          await new Promise(r => setTimeout(r, 2000 * attempt))
+          continue
+        }
+        throw new Error(lastError)
+      }
+      return response.json()
+    } catch (e) {
+      lastError = e instanceof Error ? e.message : String(e)
+      if (attempt < 3) {
+        await new Promise(r => setTimeout(r, 2000 * attempt))
+      }
+    }
+  }
+  throw new Error(lastError ?? `Failed to fetch ${url}`)
 }
 
 async function fetchText(url: string): Promise<string> {
-  const response = await fetch(url, { headers: { 'User-Agent': 'PF2E-Alchemical-Parser/1.0' } })
-  if (!response.ok) throw new Error(`Failed to fetch ${url}: ${response.status}`)
-  return response.text()
+  let lastError: string | undefined
+  for (let attempt = 1; attempt <= 3; attempt++) {
+    try {
+      const response = await fetch(url, { headers: { 'User-Agent': 'PF2E-Alchemical-Parser/1.0' } })
+      if (!response.ok) {
+        lastError = `Failed to fetch ${url}: ${response.status}`
+        if (attempt < 3 && (response.status === 502 || response.status === 503)) {
+          await new Promise(r => setTimeout(r, 2000 * attempt))
+          continue
+        }
+        throw new Error(lastError)
+      }
+      return response.text()
+    } catch (e) {
+      lastError = e instanceof Error ? e.message : String(e)
+      if (attempt < 3) {
+        await new Promise(r => setTimeout(r, 2000 * attempt))
+      }
+    }
+  }
+  throw new Error(lastError ?? `Failed to fetch ${url}`)
 }
 
 function spellKey(name: string): string {
@@ -110,7 +146,11 @@ async function fetchAonprdEquipment(): Promise<AoNFetchResult> {
     description = description
       .replace(/Источник:[^<\n]*\(https:\/\/yankristsov\.github\.io\/sources\/[^)]*\)[.\s]*/gi, '')
       .replace(/Источник:[^<\n]*/gi, '')
+      .replace(/<b[^>]*>\s*Источник\s*<\/b>[\s\S]*?<\/a>\s*\.\s*<br\s*\/?>/gi, '')
+      .replace(/<b[^>]*>\s*Источник\s*<\/b>[\s\S]*?<br\s*\/?>/gi, '')
+      .replace(/<a[^>]*item-link--source[^>]*>[\s\S]*?<\/a>/gi, '')
       .replace(/:\s*(Lost Omens|Pathfinder #\d+|Advanced Player's Guide)[^<\n]*/gi, '')
+      .replace(/(Основная книга игрока 2[^.]*\.|Основная книга ведущего[^.]*\.|Хранилище сокровищ[^.]*\.|Рёв дикой природы[^.]*\.|Пушки и шестерни[^.]*\.)/gi, '')
 
     const traits: string[] = (record.trait ?? []).filter(Boolean)
     const numericId = record.id.replace(/^item-/, '')
@@ -229,12 +269,32 @@ async function fetchPf2ruEquipment(): Promise<AlchemicalItem[]> {
   // Сначала получаем описания на русском
   for (let offset = 0; offset < ids.length; offset += batchSize) {
     const batch = ids.slice(offset, offset + batchSize)
-    const response = await fetch(PF2RU_DETAILS_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'User-Agent': 'PF2E-Alchemical-Parser/1.0' },
-      body: JSON.stringify({ ids: batch, lang: 'ru' })
-    })
-    if (!response.ok) throw new Error(`Failed to fetch pf2.ru equipment details (ru): ${response.status}`)
+    let response
+    let lastError
+    for (let attempt = 1; attempt <= 3; attempt++) {
+      try {
+        response = await fetch(PF2RU_DETAILS_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'User-Agent': 'PF2E-Alchemical-Parser/1.0' },
+          body: JSON.stringify({ ids: batch, lang: 'ru' })
+        })
+        if (!response.ok) {
+          lastError = `Failed to fetch pf2.ru equipment details (ru): ${response.status}`
+          if (attempt < 3 && (response.status === 502 || response.status === 503)) {
+            await new Promise(r => setTimeout(r, 2000 * attempt))
+            continue
+          }
+          throw new Error(lastError)
+        }
+        break
+      } catch (e) {
+        lastError = e instanceof Error ? e.message : String(e)
+        if (attempt < 3) {
+          await new Promise(r => setTimeout(r, 2000 * attempt))
+        }
+      }
+    }
+    if (!response || !response.ok) throw new Error(lastError ?? `Failed to fetch pf2.ru equipment details (ru)`)
     const details = (await response.json()) as Record<string, Pf2ruEquipmentDetail>
 
     for (const id of batch) {
@@ -251,7 +311,11 @@ async function fetchPf2ruEquipment(): Promise<AlchemicalItem[]> {
         description: detail.text_output
           .replace(/Источник:[^<\n]*\(https:\/\/yankristsov\.github\.io\/sources\/[^)]*\)[.\s]*/gi, '')
           .replace(/Источник:[^<\n]*/gi, '')
-          .replace(/:\s*(Lost Omens|Pathfinder #\d+|Advanced Player's Guide)[^<\n]*/gi, ''),
+          .replace(/<b[^>]*>\s*Источник\s*<\/b>[\s\S]*?<\/a>\s*\.\s*<br\s*\/?>/gi, '')
+          .replace(/<b[^>]*>\s*Источник\s*<\/b>[\s\S]*?<br\s*\/?>/gi, '')
+          .replace(/<a[^>]*item-link--source[^>]*>[\s\S]*?<\/a>/gi, '')
+          .replace(/:\s*(Lost Omens|Pathfinder #\d+|Advanced Player's Guide)[^<\n]*/gi, '')
+          .replace(/(Основная книга игрока 2[^.]*\.|Основная книга ведущего[^.]*\.|Хранилище сокровищ[^.]*\.|Рёв дикой природы[^.]*\.|Пушки и шестерни[^.]*\.)/gi, ''),
         traits: extractTraitsFromHtml(item.traits),
         source: {
           name: `pf2.ru:${item.name}`,
@@ -262,12 +326,20 @@ async function fetchPf2ruEquipment(): Promise<AlchemicalItem[]> {
 
       let alchItem = byKey.get(key)
       if (!alchItem) {
+        const cleanHtml = detail.text_output
+          .replace(/Источник:[^<\n]*\(https:\/\/yankristsov\.github\.io\/sources\/[^)]*\)[.\s]*/gi, '')
+          .replace(/Источник:[^<\n]*/gi, '')
+          .replace(/<b[^>]*>\s*Источник\s*<\/b>[\s\S]*?<\/a>\s*\.\s*<br\s*\/?>/gi, '')
+          .replace(/<b[^>]*>\s*Источник\s*<\/b>[\s\S]*?<br\s*\/?>/gi, '')
+          .replace(/<a[^>]*item-link--source[^>]*>[\s\S]*?<\/a>/gi, '')
+          .replace(/:\s*(Lost Omens|Pathfinder #\d+|Advanced Player's Guide)[^<\n]*/gi, '')
+          .replace(/(Основная книга игрока 2[^.]*\.|Основная книга ведущего[^.]*\.|Хранилище сокровищ[^.]*\.|Рёв дикой природы[^.]*\.|Пушки и шестерни[^.]*\.)/gi, '')
         alchItem = {
           id: `alchemical-pf2ru-${spellKey(item.rus_name || item.name)}`,
           name: { ru: item.rus_name || item.name, en: item.name },
           category: normalizeCategory(item.item_category),
           traits: extractTraitsFromHtml(item.traits),
-          descriptionHtml: detail.text_output,
+          descriptionHtml: cleanHtml,
           variants: [variant],
           rarity: 'common'
         }
@@ -282,12 +354,32 @@ async function fetchPf2ruEquipment(): Promise<AlchemicalItem[]> {
   // Затем на английском — описания
   for (let offset = 0; offset < ids.length; offset += batchSize) {
     const batch = ids.slice(offset, offset + batchSize)
-    const response = await fetch(PF2RU_DETAILS_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'User-Agent': 'PF2E-Alchemical-Parser/1.0' },
-      body: JSON.stringify({ ids: batch, lang: 'en' })
-    })
-    if (!response.ok) throw new Error(`Failed to fetch pf2.ru equipment details (en): ${response.status}`)
+    let response
+    let lastError
+    for (let attempt = 1; attempt <= 3; attempt++) {
+      try {
+        response = await fetch(PF2RU_DETAILS_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'User-Agent': 'PF2E-Alchemical-Parser/1.0' },
+          body: JSON.stringify({ ids: batch, lang: 'en' })
+        })
+        if (!response.ok) {
+          lastError = `Failed to fetch pf2.ru equipment details (en): ${response.status}`
+          if (attempt < 3 && (response.status === 502 || response.status === 503)) {
+            await new Promise(r => setTimeout(r, 2000 * attempt))
+            continue
+          }
+          throw new Error(lastError)
+        }
+        break
+      } catch (e) {
+        lastError = e instanceof Error ? e.message : String(e)
+        if (attempt < 3) {
+          await new Promise(r => setTimeout(r, 2000 * attempt))
+        }
+      }
+    }
+    if (!response || !response.ok) throw new Error(lastError ?? `Failed to fetch pf2.ru equipment details (en)`)
     const details = (await response.json()) as Record<string, Pf2ruEquipmentDetail>
 
     for (const id of batch) {
@@ -362,7 +454,11 @@ function parseReadthedocsEquipment(html: string): AlchemicalItem[] {
     inner = inner
       .replace(/Источник:[^<\n]*\(https:\/\/yankristsov\.github\.io\/sources\/[^)]*\)[.\s]*/gi, '')
       .replace(/Источник:[^<\n]*/gi, '')
+      .replace(/<b[^>]*>\s*Источник\s*<\/b>[\s\S]*?<\/a>\s*\.\s*<br\s*\/?>/gi, '')
+      .replace(/<b[^>]*>\s*Источник\s*<\/b>[\s\S]*?<br\s*\/?>/gi, '')
+      .replace(/<a[^>]*item-link--source[^>]*>[\s\S]*?<\/a>/gi, '')
       .replace(/:\s*(Lost Omens|Pathfinder #\d+|Advanced Player's Guide)[^<\n]*/gi, '')
+      .replace(/(Основная книга игрока 2[^.]*\.|Основная книга ведущего[^.]*\.|Хранилище сокровищ[^.]*\.|Рёв дикой природы[^.]*\.|Пушки и шестерни[^.]*\.)/gi, '')
     return { html: inner, traits }
   }
 
