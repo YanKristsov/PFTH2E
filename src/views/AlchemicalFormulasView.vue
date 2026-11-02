@@ -141,6 +141,12 @@ function stripSource(html: string): string {
   s = s.replace(/\s+style="height:\s*1em"/gi, '')
   return s
 }
+
+function itemHtml(item: AlchemicalItem): string {
+  const levels = item.variants.map(v => v.level).join(', ')
+  const prefix = levels ? `<strong>Уровень:</strong> ${levels}<br>` : ''
+  return prefix + (item.descriptionHtml || '')
+}
 </script>
 
 <template>
@@ -196,8 +202,7 @@ function stripSource(html: string): string {
                   <div v-if="item.traits.length" class="flex flex-wrap items-center gap-sm mt-sm mb-sm">
                     <span v-for="t in item.traits" :key="t" class="chip">{{ t }}</span>
                   </div>
-                  <div v-if="item.traits.length" class="variant-meta"><span class="label">Уровень:</span> {{ item.variants.map(v => v.level).join(', ') }}</div>
-                  <div v-if="item.descriptionHtml" class="alchemical-detail mt-sm" v-html="stripSource(fixRelativeLinks(item.descriptionHtml))"></div>
+                  <div v-if="item.descriptionHtml" class="alchemical-detail mt-sm" v-html="stripSource(fixRelativeLinks(itemHtml(item)))"></div>
                 </div>
               </td>
             </tr>
@@ -218,8 +223,6 @@ function stripSource(html: string): string {
   border-top: 1px solid var(--color-border);
   margin: 0.8em 0;
 }
-.variant-meta { font-size: 0.875rem; color: var(--color-text-muted); }
-.variant-meta .label { font-weight: 500; }
 .th-sort {
   display: inline-flex;
   align-items: center;
