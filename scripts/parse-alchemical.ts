@@ -170,6 +170,21 @@ interface Pf2ruEquipmentDetail {
   traits_output: string
 }
 
+function extractTraitsFromHtml(html: string): string[] {
+  if (!html) return []
+  // Try <li> tags first (readthedocs style)
+  let lis = html.match(/<li[^>]*>([\s\S]*?)<\/li>/gi)
+  if (lis && lis.length > 0) {
+    return lis.map((li) => li.replace(/<[^>]+>/g, '').trim()).filter(Boolean)
+  }
+  // Try <span class="item-trait"><a>Trait Name</a></span> (pf2.ru style)
+  const spans = html.match(/<span[^>]*class="[^"]*item-trait[^"]*"[^>]*>([\s\S]*?)<\/span>/gi) || []
+  return spans.map((span) => {
+    const aMatch = span.match(/<a[^>]*>([\s\S]*?)<\/a>/)
+    return aMatch ? aMatch[1].trim() : span.replace(/<[^>]+>/g, '').trim()
+  }).filter(Boolean)
+}
+
 function normalizeCategory(c: string): 'bomb' | 'elixir' | 'poison' | 'tool' | 'consumable' | 'other' {
   const cl = c.toLowerCase()
   if (cl.includes('бомб')) return 'bomb'
@@ -230,6 +245,7 @@ async function fetchPf2ruEquipment(): Promise<AlchemicalItem[]> {
         level: Number(item.level) || 0,
         price: item.price,
         description: detail.text_output,
+        traits: extractTraitsFromHtml(item.traits),
         source: {
           name: `pf2.ru:${item.name}`,
           url: `https://pf2.ru/equipment/${id}`,
@@ -243,7 +259,7 @@ async function fetchPf2ruEquipment(): Promise<AlchemicalItem[]> {
           id: `alchemical-pf2ru-${spellKey(item.rus_name || item.name)}`,
           name: { ru: item.rus_name || item.name, en: item.name },
           category: normalizeCategory(item.item_category),
-          traits: [],
+          traits: extractTraitsFromHtml(item.traits),
           descriptionHtml: detail.text_output,
           variants: [variant],
           rarity: 'common'
@@ -380,7 +396,8 @@ function mergeAlchemical(allItems: AlchemicalItem[]): AlchemicalItem[] {
   for (const item of allItems) {
     const key = spellKey(item.name.ru)
     if (!byKey.has(key)) {
-      byKey.set(key, { ...item, variants: [...item.variants] })
+      const itemTraits = [...new Set([...item.traits, ...item.variants.flatMap(v => v.traits ?? [])])]
+      byKey.set(key, { ...item, traits: itemTraits, variants: [...item.variants] })
       continue
     }
     const existing = byKey.get(key)!
@@ -388,6 +405,7 @@ function mergeAlchemical(allItems: AlchemicalItem[]): AlchemicalItem[] {
       existing.variants.push(v)
     }
     existing.traits = [...new Set([...existing.traits, ...item.traits])]
+    existing.traits = [...new Set([...existing.traits, ...item.variants.flatMap(v => v.traits ?? [])])]
     if (!existing.descriptionHtml && item.descriptionHtml) existing.descriptionHtml = item.descriptionHtml
   }
 
