@@ -124,6 +124,9 @@ function fixRelativeLinks(html: string): string {
       if (p1.startsWith('http') || p1.startsWith('#') || p1.startsWith('/')) return m
       return `href="https://pf2e-ru-translation.readthedocs.io/ru/latest/${p1}"`
     })
+    .replace(/alt="[^"]*одиночное[^"]*"/gi, 'alt="PF_action_1"')
+    .replace(/alt="[^"]*2-х[^"]*"/gi, 'alt="PF_action_2"')
+    .replace(/alt="[^"]*3-х[^"]*"/gi, 'alt="PF_action_3"')
 }
 
 function stripSource(html: string): string {
