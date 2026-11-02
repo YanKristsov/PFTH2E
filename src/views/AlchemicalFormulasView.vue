@@ -132,6 +132,12 @@ function stripSource(html: string): string {
   s = s.replace(/<b[^>]*>\s*Источник\s*<\/b>[\s\S]*?(?:<br\s*\/?>\s*)?/gi, '')
   s = s.replace(/<strong[^>]*>\s*Источник\s*<\/strong>[\s\S]*?(?:<br\s*\/?>\s*)?/gi, '')
   s = s.replace(/<(p|div)[^>]*>[\s\S]*?Источник[\s\S]*?<\/\1>/gi, '')
+  s = s.replace(/<column[^>]*>/gi, '')
+  s = s.replace(/<\/column>/gi, '')
+  s = s.replace(/<title[^>]*>[\s\S]*?<\/title>/gi, '')
+  s = s.replace(/<traits[^>]*>[\s\S]*?<\/traits>/gi, '')
+  s = s.replace(/<\/?li[^>]*>/gi, '')
+  s = s.replace(/<\/?ul[^>]*>/gi, '')
   return s
 }
 </script>
