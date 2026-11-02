@@ -196,13 +196,8 @@ function stripSource(html: string): string {
                   <div v-if="item.traits.length" class="flex flex-wrap items-center gap-sm mt-sm mb-sm">
                     <span v-for="t in item.traits" :key="t" class="chip">{{ t }}</span>
                   </div>
+                  <div v-if="item.traits.length" class="variant-meta"><span class="label">Уровень:</span> {{ item.variants.map(v => v.level).join(', ') }}</div>
                   <div v-if="item.descriptionHtml" class="alchemical-detail mt-sm" v-html="stripSource(fixRelativeLinks(item.descriptionHtml))"></div>
-                  <div class="mt-sm space-y-xs">
-                    <div v-for="v in item.variants" :key="v.level + v.name" class="mb-sm">
-                      <div class="variant-meta"><span class="label">Уровень:</span> {{ v.level }}</div>
-                      <div v-if="v.price" class="variant-meta"><span class="label">Цена:</span> {{ v.price }}</div>
-                    </div>
-                  </div>
                 </div>
               </td>
             </tr>
