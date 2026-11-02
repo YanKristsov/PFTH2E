@@ -1,16 +1,13 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, watch } from 'vue'
-import { AlchemicalItemSchema } from '@/types/alchemical'
-import type { AlchemicalItem } from '@/types/alchemical'
+import { AlchemicalItemSchema, type AlchemicalItem } from '@/types/alchemical'
 import { useAlchemicalFilterStore } from '@/stores'
-import { sourceLabel } from '@/constants/translations'
 
 const items = ref<AlchemicalItem[]>([])
 const isLoading = ref(true)
 const loadError = ref('')
 const filterStore = useAlchemicalFilterStore()
 const openIds = ref<Set<string>>(new Set())
-const activeVariantIdxByItem = ref<Record<string, number>>({})
 const expandAll = ref(false)
 
 const categoryLabel: Record<string, string> = {
@@ -21,8 +18,6 @@ const categoryLabel: Record<string, string> = {
   consumable: 'Расходник',
   other: 'Другое'
 }
-
-const SOURCE_ORDER: Record<string, number> = { pf2ru: 0, 'pf2e-ru-translation': 1, aonprd: 2 }
 
 onMounted(async () => {
   try {
@@ -35,19 +30,6 @@ onMounted(async () => {
     isLoading.value = false
   }
 })
-
-function getOrderedSources(item: AlchemicalItem) {
-  const sources = [...new Set(item.variants.map(v => v.source))]
-  return sources.sort((a, b) => (SOURCE_ORDER[a.type] ?? 9) - (SOURCE_ORDER[b.type] ?? 9))
-}
-
-function getActiveVariantIndex(item: AlchemicalItem) {
-  return activeVariantIdxByItem.value[item.id] ?? 0
-}
-
-function setActiveVariantIndex(item: AlchemicalItem, idx: number) {
-  activeVariantIdxByItem.value[item.id] = idx
-}
 
 const filtered = computed(() => {
   let list = [...items.value]
@@ -152,19 +134,6 @@ function stripSource(html: string): string {
             <tr v-if="openIds.has(item.id)">
               <td colspan="2">
                 <div class="p-md">
-                  <div class="tabs" role="tablist" aria-label="Варианты источника">
-                    <button
-                      v-for="(src, i) in getOrderedSources(item)"
-                      :key="`${src.type}-${src.name}-${i}`"
-                      role="tab"
-                      class="tab"
-                      :class="{ active: getActiveVariantIndex(item) === i }"
-                      :aria-selected="getActiveVariantIndex(item) === i"
-                      @click.stop="setActiveVariantIndex(item, i)"
-                    >
-                      {{ sourceLabel(src.name) }}
-                    </button>
-                  </div>
                   <div v-if="item.traits.length" class="flex flex-wrap items-center gap-sm mt-sm mb-sm">
                     <span v-for="t in item.traits" :key="t" class="chip">{{ t }}</span>
                   </div>
