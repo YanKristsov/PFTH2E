@@ -82,6 +82,7 @@ function toggleOpen(id: string) {
 function fixRelativeLinks(html: string): string {
   if (!html) return html
   return html
+    .replace(/<span id="[^"]*"><\/span>/g, '')
     .replace(/href="\.\.\/playing_the_game\.html#/g, 'href="#')
     .replace(/href="\.\.\/([^"]+)"/g, (m, p1) => {
       if (p1.startsWith('http') || p1.startsWith('#') || p1.startsWith('/')) return m
@@ -144,10 +145,10 @@ function stripSource(html: string): string {
                     <span v-for="t in item.traits" :key="t" class="chip">{{ t }}</span>
                   </div>
                   <div v-if="item.descriptionHtml" class="alchemical-detail mt-sm" v-html="stripSource(fixRelativeLinks(item.descriptionHtml))"></div>
-                  <div class="mt-sm">
+                  <div class="mt-sm space-y-xs">
                     <div v-for="v in item.variants" :key="v.level + v.name" class="mb-sm">
-                      <div>Уровень: {{ v.level }}</div>
-                      <div v-if="v.price">{{ v.price }}</div>
+                      <div class="variant-meta"><span class="label">Уровень:</span> {{ v.level }}</div>
+                      <div v-if="v.price" class="variant-meta"><span class="label">Цена:</span> {{ v.price }}</div>
                     </div>
                   </div>
                 </div>
@@ -162,10 +163,14 @@ function stripSource(html: string): string {
 
 <style scoped>
 .cursor-pointer { cursor: pointer; }
+.alchemical-detail { font-size: 1rem; line-height: 1.6; color: var(--color-text); }
+.alchemical-detail p { margin: 0.5em 0; }
 .alchemical-detail :deep(img.action) { display: inline; vertical-align: middle; height: 1em; }
 .alchemical-detail :deep(hr.docutils) {
   border: none;
   border-top: 1px solid var(--color-border);
-  margin: 0.6em 0;
+  margin: 0.8em 0;
 }
+.variant-meta { font-size: 0.875rem; color: var(--color-text-muted); }
+.variant-meta .label { font-weight: 500; }
 </style>
