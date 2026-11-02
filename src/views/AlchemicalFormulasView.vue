@@ -171,7 +171,6 @@ function stripSource(html: string): string {
                   <div v-if="item.descriptionHtml" class="alchemical-detail mt-sm" v-html="stripSource(fixRelativeLinks(item.descriptionHtml))"></div>
                   <div class="mt-sm">
                     <div v-for="v in item.variants" :key="v.level + v.name" class="mb-sm">
-                      <div class="font-semibold">{{ v.name }}</div>
                       <div>Уровень: {{ v.level }}</div>
                       <div v-if="v.price">{{ v.price }}</div>
                     </div>
