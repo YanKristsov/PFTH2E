@@ -138,6 +138,7 @@ function stripSource(html: string): string {
   s = s.replace(/<traits[^>]*>[\s\S]*?<\/traits>/gi, '')
   s = s.replace(/<\/?li[^>]*>/gi, '')
   s = s.replace(/<\/?ul[^>]*>/gi, '')
+  s = s.replace(/\s+style="height:\s*1em"/gi, '')
   return s
 }
 </script>
