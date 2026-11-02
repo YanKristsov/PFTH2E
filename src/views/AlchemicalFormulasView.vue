@@ -129,8 +129,9 @@ function fixRelativeLinks(html: string): string {
 function stripSource(html: string): string {
   if (!html) return html
   let s = html
-  s = s.replace(/<(p|div)[^>]*>[\s\S]*?<strong[^>]*>\s*Источник[\s\S]*?<\/strong>[\s\S]*?<\/\1>/gi, '')
-  s = s.replace(/<(p|div)[^>]*>\s*Источник[\s\S]*?<\/\1>/gi, '')
+  s = s.replace(/<b[^>]*>\s*Источник\s*<\/b>[\s\S]*?(?:<br\s*\/?>\s*)?/gi, '')
+  s = s.replace(/<strong[^>]*>\s*Источник\s*<\/strong>[\s\S]*?(?:<br\s*\/?>\s*)?/gi, '')
+  s = s.replace(/<(p|div)[^>]*>[\s\S]*?Источник[\s\S]*?<\/\1>/gi, '')
   return s
 }
 </script>
