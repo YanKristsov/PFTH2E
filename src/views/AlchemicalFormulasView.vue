@@ -216,7 +216,7 @@ function stripSource(html: string): string {
   border-top: 1px solid var(--color-border);
   margin: 0.8em 0;
 }
-.variant-meta { font-size: 0.875rem; color: var(--color-text-muted); }
+.variant-meta { font-size: 1rem; color: var(--color-text-muted); }
 .variant-meta .label { font-weight: 500; }
 .th-sort {
   display: inline-flex;
