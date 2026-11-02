@@ -46,7 +46,13 @@ const filtered = computed(() => {
   if (filterStore.levels.length) {
     list = list.filter((it) => it.variants.some((v) => filterStore.levels.includes(v.level)))
   }
-  list.sort((a, b) => a.name.ru.localeCompare(b.name.ru, 'ru'))
+  list.sort((a, b) => {
+    const ca = categoryLabel[a.category]
+    const cb = categoryLabel[b.category]
+    const c = ca.localeCompare(cb, 'ru')
+    if (c !== 0) return c
+    return a.name.ru.localeCompare(b.name.ru, 'ru')
+  })
   return list
 })
 
