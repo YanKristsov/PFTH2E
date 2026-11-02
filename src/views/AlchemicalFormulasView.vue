@@ -127,6 +127,8 @@ function fixRelativeLinks(html: string): string {
     .replace(/alt="[^"]*одиночное[^"]*"/gi, 'alt="PF_action_1"')
     .replace(/alt="[^"]*2-х[^"]*"/gi, 'alt="PF_action_2"')
     .replace(/alt="[^"]*3-х[^"]*"/gi, 'alt="PF_action_3"')
+    .replace(/alt="[^"]*свободное[^"]*"/gi, 'alt="PF_action_free"')
+    .replace(/alt="[^"]*реакция[^"]*"/gi, 'alt="PF_action_reaction"')
 }
 
 function stripSource(html: string): string {
